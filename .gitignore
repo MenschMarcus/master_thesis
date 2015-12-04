@@ -1,0 +1,23 @@
+## LATEX CRAP
+
+*.synctex.gz
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.lof
+*.lot
+*.out
+*.log
+*.tec
+*.toc
+
+
+## OTHER CRAP
+
+*.sublime-workspace
+*.pdf
+
+### DATA FOLDERS
+
+state-of-the-art/

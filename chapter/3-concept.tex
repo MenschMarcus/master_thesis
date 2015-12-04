@@ -1,0 +1,75 @@
+%!TEX root = ../thesis.tex
+
+\section{Concept}
+\label{sec:concept}
+
+\subsection{Elements and Components of GIS}
+\label{sub:elements_and_components_of_gis}
+
+\begin{description}
+    \item[Presentation]
+    \item[Analysis]
+    \item[Management]
+    \item[Acquisition]
+\end{description}
+
+data model:
+2D geometries
+no self intersection
+clean geometries
+allow to be non-exhaustive (have holes e.g. enclaves, exclaves)
+rules of simple polygon (look @ wikipedia)
+
+feature topology table
+points          ID, coordinates
+polylines       ID, [points]        no direction, all splines order 1
+polygons        ID, [polylines]
+polypolygons    ID, [polygons]      account for islands
+--> concept of ``multiaffilation''
+
+interior border: discrete phenomenon
+coastline: continuous phenomenon
+-> combined for whole country border
+-> have to deal with both
+
+idea: strict connectivity -> topological network
+
+modeling historical border changes
+
+
+% section elements_and_components_of_gis (end)
+
+
+\subsection{Evaluation}
+\label{sub:evaluation}
+
+\begin{description}
+    \item[Effectiveness]
+    \item[Efficiency]
+    \item[Satisfaction]
+\end{description}
+
+
+\subsubsection{Evaluation Methods} % (fold)
+\label{ssub:evaluation_methods}
+% subsubsection evaluation_methods (end)
+
+\subsubsection{Research Hypotheses} % (fold)
+\label{ssub:research_hypotheses}
+
+\begin{enumerate}
+    \item name \\
+    description
+    \item name \\
+    description
+    \item name \\
+    description
+\end{enumerate}
+% subsubsection research_hypotheses (end)
+
+% subsection evaluation (end)
+
+% section concept (end)
+
+\vspace{2em}
+transition to next chapter

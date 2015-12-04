@@ -1,0 +1,95 @@
+% references
+\footnote{
+  \textit{Title},
+  Author,
+  URL: \url{http://},
+  last access:
+}
+                    % (for online resources)
+\cite{source_id}    % in the text itself
+\ref{label_name}    % for reference other parts of the thesis
+
+% bib
+@BOOK {key,
+  title = {{name}}
+  publisher = {name, ISBN}
+  year = {YYYY}
+  author = {name1 and name2 and name3}
+}
+
+@ARTICLE{key,
+  title = {{name}},
+  journal = {name},
+  volume = {number},
+  pages = {number--number},
+  month = {MMM},
+  year = {YYYY},
+  author = {name1 and name2 ...},
+}
+
+% for anything else
+@MISC{key,
+  title       = {\emph{name}},
+  author      = {{name}},
+  lastchecked = {DD MMM YYYY},
+  url         = {url}
+}
+
+% figure with graphic
+\begin{figure}[ht]  % places it more or less here
+    \begin{center}
+        \includegraphics[width=350px, clip=true, trim=0 0 0 0]{graphics/name_of_file}
+    \end{center}
+    \caption{description of graphic}
+    \label{fig:graphics_name}
+\end{figure}
+
+% table (working example)
+\begin{table}[ht]
+\centering
+\begin{tabular}{llp{1em}ll}
+    \toprule
+    \multicolumn{2}{c}{klassische Karte} & & \multicolumn{2}{c}{moderne Karte} \\
+    Charakter & Beschränkung & & Charakter & Aufhebung \\
+    \midrule
+    statisch & nur diskrete Zustände & & dynamisch & kontinuierliche Prozesse \\
+    isolierend & nur ein Teil des Georaums & & allumfassend & mehrere Detailstufen \\
+    selektiv & nur eine Darstellungsform & & inklusiv & mehrere Perspektiven \\
+    passiv & nur Sender von Informationen & & interaktiv & Manipulation der Darstellung \\
+    \bottomrule
+\end{tabular}
+\caption{Aufhebung der Beschränkungen der klassischen Kartografie}
+\label{tab:kartografie}
+{\small Abwandlung nach \cite{karcher}}
+\end{table}
+
+
+% manipulation of vertical space
+\vspace{-1em}       % on one page
+\newpage            % go to next page
+
+% list and descriptions
+\begin{description}[labelindent=1.53em] % manipulation of indentation
+    \item[$^1$]
+    \item[$^2$]
+    \item[$^3$]
+\end{description}
+
+% quotes
+\begin{quoteit}
+\large
+This is my quote!
+\end{quoteit}
+\hfill \textit{-- and this is where it came from)}
+
+% Math
+$A \neq B$          % inline example
+
+% source code
+\begin{figure}[H]
+\begin{lstlisting} [numberfirstline=true,numbers=left,stepnumber=1]
+  ... code ...
+\end{lstlisting}
+\caption*{description_of_file}
+\label{code_label_of_file}
+\end{figure}

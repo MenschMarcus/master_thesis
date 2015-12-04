@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="topological_vector_model.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.6999999996306051"
+     inkscape:cx="400.4477603768769"
+     inkscape:cy="788.7207599860899"
+     inkscape:document-units="px"
+     inkscape:current-layer="g6365"
+     showgrid="true"
+     inkscape:snap-global="true"
+     inkscape:window-width="1600"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="371"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3755" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:3.3479273319px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="29.5"
+       y="133.36218"
+       id="text7437"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.49153220074608,424.9078439467162,-481.5729515039041)"><tspan
+         sodipodi:role="line"
+         id="tspan7439"
+         x="29.5"
+         y="133.36218"
+         style="font-size:3.3479273319px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">edge</tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.49153220074608,485.766673839279,-481.4413636464606)"
+       sodipodi:linespacing="125%"
+       id="text7441"
+       y="133.36218"
+       x="29.5"
+       style="font-size:3.3479273319px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:3.3479273319px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="133.36218"
+         x="29.5"
+         id="tspan7443"
+         sodipodi:role="line">area1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.3479273319px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="29.5"
+       y="133.36218"
+       id="text7445"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.49153220074608,545.6879656786123,-481.4413636464606)"><tspan
+         sodipodi:role="line"
+         id="tspan7447"
+         x="29.5"
+         y="133.36218"
+         style="font-size:3.3479273319px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">area2</tspan></text>
+    <g
+       id="g6365"
+       transform="matrix(1.286261196417777,0,0,1.286261196417777,-25.40963115818695,1.608510455073429)">
+      <text
+         xml:space="preserve"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         x="29.5"
+         y="133.36218"
+         id="text7449"
+         sodipodi:linespacing="125%"
+         transform="matrix(3.491833837584442,0,0,3.491928554833923,351.0331929964353,-354.2562895470293)"><tspan
+           sodipodi:role="line"
+           id="tspan7451"
+           x="29.5"
+           y="133.36218"
+           style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6547">1</tspan></tspan></text>
+      <text
+         transform="matrix(3.491833837584442,0,0,3.491928554833923,398.1323719967776,-354.1949079904017)"
+         sodipodi:linespacing="125%"
+         id="text7453"
+         y="133.36218"
+         x="29.5"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         xml:space="preserve"><tspan
+           style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+           y="133.36218"
+           x="29.5"
+           id="tspan7455"
+           sodipodi:role="line">A<tspan
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6549">1</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         x="29.5"
+         y="133.36218"
+         id="text7457"
+         sodipodi:linespacing="125%"
+         transform="matrix(3.491833837584442,0,0,3.491928554833923,445.2721288640452,-354.1949079904017)"><tspan
+           sodipodi:role="line"
+           id="tspan7459"
+           x="29.5"
+           y="133.36218"
+           style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">A<tspan
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6551">2</tspan></tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="29.5"
+       y="133.36218"
+       id="text7461"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,425.9045949296233,-429.1377697029971)"><tspan
+         sodipodi:role="line"
+         id="tspan7463"
+         x="29.5"
+         y="133.36218"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   id="tspan6553"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">2</tspan></tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,486.9349277897089,-429.1158383934228)"
+       sodipodi:linespacing="125%"
+       id="text7465"
+       y="133.36218"
+       x="29.5"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="133.36218"
+         x="29.5"
+         id="tspan7467"
+         sodipodi:role="line">A<tspan
+   id="tspan6555"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="29.5"
+       y="133.36218"
+       id="text7469"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,547.5689678566437,-429.1816323221449)"><tspan
+         sodipodi:role="line"
+         id="tspan7471"
+         x="29.5"
+         y="133.36218"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">A<tspan
+   id="tspan6557"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">3</tspan></tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,425.9045949296233,-405.9267183257637)"
+       sodipodi:linespacing="125%"
+       id="text6561"
+       y="133.36218"
+       x="29.5"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="133.36218"
+         x="29.5"
+         id="tspan6563"
+         sodipodi:role="line">L<tspan
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6565">3</tspan></tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,425.9967039313441,-358.4154449296673)"
+       sodipodi:linespacing="125%"
+       id="text7473"
+       y="133.36218"
+       x="29.5"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="133.36218"
+         x="29.5"
+         id="tspan7475"
+         sodipodi:role="line">L<tspan
+   id="tspan6883"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">14</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="29.5"
+       y="133.36218"
+       id="text7477"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,486.8693540291735,-358.4154449296673)"><tspan
+         sodipodi:role="line"
+         id="tspan7479"
+         x="29.5"
+         y="133.36218"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">A<tspan
+   id="tspan6885"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">6</tspan></tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,547.5033940961083,-359.7971174328263)"
+       sodipodi:linespacing="125%"
+       id="text7481"
+       y="133.36218"
+       x="29.5"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="133.36218"
+         x="29.5"
+         id="tspan7483"
+         sodipodi:role="line">-</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="34.604038"
+       y="154.60173"
+       id="text7497"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.49153220074608,403.1010381249419,-481.895727501653)"><tspan
+         sodipodi:role="line"
+         id="tspan7499"
+         x="34.604038"
+         y="154.60173"
+         style="font-size:3px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">...</tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.49153220074608,463.8259361219016,-481.895727501653)"
+       sodipodi:linespacing="125%"
+       id="text7501"
+       y="154.60173"
+       x="34.604038"
+       style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:3px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="154.60173"
+         x="34.604038"
+         id="tspan7503"
+         sodipodi:role="line">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="34.604038"
+       y="154.60173"
+       id="text7505"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.49153220074608,524.4599761888365,-481.895727501653)"><tspan
+         sodipodi:role="line"
+         id="tspan7507"
+         x="34.604038"
+         y="154.60173"
+         style="font-size:3px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">...</tspan></text>
+    <path
+       style="fill:none;stroke:#505050;stroke-width:0.0306330863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 23.48977349537291,123.9401329190288 L 72.81829783565602,123.9401329190288"
+       id="path9828"
+       inkscape:connector-curvature="0"
+       transform="matrix(3.264399809913985,0,0,3.264488357933617,462.0561370313681,-279.6497174888357)" />
+    <text
+       xml:space="preserve"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="29.5"
+       y="133.36218"
+       id="text6333"
+       sodipodi:linespacing="125%"
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,486.9349277897089,-404.0511527042279)"><tspan
+         sodipodi:role="line"
+         id="tspan6335"
+         x="29.5"
+         y="133.36218"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">A<tspan
+   id="tspan6879"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">1</tspan></tspan></text>
+    <text
+       transform="matrix(4.491410369623443,0,0,4.491532200746083,547.5689678566437,-404.0511527042279)"
+       sodipodi:linespacing="125%"
+       id="text6339"
+       y="133.36218"
+       x="29.5"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:#505050;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="133.36218"
+         x="29.5"
+         id="tspan6341"
+         sodipodi:role="line">A<tspan
+   id="tspan6881"
+   style="font-size:3.7664182186px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;stroke-width:0;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">4</tspan></tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.6843125224;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985"
+       width="230"
+       height="300"
+       x="40"
+       y="12.3621826171875"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,25.56890758132783,407.603285344652)" />
+    <path
+       style="fill:none;stroke:#505050;stroke-width:0.6843125224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 140,272.3621826171875 L 180,192.3621826171875 L 180,112.3621826171875 L 90,162.3621826171875"
+       id="path3780"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,25.56890758132783,407.603285344652)" />
+    <path
+       style="fill:none;stroke:#505050;stroke-width:0.6843125224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 180,112.3621826171875 L 230,102.3621826171875 L 211,12.3621826171875"
+       id="path3782"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,25.56890758132783,407.603285344652)" />
+    <path
+       style="fill:none;stroke:#505050;stroke-width:0.6843125224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 180,142.3621826171875 L 230,172.3621826171875 L 230,252.3621826171875 L 180,292.3621826171875 L 145,287.3621826171875 L 140,272.3621826171875 L 80,192.3621826171875 L 110,102.3621826171875 L 60,12.3621826171875"
+       id="path3784"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,25.56890758132783,407.603285344652)" />
+    <path
+       style="fill:none;stroke:#505050;stroke-width:0.6843125224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 80,192.3621826171875 L 40,262.3621826171875"
+       id="path3786"
+       inkscape:connector-curvature="0"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,25.56890758132783,407.603285344652)" />
+    <path
+       style="fill:none;stroke:#505050;stroke-width:0.6843125224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 230,202.3621826171875 L 270,182.3621826171875"
+       id="path3790"
+       inkscape:connector-curvature="0"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,25.56890758132783,407.603285344652)" />
+    <g
+       id="g4460"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,189.7668846287931,330.9760068056837)"
+       inkscape:transform-center-y="-111.4498324376083"
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4462"
+         inkscape:connector-curvature="0"
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)" />
+      <path
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)"
+         inkscape:connector-curvature="0"
+         id="path4464"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:transform-center-y="-111.4498324376085"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,233.521092437671,345.1840152459665)"
+       id="g4906">
+      <path
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)"
+         inkscape:connector-curvature="0"
+         id="path4908"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4910"
+         inkscape:connector-curvature="0"
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)" />
+    </g>
+    <g
+       id="g4912"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,333.8997494675708,404.5993232673411)"
+       inkscape:transform-center-y="-111.4498324376083"
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4914"
+         inkscape:connector-curvature="0"
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)" />
+      <path
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)"
+         inkscape:connector-curvature="0"
+         id="path4916"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:transform-center-y="-111.4498324376083"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,349.3993950383642,258.0907687053184)"
+       id="g4918">
+      <path
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)"
+         inkscape:connector-curvature="0"
+         id="path4920"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4922"
+         inkscape:connector-curvature="0"
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)" />
+    </g>
+    <g
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:transform-center-y="-111.4498324376083"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,247.8898033804439,126.4414396785294)"
+       id="g4930">
+      <path
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)"
+         inkscape:connector-curvature="0"
+         id="path4932"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4934"
+         inkscape:connector-curvature="0"
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)" />
+    </g>
+    <g
+       id="g4936"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,161.1238927730955,199.3769946101202)"
+       inkscape:transform-center-y="-111.4498324376083"
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4938"
+         inkscape:connector-curvature="0"
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)" />
+      <path
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)"
+         inkscape:connector-curvature="0"
+         id="path4940"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:transform-center-y="-111.4498324376085"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,116.8928496213793,200.0293698778444)"
+       id="g4942">
+      <path
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)"
+         inkscape:connector-curvature="0"
+         id="path4944"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4946"
+         inkscape:connector-curvature="0"
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)" />
+    </g>
+    <g
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:transform-center-y="-111.4498324376083"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,-29.80022460817394,154.0839919116072)"
+       id="g4954">
+      <path
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)"
+         inkscape:connector-curvature="0"
+         id="path4956"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4958"
+         inkscape:connector-curvature="0"
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)" />
+    </g>
+    <g
+       id="g4960"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,-29.80022460817394,373.846823870598)"
+       inkscape:transform-center-y="-111.4498324376083"
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4962"
+         inkscape:connector-curvature="0"
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)" />
+      <path
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)"
+         inkscape:connector-curvature="0"
+         id="path4964"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g4972"
+       transform="matrix(0,-1.461320595847447,1.461320595847447,0,219.897642170256,67.99125163095618)"
+       inkscape:transform-center-y="-111.4498324376082"
+       style="stroke:#1e1e1e;stroke-width:1.1633313894;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+      <path
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         id="path4974"
+         inkscape:connector-curvature="0"
+         transform="matrix(0.3613229064729057,0,0,0.3613229064728963,25.31898480582825,33.21442696848772)" />
+      <path
+         transform="matrix(0,-0.3613229064729057,0.3613229064728963,0,20.85224544878338,62.32855032880116)"
+         inkscape:connector-curvature="0"
+         id="path4976"
+         d="M 28.57142860157921,40.93361012128344 L 39.64285718469118,52.00503870439536"
+         style="fill:none;stroke:#1e1e1e;stroke-width:3.2196443081;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6091"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-1.24035069073107,107.1782721995476)"><tspan
+         sodipodi:role="line"
+         id="tspan6093"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         dy="0">A<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6451">1</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-98.07139207271413,-26.18578407862174)"
+       sodipodi:linespacing="125%"
+       id="text6397"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         sodipodi:role="line"
+         id="tspan6431"><tspan
+           dy="0 0 0.83426213"
+           id="tspan6438"
+           style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">A<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6441">2</tspan></tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6403"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,4.358048441388516,-150.3894723003562)"><tspan
+         sodipodi:role="line"
+         id="tspan6405"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         dy="0">A<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6443">3</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,84.48237087933165,17.54252226791664)"
+       sodipodi:linespacing="125%"
+       id="text6409"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         dy="0"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6411"
+         sodipodi:role="line">A<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6445">4</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6415"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,143.0336626041663,-77.49040980131121)"><tspan
+         sodipodi:role="line"
+         id="tspan6417"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         dy="0">A<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6447">5</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,208.7203088022611,76.02103337771154)"
+       sodipodi:linespacing="125%"
+       id="text6421"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         dy="0"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6423"
+         sodipodi:role="line">A<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6449">6</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-74.91645293903339,84.45573590841559)"
+       sodipodi:linespacing="125%"
+       id="text6453"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6455"
+         sodipodi:role="line">L<tspan
+   id="tspan6457"
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6459"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-62.14844963245823,-107.3611442036515)"><tspan
+         id="tspan6461"
+         sodipodi:role="line"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"><tspan
+           style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+           id="tspan6463"
+           dy="0 0 0.83426213">L<tspan
+   id="tspan6465"
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">2</tspan></tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,62.20079981935612,97.23230164029018)"
+       sodipodi:linespacing="125%"
+       id="text6467"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6469"
+         sodipodi:role="line">L<tspan
+   id="tspan6471"
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">3</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6473"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,83.87229842340153,-41.71302891940104)"><tspan
+         sodipodi:role="line"
+         id="tspan6475"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   id="tspan6477"
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">4</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,3.598133542728803,-78.29313715473108)"
+       sodipodi:linespacing="125%"
+       id="text6479"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6481"
+         sodipodi:role="line">L<tspan
+   id="tspan6483"
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">5</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6485"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,105.5181097515506,-166.1992771759967)"><tspan
+         sodipodi:role="line"
+         id="tspan6487"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6533">7</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6491"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-157.1342884525586,2.237900484907186)"><tspan
+         sodipodi:role="line"
+         id="tspan6493"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6495">12</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6497"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-82.2230560082871,128.2953537838391)"><tspan
+         sodipodi:role="line"
+         id="tspan6499"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6501">11</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6503"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,208.1830168713548,-122.1156301795568)"><tspan
+         sodipodi:role="line"
+         id="tspan6505"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6507">10</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,120.6536236532542,133.7653165364761)"
+       sodipodi:linespacing="125%"
+       id="text6509"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6511"
+         sodipodi:role="line">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6531">8</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6515"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,156.9640154916705,60.60510006581672)"><tspan
+         sodipodi:role="line"
+         id="tspan6517"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6529">9</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,61.97817676158636,-100.1401654774024)"
+       sodipodi:linespacing="125%"
+       id="text6521"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6523"
+         sodipodi:role="line">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6527">6</tspan></tspan></text>
+    <text
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,-83.93125985540491,-165.8054056122508)"
+       sodipodi:linespacing="125%"
+       id="text6535"
+       y="24.531967"
+       x="25.75889"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       xml:space="preserve"><tspan
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+         y="24.531967"
+         x="25.75889"
+         id="tspan6537"
+         sodipodi:role="line">L<tspan
+   id="tspan6539"
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">13</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4773783684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="25.75889"
+       y="24.531967"
+       id="text6541"
+       sodipodi:linespacing="125%"
+       transform="matrix(8.404725991401271,0,0,8.404725991401344,251.9241668558415,31.35300087297128)"><tspan
+         sodipodi:role="line"
+         id="tspan6543"
+         x="25.75889"
+         y="24.531967"
+         style="font-size:2.6080336571px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#505050;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">L<tspan
+   style="font-size:2.0864269733px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+   id="tspan6545">14</tspan></tspan></text>
+  </g>
+</svg>
