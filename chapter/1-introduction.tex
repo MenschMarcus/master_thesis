@@ -90,21 +90,21 @@ solution: alright, then take the one with the biggest advantages.
 
 comparison of two models: snapshot model (SM) vs. event-based spatio-temporal data model (ESTDM)
 
-SM: save the status of the world at time point t_1 (e.g. 1945) and time point t_2 (e.g. 1990)
+SM: save the status of the world at time point t\_1 (e.g. 1945) and time point t\_2 (e.g. 1990)
 (+) very easy
 (+) concept well known from historical maps
 (+) very helpful if the status at the years directly is to be seen (e.g. 1945 or 1990)
-(-) what if I want to know how the world looked like at t_x (e.g. 1975)
+(-) what if I want to know how the world looked like at t\_x (e.g. 1975)
 => it does not work, because there is no information
 (-) every time something changes on the map a total new image would have to be saved
 => very redundant and inefficient
 
-ESTDM: save the status of the world at one reference time point t_r (e.g. 1945) and from there on save only changes to this one, e.g.
+ESTDM: save the status of the world at one reference time point t\_r (e.g. 1945) and from there on save only changes to this one, e.g.
 1949: separation of Occupied Germany into East Germany and West Germany and ceding of parts of the country to Poland
 1990: unification of West Germany and East Germany to Germany
 (-) a little bit more complex
-(+) for each point in history the status of the world can be retrieved: it is the status at the reference time point t_r and all changes until this point accumulated and applied on the map
+(+) for each point in history the status of the world can be retrieved: it is the status at the reference time point t\_r and all changes until this point accumulated and applied on the map
 (+) historical changes can easily be visualized on the map, because they are stored explicitly
 (-) storing a change backwards (e.g. 1933: rename of Weimar Republic into Nazi Germany) is more complex, because it has to be applied in the opposite direction
 
-there are some more problems I dealt with. But finally I have developed a prototype that can do that (click_prototype.pdf) that can do it. This prototype was developed with the aid of the people in Scholar's Lab that have been a big part of my development process.
+there are some more problems I dealt with. But finally I have developed a prototype that can do that (click\_prototype.pdf) that can do it. This prototype was developed with the aid of the people in Scholar's Lab that have been a big part of my development process.
