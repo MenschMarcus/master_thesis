@@ -1,75 +1,51 @@
 %!TEX root = ../thesis.tex
 
-\section{Concept}
+\section{Concept} % (fold)
 \label{sec:concept}
 
-\subsection{Elements and Components of GIS}
-\label{sub:elements_and_components_of_gis}
-
-\begin{description}
-    \item[Presentation]
-    \item[Analysis]
-    \item[Management]
-    \item[Acquisition]
-\end{description}
-
-data model:
-2D geometries
-no self intersection
-clean geometries
-allow to be non-exhaustive (have holes e.g. enclaves, exclaves)
-rules of simple polygon (look @ wikipedia)
-
-feature topology table
-points          ID, coordinates
-polylines       ID, [points]        no direction, all splines order 1
-polygons        ID, [polylines]
-polypolygons    ID, [polygons]      account for islands
---> concept of ``multiaffilation''
-
-interior border: discrete phenomenon
-coastline: continuous phenomenon
--> combined for whole country border
--> have to deal with both
-
-idea: strict connectivity -> topological network
-
-modeling historical border changes
+domain: history of countries and their history in Time and Space
 
 
-% section elements_and_components_of_gis (end)
+% ==============================================================================
+\subsection{Historical Geographic Operations} % (fold)
+\label{sub:historical_geographic_operations}
+
+CRE
+UNI
+INC
+SEP
+SEC
+TCH
+BCH
+NCH
+ICH
+DES
 
 
-\subsection{Evaluation}
-\label{sub:evaluation}
-
-\begin{description}
-    \item[Effectiveness]
-    \item[Efficiency]
-    \item[Satisfaction]
-\end{description}
+% subsection historical_geographic_operations (end)
 
 
-\subsubsection{Evaluation Methods} % (fold)
-\label{ssub:evaluation_methods}
-% subsubsection evaluation_methods (end)
 
-\subsubsection{Research Hypotheses} % (fold)
-\label{ssub:research_hypotheses}
+% ==============================================================================
+\subsection{Hivent-Based Spatio-Temporal Data Model} % (fold)
+\label{sub:hivent_based_spatio_temporal_data_model}
 
-\begin{enumerate}
-    \item name \\
-    description
-    \item name \\
-    description
-    \item name \\
-    description
-\end{enumerate}
-% subsubsection research_hypotheses (end)
+% subsection hivent_based_spatio_temporal_data_model (end)
 
-% subsection evaluation (end)
+
+
+
+% ==============================================================================
+\subsection{Application} % (fold)
+\label{sub:application}
+
+HistoGlobe -> Edit Mode + HistoGraph
+
+% subsection application (end)
+
+
+
+
+% ==============================================================================
 
 % section concept (end)
-
-\vspace{2em}
-transition to next chapter
