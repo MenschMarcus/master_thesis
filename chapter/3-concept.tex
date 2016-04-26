@@ -22,16 +22,27 @@ ICH
 DES
 
 
-% subsection historical_geographic_operations (end)
 
 inclusion of universe $\Omega$:
 CRE = SEC from $\Omega$
 DES = INC into $\Omega$
 
+% subsection historical_geographic_operations (end)
+
 
 % ==============================================================================
 \subsection{Hivent-Based Spatio-Temporal Data Model} % (fold)
 \label{sub:hivent_based_spatio_temporal_data_model}
+
+user operations     CRE     UNI          SEP         TCH         NCH      DES
+                     |      / \         /   \        /  \       /   \      |
+HG operations       CRE   UNI   INC   SEP   SEC   TCH   BCH   NCH   ICH   DES
+
+area changes        ADD   DEL*  DEL*  DEL   TCH   TCH   TCH   NCH   ADD   DEL
+ADD, TCH, NCH, DES        ADD   TCH   ADD*  NCH?        TCH         DEL
+                                NCH?        ADD*
+
+
 
 % subsection hivent_based_spatio_temporal_data_model (end)
 

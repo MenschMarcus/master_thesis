@@ -3,15 +3,80 @@
 \section{Uncertainty} % (fold)
 \label{sec:uncertainty}
 
-accuracy vs. precision
+Every aspect of the concept (section \ref{sec:concept}) and the development (section \ref{sec:development}) of this work is based on the prerequisite of full certainty of the data. That means both the Historical-Geographic Operations and the Hivent-Based Spatio-Temporal Data Model assume that the dates of the historical events, the names and territories of the historical and current areas and the historical relations between events and areas are correct, accurate, exact and precise (definitions see \ref{sub:types_of_uncertainty}).
 
-uncertainty vs. different stories
+However, this assumption is far from valid. In historical research, uncertainty is one of the major problems (see \ref{ssub:history}) a historian has to deal with on a daily basis: sources, even primary sources, can be biased towards the author of the source, information can be imprecise or inaccurate and information can be conflicting with other sources. The purpose of this section is to introduce the problem of uncertainty in the domain of this thesis, explain the main concepts and develop solutions to deal with this problem.
+
 
 % ==============================================================================
 \subsection{Definition of a Country} % (fold)
 \label{sub:definition_of_a_country}
 
-non-existent
+The problem begins with the definition of a term that almost everybody in the world is familiar with: a ``country''. But the search for a non-conflicting explanation of what a country actually is leads to a dead end.
+
+The Oxford Dictionary definition includes the human and the territorial aspect of a country: ``An area of land of defined extent characterized by its \emph{human occupants} or \emph{boundaries}.''
+\footnote{\textit{country, n. and adj}, Oxford English Dictionary, URL: \url{http://www.oed.com/view/Entry/43085?}, last access: 2016-04-25}
+
+The CIA Factbook collects, manages and visualizes data and facts ``on every country, dependency, and geographic entity in the world''. Its definition of a country should therefore be helpful to understand what a country actually is. In the database the term \emph{political entity} is defined like this: An ``Independent state refers to a people politically organized into a sovereign state with a \emph{definite territory}. \emph{Dependencies} and \emph{areas of special sovereignty} refer to a broad category of political entities that are associated in some way with an independent state.''
+\footnote{\textit{The World Factbook}, CIA Factbook, URL: \url{https://www.cia.gov/library/publications/the-world-factbook/docs/notesanddefs.html\#T}, last access: 2016-04-25}
+
+The CIA Factbook includes a total of 267 ``separate geographic entities'' in five different categories:
+\begin{enumerate}
+  \item 195 independent states (e.g. Germany, the United Kingdom or Swaziland)
+  \item 2 ``other'' states (Taiwan and the European Union),
+  \item 85 ``dependencies and areas of special sovereignty'' (e.g. Greenland to Denmark, Hong Kong to China or Puerto Rico to the United States),
+  \item 6 ``miscellaneous'' entities (Antarctica, the Gaza Strip, Paracel Islands, Spratly Islands, West Bank, Western Sahara) and
+  \item 5 ``other entitites'' (Arctic, Atlantic, Indian, Pacific and Southern Ocean)
+\end{enumerate}
+
+Excluding other entities, there are four different groups of political entities used in the Factbook. While Antarctica as an uninhabitated place might not be a surprising miscellaneous entity, the Gaza Strip and the West Bank as the two territories associated to Palestine, Taiwan, Hong Kong or Greenland are not listed as independent states
+
+The most importatn source for countries in the world is probably the United Nationals. The intergovernmental organisation was found after World War II (October 1945) and promotes international peace keeping, security, protection of human rights or humanitarian aid. The committee has 193 full member states
+\footnote{\textit{Member States}, United Nations, URL: \url{http://www.un.org/en/member-states/index.html}, last access: 2016-04-25}
+and two permanent obervers: The Holy See (Vatican City) and Palestine.
+\footnote{\textit{Non-member States}, United Nations, URL: \url{http://www.un.org/en/sections/member-states/non-member-states/index.html}, last access: 2016-04-25}.
+
+The two lists yield some interesting observations:
+\begin{enumerate}
+  \item The Holy See is the juridcal and spiritual entity representing the territory of Vatican City. It is classified as an independent state by the CIA but is not a full member of the UN, because it has never applied for it. However, it is a fully sovereign country with diplomatic relations to the vast majority of countries in the world -- which makes it the by far smallest sovereign state in the world (0.44 m²), inside the city of Rome with a population of only 800 people, including 30 women.\footnote{\textit{Population}, Vatican City State, URL: \url{http://www.vaticanstate.va/content/vaticanstate/en/stato-e-governo/note-generali/popolazione.html}, last access: 2016-04-25}
+
+  \item The State of Palestine, consisting of the territories of the West Bank and the Gaza Strip and a population of 4.4 million people,\footnote{\textit{Estimated Population in the Palestinian Territory}, Palestinian Central Bureau of Statistics, URL: \url{http://www.pcbs.gov.ps/Portals/_Rainbow/Documents/gover_e.htm}, last access: 2016-04-25}
+  has the same status in the United Nations (observer state), but a totally different situation in terms of sovereignty: First of all, it does not have a clearly defined territory. Additionally, while 114 states officially recognize the Palestinian state, almost all main economic powers do not, including the United States, Canada, France, Italy, Germany or the United Kingdom. None of them even voted in favor of Palestine receiving an observing status in the UN.\footnote{\textit{General Assembly Votes Overwhelmingly to Accord Palestine ‘Non-Member Observer State’ Status in United Nations}, United Nationals, URL: \url{http://www.un.org/press/en/2012/ga11317.doc.htm}, last access: 2016-04-25}
+  That means, unlike the Holy See, Palestine is not a fully sovereign and recognized state.
+
+  \item Kosovo is listed by the CIA Factbook as an independend nation, after having seceded from Serbia and declared independence in 2008. It has a clearly defined territory and population and is recognized by 111 UN member states. However, among the five permanent members of the United Nations Security Council (USA, UK, France, Russia and China), the latter two veto the membership of Kosovo in the United Nations -- but UN membership requires full approval by all members of the security council. Therefore, Kosovo is not even an observer state of the United Nations, although having about the same degree of international recognition as Palestine.
+  \footnote{\textit{Who Recognizes Kosova?}, URL: \url{http://www.kosovothanksyou.com}, last access: 2016-04-25}
+
+  \item The status of Taiwan is a very complicated issue. An overgeneralized and short description of the problem, in which two territories and two political entities are involved in, is: There is the People's Republic as China (commonly known as China) with full control over mainland China and the Republic of China, governing the island of Taiwan. However, both political entities claim each others land. That means, there are two entities claiming the exact same land. But, since 1971 the People's Republic of China is the representative of whole China in the United Nations, including the island of Taiwan. Since it is part of the Security Council, it successfully vetos membership requests of Taiwan. Therefore, the Republic of China can not be a member of the United Nations. Currently, 22 member states of the United Nations uphold official diplomatic relations to Taiwan.\footnote{\textit{Ministry of Foreign Affairs}, Republic of China, URL: \url{http://www.mofa.gov.tw/en/default.html}, last access: 2016-04-25}
+  All of these states do not have any diplomatic relations to the People's Republic of China which makes it an only partially recognized state.
+
+\end{enumerate}
+
+In Addition to these special cases, there are five other member states of the United Nations that are not fully recognized by all other UN members: Armenia (not recognized by Pakistan), the Republic of Cyprus (not recognized by Turkey), North and South Korea (officially Democratic People's Republic of Korea and Republic of Korea, mutual non-recognition) and the State of Israel, which 32 UN member states do not recognize.
+
+Finally, there are non-member states of the United Nations which have not yet gained broad international recognition: the Sahrawi Arab Democratic Republic (recognized by 84 UN member states), Abkhazia (6), South Ossetia (5), the Turkish Republic of Northern Cyprus (1) Nagorno-Karabakh Republic (0), Transnistria (0) and Somaliland (0).
+\footnote{\textit{List of states with limited recognition}, Wikipedia, URL: \url{https://en.wikipedia.org/wiki/List_of_states_with_limited_recognition}, last access: 2016-04-25}
+
+Everything breaks down to the problem of the definition of a country, which is based on two concepts: The \emph{declarative theory} and the \emph{constituitive theory}:
+
+
+% ------------------------------------------------------------------------------
+\subsection{Declarative Theory} % (fold)
+\label{sub:declarative_theory}
+
+Montevideo Convention
+=> Area
+% subsection declarative_theory (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Constituitive Theory} % (fold)
+\label{sub:constituitive_theory}
+
+
+=> status
+% subsection constituitive_theory (end)
+
+% ------------------------------------------------------------------------------
 
 -> problem: self-classifying and conflicting entities / data => impossible to create data model that fits everything
 => have to develpo approaches and know that it is wrong
@@ -22,6 +87,17 @@ non-existent
 % ==============================================================================
 \subsection{Types of Uncertainty} % (fold)
 \label{sub:types_of_uncertainty}
+
+accuracy vs. precision
+correctness vs. exactness
+
+uncertainty vs. different stories
+
+historical      when?       -> unclear sources, different sources, different calendars, timezones
+geographic      where?      -> unclear sources (historical maps), contestes borders / territories
+information     what? how?  -> unclear sources, different names, different viewpoints
+system          why?        -> very subjective, very uncertain
+
 
 % subsection types_of_uncertainty (end)
 

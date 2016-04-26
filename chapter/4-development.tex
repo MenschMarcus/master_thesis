@@ -3,10 +3,27 @@
 \section{Development} % (fold)
 \label{sec:development}
 
+distributed Web-based system
+classic approach: UI <-> Client (main program) <-> Server (middleware) <-> DB
+
 
 % ==============================================================================
 \subsection{System Architecture} % (fold)
 \label{sub:system_architecture}
+
+graphic of basic system:
+UI
+Client-side mechanism
+Server-side mechanism
+Database
+
+programming languages / Framworks
+Client                    HTML
+          Less ->         CSS
+          CoffeeScript -> JavaScript
+Server    Django ->       Python
+                          PostgreSQL
+                          + PostGIS
 
 % subsection system_architecture (end)
 
@@ -15,12 +32,74 @@
 \subsection{Interface Design} % (fold)
 \label{sub:interface_design}
 
+% ------------------------------------------------------------------------------
+\subsubsection{Paper Prototype} % (fold)
+\label{ssub:paper_prototype}
+
+description of process
+image of two prototypes
+
+% subsubsection paper_prototype (end)
+
+% ------------------------------------------------------------------------------
+\subsubsection{Mockup Prototype} % (fold)
+\label{ssub:mockup_prototype}
+
+description of process
+screenshot of two steps in between and of final version
+
+% subsubsection mockup_prototype (end)
+
+% ------------------------------------------------------------------------------
+\subsubsection{Final Version} % (fold)
+\label{ssub:final_version}
+
+% subsubsection final_version (end)
+
 % subsection interface_design (end)
 
 
 % ==============================================================================
 \subsection{Client-Side Application} % (fold)
 \label{sub:client_side_application}
+
+
+
+HistoGlobe
+
+SpatialDisplay -> Map
+
+TimeController  <-> Timeline
+                <-> NowMarker
+
+HiventController                AreaController <->  AreasOnMap
+HiventHandle                    AreaHandle
+Hivent
+HistoricalChange    AreaChange  Area
+                                AreaName            AreaNameLayerOnMap
+                                AreaTerritory       AreaTerritoryLayerOnMap
+
+DatabaseInterface
+
+EditMode -> EditOperation -> EditOperationStep
+NewTerritoryTool* NewNameTool NewHiventBox
+WorkflowWindow
+
+HistoGraph
+
+LabelManager*
+
+important little utils
+  Button, ButtonArea
+  NumberInput, TextInput, TextInputArea
+  Title
+  Watermark
+  DoublyLinkedList
+  WithinTree
+
+
+
+
 
 % subsection client_side_application (end)
 
@@ -29,9 +108,26 @@
 \subsection{Server-Side Application} % (fold)
 \label{sub:server_side_application}
 
+models
+
+           Hivent
+             m
+       HistoricalChange
+             m
+  --------AreaChange------
+  |          |           |
+  |     ----Area----     |
+  m     m          m     m
+AreaTerritory      AreaName
+
+
 view
 
-models
+get\_all
+save\_operation
+
+
+
 
 % subsection server_side_application (end)
 
