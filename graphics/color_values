@@ -1,0 +1,24 @@
+BACKGROUND
+----------------------
+
+normal          ffffffff
+light           dededeff
+medium          2f3b46ff
+dark            121212ff
+
+
+HIGHLIGHT
+buttons / interaction fields
+----------------------------
+
+normal          d5c900ff
+active          d57d00ff
+disable         dededeff
+disable active  848484ff
+
+
+HIVENT MARKERS
+--------------
+
+normal          2579bfff
+on medium bg    0086f6ff
