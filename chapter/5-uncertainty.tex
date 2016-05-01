@@ -215,16 +215,6 @@ Overall, the current data model poorly accounts for different levels of uncertai
 
 % subsection types_of_uncertainty (end)
 
-
-% ==============================================================================
-% \subsection{Fuzzy Systems} % (fold)
-% \label{sub:fuzzy_systems}
-
-% problem: uncertainty
-
-% % subsection fuzzy_systems (end)
-
-
 % ==============================================================================
 \subsection{Solution Approaches} % (fold)
 \label{sub:solution_approaches}
@@ -278,24 +268,102 @@ A higher accuracy in the data model usually leads to a higher complexity. This t
   \item[\ref{problem_area_territory_sea_borders})] Currently each countries territory extends in a range of 3 to 12 miles (5 to 20 kilometers) \cite{UNSeaBorders} into international waters. While this is important to accurately model a territory, it is complex, because not every country has signed the convention and each signing party can choose their range into international water. This would not just increase the complexity of the model but also create unfamiliar country territories.
 \end{itemize}
 
+In order to tackle the remaining shortcomings of the current concept, both the user interface and the data model have to be extended.
 
 % ------------------------------------------------------------------------------
 \subsubsection{Extension of the Edit Mode} % (fold)
 \label{ssub:extension_of_the_edit_mode}
 
-(X) multi-language support
-(X) new change: PCH (property change -> AreaStatus and AreaRelation)
-(X) new change: REC (recognition of one area to another one -> AreaRecognition)
+The edit mode is extended by two new operations: (see figure \ref{fig:edit_mode_extension})
+\begin{itemize}
+  \item [\texttt{SCH}] change status of a country or territory
+  \item [\texttt{REC}] declare new recognition (one country recognizes another one)
+\end{itemize}
 
-SET\_TERR step:
-(X) draw polylines instead of polygons
-(X) snap to existing points / lines
-(X) click on polyline opens certainty dialogue: low |----*--| high
-(X) onSubmit assemble polygons
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{graphics/5-uncertainty/edit_mode_extension.png}
+  \caption{Newly designed and extended buttons for edit operations.}
+  \label{fig:edit_mode_extension}
+\end{figure}
+
+Also the edit operation workflow gets changed. The first step (\texttt{SEL\_OLD\_AREA}) stays the same, but the second step (\texttt{SET\_NEW\_TERR}) that defines the territory of the new area(s) will be modified: Instead of drawing the whole territory as a set of polygons, the user draws one borderline at a time, geometrically as a polyline. This has the main advantage that each part of the border is treated separately.
+
+The borderline is assigned a degree of certainty, in the interface controlled by a one-dimensional horizontal slider, in the model as a certainty value ~$\texttt{certainty} \in ]0 .. 1]$. Absolute certainty ($1.0$) creates a sharp and crisp line on the map. In case of uncertainty (\texttt{certainty} $\in ]0..1[$) three different visualization methods are introduced for it:
+
+\begin{enumerate}
+  \item Blurred Border: Increase the blur and the width of the border line with increasing uncertainty.
+  \item Border Corridor: With increasing uncertainty extend the offset around the actual border line to get a corridor in which the border is probably in.
+  \item Blurred Border Corridor: The combination of the first two approaches.
+\end{enumerate}
+
+A simple model for the calculation of the blur factor, line width and offset distance is:
+\begin{center}
+\begin{math}
+    f(c) = -1 \cdot S \cdot ln(c) + I
+\end{math}
+\end{center}
+where $c$ is the certainty factor, $S>0$ is a scaling factor and $I$ is the inital value (for width: $1~px$, for blur: $0$, for offset: $0~px$). In the example in figure \ref{fig:uncertainty_border} the scaling factor $S=4$ In the Blurred Border Corridor method, the scaling factor for line width and the blur factor was halved. Further analysis and user testing are required in order to decide for one of the three approaches to be used in the system.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/border}
+  \caption{Three different methods to visualize uncertain courses of a border}
+  \label{fig:uncertainty_border}
+\end{figure}
+
+Another advantage of the input of borderlines instead of territories is that once the model is further advanced, coastlines can be continuously changed according to an appropriate change model (see problem \ref{problem_general_coastlines}). This can be applied solely to the coastlines without affecting the interior borders.
+
+A new border point automatically snaps to an existing border point, if the mouse position is close enough to it (an appropriate threshold might be $5~px$). This allows for a smooth workflow and is required to create closed polygons. In case the borderline is closed, it gets treated as a complete polygon and territory. When the user finished a territory by defining all surrounding polylines that create a closed ring, the polygon gets assembled and the territory receives a background color. If a borderline meets another borderline at an interior node, the polyline gets split up into two parts so that each meeting point of borders is the start or end point of a polyline. This way integrity is maintained and each territory compounds of several polylines creating a set of closed polylines, a polypolygon.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_territory_tool}
+  \caption{Drawing historical borders instead of full areas and definining a level of certainty.}
+  \label{fig:uncertainty_new_territory_tool}
+\end{figure}
+
+
 (X) overlapping territories will create new areas that has to be tredted separately:
   contested area? part of other area?
 (X) empty territories will create new areas that has to be tredted separately:
   unclaimed empty land? neutral zone?
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_name_tool}
+  \caption{Getting suggestions for the name name from Wikipedia.}
+  \label{fig:uncertainty_new_name_tool}
+\end{figure}
+
+
+To treat special areas differently, a new step in the edit operation workflow gets defined: \textbf{Set New Status}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_status_tool}
+  \caption{Defining a special status or relationship to a territory.}
+  \label{fig:uncertainty_new_status_tool}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_hivent_box}
+  \caption{Creating a new Hivent and adding the newly created historical change.}
+  \label{fig:uncertainty_new_hivent_box}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/operation_REC}
+  \caption{New edit operation: Recognition -- sets up the recognition of one area to another.}
+  \label{fig:uncertainty_operation_REC}
+\end{figure}
+
+\newpage
 
 SET\_NAME step:
 (X) lookup name in Wikipedia collection of historical and current countries
@@ -310,11 +378,31 @@ ADD\_CHNG step:
 (-) find Hivent name in Wikipedia articles
 
 
+In order to support different languages, a language selection is placed on the bottom right corner of the interface, on the timeline (see figure \ref{fig:multi_language}). This changes the language of the whole interface and loads the translations of the historical events, locations and area names in the newly created language. If a term is not defined in the language, the fallback language (English) is used instead.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{graphics/5-uncertainty/multi_language}
+  \caption{Changing the language in the user interface.}
+  \label{fig:multi_language}
+\end{figure}
+
+
+
+
 % subsubsection extension_of_the_edit_mode (end)
 
 % ------------------------------------------------------------------------------
-\subsubsection{Extension of the Hivent model} % (fold)
-\label{ssub:extension_of_the_hivent_model}
+\subsubsection{Extension of the data model} % (fold)
+\label{ssub:extension_of_the_data_model}
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_data_model}
+  \caption{The extended data model to support various kinds of uncertainty and disagreement}
+  \label{fig:new_data_model}
+\end{figure}
+
 
 Wikipedia synch
 signing parties to account for bias toward the winner
@@ -326,12 +414,6 @@ two views:
 * Hivent name + description + multimedia
 
 
-% subsubsection extension_of_the_hivent_model (end)
-
-% ------------------------------------------------------------------------------
-\subsubsection{Extension of the Area model} % (fold)
-\label{ssub:extension_of_the_area_model}
-
 formal name = identity => move to Area
 new entity: AreaRelation    (superordinate, subordinate, autonomy € [0..1[ )
 new entity: AreaRecognition (party\_A, party\_B)
@@ -339,7 +421,7 @@ new entity: AreaStatus      (neutral, contested)
 
 disagreement can be handled by modelling overlapping territories, that more than one entity claims, separately
 
-% subsubsection extension_of_the_area_model (end)
+% subsubsection extension_of_the_data_model (end)
 
 % subsection solution_approaches (end)
 
