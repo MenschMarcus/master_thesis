@@ -132,7 +132,8 @@ dimensions
   when?   time      t
   what?   attribute a = {a1, a2, ..., an}
   -> triadic framework
-  all dimensions can change independently from each other -> HGIS has to conceptualize that
+  all dimensions can change independently from each other
+  => HGIS has to conceptualize that
 \cite[p. 53]{ott2001time}
 
 types of time
@@ -173,13 +174,18 @@ boolean operators -> set operators
   or      (cascaded) union
   xor     (inverted) symmetric difference
 
-topology (study of position)
+
+spatial topology
+  topology: study of position
   study of spatial objects: shapes and their spatial arrangements and relative positions
   not: measures (distances, angles)
   two shapes are the same if they can be deformed into each other
   abstract inherent connectivity of objects while ignoring their form
   how do properties of a shape remain under different transformation?
   e.g. circle ~ ellipse -> removal of a point => line segment
+  Dimensionally Extended nine-Intersection Model (DE-9IM)
+  \cite{clementiniTopology}
+  equals, disjoint, intersects, touches / neighbors, contains, covers, within
 
 geospatial topology
   interior & boundary
@@ -199,11 +205,6 @@ temporal relationships / topology
   starts    x s y
   ends      x e y
   \cite Allen 1984
-
-spatial relationships / topology
-  Dimensionally Extended nine-Intersection Model (DE-9IM)
-  \cite{clementiniTopology}
-  equals, disjoint, intersects, touches / neighbors, contains, covers, within
 
 spatial vs. temporal topological operators
   introduction
@@ -281,43 +282,6 @@ temporal logic
 
 trajectories
   sequence of 2D or 3D locations of an object
-
-
-concepts of domain
-------------------
-
-historical event
-  WHAT? significant happening
-  WHO? different actors
-  WHEN? one point in time
-  WHERE? mostly also point in space, sometimes different from area that event affects
-  WHY? because
-
-administrative unit
-  defined by borders
-  hierarchical structure
-
-country borders
-  coastlines
-  interior
-  disputed territories
-    situation: n fully recognized countries and m non or partially recognized entities claim sovereignty over 1 territory
-    territory is surrounded by disputed border
-    question: does this disputed area claim sovereignty?
-    \footnote \url{http://www.economist.com/blogs/economist-explains/2014/09/economist-explains-1}
-  uncertain borders
-    situation: n fully recognized countries commonly agree on a boundary between them, but the border is not clearly defined / fuzzy / uncertain
-  states of borders
-    planned
-    agreed
-    demarcated
-    provisional
-    valid
-    vs. disputed
-
-enclaves, exclaves
-
-
 
 
 representation models
@@ -620,17 +584,6 @@ temporal analysis
   e.g. in which year did the largest amount of border changes happen?
 \cite[p. 129-140]{ott2001time}
 
-non relevant for thesis:
-  interpolation
-    Based on the data in the dataset predict values not part of the dataset
-    point interpolation
-      e.g. temperature at two points, what is the temperature at the place in the middle?
-    area interpolation
-      e.g. reasonable comparison of fertility rate in Germany in 1939 and 1949
-  network function
-    network structures -> path search (shortest path, fastest route, TSP)
-    network topology
-
 
 spatio-temporal visualization
 -----------------------------
@@ -662,7 +615,7 @@ traditional paper maps vs. modern digital maps
 \begin{tabular}{llp{1em}ll}
     \toprule
     \multicolumn{2}{c}{classical map} & & \multicolumn{2}{c}{modern digital map} \\
-    Charaktercharacter & restriction & & character & improvement \\
+    character & restriction & & character & improvement \\
     \midrule
     static & only discrete point in time & & dynamic & higher sample rate for continuous processes \\
     isolating & only part of geographical space in 2D & & multi-dimensional & multiple levels of detail, possibility for representation of elevation and temporal dimension \\
@@ -906,13 +859,6 @@ accepted uncertainty: date != exact timepoint, only D.M.Y
                       location != exact location, only name of place
 
 
-step further: temporal GIS to narrative GIS
--------------------------------------------
-
-idea: explain history with spatial narratives
-  geographically contextualize events and interactions
-  organizing principle: time
-
 
 \cite[chapter 2, p. 51]{solana2014spatio}
 
@@ -925,57 +871,3 @@ space-time premise by Gaddis 2002
   \cite Gaddis 2002
 
 
-
-
-
-% ------------------ MY APPROACH ------------------ %
-changed-based approach (historical event -> .. -> geometry changes)
-  is there something ?!?
-  -> MY APPROACH!
-usable User Interface for both navigation and editing
--> problem: all interfaces are trés horrible!
-
-no perfect data model possible, because a model is just an incomplete abstraction of the real world
-
-map for spatial domain (x, y)
-timeline for temporal domain (t)
--> 3D system
-
-no transaction time, only valid / event time
-
-space-time composite with lines
-
-\ref{gis_space_theory}
--> the whole earth is 100\% covered by spatial objects (full topology)
-  countries, debated territories, unknown land, water
-  Newtons concept of absolute space?
-
-ancestors successors
-layers of administrative units
-open to extension for additional attribute data (e.g. statistics)
-
-geometries must be edited
-
-% ------------------------------------------------- %
-
-requirements
-  geographical knowledge
-  contextualize / intersect historical sources
-  accept imprecision
-  prevent illusion of certainty
-
-describe the components of the GIS explicitally
- hardware
- software
- data
-
- collection
- management
- analysis
- output
-
-% --------------------- CONTEXT --------------------- %
-research questions --> HGIS <-- development of system
-  historians /                           ME
-  geographers
-(+) open source, direct manipulation, easy sharing and collaboration

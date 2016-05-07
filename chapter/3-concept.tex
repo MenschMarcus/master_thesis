@@ -3,12 +3,63 @@
 \section{Concept} % (fold)
 \label{sec:concept}
 
-domain: history of countries and their history in Time and Space
+domain: development of countries in time and space
+
+changed-based approach (historical event -> .. -> geometry changes)
+  is there something ?!?
+  -> MY APPROACH!
+usable User Interface for both navigation and editing
+-> problem: all interfaces are trés horrible!
+
+no perfect data model possible, because a model is just an incomplete abstraction of the real world
+
+map for spatial domain (x, y)
+timeline for temporal domain (t)
+-> 3D system
+
+no transaction time, only valid / event time
+
+space-time composite with lines
+\ref{gis_space_theory}
+
+-> the whole earth is 100\% covered by spatial objects (full topology)
+  countries, debated territories, unknown land, water
+  Newtons concept of absolute space?
+
+ancestors successors
+layers of administrative units
+open to extension for additional attribute data (e.g. statistics)
+
+geometries must be edited
+
+requirements
+  geographical knowledge
+  contextualize / intersect historical sources
+  accept imprecision
+  prevent illusion of certainty
+
+describe the components of the GIS explicitally
+ hardware
+ software
+ data
+
+ collection
+ management
+ analysis
+ output
+
+
+research questions --> HGIS <-- development of system
+  historians /                           ME
+  geographers
+(+) open source, direct manipulation, easy sharing and collaboration
+
+
 
 
 % ==============================================================================
-\subsection{Historical Geographic Operations} % (fold)
-\label{sub:historical_geographic_operations}
+\subsection{Spatio-Temporal Operations} % (fold)
+\label{sub:spatio_temporal_operations}
 
 CRE
 UNI
@@ -27,7 +78,7 @@ inclusion of universe $\Omega$:
 CRE = SEC from $\Omega$
 DES = INC into $\Omega$
 
-% subsection historical_geographic_operations (end)
+% subsection spatio_temporal_operations (end)
 
 
 % ==============================================================================
@@ -53,11 +104,19 @@ ADD, TCH, NCH, DES        ADD   TCH   ADD*  NCH?        TCH         DEL
 \subsection{Application} % (fold)
 \label{sub:application}
 
+
 HistoGlobe -> Edit Mode + HistoGraph
+
 
 
 \subsubsection{Hivent} % (fold)
 \label{ssub:hivent}
+
+  WHAT? significant happening
+  WHO? different actors
+  WHEN? one point in time
+  WHERE? mostly also point in space, sometimes different from area that event affects
+  WHY? because
 
 models historically significant happenings with a focus on those who influence the geopolitical history of countries.
 
@@ -65,12 +124,60 @@ In modern history, geopolitical changes of countries are manifested mostly in hi
 
 However, the first question arises regarding the relevance of the location: While the exact position of the battlefield of Verdun or the place where John F. Kennedy was assassinated might very relevant to the event itself, the location of a governmental bill, a declaration of independence or a border convention might not play an important role and usually happens in a representative place, e.g. the parliament or the office of a president. In a lot of cases, it is much more important which territories an event actually influences instead of where it happened.
 
+
+
+significant happening in time and space
+incluencing others
+central element in event based STDM
+
+
 % subsubsection hivent (end)
 
 \subsubsection{Area} % (fold)
 \label{ssub:area}
 
 model the main entity of the domain: historical or current countries. An ~\texttt{Area}~ represents one identical country, consisting at each time point of its existance of exactly one ~\texttt{AreaName}~ and one ~\texttt{AreaTerritory}. The model seems appropriate since the name and the territory of an area are exactly the two properties that are part of the domain.
+
+abstract: area
+
+  defined by borders
+  hierarchical structure
+
+country borders
+  coastlines
+  interior
+  disputed territories
+    situation: n fully recognized countries and m non or partially recognized entities claim sovereignty over 1 territory
+    territory is surrounded by disputed border
+    question: does this disputed area claim sovereignty?
+    \footnote \url{http://www.economist.com/blogs/economist-explains/2014/09/economist-explains-1}
+  uncertain borders
+    situation: n fully recognized countries commonly agree on a boundary between them, but the border is not clearly defined / fuzzy / uncertain
+  states of borders
+    planned
+    agreed
+    demarcated
+    provisional
+    valid
+    vs. disputed
+
+enclaves, exclaves
+
+
+
+area
+territory
+-> geometry
+--> border
+-> representative point
+name
+-> short name
+-> formal name
+
+enclaves
+exclaves
+
+
 
 % subsubsection area (end)
 
