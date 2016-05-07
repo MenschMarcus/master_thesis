@@ -11,7 +11,7 @@
 *.log
 *.tec
 *.toc
-
+*.fls
 
 ## OTHER CRAP
 
