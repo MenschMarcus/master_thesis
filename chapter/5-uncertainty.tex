@@ -1,6 +1,6 @@
 %!TEX root = ../masters_thesis.tex
 
-\section{Uncertainty} % (fold)
+\chapter{Uncertainty} % (fold)
 \label{sec:uncertainty}
 
 Every aspect of the concept (chapter \ref{sec:concept}) and the development (chapter \ref{sec:development}) of this work is based on the prerequisite of full certainty of the data. That means both the Historical-Geographic Operations and the Hivent-Based Spatio-Temporal Data Model assume that the dates of the historical events, the names and territories of the historical and current areas and the historical relations between events and areas are accurate and reasonably precise (definitions see \ref{sub:types_of_uncertainty}).
@@ -9,7 +9,7 @@ However, this assumption is far from valid. In historical research, uncertainty 
 
 
 % ==============================================================================
-\subsection{Definition of a Country} % (fold)
+\section{Definition of a Country} % (fold)
 \label{sub:definition_of_a_country}
 
 The problem begins with the definition of a term that almost everybody in the world is familiar with: a ``country''. Since countries are the domain of this historical geographic information system, it must be possible to decide for each current and historic territorial entity in the world if it is or was a country or not. Therefore a clear and non-conflicting definition of a country is necessary. However, this is impossible to do.
@@ -42,7 +42,7 @@ This definition includes many different concepts and terms: the territory or reg
 To understand what a country really is, the United Nations as an intergovernmental organisation are a valuable source. It was found after World War II (October 1945) and promotes international peace keeping, security, protection of human rights or humanitarian aid to all its member states which should coincide with all the countries in the world. The committee currently has 193 full member states and two permanent obervers: The Holy See (Vatican City) and the State of Palestine \cite{UNmembers}. But these 195 members in total do not cover all places in the world -- and also a membership in the United Nations does not mean that the question of statehood can simply be answered.
 
 % ------------------------------------------------------------------------------
-\subsubsection{Special Cases} % (fold)
+\subsection{Special Cases} % (fold)
 \label{ssub:special_cases}
 
 Examining the list of the UN member states yields several interesting observations and special cases, which can be classified by their membership status in the United Nations and their degree of international recognition.
@@ -100,7 +100,7 @@ This incomplete and simplified list of special cases manifests the big problem t
 % subsubsection special_cases (end)
 
 % ------------------------------------------------------------------------------
-\subsubsection{Declaratory vs. Constituitive Theory} % (fold)
+\subsection{Declaratory vs. Constituitive Theory} % (fold)
 \label{ssub:declaratory_vs_constituitive_theory}
 
 The declaratory theory, established in the Montevideo Convention 1933 \cite{MontevideoConvention}, gives each entity the right to declare a state if it matches all of the four requirements:
@@ -138,7 +138,7 @@ That means, an historical geographic information system with the goal to visuali
 
 
 % ==============================================================================
-\subsection{Types of Uncertainty} % (fold)
+\section{Types of Uncertainty} % (fold)
 \label{sub:types_of_uncertainty}
 
 In order to understand different types of uncertainty it is important to understand the concepts of \emph{disagreement}, \emph{precision} and \emph{accuracy}.
@@ -201,7 +201,7 @@ Overall, the current data model poorly accounts for different levels of uncertai
 % subsection types_of_uncertainty (end)
 
 % ==============================================================================
-\subsection{Solution Approaches} % (fold)
+\section{Solution Approaches} % (fold)
 \label{sub:solution_approaches}
 
 In summary, the shortcomings of the current concept are:
@@ -257,7 +257,7 @@ A higher accuracy in the data model usually leads to a higher complexity. This t
 In order to tackle the remaining shortcomings of the current concept, both the user interface and the data model have to be extended.
 
 % ------------------------------------------------------------------------------
-\subsubsection{Extension of the Edit Mode} % (fold)
+\subsection{Extension of the Edit Mode} % (fold)
 \label{ssub:extension_of_the_edit_mode}
 
 Two new operations (see figure \ref{fig:edit_mode_extension}) are introduced: \texttt{SCH} changes the status of an area and \texttt{REC} declares a new recognition, i.e. one country internationally recognizes another one.
@@ -409,7 +409,7 @@ In order to support different languages, a language selection is placed on the b
 % subsubsection extension_of_the_edit_mode (end)
 
 % ------------------------------------------------------------------------------
-\subsubsection{Extension of the data model} % (fold)
+\subsection{Extension of the data model} % (fold)
 \label{ssub:extension_of_the_data_model}
 
 To account for the changes in the interface, also the data model has to be adapted. The main changes to the original data model developed in section \ref{sec:development} are:

@@ -1,7 +1,7 @@
 %!TEX root = ../thesis.tex
 
 
-\subsection{System} % (fold)
+\section{System} % (fold)
 \label{sub:system}
 
 A \emph{system} is an organized structure containing \emph{elements} or \emph{components} that are directly or indirectly \emph{related} to and \emph{interconnected} with each other. The elements and their relations form the whole of the structure. The surrounding of the system is its \emph{environment}.
@@ -24,12 +24,12 @@ A practical example for a system is the welfare state: The citizens and the trea
 % subsection system (end)
 
 
-\subsection{Information System} % (fold)
+\section{Information System} % (fold)
 \label{sub:information_system}
 
 An \emph{information system} (IS) is an application that is dealing with the collection, management, analysis and presentation of information. A digital IS is the unity of all its components and their interaction with each other.
 
-\subsubsection{\emph{Information}} % (fold)
+\subsection{\emph{Information}} % (fold)
 \label{ssub:definition_of_information}
 The terms ``signs'', ``data'', ``information'' and ``knowledge'' are sometimes used interchangeably and there is no coherent definition for any of them. However, all describe different concepts. This explanation seen in figure \ref{fig:information} is based on the work of \cite{datinfwis}.
 
@@ -45,7 +45,7 @@ There are uncountably infinitely many different \emph{signs} in the world. A sig
 % subsubsection definition_of_information (end)
 
 
-\subsubsection{Components} % (fold)
+\subsection{Components} % (fold)
 \label{ssub:components_is}
 
 % subsubsection components (end)
@@ -59,7 +59,7 @@ Another possible classification is by hardware, software and data. \emph{Hardwar
 % subsubsection components_is (end)
 
 
-\subsubsection{Types} % (fold)
+\subsection{Types} % (fold)
 \label{ssub:types}
 
 Information systems can be further classified by their type or usage scenario. The main distinction based on the level of separation between data and application: In a \emph{Desktop IS}, all elements are stored on the end user's device and using the syste normally requires installation of software. A distributed \emph{Web IS}, consists of a remote server side, on which the storage and management of the actual data happens, and the client side on which the user communicates with the system. It hosts the user interface that is rendered in a Web browser.
@@ -69,7 +69,7 @@ Information systems can be further classified by their type or usage scenario. T
 % subsection information_system (end)
 
 
-\subsection{Geographic Information System} % (fold)
+\section{Geographic Information System} % (fold)
 \label{sub:geographic_information_system}
 
 If the majority of the information in a system has a spatial relation to the Earth, its surface, its lithosphere, atmosphere or the social or economical structure of its habitation, it is a \emph{geographic information system} (GIS). There are mainly four components: The idea is that Geodata is put into the system, managed in a geographical database, analyzed regarding different information needs of the user to present as information on a digital map -- the output of the system (figure \ref{fig:gis_components}).
@@ -85,7 +85,7 @@ GIS are important tools for geographers to solve problems in their research fiel
 \cite{ngGeography}.
 
 
-\subsubsection{\emph{Geography}} % (fold)
+\subsection{\emph{Geography}} % (fold)
 %\label{ssub:geography}
 
 The term ``geography'' comes from Greek ~\emph{\textgamma\textepsilon\textomega\textgamma\textrho\textalpha\textphi\textiota\textalpha / geographia}~, literally ``describing the earth''
@@ -121,7 +121,7 @@ The scientific background of GIS is \emph{geographic information science} (GISci
 % subsubsection geography (end)
 
 
-\subsubsection{Model of the Earth} % (fold)
+\subsection{Model of the Earth} % (fold)
 \label{ssub:model_of_the_earth}
 
 A GIS deals with \emph{geo-objects}, a piece of \emph{geospatial data} representing an object from the real world, e.g. a country, a city or a lighthouse. The system needs to unambiguously locate each object on, underneath or close to the Earth's surface by \emph{geographic coordinates}. They allow to locate an object directly in the coordinate system of the geodetic datum. In order to do that, a geo-object has to be expressed in the coordinate system of the Earth. Therefore the shape of the Earth has to be analyzed and and then modeled in a way that can be represented in an information system. This model is called the \emph{geodetic datum}, it needs to be necessarily accurate on the one hand and reasonably abstract on the other hand.
@@ -207,7 +207,7 @@ The \emph{World Geodetic System 1984 (WGS84)} is a model that found worldwide ac
 % subsubsection model_of_the_earth (end)
 
 
-\subsubsection{Map Projections} % (fold)
+\subsection{Map Projections} % (fold)
 \label{ssub:map_projections}
 
 Based on the geodetic datum a three-dimensional representation of the Earth in form of a globe would be a possible medium to view the planet. When seen perpendicular onto the world, a globe represents sizes, shapes, distances and directions of objects close to the viewpoint with a reasonable accuracy. However, they are very space-consuming and cumbersome. For a precise measurement of distances, following a route or examining a terrain model, the globe would have to be very large. Therefore, the desired medium for practical purposes is a two-dimensional map.
@@ -382,7 +382,7 @@ If no characteristic is explicitly important but the overall distortion shall be
 % subsubsection map_projections (end)
 
 
-\subsubsection{Geographic Data Models} % (fold)
+\subsection{Geographic Data Models} % (fold)
 \label{ssub:data_models}
 
 Geo-objects consist of spatial data (\emph{where?}), that allow to locate an object on Earth with geographic coordinates, and attribute data (\emph{what?}) that describe the object, e.g. a name, color, weight or a description. Attribute values can be characterized by their level of measurement (table \ref{tab:data_scale}).
@@ -531,7 +531,7 @@ or ESRI Shapefiles (\texttt{.shp})
 % subsubsection data_models (end)
 
 
-\subsubsection{Input} % (fold)
+\subsection{Input} % (fold)
 \label{ssub:input}
 
 Spatial Data for a GIS can either be acquired from existing sources or retrieved manually. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth
@@ -564,7 +564,7 @@ or terrain models and administrative regions for Germany
 % subsubsection input (end)
 
 
-\subsubsection{Management} % (fold)
+\subsection{Management} % (fold)
 \label{ssub:management}
 
 A \emph{Database Management System} (DBMS) is a software system for the administration of data, i.e. storage, retrieval, validation of data and their relations. A DBMS has the task to maintain security, performance, stability and allow multi-user access on the same data, following the \emph{client-server} principle.
@@ -677,7 +677,7 @@ GIS can deal with a lot of coordinate data. This amount of data has to be proces
 % subsubsection management (end)
 
 
-\subsubsection{Analysis} % (fold)
+\subsection{Analysis} % (fold)
 \label{ssub:analysis}
 
 A GIS shall solve the problem for a user or answer his or her research question. Given a well-filled database with a working DBMS, the data might not answer the research question directly. It has to be sorted, selected or classified in order to convey the required information. For this process there are \emph{spatial operations} on the data in the system. Several operations can be applied in a certain order
@@ -718,7 +718,7 @@ Topology analysis
 
 % subsubsection analysis (end)
 
-\subsubsection{Presentation} % (fold)
+\subsection{Presentation} % (fold)
 \label{ssub:presentation}
 
 Cartographic visualizations are the interface between the GIS and the human. A map is is the common form. It is a discrete graphical expression of the continuous real world. The creation of a map is not just a scientific, but also a creative process: The form, function and interaction methods shall follow the purpose of the usage of the map.
@@ -752,7 +752,7 @@ The same service is provided by \emph{OpenLayers}, a ``A high-performance, featu
 % subsubsection components_gis (end)
 
 
-\subsubsection{Applications} % (fold)
+\subsection{Applications} % (fold)
 \label{ssub:gis_applications}
 
 GIS are not only for geographers to solve their research problems, but also for the everyday lives of people. Digital maps are used to get directions on the fastest way from A to B, to explore an area and plan holiday trips. But there are other professionals using GIS, e.g. urban planners to analyze the structure of a human settlement and to decide where the next residential area will be placed. Another example is a rescue service operating in inaccessible space: For them it is important to know which areas have already been properly searched by its teams to decide where they should be tasked to next.
@@ -778,7 +778,7 @@ GIS are not only for geographers to solve their research problems, but also for 
 % subsection geographic_information_system (end)
 
 
-\subsection{Historical Geographic Information System} % (fold)
+\section{Historical Geographic Information System} % (fold)
 \label{sub:historical_geographic_information_system}
 
 \emph{Historical} or \emph{temporal geographic information systems} (HGIS) combine elements of history and geography into one information system to be able to answer research questions for both historians and geographers: ``situating history in its geographical context and using geographic information to illuminate the past.''
@@ -787,7 +787,7 @@ This manifests the interdisciplinary nature of HGIS and making it also an intere
 \cite[p. xii]{knowles2002past}.
 
 
-\subsubsection{\emph{History}} % (fold)
+\subsection{\emph{History}} % (fold)
 %\label{ssub:history}
 
 History is ``an ideal field for thinking long and hard about important questions''

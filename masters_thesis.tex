@@ -78,19 +78,17 @@
 
 %\*** NUMBERING AND TOC ***\
 
-% start with sections
-\renewcommand{\thesection}{\arabic{section}}
-
 % numbering of subsubsections
 \setcounter{secnumdepth}{3}
 
-% include sections -> subsections -> subsubsections in toc
+% include chapter -> sections -> subsections -> subsubsections in toc
 \setcounter{tocdepth}{3}
 
-% configure toc            left indent space up/down      font              position of numbers        filling until        page number
-\titlecontents{section}       [3.7em]  {\addvspace{+0.2em}\large\bfseries} {\contentslabel{2.2em}} {} {\hfill               \contentspage}
-\titlecontents{subsection}    [6.7em]  {\addvspace{-0.6em}\large}          {\contentslabel{2.95em}}{} {\titlerule*[0.6pc]{.}\contentspage}
-\titlecontents{subsubsection} [10.6em] {\addvspace{-0.8em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
+% configure toc               left indent          space up/down      font                 position of numbers    filling until page number
+\titlecontents{chapter}       [3.7em]  {\addvspace{+0.2em}\large\bfseries} {\contentslabel{2.2em}} {} {\hfill               \contentspage}
+\titlecontents{section}       [6.7em]  {\addvspace{-0.6em}\large}          {\contentslabel{2.95em}}{} {\titlerule*[0.6pc]{.}\contentspage}
+\titlecontents{subsection}    [10.6em] {\addvspace{-0.8em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
+\titlecontents{subsubsection} [14.5em] {\addvspace{-1.0em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
 
 % configure clicking on toc
 \hypersetup{
@@ -151,27 +149,9 @@ Submission date: \submissionDate
 \listoftables
 
 
-%\* DECLARATION *\
+%\* META *\
 
-\newpage
-
-\section*{Selbstständigkeitserklärung}
-
-\vspace{10px}
-
-Hiermit versichere ich, dass ich die vorliegende Masterarbeit selbstständig und nur unter Zuhilfenahme der angegebenen Quellen erstellt habe.
-
-\vspace{20px}
-
-\hfill \rule{120px}{0.5px} \\
-Weimar, \submissionDate \hfill Marcus Kossatz
-
-
-
-%\* ACKNOLEDGEMENTS *\
-
-\newpage
-
+\include{chapter/x-declaration}
 \include{chapter/x-acknowledgements}
 
 
