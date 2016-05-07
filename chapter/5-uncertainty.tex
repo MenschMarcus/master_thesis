@@ -1,7 +1,7 @@
 %!TEX root = ../masters_thesis.tex
 
 \chapter{Uncertainty} % (fold)
-\label{sec:uncertainty}
+\label{cha:uncertainty}
 
 Every aspect of the concept (chapter \ref{sec:concept}) and the development (chapter \ref{sec:development}) of this work is based on the prerequisite of full certainty of the data. That means both the Historical-Geographic Operations and the Hivent-Based Spatio-Temporal Data Model assume that the dates of the historical events, the names and territories of the historical and current areas and the historical relations between events and areas are accurate and reasonably precise (definitions see \ref{sub:types_of_uncertainty}).
 
@@ -10,7 +10,7 @@ However, this assumption is far from valid. In historical research, uncertainty 
 
 % ==============================================================================
 \section{Definition of a Country} % (fold)
-\label{sub:definition_of_a_country}
+\label{sec:definition_of_a_country}
 
 The problem begins with the definition of a term that almost everybody in the world is familiar with: a ``country''. Since countries are the domain of this historical geographic information system, it must be possible to decide for each current and historic territorial entity in the world if it is or was a country or not. Therefore a clear and non-conflicting definition of a country is necessary. However, this is impossible to do.
 
@@ -43,7 +43,7 @@ To understand what a country really is, the United Nations as an intergovernment
 
 % ------------------------------------------------------------------------------
 \subsection{Special Cases} % (fold)
-\label{ssub:special_cases}
+\label{sub:special_cases}
 
 Examining the list of the UN member states yields several interesting observations and special cases, which can be classified by their membership status in the United Nations and their degree of international recognition.
 
@@ -97,11 +97,11 @@ Additionally to countries gaining for international recognition there are territ
 This incomplete and simplified list of special cases manifests the big problem that is associated with the terms ``country'', ``state'' or ``nations'': There is neither a \emph{de jure} consistent definition nor a \emph{de facto} consistent usage of these terms. Everything breaks down to two different concepts:
 
 
-% subsubsection special_cases (end)
+% subsection special_cases (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Declaratory vs. Constituitive Theory} % (fold)
-\label{ssub:declaratory_vs_constituitive_theory}
+\label{sub:declaratory_vs_constituitive_theory}
 
 The declaratory theory, established in the Montevideo Convention 1933 \cite{MontevideoConvention}, gives each entity the right to declare a state if it matches all of the four requirements:
 \begin{compactenum}
@@ -132,14 +132,14 @@ Therefore it is impossible to objectivly classify an area as a country or not: n
 
 That means, an historical geographic information system with the goal to visualize the development of the countries on Earth in time and space inevitably deals with uncertain information that certain parties see as wrong. Its data model can not perfectly fit self-classifying data and can not rely on an objective data source. The system has to contain approaches that deal with this problem.
 
-% subsubsection declaratory_vs_constituitive_theory (end)
+% subsection declaratory_vs_constituitive_theory (end)
 
-% subsection definition_of_a_country (end)
+% section definition_of_a_country (end)
 
 
 % ==============================================================================
 \section{Types of Uncertainty} % (fold)
-\label{sub:types_of_uncertainty}
+\label{sec:types_of_uncertainty}
 
 In order to understand different types of uncertainty it is important to understand the concepts of \emph{disagreement}, \emph{precision} and \emph{accuracy}.
 
@@ -198,11 +198,11 @@ Accurately modelling contested territories is also problematic. It is based on t
 Overall, the current data model poorly accounts for different levels of uncertainty in historical geographic information: imprecise and inaccurate sources, different viewpoints and interpretations, contested territories, changing coastlines or different languages. The question of the upcoming subsection is: How can the data model be extended in order to be more accurate and more precise?
 
 
-% subsection types_of_uncertainty (end)
+% section types_of_uncertainty (end)
 
 % ==============================================================================
 \section{Solution Approaches} % (fold)
-\label{sub:solution_approaches}
+\label{sec:solution_approaches}
 
 In summary, the shortcomings of the current concept are:
 
@@ -258,7 +258,7 @@ In order to tackle the remaining shortcomings of the current concept, both the u
 
 % ------------------------------------------------------------------------------
 \subsection{Extension of the Edit Mode} % (fold)
-\label{ssub:extension_of_the_edit_mode}
+\label{sub:extension_of_the_edit_mode}
 
 Two new operations (see figure \ref{fig:edit_mode_extension}) are introduced: \texttt{SCH} changes the status of an area and \texttt{REC} declares a new recognition, i.e. one country internationally recognizes another one.
 
@@ -406,11 +406,11 @@ In order to support different languages, a language selection is placed on the b
 % paragraph multi_language_support (end)
 
 
-% subsubsection extension_of_the_edit_mode (end)
+% subsection extension_of_the_edit_mode (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Extension of the data model} % (fold)
-\label{ssub:extension_of_the_data_model}
+\subsection{Extension of the Data Model} % (fold)
+\label{sub:extension_of_the_data_model}
 
 To account for the changes in the interface, also the data model has to be adapted. The main changes to the original data model developed in section \ref{sec:development} are:
 % TODO: real section of original data model
@@ -435,11 +435,11 @@ To account for the changes in the interface, also the data model has to be adapt
   \label{fig:new_data_model}
 \end{figure}
 
-% subsubsection extension_of_the_data_model (end)
+% subsection extension_of_the_data_model (end)
 
-% subsection solution_approaches (end)
+% section solution_approaches (end)
 
 
 % ==============================================================================
 
-% section uncertainty (end)
+% chapter uncertainty (end)
