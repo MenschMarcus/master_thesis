@@ -1,11 +1,37 @@
 %!TEX root = ../masters_thesis.tex
 
+% ==============================================================================
+  -> Managing Vagueness, Uncertainty and Granularity in Spatial Information Systems (VUG)
+  %http://www.geos.ed.ac.uk/~gisteac/gis_book_abridged/files/ch13.pdf
+  %http://link.springer.com/chapter/10.1007%2F978-3-642-14755-5_1
+  %http://support.esri.com/en/knowledgebase/GISDictionary/term/uncertainty
+  %http://www.geog.ucsb.edu/~kclarke/G176B/Lecture07.ppt
+  -> Karl Grasser (Diss. Santa Barbara)
+  -> Fuzzy, Imprecice,
+  proabilities vs. possibilities
+
+big problem: why? intention and motivation of author? hard to find out...
+voice and perspective
+medieval maps: natural landmarks as border points => inaccurate and imprecise
+perspective: who is making the map? (illiterates?)
+different names:
+  US Civil War (North) vs.
+  WWI (West) vs. Germanic War (Russia)
+  WWII (West) vs. Great Fatherland War (Russia)
+
+accepted uncertainty: date != exact timepoint, only D.M.Y
+                      location != exact location, only name of place
+
+\cite[chapter 2, p. 51]{solana2014spatio}
+% ==============================================================================
+
+
 \chapter{Uncertainty} % (fold)
 \label{cha:uncertainty}
 
-Every aspect of the concept (chapter \ref{sec:concept}) and the development (chapter \ref{sec:development}) of this work is based on the prerequisite of full certainty of the data. That means both the Historical-Geographic Operations and the Hivent-Based Spatio-Temporal Data Model assume that the dates of the historical events, the names and territories of the historical and current areas and the historical relations between events and areas are accurate and reasonably precise (definitions see \ref{sub:types_of_uncertainty}).
+Every aspect of the concept (chapter \ref{cha:concept}) and the development (chapter \ref{cha:development}) of this work is based on the prerequisite of full certainty of the data. That means both the Historical-Geographic Operations and the Hivent-Based Spatio-Temporal Data Model assume that the dates of the historical events, the names and territories of the historical and current areas and the historical relations between events and areas are accurate and reasonably precise (definitions see \ref{sec:types_of_uncertainty}).
 
-However, this assumption is far from valid. In historical research, uncertainty is one of the major problems (see \ref{ssub:history}) a historian has to deal with on a daily basis: sources, even primary sources, can be biased towards the author of the source, information can be imprecise or even inaccurate and information can be conflicting with other sources. This chapter explains problems with uncertainty in the domain of development of countries in time and space and develops approaches to deal with these problems.
+However, this assumption is far from valid. In historical research, uncertainty is one of the major problems (see \ref{sub:history}) a historian has to deal with on a daily basis: sources, even primary sources, can be biased towards the author of the source, information can be imprecise or even inaccurate and information can be conflicting with other sources. This chapter explains problems with uncertainty in the domain of development of countries in time and space and develops approaches to deal with these problems.
 
 
 % ==============================================================================
@@ -21,23 +47,6 @@ The Oxford Dictionary definition of a country reads as follows:
 \end{quote}
 
 This definition includes many different concepts and terms: the territory or region that the country is on, a nation or state, a population and a culture of the territory in terms of institutions or languages. While nation and state are commonly used as synonyms for countries, their meaning varies from case to case, as it will be examined in this section.
-
-% The CIA Factbook collects, manages and visualizes data and facts ``on every country, dependency, and geographic entity in the world''. Its definition of a country should therefore be helpful to understand what a country actually is. In the database the term \emph{political entity} is defined like this:
-% \begin{quote}
-%   An ``\emph{Independent state} refers to a people politically organized into a sovereign state with a \emph{definite territory}. \emph{Dependencies} and \emph{areas of special sovereignty} refer to a broad category of political entities that are associated in some way with an independent state.''
-%   \footnote{\textit{The World Factbook}, CIA Factbook, URL: \url{https://www.cia.gov/library/publications/the-world-factbook/docs/notesanddefs.html\#T}, last access: 2016-04-25}
-% \end{quote}
-
-% This definition distiguishes between independent states and dependencies or areas of special sovereignty, altogether described as ``separate geographic entities''. The Factbook lists a total of 267 of them:
-% \begin{enumerate}
-%   \item 195 independent states (e.g. Germany, the United Kingdom or Swaziland)
-%   \item 2 ``other'' states (Taiwan and the European Union),
-%   \item 85 ``dependencies and areas of special sovereignty'' (e.g. Greenland to Denmark, Hong Kong to China or Puerto Rico to the United States),
-%   \item 6 ``miscellaneous'' entities (Antarctica, the Gaza Strip, Paracel Islands, Spratly Islands, West Bank, Western Sahara) and
-%   \item 5 ``other entitites'' (the Arctic, Atlantic, Indian, Pacific and Southern Ocean)
-% \end{enumerate}
-
-% Excluding ``other entities'', there are four different groups of political entities used in the Factbook. While Antarctica as an uninhabitated place might not be a surprising miscellaneous entity, other special cases are interesting: the Gaza Strip and the West Bank are the two territories associated to Palestine. Taiwan, Hong Kong or Greenland are not listed as independent states, although they practically are to a large degree. The Factbook does not explain
 
 To understand what a country really is, the United Nations as an intergovernmental organisation are a valuable source. It was found after World War II (October 1945) and promotes international peace keeping, security, protection of human rights or humanitarian aid to all its member states which should coincide with all the countries in the world. The committee currently has 193 full member states and two permanent obervers: The Holy See (Vatican City) and the State of Palestine \cite{UNmembers}. But these 195 members in total do not cover all places in the world -- and also a membership in the United Nations does not mean that the question of statehood can simply be answered.
 
@@ -117,7 +126,7 @@ In contrast, the constituitive theory requires exactly that: A state can only be
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/decl_const_theory}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/decl_const_theory}
   \caption{The Declaratory Theory (left) and the Constituitive Theory (right) of Statehood}
   \label{fig:declaratory_constituitive_theory}
 \end{figure}
@@ -149,14 +158,14 @@ The better a model simulates the reality, the more \emph{accurate} or correct it
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width = 0.35\textwidth]{graphics/5-uncertainty/accuracy_precision}
+  \includegraphics[width = 0.35\textwidth]{graphics/uncertainty/accuracy_precision}
   \caption{The difference between accuracy and precision}
   \label{fig:accuracy_precision}
 \end{figure}
 
 If the border between the Principalities of Transsylvania and Wallachia is deducted from an historical map of 1600, the course of the border is is inaccurate to a certain degree, because the map does not show the real world correctly. However, it can be modelled in the system very precisely, because the coordinates of the border points are stored as floating point numbers in the data model. In contrast, there is currently no agreement upon territory of Palestine, although the different versions can be modelled very precisely. In order for the model to also be accurate in this case, it would need to support contested territories.
 
-Hereafter the current data model introduced in section \ref{sec:development}
+Hereafter the current data model introduced in section \ref{cha:development}
 % TODO: reference to actual section with the data model
 is evaluated in terms of accuracy and precision.
 
@@ -180,7 +189,7 @@ The even larger problem is an integral lack of accuracy: The whole nature of his
 \paragraph{Areas} % (fold)
 \label{par:evaluation_areas}
 
-Also the model of an abstract area, consisiting of a territory and a name, is problematic in terms of accuracy and precision. As it has been discussed in subsection \ref{sub:definition_of_a_country} in detail, it is impossible to objectively model all areas free of conflicts. But the current model does not support the status of a territory as being contested Also, countries can be part of other autonomous (constituent) countries, like England is part of the United Kingdom of Great Britain and Northern Ireland or Greenland is part of Denmark. However, the data model does not support different levels of sovereignty, autonomy or international recognition.
+Also the model of an abstract area, consisiting of a territory and a name, is problematic in terms of accuracy and precision. As it has been discussed in subsection \ref{sec:definition_of_a_country} in detail, it is impossible to objectively model all areas free of conflicts. But the current model does not support the status of a territory as being contested Also, countries can be part of other autonomous (constituent) countries, like England is part of the United Kingdom of Great Britain and Northern Ireland or Greenland is part of Denmark. However, the data model does not support different levels of sovereignty, autonomy or international recognition.
 % Additionally the historical context acquired by the start and end change that created or destroyed the ~\texttt{Area}~ can be ambiguous. While the motvation was to historically connect different countries to form an historical graph, the automatic deduction of historical succession from the historical geographic operations might not accurately replicate the identity of a state. An example is the German Democratic Republic which both historically and geographically seems to be a decendent of Allied-occupied Germany after World War II and therefore an indirect successor of the German Empire. However, the constitution of the GDR emphazised
 % TODO: source? -> Berno
 % think about it: is it really the case?
@@ -264,7 +273,7 @@ Two new operations (see figure \ref{fig:edit_mode_extension}) are introduced: \t
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width = 0.6\textwidth]{graphics/5-uncertainty/edit_mode_extension.png}
+  \includegraphics[width = 0.6\textwidth]{graphics/uncertainty/edit_mode_extension.png}
   \caption{Newly designed and extended buttons for edit operations.}
   \label{fig:edit_mode_extension}
 \end{figure}
@@ -293,7 +302,7 @@ where $c$ is the certainty factor, $S>0$ is a scaling factor and $I$ is the init
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/border}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/border}
   \caption{Three different methods to visualize uncertain courses of a border}
   \label{fig:uncertainty_border}
 \end{figure}
@@ -304,7 +313,7 @@ A new border point automatically snaps to an existing border point, if the mouse
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_territory_tool}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/new_territory_tool}
   \caption{Drawing historical borders instead of full areas and definining a level of certainty.}
   \label{fig:uncertainty_new_territory_tool}
 \end{figure}
@@ -321,7 +330,7 @@ When defining the name of an area, the user will get actual name suggestion. The
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_name_tool}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/new_name_tool}
   \caption{Getting suggestions for the name name from Wikipedia.}
   \label{fig:uncertainty_new_name_tool}
 \end{figure}
@@ -343,7 +352,7 @@ To treat special areas differently, a new step in the edit operation workflow ge
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_status_tool}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/new_status_tool}
   \caption{Defining a special status or relationship to a territory.}
   \label{fig:uncertainty_new_status_tool}
 \end{figure}
@@ -366,7 +375,7 @@ Similar to the extension of the area name step, also Hivent names can be chosen 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_hivent_box}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/new_hivent_box}
   \caption{Creating a new Hivent and adding the newly created historical change.}
   \label{fig:uncertainty_new_hivent_box}
 \end{figure}
@@ -382,7 +391,7 @@ One new operation is to add the recognition of one country by another country. T
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/operation_REC}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/operation_REC}
   \caption{New edit operation: Recognition -- sets up the recognition of one area to another.}
   \label{fig:uncertainty_operation_REC}
 \end{figure}
@@ -397,7 +406,7 @@ In order to support different languages, a language selection is placed on the b
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45\textwidth]{graphics/5-uncertainty/multi_language}
+  \includegraphics[width = 0.45\textwidth]{graphics/uncertainty/multi_language}
   \caption{Changing the language in the user interface.}
   \label{fig:multi_language}
 \end{figure}
@@ -412,7 +421,7 @@ In order to support different languages, a language selection is placed on the b
 \subsection{Extension of the Data Model} % (fold)
 \label{sub:extension_of_the_data_model}
 
-To account for the changes in the interface, also the data model has to be adapted. The main changes to the original data model developed in section \ref{sec:development} are:
+To account for the changes in the interface, also the data model has to be adapted. The main changes to the original data model developed in section \ref{cha:development} are:
 % TODO: real section of original data model
 
 \begin{enumerate}
@@ -430,7 +439,7 @@ To account for the changes in the interface, also the data model has to be adapt
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/5-uncertainty/new_data_model}
+  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/new_data_model}
   \caption{The new data model to support the developed approaches regarding uncertainty}
   \label{fig:new_data_model}
 \end{figure}

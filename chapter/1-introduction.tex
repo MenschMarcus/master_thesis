@@ -16,6 +16,65 @@ the same way as History is Geography over time.
 long and aspiring text about human life, the question of where, when, what and how?
 
 
+time and space are everywhere, highly related to our lives and objects we perceive
+time
+  personal
+    time points of major life events, ...-> events, can trigger other events
+    periods of studying, working, ... -> collection of events with similar characteristics
+  world: every major issue has a time scale
+    climate change (decades)
+    climate tipping points (years) climate tipping points (years)
+    economic meltdown (months)
+    infectious diseases (weeks)
+    disasters (days)
+  -> time not easy to scale and to grasp
+space
+  location of major life events (static)
+  travel routes (dynamic)
+  not always easy to grasp (exact location of monument is simple, but exact location of problematic area with fremdenfeindlichen hintergrund or historic countries are hard to set)
+  event locations are sometimes not related to their consequences (e.g. Conferences of Tehran or Casablanca (1943) discussed how to deal with Germany after planned victory in WWII)
+motivation for spatio-temporal queries
+  exploration of German history using historical maps of 1800, 1850, 1900 and 1950
+    each map has both temporal and spatial information in it
+    but how to tell a story with that?
+    more realistically, maps from 1871, 1919, 1933, 1945 and 1949, because of major events (founding of German Reich, end of WWI, beginning of Nazi dictatorship, end of WWII, founding of two German nations
+    -> for one country might be suitable
+  exploration of European or history
+    would need a world map for each year
+    how to see what has changed? -> inefficient
+    how to know what is important?
+    is that a reasonable way of storing information if one information set is with a high probability almost the same as the time point before? -> redundancy
+  key problem
+    model of historic maps at time points (-> snapshot model)
+    given information at time point t1 and t2
+    How to know the status at time point t1 < tm < t2?
+    -> It is impossible
+  solution: away from snapshot based modeling of history to change-based modeling
+    initial state ti, changes at point t1 and t2
+    How to know the status at time point t1 < tm < t2?
+    -> it is ti + changes at t1
+    => definition of each time point in history
+
+research object of this thesis
+  change over time of space of countries
+  history of countries, their names and their borders and their relationships to each other
+  visualize these changes and edit them (interface)
+  Web-based historical geographic information system (WHGIS)
+
+research questions of the thesis
+  How to design and implement WHGIS?
+  How to create an interface not just to explore historical changes?
+  How to deal with uncertainty and fuzziness in history?
+  Can researchers actually interact with such a system?
+  How to design an interface that matches the mental model of a DH user of editing changes over time?
+
+study of existing approaches, techniques and projects
+  GIS: acquisition, management, analysis and presentation of spatial information
+  handling of the spatial domain: extension to HGIS
+  some systems allow presentations, but have very difficult interfaces
+  no system that allows editing historical borders in time and space
+
+
 
 % ==============================================================================
 \section{Motivation} % (fold)
@@ -26,21 +85,11 @@ long and aspiring text about human life, the question of where, when, what and h
 
 
 % ==============================================================================
-\section{Scope and Goals} % (fold)
-\label{sec:goals}
+\section{Research Questions} % (fold)
+\label{sec:research_questions}
 
 
-
-
-
-\paragraph{Research Questions} % (fold)
-\label{par:research_questions}
-
-
-% paragraph research_questions (end)
-
-
-% section goals (end)
+% section research_questions (end)
 
 
 % ==============================================================================

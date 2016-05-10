@@ -20,7 +20,7 @@ timeline for temporal domain (t)
 no transaction time, only valid / event time
 
 space-time composite with lines
-\ref{gis_space_theory}
+% \ref{gis_space_theory}
 
 -> the whole earth is 100\% covered by spatial objects (full topology)
   countries, debated territories, unknown land, water
@@ -38,6 +38,10 @@ requirements
   accept imprecision
   prevent illusion of certainty
 
+
+Application: HistoGlobe
+A distributed \emph{Web Information System}, consists of a remote server side, on which the storage and management of the actual data happens, and the client side on which the user communicates with the system. It hosts the user interface that is rendered in a Web browser.
+
 describe the components of the GIS explicitally
  hardware
  software
@@ -54,63 +58,25 @@ research questions --> HGIS <-- development of system
   geographers
 (+) open source, direct manipulation, easy sharing and collaboration
 
+interior borders of countries, which are straight lines between manually defined border points.
+=> vector model
 
+countries with enclaves or islands are not topologically equivalent.
 
+There are topological rules rules that can be applied, e.g. two neighboring countries (polygons) share one common border (polyline). That preserves the relationship between them if their common border changes.
 
-% ==============================================================================
-\section{Spatio-Temporal Operations} % (fold)
-\label{sec:spatio_temporal_operations}
+=> event-based HGIS
 
-CRE
-UNI
-INC
-SEP
-SEC
-TCH
-BCH
-NCH
-ICH
-DES
+only world time is regarded, not database time.
 
-
-
-inclusion of universe $\Omega$:
-CRE = SEC from $\Omega$
-DES = INC into $\Omega$
-
-% section spatio_temporal_operations (end)
+identity: formal name of an entity
 
 
 % ==============================================================================
-\section{Hivent-Based Spatio-Temporal Data Model} % (fold)
-\label{sec:hivent_based_spatio_temporal_data_model}
+\section{Hivent} % (fold)
+\label{sec:hivent}
 
-user operations     CRE     UNI          SEP         TCH         NCH      DES
-                     |      / \         /   \        /  \       /   \      |
-HG operations       CRE   UNI   INC   SEP   SEC   TCH   BCH   NCH   ICH   DES
-
-area changes        ADD   DEL*  DEL*  DEL   TCH   TCH   TCH   NCH   ADD   DEL
-ADD, TCH, NCH, DES        ADD   TCH   ADD*  NCH?        TCH         DEL
-                                NCH?        ADD*
-
-
-
-% section hivent_based_spatio_temporal_data_model (end)
-
-
-
-
-% ==============================================================================
-\section{Application} % (fold)
-\label{sec:application}
-
-
-HistoGlobe -> Edit Mode + HistoGraph
-
-
-
-\subsection{Hivent} % (fold)
-\label{sub:hivent}
+event which is in itself or whose outcome is historically significant (subjective) or with
 
   WHAT? significant happening
   WHO? different actors
@@ -130,11 +96,12 @@ significant happening in time and space
 incluencing others
 central element in event based STDM
 
+% section hivent (end)
 
-% subsection hivent (end)
 
-\subsection{Area} % (fold)
-\label{sub:area}
+% ==============================================================================
+\section{Area} % (fold)
+\label{sec:area}
 
 model the main entity of the domain: historical or current countries. An ~\texttt{Area}~ represents one identical country, consisting at each time point of its existance of exactly one ~\texttt{AreaName}~ and one ~\texttt{AreaTerritory}. The model seems appropriate since the name and the territory of an area are exactly the two properties that are part of the domain.
 
@@ -161,10 +128,6 @@ country borders
     valid
     vs. disputed
 
-enclaves, exclaves
-
-
-
 area
 territory
 -> geometry
@@ -179,14 +142,56 @@ exclaves
 
 
 
-% subsection area (end)
+% section area (end)
 
+% ==============================================================================
+\section{Hivent-Based Spatio-Temporal Data Model} % (fold)
+\label{sec:hivent_based_spatio_temporal_data_model}
 
-% section application (end)
-
-
+% section hivent_based_spatio_temporal_data_model (end)
 
 
 % ==============================================================================
+\section{Spatio-Temporal Operations} % (fold)
+\label{sec:spatio_temporal_operations}
+
+CRE
+UNI
+INC
+SEP
+SEC
+TCH
+BCH
+NCH
+ICH
+DES
+
+
+
+inclusion of universe $\Omega$:
+CRE = SEC from $\Omega$
+DES = INC into $\Omega$
+
+
+% section spatio_temporal_operations (end)
+
+% ==============================================================================
+\section{Edit Mode} % (fold)
+\label{sec:edit_mode}
+
+
+user operations     CRE     UNI          SEP         TCH         NCH      DES
+                     |      / \         /   \        /  \       /   \      |
+HG operations       CRE   UNI   INC   SEP   SEC   TCH   BCH   NCH   ICH   DES
+
+area changes        ADD   DEL*  DEL*  DEL   TCH   TCH   TCH   NCH   ADD   DEL
+ADD, TCH, NCH, DES        ADD   TCH   ADD*  NCH?        TCH         DEL
+                                NCH?        ADD*
+
+% section edit_mode (end)
+
+% ==============================================================================
+
+
 
 % chapter concept (end)
