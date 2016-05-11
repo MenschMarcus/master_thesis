@@ -16,10 +16,15 @@ The first section of this chapter will define HGIS and related terms. Afterwards
 
 
 % ==============================================================================
-\section{Definition} % (fold)
-\label{sec:definition}
+\section{Historical Geographic Information Systems} % (fold)
+\label{sec:historical_geographic_information_systems}
 
-To understand, what an Historical Geographic Information System is, it is important to understand the four parts of the word: The research fields \emph{history} and \emph{geography} and the concepts of \emph{information} an \emph{systems}.
+\begin{quoteit}
+  ``All human actions takes and makes place. The past is the set of places made by human action. History is a map of these places. The past thus exists not in time but in space.''
+\end{quoteit}
+\hfill -- Philip J. Ethington in \cite[précis]{citeTakeMakePlace}
+
+An Historical Geographic Information System helps to answer research questions about how geographical phenomena have developed over time. To understand how it works, it is important to understand the four parts of the word: The research fields \emph{history} and \emph{geography} and the concepts of \emph{information} an \emph{systems}.
 
 
 % ------------------------------------------------------------------------------
@@ -199,14 +204,8 @@ A system has defined spatial and temporal boundaries. There are two types: \emph
 % subsection system (end)
 
 % ------------------------------------------------------------------------------
-\newpage
-\subsection{Historical Geographic Information Systems} % (fold)
-\label{sub:historical_geographic_information_systems}
-
-\begin{quoteit}
-  ``All human actions takes and makes place. The past is the set of places made by human action. History is a map of these places. The past thus exists not in time but in space.''
-\end{quoteit}
-\hfill -- Philip J. Ethington in \cite[précis]{citeTakeMakePlace}
+\subsection{Definition and Motivation} % (fold)
+\label{sub:definition_and_motivation}
 
 An \emph{information system} (IS) is an application that is dealing with the acquisition, management, analysis and presentation of information. It is the unity of all its components and their interaction with each other
 \cite{informationSystem}.
@@ -229,64 +228,39 @@ Historical Geographic Information Systems consist of mainly four components: The
 HGIS are also called \emph{Spatio-Temporal Information Systems} (STIS)
 \cite{pelekis04stdms}.
 
-% subsection historical_geographic_information_systems (end)
+% subsection definition_and_motivation (end)
 
-% section definition (end)
+% section historical_geographic_information_systems (end)
 
 
 % ==============================================================================
-\section{Model} % (fold)
-\label{sec:model}
+\section{Modelling Time and Space} % (fold)
+\label{sec:modelling_time_and_space}
 
-A model tries to replicate a part of the real world. A data model abstracts a part of the world, identifies the most essential elements and their relation to each other and conceptualizes them e.g. in an \emph{Entity Relationship Model}. In an HGIS, the data model should contain entities and relations to explain spatial-temporal phenomena in the real world. There are five dimensions involved:
-
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{l l l l}
-    \toprule
-    question & dimension & variable & description \\
-    \midrule
-    where? & location & lat & latitude \\
-    where? & location & lng & longitude \\
-    where? & location & h & height \\
-    when? & time & t & time \\
-    what? & attribute & a & set of attributes \\
-    \bottomrule
-\end{tabular}
-\caption{Five dimensions of an Historical Geographic Information System}
-\label{tab:dimensions_hgis}
-\end{center}
-\end{table}
-
-%TODO: visualize triadic framework instead?
-
-Based on the theory of the \emph{Triadic Framework}, these dimensions can change independently from each other, so the information system has to account for that
+A model tries to replicate a part of the real world. A data model abstracts a part of the world, identifies the most essential elements and their relation to each other and conceptualizes them e.g. in an \emph{Entity Relationship Model}. In an HGIS, the data model should contain entities and relations to explain spatial-temporal phenomena in the real world. Based on the theory of the \emph{Triadic Framework}, there are three components involved: space (3 dimensions), time (1 dimension) and attribute (multiple dimensions). All of these dimensions can change independently from each other
 \cite[p. 53]{ott2001time}.
 
-The remaining part of the section will introduce data models for space and time separetly and finally give an overview about joint spatio-temporal data models.
+% TODO: absolute time vs. relative time
+% TODO: absolute space vs. relative space
+
+The remaining part of the section will introduce ways to separately represent time and space in an information system.
+
+
 
 % ------------------------------------------------------------------------------
-\subsection{Spatial Data Models} % (fold)
-\label{sub:spatial_data_models}
+\subsection{Representation of Space} % (fold)
+\label{sub:representation_of_space}
 
 The information system needs to unambiguously locate each geo-object on, underneath or close to the Earth's surface using \emph{geographic coordinates}. They allow to locate an object directly in the coordinate system of the geodetic datum. In order to do that, a geo-object has to be expressed in the coordinate system of the Earth.
 
 % ------------------------------------------------------------------------------
-\paragraph{The Shape of the Earth} % (fold)
-\label{par:the_shape_of_the_earth}
+\subsubsection{Geospatial Data Model} % (fold)
+\label{ssub:geospatial_data_model}
 
-measured by scientists in the field of \emph{geodesy} is rather complicated. In the Babylonian Empire ($\approx$ 2000-539 BC) the theory of the Earth being a flat disc surrounded by an infinite body of water
+To model the Earth in an information system, its actual shape has to be analyzed. It is measured by scientists in the field of \emph{geodesy} is rather complicated. In the Babylonian Empire ($\approx$ 2000-539 BC) the theory of the Earth being a flat disc surrounded by an infinite body of water
 %(a theory still valid in some southern parts of the United States of America)
 evolved. The Greek scientists Pythagoras and Aristotle (340 BC) rejected this theory and proved the earth to be a three-dimensional spherical object. It took almost 2000 years until Sir Isaac Newton (1687) reasoned that due to the centrifugal forces of the rotating Earth the shape has to flattened at the poles and is therefore better described as an \emph{ellipsoid} with two radii: the polar radius ($r_p$) and the slightly larger equatorial radius ($r_e$)
 \cite[pp. 69-77]{bolstad2008gis}.
-
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width = 0.3\textwidth]{graphics/basics/ellipsoid}
-%   \caption{The ellipsoidal model}
-%   \small{based on \cite[Fig. 3-3, p. 72]{bolstad2008gis}}
-%   \label{fig:ellipsoid}
-% \end{figure}
 
 However, the model disregards that the surface of the Earth is not flat but consists of deep oceanic trenches and high mountains. Therefore the gravitational field of the Earth is not homogeneous either: the actual \emph{mean sea level}, the reference surface for the height ofgeo-objects from 106 meter below to 85 meter above the uniform sea level of the ellipsoid model. These discoveries in the \nth{20} century led to the complex \emph{geoid} model (see figure \ref{fig:geoid}). The latest and most accurate measurements for the shape of the Earth are the result of the GOCE satellite launched in March 2009
 \cite{geoid, geoidESRI}.
@@ -299,11 +273,8 @@ However, the model disregards that the surface of the Earth is not flat but cons
   \label{fig:geoid}
 \end{figure}
 
-% paragraph the_shape_of_the_earth (end)
 
-
-% ------------------------------------------------------------------------------
-\subsubsection{Geographic Coordinate System} % (fold)
+\paragraph{Geographic coordinate system} % (fold)
 \label{ssub:geographic_coordinate_system}
 
 The reference ellipsoid is the basis for the model that is used to determine an object's position relative to the Earth's surface. It is represented in a three-dimensional \emph{spherical coordinate system}.
@@ -333,12 +304,9 @@ Lines of constant latitude are running horizontally and are called \emph{paralle
 Geographic coordinates are usually recorded either in degree-minutes-second (\texttt{DMS}, e.g. \texttt{50\degree~58' 22''}) or in decimal degree (\texttt{DD}, e.g. \texttt{50.973}) notation
 \cite[pp. 30, 79]{bolstad2008gis}.
 
-% subsubsection geographic_coordinate_system (end)
 
-% ------------------------------------------------------------------------------
-\subsubsection{Geodetic datum} % (fold)
-\label{ssub:geodetic_datum}
-
+\paragraph{Geodetic datum} % (fold)
+\label{par:geodetic_datum}
 
 One main task of a GIS is to accurately visualize the Earth on a map. Since the Earth is an inhomogeneous three-dimensional shape but the output medium is a two-dimensional computer screen or piece of paper, it has to be transformed. First the Earth has to be modeled using the \emph{geodetic datum}. It consists of two parts: The approximation of the Earth's surface in a the Cartesian coordinate system with the origin and a set of reference points used to accurately locate a point.
 
@@ -349,16 +317,17 @@ The \emph{World Geodetic System 1984 (WGS84)} is a model that found worldwide ac
 
 % paragraph geodetic_datum (end)
 
+% subsubsection geospatial_data_model (end)
+
 % ------------------------------------------------------------------------------
 \subsubsection{Raster and Vector Model} % (fold)
 \label{ssub:raster_vs_vector_model}
 
 Geographical features like cities, houses or country borders are infinite in detail. But storage in a computer system is finite. In order to model these continuous phenomena in an information system, a relevant subset of them has be sampled to create discrete spatial data. It can be represented in a raster or in a vector model.
 
-% TODO: make width=0.8
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.65\textwidth]{graphics/basics/raster_vector}
+  \includegraphics[width=0.8\textwidth]{graphics/basics/raster_vector}
   \caption{Comparison of the raster and the vector model}
   \label{fig:raster_vector}
 \end{figure}
@@ -382,7 +351,6 @@ In the two-dimensional \emph{vector model}, each object is a mathematically desc
   \caption{The basic geometric primitives point, polyline and polygon}
   \label{fig:geometric_primitives}
 \end{figure}
-
 
 \begin{enumerate}
   \item[0D] A \emph{point} is the fundamental object in vector geometry. It has no dimension, no size and is only defined by its position, specified in geographic coordinates. One point is independent from all other ones. Points can be used e.g. to represent a landmark.
@@ -420,6 +388,9 @@ or ESRI Shapefiles (\texttt{.shp})\footnote{
   last access: 30.10.2015
 }.
 
+
+% subsubsection raster_vs_vector_model (end)
+
 % ------------------------------------------------------------------------------
 \subsubsection{Geospatial Topology} % (fold)
 \label{ssub:geospatial_topology}
@@ -443,13 +414,11 @@ The topological vector model has a great asset: if an edge between two adjacent 
 
 % subsubsection geospatial_topology (end)
 
-% section raster_vs_vector_model (end)
-
-% subsection spatial_data_models (end)
+% subsection representation_of_space (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Temporal Data Models} % (fold)
-\label{sub:temporal_data_models}
+\subsection{Representation of Time} % (fold)
+\label{sub:representation_of_time}
 
 Unlike in space, time knows only one dimension, which makes modelling simpler. Time is represented by timestamps, with a certain granularity (year, month, day, hour, minute, second, millisecond).
 
@@ -507,212 +476,164 @@ For time spans, there are six possibile temporal topological relations (table \r
 
 % paragraph temporal_relations (end)
 
-% subsection temporal_data_models (end)
+% subsection representation_of_time (end)
+
+% section modelling_time_and_space (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Spatio-Temporal Data Models} % (fold)
-\label{sub:spatio_temporal_data_models}
+\section{Spatio-Temporal Data Models} % (fold)
+\label{sec:spatio_temporal_data_models}
 
 \begin{quoteit}
   ``Geography differs from geometry because \\
   in geography, space in indivisibly coupled with time''
 \end{quoteit}
 \hfill -- Don Parkes \& Nigel Thrift (1980)
-% TODO: source
 
-The goal of a HGIS is to show the development of geo-objects over time. Developments are driven by \emph{changes} to the state of an object. According to the Triadic Framework time, space and attribute can change independently from each other. However, in order to trace spatial and attributal changes over time, there has to be a relation between the dimensions.
+The goal of a HGIS is to show the development of geo-objects over time. Developments are driven by \emph{changes} to the state of an object. According to the Triadic Framework time, space and attribute can change independently from each other. However, in order to trace spatial and attribute changes over time, there has to be a relation between the dimensions.
 
 Abstractly speaking, a goe-object is an \emph{entity} in the information system. Throughout its lifetime, it appears at some point, it might undergo several changes and might disappear at some other time point. The critical point is to maintain the identity of the object: when does an entity change its identity? What kind of changes can occur to an entity without changing its identity, e.g. a name change, a spatial transformation or a splitup.
 
-To represent spatio-temporal data in an information system, there are three different approaches: location-based, entity-based and time-based representations.
+There are mainly two kinds of changes: \emph{Discrete changes} are based on the idea of a \emph{state machine}: An entity stays in its state until an event occurs that suddenly changes the state at a discrete time point. As an example, the age of human beings changes once per year or their birthday. On a contrary, an entity can gradually change according to a \emph{continuous change}, either in a uniform or a irregular manner. Its development is driven by a process, e.g. the melting of the polar ice caps
+\cite{peuquet99}.
+
+Research in the previous 30 years has developed several models for temporal developments of spatial objects with additional attributes. They differ mostly in the main organizing dimension: In \emph{location-based} representations time is an attribute of each geo-object in the systen. \emph{Time-based} models on the other hand explicitly represent events and processes that change geo-objects in the system at a certain time point or in a certain time period.
+
+The basis for all models is the concept of \emph{Time Geography} by
+\cite{haegerstrand1970}: Hägerstrand argued for an orthogonal relationship between time and space and that each object can be at one location only at one time. He furthermore visualized an objects development in a \emph{space-time path}. This section will introduce the most important \emph{spatio-temporal data models} (STDM) based on this idea that are releveant for the remaining parts of the thesis.
+
+% TODO: version management (Wachowitz p 43)
 
 % ------------------------------------------------------------------------------
-\subsubsection{Location-Based Data Models} % (fold)
-\label{ssub:location_based_data_models}
+\subsection{Snapshot Model} % (fold)
+\label{sub:snapshot_model}
 
+One of the simplest, oldest and most frequently used data model is based on the idea of \emph{snapshots}: At a certain time point $t_i$, a new layer gets created. It stores the full picture of the current state of all geo-objects
+\cite{Langran1988frameworktgis}.
 
-extension of traditional raster / vector approaches to incorporate time
-organizing dimension: space
-representation: 2D / 3D space (raster: grid, vector: open space)
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/snapshot_model}
+  \caption{The Snapshot Model}
+  \label{fig:snapshot_model}
+\end{figure}
 
-Snapshot model
-  % \cite Armstrong 1988
-  1 layer per time point
-  layer data
-    time point
-    fully covered spatial and attribute data
-  => full picture at point in time
-  (+) simple
-  (-) changes not recorded -> can not be retrieved
-  (-) no information of status between two time slices
-  (-) redundant
-  e.g. aerial images
-  e.g. social indicators collected by World Bank
-  \cite[chapter 2, p. 46]{solana2014spatio}
+Whereas this model allows to easily retrieve the state of the system at a defined time point $t_i$, it is also its biggest limitation: for all other time points $t \neq t_i$ that are not covered by a snapshot, it is impossible to retrieve the state of the system, because the data model does not record any changes. Additionally, the model is redundant, because objects that have not changed from one snapshot to the next one are duplicated. Although there have been improvements made regarding redundancy in the snapshot model (e.g. \cite{armenakis92}), the main problem that there is no information about the state between two snapshots is integral to the model and can not be solved.
 
-Space-time composite
-  decomposition of geometries into least common geometries (LCG) out of which all other geometries can be composited back from
-  e.g. Germany (DE), France (FR), Elsaß (EL), before 1919: DE+EL, FR - after 1919: DE, FR+EL
-  % \cite Langran and Christman 1998
-  % \cite Worboys 1994
-  (+) no redundancy in geometry
-  (+) analysis of history of certain areas = LOC is very simple
-  (+) supports hierarchical structure of administrative units
-  (-) complete structure has to be changed if one event is inserted
+Because of their analogy to photography, snapshots are used e.g. to see the history of a city based on aerial photographs at different time points.
 
-
-
-
-
-% subsubsection location_based_data_models (end)
+% subsection snapshot_model (end)
 
 % ------------------------------------------------------------------------------
-\subsubsection{Entity-Based Data Models} % (fold)
-\label{ssub:entity_based_data_models}
+\subsection{Simple Time-Stamping} % (fold)
+\label{sub:simple_time_stamping}
 
+Another location-based method is to extend the model for a geo-object by the period of existance. This is done by two more attributes: a \emph{start date} $t_{start}$ at which the object gets created and the \emph{end date} $t_{end}$ at which it is ceased. An object that still exists gets a special value like \texttt{NOW} as a cessation date
+\cite{hunter90timestamping}.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/simple_time_stamping}
+  \caption{The Simple Time-Stamping method}
+  \label{fig:simple_time_stamping}
+\end{figure}
 
-% subsubsection entity_based_data_models (end)
+This \emph{Simple Time-Stamping} method allows to track changes of objects. Given full and consistent information, the full state of the system at each time point $t_i$ can be retrieved: All geo-objects for which ~$t_{start} \leq t_i < t_{end}$~ are active, all others are inactive. This method works only well for discrete changes. One problem of the model is that it does not allow to trace the development of an entity in different states. If one geo-object ceases and another one starts at the same point, they are visually successors, but this relationship is not implemented in the data model. Whereas this shortcoming can be resolved by adding a reference to the predecessor and the successor of an entity, another disadvantage can not:
+
+It is impossible to say what has happened at a certain time point: If at time point $t_2$ the geo-objects $B$ and $C$ cease and $G$ starts, it could be that they have been unified ($B+C \to G$) or that two are successors ($B \to G$) and one just happens to stop existing without any successor ($C \to \emptyset$). The model is also slightly redundant, because the end date of one geo-object is the start date of another geo-object, if they are historically related. Therefore, in a domain with predecessor-successor-relationships, this model is not very suitable
+\cite[p. 46-47]{solana2014spatio}.
+
+Wheresas retrieving a state at a certain time point is possible, it is also cumbersome, because without intelligent data structures every time the date changes, it has to be checked for each geo-object if its state has changed.
+
+% subsection simple_time_stamping (end)
 
 % ------------------------------------------------------------------------------
-\subsubsection{Time-Based Data Models} % (fold)
-\label{ssub:time_based_data_models}
+\subsection{Event-Based Spatio-Temporal Data Model} % (fold)
+\label{sub:event_based_spatio_temporal_data_model}
 
-Since time is the main organizing dimension, time-based spatio-temporal changes of entities can as well be separated into two groups
-\cite{peuquet99}:
+A time-based approach addresses exactly those shortcomings: They explicitly represent events or processes in the data model and associate all entities that change according to them. One example of this approach is the \emph{Event-Based Spatio-Temporal Data Model} (ESTDM) by
+\cite{peuquet95}:
+At one defined time point $t_b$, the \emph{base state}, a snapshot gets stored. From that moment on only changes relative to that base state are model. This happens in the form of events, the organizing entity of the data model. An event has a time stamp $t_i$ and a list of spatial and attribute changes associated with it. In the model for raster data introduced by \cite{peuquet95}, such a discrete change has raster components associated to it that state which raster cells change their value in this change. The events are chronologically ordered and stored in a doubly-linked list: each event knows its preceding and succeeding event.
+% TODO: how does it EXACTLY work?
 
-\begin{description}
-  \item[Discrete] Based on the idea of a \emph{state machine}, an entity stays in its state until an event occurs that suddenly changes the state at a discrete time point. As an example, the age of human beings changes once per year or their birthday.
-  \item[Continuous] An entity gradually changes according to a continuous function, either in a uniform or a irregular manner. Its development is driven by a process, e.g. the melting of the polar ice caps.
-\end{description}
+This model allows for efficient change tracking, and handling, due to simple insertion and deletion into and from the event list.
 
+Just like the Simple Time-Stamping method, this approach is only suitable for discrete changes but not for grdual changes. The main constraint for this thesis is that \cite{peuquet95} have developed this model only for raster data. ``The transformation of the ESTDM to a vector-based system requires a substantial redesign of event components''
+\cite[p. 11]{pelekis04stdms}.
+A main problem is to maintain the integrity of the spatial topology when a new change gets inserted not at the end of the list. A simple example shows that problem: Given geo-object $X$ is part of the inital base configuration at change $t_b$. At a later change, e.g. $t_y$ $X$ gets replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted before at time point $t_x < t_y$, then $t_y$ is not integer anymore, because object $X$ does not exist. That is why on insertion of a change, all succeeding changes have to be tested for integrity and it might be necessary to update later changes.
 
-Time slices
-  discrete slices into time cube
-  snap shot time slices
-  temporal changes of time slices
-  % \cite Langran 1993
-  \cite[p. 63-64]{ott2001time}
+% TODO: Find a model that conceptualized that for vector data
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/event-based_spatio-temporal_data_model}
+  \caption{The Event-Based Spatio-Temporal Data Model}
+  \label{fig:event-based_spatio-temporal_data_model}
+\end{figure}
 
+% subsection event_based_spatio_temporal_data_model (end)
 
-% subsubsection time_based_data_models (end)
+% ------------------------------------------------------------------------------
+\subsection{History-Graph Model} % (fold)
+\label{sub:history_graph_model}
 
+extension of ebstdm
+To trace historical relationships, a change can also store type of change:
+Creation, Alteration, Cessation, Reincarnation, Split/Deduction, Merge/Annexation
 
+% subsection history_graph_model (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Spatio-Temporal Object-Oriented Data Model} % (fold)
+\label{sub:spatio_temporal_object_oriented_data_model}
+
+2D geometries + 1D time
+element: spatio-temporal atom
+event-based: new event => new ST atom stacked on top of existing ones
+% \cite Worboys 1992
+
+% subsection spatio_temporal_object_oriented_data_model (end)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Spatio-Temporal Data Type
-  STT
-  time not as an attribute of space -> special entity
-  spatio-temporal object model (everything is an object)
-    separate classes for Space and Time
-    -> aggregation to SpatioTemporal class
-    each object with temporal and spatial extension (start + end date, full geo)
-  operators for time and space
-  time in YYY-MM-DD (ISO 8601 standard)
-    `NOW' = still existing = no end date
-  \cite{raza12}
-
-Time Geography
-  orthogonal relationship between time and space
-  each object can be at one time only at one location
-  happenings and events
-  % \cite Hägerstrand 1970
-
-space-time path / space-time graph
+implementation
+  Spatio-Temporal Data Type (STT)
+    time not as an attribute of space -> special entity
+    spatio-temporal object model (everything is an object)
+      separate classes for Space and Time
+      -> aggregation to SpatioTemporal class
+      each object with temporal and spatial extension (start + end date, full geo)
+    operators for time and space
+    time in YYY-MM-DD (ISO 8601 standard)
+      `NOW' = still existing = no end date
+    \cite{raza12}
 
 idea: continuous space-time cube
   2 spatial, 1 temporal dimension
   everything changes continuously
   % \cite Langran 1992
 
-The grid model
-  for raster data: each cell has list of values with time stamps
-  change => affected cells get new value with new time stamp
-  % \cite Langran 1992
-  improvement of snapshot model for raster model
-  -> only compatible with event-based approach
-  (+) no redundancy
-  improvement: space-time BLOB
+other STDM (just to mention)
+  Space-time composite
+  The grid model
+  Amendment vector model
+  cell tuple-based spatiotemporal data model
   \cite[p. 14]{zhao11}
 
+% section spatio_tempora_data_models (end)
 
-Amendment vector model
-  amendment vectors: spatial changes over time
-  increment stored on the basis of previous time point
-  % \cite Langran 1992
-  (-) object identity has to be known
-  (-) amendment vector only records spatial change => solely attribute change can not be modeled
-  \cite[p. 14]{zhao11}
-
-time-based approach
-organizing dimension: time
-representation: time line / temporal vector (1D)
-
-Simple time-stamping model topology of time
-  % \cite Langran 1993
-  time stamp per object
-    date of last property transaction
-    period of existence (start - end)
-  (+) ability to track changes
-  (+) fits perfectly for events with discrete nature
-  (-) cumbersome to retrieve
-  (-) redundancy for topological geometry (end date of one geometry is start date for another geometry)
-  e.g. analysis of spatial diffusion
-  e.g. longitudinal analysis (e.g. development of census data throughout the years)
-  problem: varying administrative boundaries over time
-  solution: aerial interpolation
-  \cite[chapter 2, pp. 46-47]{solana2014spatio}
-
-event-based spatio-temporal data model (ESTDM)
-  key elements:
-    event list (event = change in state)
-      recording only times when change occurs -> relation change <-> time
-      time-stamp $t_i$
-      spatial or attribute change
-      doubly-linked ordered list of events for efficient change tracking in both directions
-    base map defining initial world state at $t_0$
-    header pointing to current event
-  event happens => new record of study area
-  keeps track of affected cells and their new value
-  (+) efficient change tracking
-  (+) efficient inserting of events somewhere inside the list
-  -> problem: consistent geometry! => update necessary
-  (-) not suitable for representation of continuous gradual change
-  (-) model explicitly for raster data, not for vector polygon geometry
-  problem: maintaining the integrity of spatial topology as it changes
-  (-) model just for tracking spatial changes
-  -> extension: separate table per attribute dimension
-  \cite{peuquet95}
-
-
-% just name the others
-
-object-oriented spatio-temporal data model
-  2D geometries + 1D time
-  element: spatio-temporal atom
-  event-based: new event => new ST atom stacked on top of existing ones
-  % \cite Worboys 1992
-
-cell tuple-based spatiotemporal data model
-% \cite Raza and Kainz 1999
-
-History-graph model
-=> used for mixed types of objects
-
-Claramunt and Thériault 1995
-Chen and Jiang 2000
-Worboys 2005
-
-% subsection spatio_temporal_data_models (end)
-
-% section model (end)
 
 % ==============================================================================
-\section{Input} % (fold)
-\label{sec:input}
+\section{System Components} % (fold)
+\label{sec:system_components}
+
+HGIS like any other system four components
+trallala und hoppsassa
+
+% ------------------------------------------------------------------------------
+\subsection{Input} % (fold)
+\label{sub:input}
 
 Spatial Data for a GIS can either be acquired from existing sources or retrieved manually. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth
 \footnote{
@@ -741,12 +662,11 @@ or terrain models and administrative regions for Germany
   last access: 30.10.2015
 }.
 
-% section input (end)
+% subsection input (end)
 
-
-% ==============================================================================
-\section{Management} % (fold)
-\label{sec:management}
+% ------------------------------------------------------------------------------
+\subsection{Management} % (fold)
+\label{sub:management}
 
 Database Management Systems
 
@@ -950,9 +870,11 @@ ER model for temporal objects
 
 % section management (end)
 
-% ==============================================================================
-\section{Analysis} % (fold)
-\label{sec:analysis}
+% ------------------------------------------------------------------------------
+\subsection{Analysis} % (fold)
+\label{sub:analysis}
+
+% TODO: spatio-temporal queries
 
 analysis: determine, change, evaluate
 
@@ -982,7 +904,8 @@ geometric-topological operations
   analyze the neighborhood relations between geometric objects
   e.g. is the geometry all countries at time point 1991 strictly connected?
 temporal analysis
-  using spatial and temporal operators in figure \ref{fig:spatial_temporal_operators}
+  using spatial and temporal operators in figure
+  %\ref{fig:spatial_temporal_operators}
   e.g. in which year did the largest amount of border changes happen?
 \cite[p. 129-140]{ott2001time}
 
@@ -1060,11 +983,11 @@ Polygon Clipping
 Topology analysis
   test for consistency, connectedness and completeness of topology
 
-% section analysis (end)
+% subsection analysis (end)
 
-% ==============================================================================
-\section{Presentation} % (fold)
-\label{sec:presentation}
+% ------------------------------------------------------------------------------
+\subsection{Presentation} % (fold)
+\label{sub:presentation}
 
 spatio-temporal visualization
 -----------------------------
@@ -1145,8 +1068,8 @@ The same service is provided by \emph{OpenLayers}, a ``A high-performance, featu
 
 
 % ------------------------------------------------------------------------------
-\subsection{Maps} % (fold)
-\label{sub:maps}
+\subsubsection{Maps} % (fold)
+\label{ssub:maps}
 
 
 maps are means and products of GIS
@@ -1366,15 +1289,17 @@ If no characteristic is explicitly important but the overall distortion shall be
 
 % paragraph map_projections (end)
 
-% subsection maps (end)
+% subsubsection maps (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Timelines} % (fold)
-\label{sub:timelines}
+\subsubsection{Timelines} % (fold)
+\label{ssub:timelines}
 
-% subsection timelines (end)
+% subsubsection timelines (end)
 
-% section presentation (end)
+% subsection presentation (end)
+
+% section system_components (end)
 
 % ==============================================================================
 \section{Application} % (fold)

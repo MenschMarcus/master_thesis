@@ -82,14 +82,14 @@
 % numbering of subsubsections
 \setcounter{secnumdepth}{3}
 
-% include chapter -> sections -> subsections -> subsubsections in toc
-\setcounter{tocdepth}{3}
+% include chapter -> sections -> subsections in toc
+\setcounter{tocdepth}{2}
 
 % configure toc               left indent          space up/down      font                 position of numbers    filling until page number
 \titlecontents{chapter}       [3.7em]  {\addvspace{+0.2em}\large\bfseries} {\contentslabel{2.2em}} {} {\hfill               \contentspage}
 \titlecontents{section}       [6.7em]  {\addvspace{-0.6em}\large}          {\contentslabel{2.95em}}{} {\titlerule*[0.6pc]{.}\contentspage}
 \titlecontents{subsection}    [10.6em] {\addvspace{-0.8em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
-\titlecontents{subsubsection} [14.5em] {\addvspace{-1.0em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
+% \titlecontents{subsubsection} [14.5em] {\addvspace{-1.0em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
 
 % configure clicking on toc
 \hypersetup{
@@ -168,7 +168,10 @@ Submission date: \submissionDate
 
 %\* BIBLIOGRAPHY*\
 
-\bibliography{chapter/sources}{}
+% reduce font size of bibliography
+{\footnotesize{
+  \bibliography{chapter/sources}{}
+}}
 \bibliographystyle{chapter/alphaurl}
 
 
