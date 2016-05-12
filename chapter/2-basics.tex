@@ -1,5 +1,7 @@
 %!TEX root = ../masters_thesis.tex
 
+% TODO: all examples as close as possible to the actual domain
+
 \chapter{Basics} % (fold)
 \label{cha:basics}
 
@@ -551,35 +553,93 @@ Wheresas retrieving a state at a certain time point is possible, it is also cumb
 \subsection{Event-Based Spatio-Temporal Data Model} % (fold)
 \label{sub:event_based_spatio_temporal_data_model}
 
-A time-based approach addresses exactly those shortcomings: They explicitly represent events or processes in the data model and associate all entities that change according to them. One example of this approach is the \emph{Event-Based Spatio-Temporal Data Model} (ESTDM) by
-\cite{peuquet95}:
-At one defined time point $t_b$, the \emph{base state}, a snapshot gets stored. From that moment on only changes relative to that base state are model. This happens in the form of events, the organizing entity of the data model. An event has a time stamp $t_i$ and a list of spatial and attribute changes associated with it. In the model for raster data introduced by \cite{peuquet95}, such a discrete change has raster components associated to it that state which raster cells change their value in this change. The events are chronologically ordered and stored in a doubly-linked list: each event knows its preceding and succeeding event.
-% TODO: how does it EXACTLY work?
+A time-based approach addresses exactly those shortcomings: They explicitly represent events or processes in the data model and associate all entities that change according to them. One example of this approach is the \emph{Event-Based Spatio-Temporal Data Model} (ESTDM) for geospatial raster data by
+\cite{peuquet95}.
 
-This model allows for efficient change tracking, and handling, due to simple insertion and deletion into and from the event list.
+At one defined time point $t_b$, the \emph{base map} in form of a snapshot gets stored. From that moment on events, the organizing entity of the data model, are stored that change the current status of the map. An event has a time stamp $t_i$ and a list of components associated with it. A component indicates which raster cells (\texttt{x}, \texttt{y}) change their state to a new value (\texttt{v}). The events are chronologically ordered and stored in a doubly-linked event list. Each event knows its preceding (\texttt{prev} pointer) and succeeding (\texttt{next} pointer) event. The data structure furthermore consists of a header file with information about the thematic domain of the model, a pointer to the base map and to the first and last element of the event list.
 
-Just like the Simple Time-Stamping method, this approach is only suitable for discrete changes but not for grdual changes. The main constraint for this thesis is that \cite{peuquet95} have developed this model only for raster data. ``The transformation of the ESTDM to a vector-based system requires a substantial redesign of event components''
-\cite[p. 11]{pelekis04stdms}.
-A main problem is to maintain the integrity of the spatial topology when a new change gets inserted not at the end of the list. A simple example shows that problem: Given geo-object $X$ is part of the inital base configuration at change $t_b$. At a later change, e.g. $t_y$ $X$ gets replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted before at time point $t_x < t_y$, then $t_y$ is not integer anymore, because object $X$ does not exist. That is why on insertion of a change, all succeeding changes have to be tested for integrity and it might be necessary to update later changes.
+% TODO: graphic
 
-% TODO: Find a model that conceptualized that for vector data
+If the time point of an event is reached, all its event components are executed. The system follows the \texttt{next} pointer to know which event is waiting to be executed next. Since a change is relative to the previous change, not to the base map, change tracking is efficient.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/event-based_spatio-temporal_data_model}
-  \caption{The Event-Based Spatio-Temporal Data Model}
-  \label{fig:event-based_spatio-temporal_data_model}
-\end{figure}
+Just like the Simple Time-Stamping method, this approach is only suitable for discrete but not for gradual changes. This problem is addressed in the \emph{ObjectOriented geomorph} model by \cite{raperlivingstone95}.
+
+However, the main constraint for this thesis is that the authors have developed this model only for raster data and have explicitly stated that ``The design of such a [vector-based] model is not seen as a straightforward task'', because of the problem ``how to maintain the integrity of spatial topology as it changes [...] The solution will require a more complex definition of components within individual events''
+\cite[p. 21]{peuquet95}.
 
 % subsection event_based_spatio_temporal_data_model (end)
 
 % ------------------------------------------------------------------------------
-\subsection{History-Graph Model} % (fold)
+\subsection{Three-Domain Model} % (fold)
+\label{sub:three_domain_model}
+
+The main problem of an event-based STDM for vector geometry including lines and polygons is handle the identity of a geo-object and its spatial, topological and attribute properties throughout the evolution
+\cite{yuan96temporal}.
+
+This problem is addressed in the \emph{Three-Domain Model} by \cite{yuan96threedomain}, an approach that handles the three domains of a spatio-temporal object separately:
+\begin{compactitem}
+  \item The \emph{semantic domain} holds an entity uniquely identifiable. An object in the semantic domain corresponds to a human concept independently from its spatial and temporal properties, e.g. a ``country'', and stores non-spatial and non-temporal attributes of the entity.
+  \item The \emph{spatial domain} represents geospatial objects in a vector representation, e.g. a polygon describing the territory of a country.
+  \item The \emph{temporal domain} stores all temporal objects, e.g. time points of events, or time intervals of processes.
+\end{compactitem}
+
+The model is not specific, but more a general abstract framework to handle space, time and identity. This makes the model very flexible, e.g. it can handle discrete and continuous changes, relative and absolute time, world and database time.
+
+% subsection three_domain_model (end)
+
+% ------------------------------------------------------------------------------
+\subsection{History Graph Model} % (fold)
 \label{sub:history_graph_model}
 
+Most of the data models introduced so far cover only static changes of geo-objects. \cite{key} identified three different types of temporal behaviour of changing objects:
+\begin{compactitem}
+  \item Dynamic objects that change continuously.
+  \item Static objects that change according to events with duration.
+  \item Static objects that change according to sudden events.
+\end{compactitem}
+
+Based on this observation he developed a data model that can handle all three kinds of temporal behaviour: The \emph{History Graph Model}. It manages objects and events separetly from each other. An object can only be in three different states:
+\begin{enumerate}
+  \item An object is \emph{static}, if it currently does not change. This is called an \emph{object version}. The version has an interval associated to it representing the duration of the object version, until it changes the next time. If the object is dynamic and changes continuously, the duration is zero.
+  \item If an object is currently \emph{changing}, it is in an \emph{object transition}. The transition has an associated interval as well, whose duration is zero if it is a sudden change. Additionally, a transition links the relevant objects to each other creating temporal predecessor-successor-relationships.
+  \item An object that is currently not active, is \emph{ceased} and not visible on the map.
+\end{enumerate}
+
+The history of a geo-object is a chronologically ordered set of versions and transitions, that can be visualized in a graph (see figure \ref{fig:history_graph_model}).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/history_graph_model}
+  \caption{The History Graph model}
+  \label{fig:history_graph_model}
+\end{figure}
+
+Renolen defines six basic types of temporal changes that can happen (see figure \ref{fig:history_graph_changes}):
+\begin{description}
+  \item[Creation]           A new object is created.
+  \item[Alteration]         A property of an object (e.g. geometry) changes.
+  \item[Cessation]          An object is ceased.
+  \item[Reincarnation]      An object that has previously been ceased is recreated.
+  \item[Split/Deduction]    An object is divided into two or more new objects or one or more objects are deducted from an existing one.
+  \item[Merge/Annexation]   Two or more objects are joined together to a new object or one or more objects are annexed to another object.
+\end{description}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/history_graph_changes}
+  \caption{Types of changes in the History Graph model}
+  \label{fig:history_graph_changes}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+consitnue here
 extension of ebstdm
-To trace historical relationships, a change can also store type of change:
-Creation, Alteration, Cessation, Reincarnation, Split/Deduction, Merge/Annexation
+  combination of event- and entity-based approach
+  direct derivation of historical relationships between geo-objects
+  linear timeline
+  supports discrete and continuous time, relative and absolute time
+  support change and movement
+  can tell the history of a geo-object
 
 % subsection history_graph_model (end)
 

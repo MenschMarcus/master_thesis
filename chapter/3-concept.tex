@@ -78,6 +78,20 @@ borders: complex model: different states of boundaries: draft -> proposal -> dis
 
 simplification: just active / inactive, normal / contested + level of certainty
 
+Hivent-Based Three-Domain Spatio-Temporal History Graph Data Model for Vector Geometry
+... or in short: HBTDSTHGDMVG
+
+A main problem is to maintain the integrity of the spatial topology when a new change gets inserted not at the end of the list. A simple example shows that problem: Given geo-object $X$ is part of the inital base configuration at change $t_b$. At a later change, e.g. $t_y$ $X$ gets replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted before at time point $t_x < t_y$, then $t_y$ is not integer anymore, because object $X$ does not exist. That is why on insertion of a change, all succeeding changes have to be tested for integrity and it might be necessary to update later changes.
+
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/event-based_spatio-temporal_data_model}
+%   \caption{The Event-Based Spatio-Temporal Data Model}
+%   \label{fig:event-based_spatio-temporal_data_model}
+% \end{figure}
+
+history graph model without changing state: active, inactive
+
 
 % ==============================================================================
 \section{Hivent} % (fold)
