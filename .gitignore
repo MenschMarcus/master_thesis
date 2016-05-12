@@ -16,7 +16,8 @@
 ## OTHER CRAP
 
 *.sublime-workspace
+# .pdf
 
 ### DATA FOLDERS
 
-state-of-the-art/
+# /state-of-the-art/
