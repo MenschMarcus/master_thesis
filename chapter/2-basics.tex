@@ -635,3 +635,133 @@ The History Graph model can be seen as an extension to the ESTDM. It combines th
 % Other popular spatio-temporal data models that are not covered in this work, because they were not seen as relevant for the domain, include the \emph{Space-Time Composite} model, the \emph{Grid Model} and the \emph{Amendment Vector Model}. Overviews about these and other spatio-temporal data models can be found in \cite{zhao11}, \cite{pelekis04stdms} and \cite{peuquet99}.
 
 % section spatio_tempora_data_models (end)
+
+% ==============================================================================
+\section{System Components} % (fold)
+\label{sec:system_components}
+
+Information systems in general and HGIS in particular have different components with different taks. One way to classify them is using the four-component model:
+
+\begin{enumerate}
+  \item \textbf{Input}: Primary acquision of spatio-temporal data, i.e. historical events, historical and current countries and their territories.
+  \item \textbf{Management}: Storage of the data in a spatio-temporal database, using a structure that fits the spatio-temporal data model.
+  \item \textbf{Analysis}: Gaining spatio-temporal information by cleaning, transforming or combining the data in database.
+  \item \textbf{Presentation}: Visualization of information on a map and a timeline, transforming information into spatio-temporal knowledge.
+\end{enumerate}
+
+
+% ------------------------------------------------------------------------------
+\subsection{Input} % (fold)
+\label{sub:input}
+
+The system needs both temporal data for the historical domain and spatial data for the historical domain.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Geographical Data} % (fold)
+\label{par:geographical_data_input}
+
+can either be acquired from existing sources or retrieved manually. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth\footnote{
+  \textit{Natural Earth},
+  URL: \url{http://www.naturalearthdata.com/downloads/},
+  last access: 30.10.2015
+}.
+There is physical data (e.g. coastlines, rivers, or glacier areas) and cultural data (e.g. political borders, cities, roads, airports or timezones). OpenStreetMap also opens its database to the public\footnote{
+  \textit{Planet OSM},
+  URL: \url{http://planet.openstreetmap.org/},
+  last access: 30.10.2015
+}.
+Additionally there is free geodata for special purposes, like regions or statistical data for the USA\footnote{
+  \textit{Free GIS Data - GIS Data Depot},
+  geocommunity,
+  URL: \url{http://data.geocomm.com/catalog/index.html},
+  last access: 30.10.2015
+}
+or terrain models and administrative regions of Germany\footnote{
+  \textit{Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie},
+  Geodatenzentrum,
+  URL: \url{http://www.geodatenzentrum.de/geodaten},
+  last access: 30.10.2015
+}.
+% paragraph geographical_data_input (end)
+
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Historical Data} % (fold)
+\label{par:historical_data_input}
+
+about historical events like treaties, agreements or declarations are not as straightforward because of the mostly qualitative nature of historical research (see section \ref{sub:history}).
+
+The most exhaustive free and open source for historical events is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}\footnote{
+  \textit{Category:Treaties},
+  Wikipedia, the free encyclopedia,
+  URL: \url{https://en.wikipedia.org/wiki/Category:Treaties},
+  last access: 13.05.2016
+}
+All sorts of historical events can be found, even translated into different languages. Some information is structured in information boxes, e.g. some historical treaties have a name, an image, a location, a signature and an effect date, an overview about treaty conditions and signatories.
+Particularily interesting are articles about historical countries \footnote{
+  \textit{List of former sovereign states},
+  Wikipedia, the free encyclopedia,
+  URL: \url{https://en.wikipedia.org/wiki/List_of_former_sovereign_states},
+  last access: 13.05.2016
+},
+because they sometimes contain information about historical relations (successors and predecessors of countries). Building an open-source Historical Geographic Information System on the basis of Wikipedia would be a huge project with significant impact on the world of free and open education --- however, it would also be a big challenge: Not all historical countries relevant events are strcutured, especially not to those who actually have an influence on a territorial change of a country, e.g. a border agreement. Retrieving, parsing and processing this information is a big challenge. Also the problem of accuracy and quality of information in the Wikipedia due to their open source nature has to be considered.
+
+
+Correlates of War
+-----------------
+
+Welcome to the Correlates of War (COW) project homepage. COW seeks to facilitate the collection, dissemination, and use of accurate and reliable quantitative data in international relations. Key principles of the project include a commitment to standard scientific principles of replication, data reliability, documentation, review, and the transparency of data collection procedures. More specifically, we are committed to the free public release of data sets to the research community, to release data in a timely manner after data collection is completed, to provide version numbers for data set and replication tracking, to provide appropriate dataset documentation, and to attempt to update, document, and distribute follow-on versions of datasets where possible. We intend to use our website as the center of our data distribution efforts, to serve as central site for collection of possible error information and questions, to provide a forum for interaction with users of Correlates of War data, and as a way for the international relations community to contribute to the continuing development of the project.
+
+\footnote{
+  \textit{Data Sets},
+  Correlates of War,
+  URL: \url{http://www.correlatesofwar.org/data-sets/folder_listing},
+  last access: 13.05.2016
+}
+
+
+United States Geological Survey
+-------------------------------
+
+The USGS is a governmental agency that collects biological, geographic, geological, hydrological, and geospatial information. Their website includes pages for geographic data in GIS, maps and geospatial data, water data for the nation, earth science data, Landsat satellite data, and USGS digital elevation models.
+
+\footnote{
+  \textit{Climate and Land Use Change -- Data and Tools Topics},
+  United States Geological Survey,
+  URL: \url{https://www.usgs.gov/products/data-and-tools/data-and-tools-topics/climate-and-land-use-change},
+  last access: 13.05.2016
+}
+
+Lots of historical economic and financial data
+\footnote{
+  \textit{Historical Data Sources},
+  Quantpedia,
+  URL: \url{http://quantpedia.com/Links/HistoricalData},
+  last access: 13.05.2016
+}
+
+
+Old Maps Online
+---------------
+data about territories: from historical maps
+
+OldMapsOnline developed out of a love of history and heritage of old maps. The project began as a collaboration between Klokan Technologies GmbH, Switzerland and The Great Britain Historical GIS Project based at the University of Portsmouth, UK thanks to funding from JISC. Since January 2013 is the project improved and maintained by volunteers and the team of Klokan Technologies GmbH in their free time.
+
+
+
+\footnote{
+  \textit{Old Maps Online},
+  URL: \url{http://www.oldmapsonline.org/},
+  last access: 13.05.2016
+}
+
+\footnote{
+  \textit{Title},
+  Author,
+  URL: \url{http://},
+  last access: 13.05.2016
+}
+
+% paragraph historical_data (end)
+
+% subsection input (end)
