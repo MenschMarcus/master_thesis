@@ -217,8 +217,10 @@ An \emph{information system} (IS) is an application that is dealing with the acq
 \cite{informationSystem}.
 If the majority of the information in a system has a spatial relation to the Earth, its surface, its lithosphere, atmosphere or the social or economical structure of its habitation, it is a \emph{geographic information system} (GIS). The data objects in the system are called \emph{geo-objects}
 \cite{bolstad2008gis}.
-If the information additionally has a temporal dimension, e.g. via time stamps or time spans, which enable to trace developments of geo-objects, it becomes an \emph{temporal} or \emph{historical geographic information system}.
-\cite{gregory2014toward}.
+If the information additionally has a temporal dimension, e.g. via time stamps or time spans, which enable to trace developments of geo-objects, it becomes an \emph{Historical Geographic Information System}
+\cite{gregory2014toward}
+or alternatively \emph{Spatio-Temporal Information Systems} (STIS)
+\cite{pelekis04stdms}.
 
 HGIS react on the spatial turn of history: the integration of geographic methods in historical research. It aims to discover the power of cartographic representation: ``The spatial turn in the humanities must [...] understand the role of space in human events''
 \cite{bodenhamer2010spatial}.
@@ -229,48 +231,39 @@ With HGIS it is possible to analyze how ``spatial patterns change over time in o
 Since ``the world never stands still'', but ``the retention of information relating to past events [is] an important element of human representation of the world'', the dimension of time has to be integrated into a GIS
 \cite{peuquet99}.
 
-Historical Geographic Information Systems consist of mainly four components: The acquisition part describes everything that is related to the input of \emph{spatio-temporal data}. It is physically stored and logically managed in a \emph{spatio-temporal database}. It will be analyzed regarding different aspects of the task in order to make sense of them: Transforming them into information that can be used to answer the question of the user. The resulting information will be presented on a display suited for space (e.g. a map) and time (e.g. a timeline). From the visualization the viewer can extract \emph{spatio-temporal knowledge}. All components will be explained in more detail in this chapter.
-
-HGIS are also called \emph{Spatio-Temporal Information Systems} (STIS)
-\cite{pelekis04stdms}.
-
 % subsection definition_and_motivation (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Components} % (fold)
+\label{sub:components}
+
+Information systems in general and HGIS in particular have different components with different taks. One way to classify them is using the four-component model:
+
+\begin{enumerate}
+  \item \textbf{Input}: Primary acquision of spatio-temporal data, i.e. historical events, historical and current countries and their territories.
+  \item \textbf{Management}: Physical storage and logical management of the data in a spatio-temporal database, using a structure that fits the spatio-temporal data model.
+  \item \textbf{Analysis}: Gaining spatio-temporal information by cleaning, transforming or combining the data in database.
+  \item \textbf{Presentation}: Visualization of information on different displays, e.g. a map and a timeline, transforming information into spatio-temporal knowledge.
+\end{enumerate}
+
+% subsection components (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Applications} % (fold)
+\label{sub:applications}
+
+list of existing st applications
+
+% subsection applications (end)
 
 % section historical_geographic_information_systems (end)
 
 
 % ==============================================================================
-\section{Spatio-Temporal Data Models} % (fold)
-\label{sec:spatio_temporal_data_models}
-\begin{quoteit}
-  ``Geography differs from geometry because \\
-  in geography, space in indivisibly coupled with time''
-\end{quoteit}
-\hfill -- Don Parkes \& Nigel Thrift (1980)
+\section{Time and Space} % (fold)
+\label{sec:time_and_space}
 
-
-A model tries to replicate a part of the real world. A data model abstracts a part of the world, identifies the most essential elements and their relation to each other. Historical Geographic Information Systems can be used to explain spatial-temporal phenomena in the real world. Therefore, it needs to handle the development of geo-objects and their attributes over time. Developments are driven by \emph{changes} to the state of an object.
-
-Based on the theory of the \emph{Triadic Framework}, there are three components involved: space (3 dimensions), time (1 dimension) and attribute (multiple dimensions). All of these dimensions can change independently from each other
-\cite[p. 53]{ott2001time}.
-However, in order to trace spatial and attribute changes over time, the dimensions have to be related to each other.
-
-% TODO: absolute time vs. relative time
-% TODO: absolute space vs. relative space
-
-Throughout the lifetime of a geo-object, it appears at some point, might undergo several changes and might disappear at some other time point. The data model has to be able to effectively and efficiently manage those changes. There are mainly two kinds: \emph{Discrete changes} are based on the idea of a \emph{state machine}: At any point in the lifetime, an object is in a certain state. It stays there until an event occurs that suddenly changes the object into a new state at a discrete time point. As an example, if an armistice agreement between two former war parties $A$ and $B$ contains a deal to cede parts of the territory of A to become territory of B, this territorial change is sudden. On a contrary, an object can gradually change according to a \emph{continuous process}, e.g. the change of the coastlines of landmasses
-\cite{peuquet99}.
-
-The spatio-temporal data models developed in the previous 30 years differ mostly in the organizing dimension: In \emph{location-based} models time is an attribute of a geo-object. On a contrary, \emph{time-based} approaches handle events and processes that change objects suddenly or gradually. \emph{Entity-based} models represent geo-objects as own entities. Spatial changes over time are related to these entities, but they are not attributes and therefore independent.
-
-
-% The basis for all models is the concept of \emph{Time Geography} by
-% \cite{haegerstrand1970}:
-% Hägerstrand argued for an orthogonal relationship between time and space and that each object can be at one location only at one time. He furthermore visualized an objects development in a \emph{space-time path}. This section will introduce the most important \emph{spatio-temporal data models} (STDM) based on this idea that are releveant for the remaining parts of the thesis.
-% TODO: version management (Wachowitz p 43)
-
-The first part of the section will explain ways to separately represent time and space in an information system. The remaining part introduces different spatio-temporal data models to maintain relations between time and space of an entity.
-
+This section will explain ways to separately represent time and space in an information system.
 
 % ------------------------------------------------------------------------------
 \subsection{Model of Geographical Space} % (fold)
@@ -405,7 +398,6 @@ or ESRI Shapefiles (\texttt{.shp})
   last access: 30.10.2015
 }.
 
-
 % paragraph raster_vs_vector_model (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -430,6 +422,14 @@ The topological vector model has a great asset: if an edge between two adjacent 
 % paragraph geospatial_topology (end)
 
 % subsection model_of_geographical_space (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Presentation of Geographic Space} % (fold)
+\label{sub:presentation_of_geographic_space}
+
+Mapsa
+
+% subsection presentation_of_geographic_space (end)
 
 
 % ------------------------------------------------------------------------------
@@ -507,12 +507,53 @@ For time spans, there are six possibile temporal topological relations (table \r
 
 % subsection model_of_historical_time (end)
 
+% ------------------------------------------------------------------------------
+\subsection{Presentation of Historical Time} % (fold)
+\label{sub:presentation_of_historical_time}
+
+Timeline
+
+% subsection presentation_of_historical_time (end)
+
+% section time_and_space (end)
+
+
+% ==============================================================================
+\section{Spatio-Temporal Data Models} % (fold)
+\label{sec:spatio_temporal_data_models}
+\begin{quoteit}
+  ``Geography differs from geometry because \\
+  in geography, space in indivisibly coupled with time''
+\end{quoteit}
+\hfill -- Don Parkes \& Nigel Thrift (1980)
+
+A model tries to replicate a part of the real world. A data model abstracts a part of the world, identifies the most essential elements and their relation to each other. Historical Geographic Information Systems can be used to explain spatial-temporal phenomena in the real world. Therefore, it needs to handle the development of geo-objects and their attributes over time. Developments are driven by \emph{changes} to the state of an object.
+
+Based on the theory of the \emph{Triadic Framework}, there are three components involved: space (3 dimensions), time (1 dimension) and attribute (multiple dimensions). All of these dimensions can change independently from each other
+\cite[p. 53]{ott2001time}.
+However, in order to trace spatial and attribute changes over time, the dimensions have to be related to each other.
+
+% TODO: absolute time vs. relative time
+% TODO: absolute space vs. relative space
+
+Throughout the lifetime of a geo-object, it appears at some point, might undergo several changes and might disappear at some other time point. The data model has to be able to effectively and efficiently manage those changes. There are mainly two kinds: \emph{Discrete changes} are based on the idea of a \emph{state machine}: At any point in the lifetime, an object is in a certain state. It stays there until an event occurs that suddenly changes the object into a new state at a discrete time point. As an example, if an armistice agreement between two former war parties $A$ and $B$ contains a deal to cede parts of the territory of A to become territory of B, this territorial change is sudden. On a contrary, an object can gradually change according to a \emph{continuous process}, e.g. the change of the coastlines of landmasses
+\cite{peuquet99}.
+
+The spatio-temporal data models developed in the previous 30 years differ mostly in the organizing dimension: In \emph{location-based} models time is an attribute of a geo-object. On a contrary, \emph{time-based} approaches handle events and processes that change objects suddenly or gradually. \emph{Entity-based} models represent geo-objects as own entities. Spatial changes over time are related to these entities, but they are not attributes and therefore independent.
+
+
+% The basis for all models is the concept of \emph{Time Geography} by
+% \cite{haegerstrand1970}:
+% Hägerstrand argued for an orthogonal relationship between time and space and that each object can be at one location only at one time. He furthermore visualized an objects development in a \emph{space-time path}. This section will introduce the most important \emph{spatio-temporal data models} (STDM) based on this idea that are releveant for the remaining parts of the thesis.
+% TODO: version management (Wachowitz p 43)
+
+This section introduces different spatio-temporal data models to maintain relations between time and space of an entity.
 
 % ------------------------------------------------------------------------------
 \subsection{Snapshot Model} % (fold)
 \label{sub:snapshot_model}
 
-The remaining part of this section will introduce data models that relate both time and space to trace developments of geo-objects over time. One of the simplest, oldest and most frequently used models is based on the idea of \emph{snapshots}: At a certain time point $t_i$, a new layer gets created. It stores the full picture of the current state of all geo-objects
+One of the simplest, oldest and most frequently used models is based on the idea of \emph{snapshots}: At a certain time point $t_i$, a new layer gets created. It stores the full picture of the current state of all geo-objects
 \cite{Langran1988frameworktgis}.
 
 \begin{figure}[H]
@@ -547,7 +588,6 @@ Another problem of the model is that it does not allow for tracing the developme
 
 This model alone is not suitable for the domain of this thesis, because it is impossible to say what exactly has happened at a certain time point. Given the example above, it is unclear if two objects unified to a new one ($B+C \to G$) or if two are successors ($B \to G$) and one just stops to exist ($C \to \emptyset$). The model is also redundant: if a geo-object replaces another one ($B \to G$), then the end date of $B$ is the same as the start date of $G$.
 % \cite[p. 46-47]{solana2014spatio}.
-
 
 % subsection simple_time_stamping (end)
 
@@ -636,154 +676,121 @@ The History Graph model can be seen as an extension to the ESTDM. It combines th
 
 % subsection history_graph_model (end)
 
-% \vspace{1em}
-% Other popular spatio-temporal data models that are not covered in this work, because they were not seen as relevant for the domain, include the \emph{Space-Time Composite} model, the \emph{Grid Model} and the \emph{Amendment Vector Model}. Overviews about these and other spatio-temporal data models can be found in \cite{zhao11}, \cite{pelekis04stdms} and \cite{peuquet99}.
+\vspace{1em}
+Other popular spatio-temporal data models that are not covered in this work, because they were not seen as relevant for the domain, include the \emph{Space-Time Composite} model, the \emph{Grid Model} and the \emph{Amendment Vector Model}. Overviews about these and other spatio-temporal data models can be found in \cite{zhao11}, \cite{pelekis04stdms} and \cite{peuquet99}.
 
 % section spatio_tempora_data_models (end)
 
-% ==============================================================================
-\section{System Components} % (fold)
-\label{sec:system_components}
-
-Information systems in general and HGIS in particular have different components with different taks. One way to classify them is using the four-component model:
-
-\begin{enumerate}
-  \item \textbf{Input}: Primary acquision of spatio-temporal data, i.e. historical events, historical and current countries and their territories.
-  \item \textbf{Management}: Storage of the data in a spatio-temporal database, using a structure that fits the spatio-temporal data model.
-  \item \textbf{Analysis}: Gaining spatio-temporal information by cleaning, transforming or combining the data in database.
-  \item \textbf{Presentation}: Visualization of information on a map and a timeline, transforming information into spatio-temporal knowledge.
-\end{enumerate}
-
-
-% ------------------------------------------------------------------------------
-\subsection{Input} % (fold)
-\label{sub:input}
-
-This HGIS needs data about historical countries, their names and borders and historical events that lead to historical changes of these countries. There are a lot of free and open sources for geographic data about the current countries, their names and borders. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth
-\footnote{
-  \textit{Natural Earth},
-  URL: \url{http://www.naturalearthdata.com/downloads/},
-  last access: 30.10.2015
-}.
-There is physical data (e.g. coastlines, rivers, or glacier areas) and cultural data (e.g. political borders, cities, roads, airports or timezones). OpenStreetMap also opens its database to the public
-\footnote{
-  \textit{Planet OSM},
-  URL: \url{http://planet.openstreetmap.org/},
-  last access: 30.10.2015
-}.
-
-However, data about historical countries and events are not as straightforward to aquire, because of the mostly qualitative nature of historical research (see section \ref{sub:history}). The most exhaustive free and open source of historical is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}
-\footnote{
-  \textit{Category:Treaties},
-  Wikipedia, the free encyclopedia,\\
-  URL: \url{https://en.wikipedia.org/wiki/Category:Treaties},
-  last access: 13.05.2016
-}.
-All sorts of historical events can be found, even translated into different languages. Some information is structured in information boxes, e.g. some historical treaties have a name, an image, a location, a signature and an effect date, an overview about treaty conditions and signatories. Particularily interesting for this thesis are articles about historical countries
-\footnote{
-  \textit{List of former sovereign states},
-  Wikipedia, the free encyclopedia,
-  URL: \url{https://en.wikipedia.org/wiki/List_of_former_sovereign_states},
-  last access: 13.05.2016
-},
-because they contain the name of the country and meta information, e.g. their historical successors and predecessors. Building an open-source Historical Geographic Information System on the basis of Wikipedia would be a huge project with significant impact on the world of free and open education --- however, it would also be a big challenge: Wikipedia is incomplete, not all historical countries and events necessary to model the history of the world are available. It is also inconsistent, because not all articles about historical countries and events are structured, especially not to those who actually have an influence on a territorial change of a country, e.g. a border agreement. Retrieving, parsing and processing this information is a big challenge. Also the problem of accuracy and quality of information in the Wikipedia due to their open source nature has to be considered. Overall, using the Wikipedia as a data source for this thesis is not feasible, but is subject to further research.
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Historical maps} % (fold)
-\label{par:historical_map}
-
-The most problematic data to acquire is about the territories and borders of historical countries. There is no primary data source for that, so the only way to retrieve a border is to extract it from an historical map.
-
-They also can be found on Wikipedia, or in historical map colletions, e.g. \emph{OldMapsOnline}. The project is developed ``out of a love of history and heritage of old maps'' and currently stores about 400000 historical maps
-\footnote{
-  \textit{Old Maps Online},
-  URL: \url{http://www.oldmapsonline.org/},
-  last access: 13.05.2016
-}.
-There are five steps to retrieve a border with points in geographic coordinates from an historical map.
-\begin{enumerate}
-  \item \textbf{Digitization}: If the map is on paper, it has to be scanned in the best possible quality. The result is a raster graphic.
-  \item \textbf{Georeferencing}: The historical map has to fit as good possible on the reference map. This requires to manually define a set of reference points which are used to transform the map into the geographic coordinate system. This process is error-prone, especially if the projection of the historical map is not known and the map itself is not accurate
-  \cite[pp. xvii]{knowles2002past}.
-  The outcome is a raster graphic in which each pixel is assigned a geographic coordinate.
-  \item \textbf{Preprocessing}: The raster image has to be be processed so that the desired border stands out and can be traced in the next step. This happens via greyscale conversion, thresholding or the Canny Edge Detector. This results in a monochrome graphic in which the desired border must be uninterrupted and clearly be seen.
-  \item \textbf{Line detection}: By selecting a start and an end point of the border, the line gets traced automatically. This step vectorizes one particular feature, a borderline, from the raster graphic and produces a polyline in geographic coordinates.
-  \item \textbf{Postprocessing}: In the last step, the polyline can be adapted: The line can be simplified to reduce unnatural artifacts and the position of border points can be manually edited. The final output of the whole process is a polyline whose points are expressed in the geographic coordinate system which can be used in the system as a border of an historic country.
-\end{enumerate}
-
-This process was developed in a preceding \emph{HiBo} project
-\footnotetext{
-  \textit{HiBo - semi-automatic extraction of borders from historical maps},
-  Project of: B. Weber, N. K. Dankwa, K. Singh and T. Kashyappan, supervised by: Prof. Volker Rodehorst and Marcus Kossatz, Bauhaus-Universität Weimar, February 2015,
-  URL: \url{https://bitbucket.org/bastian_weber/hibo},
-  last access: 29.10.2015
-}
-(see figure \ref{fig:hibo}).
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=0.95\linewidth]{graphics/basics/hibo1.png}
-    \caption{Georeferencing}
-  \end{subfigure}
-  \begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=0.95\linewidth]{graphics/basics/hibo2.png}
-    \caption{Semi-automatic digitizing}
-  \end{subfigure}
-  \caption{Semi-automatic extraction of a border from a map of the Roman Empire \protect\footnotemark}
-  \label{fig:hibo}
-\end{figure}
-
-% paragraph historical_map (end)
-
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Manual data input} % (fold)
-\label{par:manual_data_input}
-
-For the domain of this HGIS, the development of countries over time, there is no complete dataset available. Therefore, the system developed in this thesis needs to have an interface to enter historical data. The user needs to have an interface to enter information about historical events that change territories and names of historical countries. This data has to be acuired either from primary historical sources directly, or from free online sources. Next to Wikipedia, there are other collections of historical events, e.g. \emph{Correlates of War}
-\footnote{
-  \textit{Data Sets},
-  Correlates of War,
-  URL: \url{http://www.correlatesofwar.org/data-sets/folder_listing},
-  last access: 13.05.2016
-}
-for quantitative data about international relations.
-% paragraph manual_data_input (end)
-
-% subsection input (end)
-
-% ------------------------------------------------------------------------------
-\subsection{Management} % (fold)
-\label{sub:management}
-
-
-% section management (end)
-
-% ------------------------------------------------------------------------------
-\subsection{Analysis} % (fold)
-\label{sub:analysis}
-
-% subsection analysis (end)
-
-% ------------------------------------------------------------------------------
-\subsection{Presentation} % (fold)
-\label{sub:presentation}
-
-
-% subsection presentation (end)
-
-% section system_components (end)
 
 % ==============================================================================
-\section{Application} % (fold)
-\label{sec:application}
+\section{Database Management Systems} % (fold)
+\label{sec:database_management_systems}
 
-existing applications
+Information systems use databases for managing the data. A \emph{Database Management System} (DBMS) is a software system for the administration of data, mainly storage and retrieval. There are mainly two types of DBMS: the oldest and most common ones are \emph{Relational DBMS}. \emph{Object-Oriented DBMS} werde developed to adapt concepts of object-oriented programming into the database world. The combination of both approaches are \emph{Object-Relational DBMS}.
 
-% section application (end)
+% ------------------------------------------------------------------------------
+\subsection{Relational Database Management Systems} % (fold)
+\label{sub:relational_database_management_systems}
+
+RDBMS are built upon the concept of \emph{entitities}, e.g. an \texttt{HistoricalCountry}, with \emph{attributes}, e.g. \texttt{name} and attribute values of a simple data type, e.g. the character string \texttt{"Germany"}. Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, mostly a contiguous number.
+
+Entities can be related to each other in three different kinds of \emph{relations}:
+\begin{compactenum}
+  \item[\texttt{1:1}] Direct attributional relation, e.g. one country has one head of state and vice versa.
+  \item[\texttt{1:n}] One-to-many relation, e.g. one country can have many cities, but each city can belong to only one country.
+  \item[\texttt{m:n}] Many-to-many relation, e.g. one country can have many rivers, but each river can also flow through multiple countries.
+\end{compactenum}
+
+Entities and their relations are visualized in an \emph{Entity-Relationship Model} (ER model). Data can be retrieved from and entered into a relational database using the \emph{Structural Query Language} (SQL). The query to get the names of cities in \texttt{Germany} in alphabetical order is:
+
+\vspace{-1em}
+\begin{verbatimtab}
+  SELECT     city.id, city.name
+  FROM       (city JOIN country ON city.country = country.id)
+  WHERE      country.name = "Thüringen"
+  ORDER BY   city.name
+\end{verbatimtab}
+\vspace{-1em}
+
+The first RDBM developed was \emph{Oracle}, released in 1979 \cite{oracleDB}. Since then, the concept has been established as the state-of-the-art for databases. An example for a popular RDBMS used for Web-bases systems is \emph{MySQL}, the ``world's most popular open source database''
+\footnote{
+  \textit{MySQL :: About MySQL},
+  URL: \url{https://www.mysql.com/about/},
+  last access: 31.10.2015
+}.
+
+
+% subsection relational_database_management_systems (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Object-Oriented Database Management Systems} % (fold)
+\label{sub:object_oriented_database_management_systems}
+
+One problem with RDBMS is that attributes can only be assigned simple data types. Developers using object-oriented programming need to map the objects used in the application to tuples in the relational database -- and vice versa data from the database needs to be transformed to objects in the application. This process can be cumbersome. OODBMS have been developed to address this problem and adopt the concepts of object-oriented programming for database management purposes \cite{oodbms}.
+
+\begin{itemize}
+  \item \emph{Classes} are the structured representation of things in the real world of the same kind, with the same properties, e.g. a country, having a name and a territory. Classes in OODBMS relate to Entities in RDBMS.
+  \item An \emph{object} is an instance of a class, one specific thing with defined properties, e.g. the country of Germany with its territory. This correlates to a tuple in RDBMS.
+  \begin{itemize}
+    \item The \emph{attributes} of an object can not just be of a simple data type, but also instances of other classes, e.g. \texttt{country.territory} can be a \texttt{polypolygon} object. These complex data types are a major improvement compared to RDBMS.
+    \item Objects also have \emph{methods} that can be called to do something with the object, e.g. \texttt{territory.getArea()} calculates the area size of a country.
+  \end{itemize}
+  \item The internal state of an object can not be accessed from the outside. Methods are the only way to interact with an object. This is called \emph{encapsulation} and maintains control over what can be done to and with an object and prevents corruption.
+  \item According to the concept of \emph{inheritance}, classes can be hierarchically structured, whereas the attributes and the methods of a \emph{base class} are inherited to its \emph{derived class}. As an example, an \texttt{Area} has a \texttt{name}, a \texttt{territory} and the method \texttt{getArea()} associated to it. A \texttt{Country} can be derived from the \texttt{Area}, inheriting both attributes and the method. Additionally, it can get an attribute \texttt{head\_of\_state}, which is specific to \texttt{Country}, but not to \texttt{Area}. The class \texttt{Ocean} can just as well be derived from \texttt{Area}.
+  \item An associated concept is \emph{polymorphism}: The same function can be called on different objects and the return value will be of the same type. However, internally it might be calculated differently. As an example, consider the classes \texttt{Polygon} and \texttt{Polypolygon}, both inherited the method \texttt{getArea()} from their base class \texttt{Geometry}. Whereas a polygon calculates its area directly based on its geometry, a polypolygon internally calles the function \texttt{getArea()} on all its associated polygons and sums up their areas.
+\end{itemize}
+
+OODBMS support all those concept and allow to store the objects used in the application directly in the database. Additionally, objects from the database can be accessed directly, there is no need for an additional query language \cite{oodbms}.
+
+% subsection object_oriented_database_management_systems (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Object-Relational Database Management Systems} % (fold)
+\label{sub:object_relational_database_management_systems}
+
+ORDBMS combine the advantages of both worlds. Internally, it uses the established and efficient relational database for the data storage. The database model and the interaction with the data happens in an object-oriented way while supporting all of the concepts mentioned in the previous subsection \ref{sub:object_oriented_database_management_systems}. The most popular ORDBMS example for Web-based systems is \emph{PostgreSQL}, ``the world's most advanced open source database''
+\footnote{
+  \textit{PostgreSQL: About},
+  URL: \url{http://www.postgresql.org/about/},
+  last access: 31.10.2015
+}.
+
+% subsection object_relational_database_management_systems (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Spatio-Temporal Databases} % (fold)
+\label{par:spatial_databases}
+
+Databases for HGIS have to deal with spatial, temporal and attribute data. Spatial data can easily become very large, because of large amounts of coordinates. \emph{Spatial databases} are specialized to work with spatial data: they process the data effieciently and to provide general data types, such as \texttt{Point} or \texttt{Polygon} and methods, e.g. to calculate the area or the distance between two points. \emph{PostGIS} is an extension for PostgreSQL that is especially utilized for GIS
+\footnote{
+  \textit{PostGIS},
+  URL: \url{http://postgis.net/},
+  last access: 31.10.2015
+}.
+
+According to the Triadic Frame, the temporal aspect should be modeled separately from the spatial one. The temporal dimension of an event can be defined either by a time point or a time frame which is defined by two time points itself. A time point can be modeled in the database as an attribute with a \texttt{Date} object. Therefore, there is no additional framework or extension necessary.
+
+% TIME IN ASPATIAL DATABASES
+\cite[section 6]{peuquet99}
+
+% Spatio-Temporal Data Type (STT)
+time not as an attribute of space -> special entity
+spatio-temporal object model (everything is an object)
+  separate classes for Space and Time
+  -> aggregation to SpatioTemporal class
+  each object with temporal and spatial extension (start + end date, full geo)
+operators for time and space
+time in YYY-MM-DD (ISO 8601 standard)
+  `NOW' = still existing = no end date
+\cite{raza12}
+
+
+% Spatio-Temporal Object-Oriented Data Models (STOODM)
+\cite[section 3.9.]{pelekis04stdms}
+
+% subsection spatial_databases (end)
+
+% section database_management_systems (end)
 
 
 \vspace{2em}
