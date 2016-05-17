@@ -37,14 +37,14 @@ History is ``an ideal field for thinking long and hard about important questions
 \cite{ahaFiveCs}.
 The Greek word \emph{\textIota\textsigma\texttau\textomikron\textrho\textiota\textalpha / historia}, meaning ``finding out, learning through research, narration of what is learned'', is the origin
 \footnote{
-  \textit{History},
+  \emph{History},
   Dictionary.com, based on Random House Dictionary, 2015,
   URL: \url{http://dictionary.reference.com/browse/history},
   last access: 23.10.2015
 }
 and it signifies the two main modern usage forms of the term: To research about and learning something and to tell a story. There are many different definitions of the word \emph{history}
 \footnote{
-  \textit{History},
+  \emph{History},
   Merriam Webster -- an Encyclopædia Britannica Company,
   URL: \url{http://www.merriam-webster.com/dictionary/history},
   last access: 23.10.2015
@@ -80,7 +80,7 @@ A special focus in this thesis is laid on historical maps as primary source to e
 
 The term ``geography'' comes from Greek ~\emph{\textgamma\textepsilon\textomega\textgamma\textrho\textalpha\textphi\textiota\textalpha / geographia}~, literally ``describing the earth.''
 \footnote{
-  \textit{Geography},
+  \emph{Geography},
   Dictionary.com, based on Random House Dictionary, 2015,
   URL: \url{http://dictionary.reference.com/browse/geography},
   last access: 23.10.2015
@@ -99,7 +99,7 @@ It focuses on the interconnectivity between elements of physical and human geogr
 
 Geographers use different technology and techniques to analyze geographic processes and to answer their research questions. The oldest and most important among those are maps. A map is a graphical expression of something that is not tangible: a part of the real world. A map shows the physical, environmental, political, economical or social properties of the Earth in order for the user of the map to get the most relevant information for his task, may it be orientation, learning or teaching. The ``art and science of making maps'' is the field of \emph{cartography}
 \footnote{
-  \textit{History of maps and cartography},
+  \emph{History of maps and cartography},
   James S. Aber,
   URL: \url{http://academic.emporia.edu/aberjame/map/h_map/h_map.htm},
   last access: 24.10.2015
@@ -114,7 +114,7 @@ Geographers use different technology and techniques to analyze geographic proces
 \paragraph{Comparison between geography and history} % (fold)
 \label{par:comparison_of_geography_and_history}
 
-Both research fields utilize maps for their research questions, which is the main commonality for the work of this thesis. However, the nature of both fields are also very different, illustrated in table \ref{tab:history_vs_geography}.
+Both research fields utilize maps for answering their research questions, which is the main commonality for the work of this thesis. However, the nature of both fields are also very different, illustrated in table \ref{tab:history_vs_geography}.
 
 \begin{table}[ht]
 \begin{center}
@@ -210,8 +210,8 @@ A system has defined spatial and temporal boundaries. There are two types: \emph
 % subsection system (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Definition and Motivation} % (fold)
-\label{sub:definition_and_motivation}
+\subsection{Motivation} % (fold)
+\label{sub:motivation}
 
 An \emph{information system} (IS) is an application that is dealing with the acquisition, management, analysis and presentation of information. It is the unity of all its components and their interaction with each other
 \cite{informationSystem}.
@@ -231,13 +231,30 @@ With HGIS it is possible to analyze how ``spatial patterns change over time in o
 Since ``the world never stands still'', but ``the retention of information relating to past events [is] an important element of human representation of the world'', the dimension of time has to be integrated into a GIS
 \cite{peuquet99}.
 
-% subsection definition_and_motivation (end)
+HGIS are rather recent tools and used mostly in \emph{Digital Humanities} as a digital tool to answer research questions in the traditional fields of humanities: ``situating history in its geographical context and using geographic information to illuminate the past''
+\cite[p. 3]{knowles2008placing}.
+Some interesting research questions that could be answered using HGIS could be:
+
+\begin{compactitem}
+  \item Did the European Union help to bring peace on the European continent?
+  \hfill \emph{(political)}
+  \item Is there a coherence between life expectancy and fertility rate?
+  \hfill \emph{(social)}
+  \item What is the effect of global warming on the melting of glaciers?
+  \hfill \emph{(physical)}
+  \item What was the effect of Bismarck's foreign policy on peace in Europe?
+  \hfill \emph{(historical)}
+\end{compactitem}
+
+Or on a more abstract level: Where and When has something changed and why did it change?
+
+% subsection motivation (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Components} % (fold)
 \label{sub:components}
 
-Information systems in general and HGIS in particular have different components with different taks. One way to classify them is using the four-component model:
+Information systems in general are based on a data model --- HGIS in particular on a \emph{spatio-temporal data model}, introduced in section \ref{sec:spatio_temporal_data_models}. On top of that, there are different components. One way to classify them is using the four-component model:
 
 \begin{enumerate}
   \item \textbf{Input}: Primary acquision of spatio-temporal data, i.e. historical events, historical and current countries and their territories.
@@ -252,7 +269,60 @@ Information systems in general and HGIS in particular have different components 
 \subsection{Applications} % (fold)
 \label{sub:applications}
 
-list of existing st applications
+``Today, operational temporal GIS does not exist''. This quote summarizes the state of the art in this field. The main reasons are ``the complexity of integrating space and time and the lack of standards''
+\cite[p. 5]{raza12}.
+
+However, there are numerous project that use HGIS for one specific research question. A large collection them can be found in \cite{knowles2008placing} and \cite{gregory2014toward}. A famous visualization combining time and space Napoleons Moscow Campaign by Charles Minard from 1869 (see figure \ref{fig:minard_napoleon}). The ``best statistical graphic ever drawn''
+\footnote{
+  \emph{The Visual Display of Quantitative Information} (p. 40),
+  Edward R. Tufte,
+  2001
+}
+shows the number of men in Napoleon’s 1812 Russian campaign army, their movements, as well as the temperature they encountered on the return path
+\cite[pp. 188-191]{knowles2008placing}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/napoleon_march_moscow.png}
+  \caption{Napoleons Moscow Campaign \protect\footnotemark}
+  \label{fig:minard_napoleon}
+\end{figure}
+
+\footnotetext{
+  \emph{Minard.png}
+  Charles Minard, 1869,
+  URL: \url{https://commons.wikimedia.org/wiki/File:Minard.png},
+  last access: 03.11.2015,
+}
+
+The \emph{Great Britain Historical GIS Project} (GBHGIS)
+\footnote{
+  \textit{Great Britain Historical Geographical Information System (GBHGIS)},
+  Ian Gregory \& Humphrey R. Southall, University of Portsmouth, since 1994,
+  URL: \url{http://www.port.ac.uk/research/gbhgis/},
+  last access: 02.11.2015
+}
+combines statistical data with territorial units of the United Kingdom, e.g. to analyze net migration in the districts in UK. The data is collected by the \emph{British Ordnance Survey}, who automatically detect spatial changes to the geography and land use of the United Kingdom using aerial photography
+\footnote{
+  \textit{British Ordnance Survey},
+  URL: \url{https://www.ordnancesurvey.co.uk/education-research/research/automatic-change-detection.html},
+  last access: 02.11.2015
+}.
+
+The \emph{National Historical Geographic Information System} (NHGIS)
+\footnote{
+  \textit{Welcome to NHGIS},
+  Minnesota Population Center, University of Minnesota,
+  since 2007,
+  URL: \url{},
+  last access: 02.11.2015
+}
+provides the digital boundaries of the United States of America and census data for each year since 1790.
+% \cite{aerialInterpolation}
+While the data in the system is extensive, the interface to analyze and use the data is very frustrating to use: A tutorial is necessary to go through the selection process. To download data, a user has to register, receive an email with a link to download a compressed file which has to be decompressed and then loaded into a GIS software to be visualized.
+
+HGIS are not widely accepted in the humanities. One reason is the nature of the qualitative historical research: historic sources are subjective and biased, their content may be fuzzy and they are definitely incomplete. So the knowledge that can be extracted from a source bears the integral problem of \emph{uncertainty}. Information systems on the other hand have a logical architecture and, to be as precise and accurate as possible. Analysis is based on mathematical functions -- an information system is quantitative in its entire nature
+\cite[p. 2]{knowles2008placing}.
 
 % subsection applications (end)
 
@@ -263,7 +333,7 @@ list of existing st applications
 \section{Time and Space} % (fold)
 \label{sec:time_and_space}
 
-This section will explain ways to separately represent time and space in an information system.
+This section will explain ways to separately represent time and space in an information system. It will first explain the geospatial data model used in traditional GIS and then introduce maps as the representation of spatial information. In the second part of the chapter, models to represent the temporal dimension are introduced.
 
 % ------------------------------------------------------------------------------
 \subsection{Model of Geographical Space} % (fold)
@@ -347,7 +417,7 @@ The model is simple and allows straightforward rendering: only affine transforma
 \cite[pp.42-48]{bolstad2008gis}.
 Raster graphics are used for map tiles by most map engines, e.g. in OpenStreetMap or the satellite image by NASA in Google Maps.
 % \footnote{
-%   \textit{Google Maps},
+%   \emph{Google Maps},
 %   URL: \url{https://www.google.com/maps/@51.2090662,13.2328189,3563505m/data=!3m1!1e3},
 %   Imagery \textcopyright2015 Landsat, Data SIO, NOAA, U.S. Navy, NGA, GEBCO, IBCAO, U.S. Geological Survey, Map data \textcopyright2015 Google, ORION-ME,
 %   last access: 29.10.2015
@@ -378,21 +448,21 @@ In the two-dimensional \emph{vector model}, each object is a mathematically desc
 Scale-independence is one of the biggest advantages of a vector model. The data model is more compact in comparison to the raster model. On the other hand, the model can become very complex. Since vector data has to be rasterized to be shown on the screen, the computational effort increases with complexity \cite[pp.33-42]{bolstad2008gis}.
 Vector models are suitable to represent phenomena that can easily to discretized, e.g. the boundaries of a country. Common file types for vector data with spatial reference are the open file format GeoJSON (\texttt{.geojson})
 \footnote{
-  \textit{GeoJSON},
+  \emph{GeoJSON},
   IETF GeoJSON Working Group,
   URL: \url{http://geojson.org/},
   last access: 30.10.2015
 }
 % and Scalable Vector Graphics (\texttt{.svg})
 % \footnote{
-%   \textit{W3C SVG Working Group},
+%   \emph{W3C SVG Working Group},
 %   IETF Geographic JSON Working Group,
 %   URL: \url{http://www.w3.org/Graphics/SVG/},
 %   last access: 30.10.2015
 % }
 or ESRI Shapefiles (\texttt{.shp})
 \footnote{
-  \textit{ESRI Shapefile Technical Description},
+  \emph{ESRI Shapefile Technical Description},
   ESRI White Paper, July 1998,
   URL: \url{http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf},
   last access: 30.10.2015
@@ -427,7 +497,80 @@ The topological vector model has a great asset: if an edge between two adjacent 
 \subsection{Presentation of Geographic Space} % (fold)
 \label{sub:presentation_of_geographic_space}
 
-Mapsa
+The most common ways to present geographic space are two-dimensional \emph{maps} and three-dimensional \emph{globes}. The HGIS in this thesis will use a map to show the development of countries over time. A map is a discrete graphical expression of the geographical features of the continuous real world. The creation of a map is not just a scientific, but also a creative process: The form, function and interaction methods shall follow the purpose of the usage of the map.
+
+A map is typically structured according to the \emph{layer} principle: Each layer is a transparent film showing one specific aspect, e.g. a physical layer showing coastlines, mountains or forests, a political layer showing international borders or a cultural layer showing cities or population densities. The layers are interchangeable, can be switched on and off and serve to serve a different visualization purpose. A \emph{legend} including the scale bar and north arrow shall explain all symbols used on the map and give orientation. In interactive web based systems, there should be \emph{menus} with different visualization options, e.g. panning and zooming on the map, switching map layers on and off or changing the color scheme of the map
+\cite[pp. 159-166]{bolstad2008gis}.
+
+\emph{Leaflet.js} is ``an open-source JavaScript library for mobile-friendly interactive maps''
+\footnote{
+  \textit{Leaflet - JavaScript library for interactive maps},
+  URL: \url{http://leafletjs.com/},
+  last access: 02.11.2015
+}
+that offers functionality to embed a map with a chosen projection in on the client-side of a web based information system, use own map tiles, symbols and markers on the map and tools for zooming and panning.
+
+\paragraph{Map projections} % (fold)
+\label{par:map_projections}
+
+Since the Earth is three-dimensional, but the map on the computer screen only two-dimensional, the model of the Earth has to be projected onto the map. But as previously discussed in subsection \ref{par:the_shape_of_the_earth}, the Earth is an inhomogeneous spherical object with a curved surface whereas the map is flat
+\cite[p.79]{bolstad2008gis}.
+That is why some features of the Earth will be distorted on the map: An \emph{equivalent projection} preserves the area sizes of features on the map, whereas a \emph{conformal projection} preserves angles and the shapes of objects. Every map projection that is area-preserving distorts shapes at the same time, and each shape-preserving map distrots areas to some degree. There is no perfect map projection.
+\cite{mapProjectionGeokov}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.59\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{graphics/basics/projection_distortion_lambert.png}
+    \caption{equivalent Lambert projection \protect\footnotemark}
+  \end{subfigure}
+  \begin{subfigure}{0.39\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{graphics/basics/projection_distortion_mercator.png}
+    \caption{conformal Mercator projection \protect\footnotemark}
+  \end{subfigure}
+  \caption{Comparison of equivalent and conformal map projections}
+  \label{fig:lambert_vs_mercator}
+\end{figure}
+
+% reset footnotecounter by 1 (for left subfigure caption)
+\addtocounter{footnote}{-1}
+\footnotetext{
+  \textit{Tissot indicatrix world map equirectangular proj},
+  Eric Gaba / Sting (Wikimedia), June 2008
+  URL: \url{https://commons.wikimedia.org/wiki/File:Tissot_indicatrix_world_map_equirectangular_proj.svg},
+  last access: 28.10.2015
+}
+
+% set footnotecounter to next footnote (for right subfigure caption)
+\addtocounter{footnote}{1} % count to next footnote
+\footnotetext{
+  \textit{Logo of the United Nations},
+  Shizhao (Wikimedia), 13.06.2007
+  URL: \url{https://commons.wikimedia.org/wiki/File:Logo_of_the_United_Nations_(B\%26W).svg},
+  last access: 28.10.2015,
+  Comment: This work is excerpted from an official document of the United Nations prior to 17. September 1987.
+}
+
+A compromise between preserving areas and shapes is the \emph{Robinson projection}. It is neither conformal, nor equivalent, but provides a reasonable trade-off between both properties.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.65\textwidth]{graphics/basics/projection_distortion_robinson.png}
+  \caption{Robinson projection \protect\footnotemark}
+  \label{fig:robinson_projection}
+\end{figure}
+
+\footnotetext{
+  \textit{Tissot indicatrix world map Robinson},
+  Eric Gaba / Sting (Wikimedia), June 2008
+  URL: \url{https://commons.wikimedia.org/wiki/File:Tissot_indicatrix_world_map_Robinson_proj.svg},
+  last access: 28.10.2015
+}
+
+% paragraph map_projections (end)
+
 
 % subsection presentation_of_geographic_space (end)
 
@@ -453,9 +596,6 @@ The position of an event on the timeline is described by its date using a reason
 
 The simplest categorization is between a discrete \emph{event} and a continuous \emph{process}. Events can happen at a certain \emph{time point} or like processes in a \emph{time interval} or \emph{time period}, defined by two time points. An information system that stores events with a significant outcome regarding the geo-objects in the system, is an \emph{event-based historical geographic information system}. On the other hand, a \emph{process-based historical geographic information system} models mainly processes as a series of events of one kind regarding a small set of geo-objects
 \cite[chapter 2, pp. 47-49]{solana2014spatio}.
-
-When storing time related information in an information system, it is furthermore important to distinguish between the time that was true in reality (\emph{valid time} or \emph{world time}) and the time it was stored in the database (\emph{transaction time} or \emph{database time})
-\cite[p. 69]{ott2001time}.
 
 The Taxonomic Model of Time by
 \cite{frank98typesoftime}
@@ -498,7 +638,7 @@ For time spans, there are six possibile temporal topological relations (table \r
     {\includegraphics{graphics/basics/temporal_relations/ends}} \\
     % \bottomrule
 \end{tabular}
-\caption{Temporal relations of time spans, based on \cite{allen84theoryofactionandtime}}
+\caption{Temporal relations of time spans, based on \cite{allen84}}
 \label{tab:temporal_relations}
 \end{center}
 \end{table}
@@ -511,7 +651,38 @@ For time spans, there are six possibile temporal topological relations (table \r
 \subsection{Presentation of Historical Time} % (fold)
 \label{sub:presentation_of_historical_time}
 
-Timeline
+In contrast to space, time does not have an intrinsic representation. However, the most common form to visualize cyclic time is on a cyclic display, e.g. a time wheel or a clock. Linear time is very often visualized on a \emph{timeline}. The purpose of a timeline is to show events as time points or processes as time intervals in chonological order. A timeline additionally shows time markers showing a certain date to support orientation. A timeline uses a certain time scale:
+
+\begin{itemize}
+  \item On a \emph{linear} timeline, the distance between any two time points is directly proportional to their actual temporal distance.
+  \item A \emph{logarithmic} timeline uses a logarithmic function to scale the depicted time. Relative to a reference point on the timeline, e.g. the timeline center, the further away a time point, the further away its position on the timeline -- however, the distance between the time point and the reference point does not increasy linearily, but logarithmically. That means, events that are further away do not appear as far. This time scale accounts for logarithmic human perception: events that happened 20 years ago do not seem to be twice as long ago as events happening 10 years ago
+  \cite{logorlinear}.
+  \item A timeline can also have an \emph{irregular} scale, e.g. to have the same absolute distance of events on the timeline. This is useful if the distribution of the events on the timeline are far from homogeneous.
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/timelines/timelines}
+  \caption{Comparison between a linear, a logarithmic and an irregular timeline}
+  \label{fig:timelines}
+\end{figure}
+
+The visualization of time can be separate from the spatial dimension, according to the Triadic Framework, e.g. with a timeline. In another approach, space and time can also be coupled and displayed in the same presentation display, e.g. in a space-time cube \cite{haegerstrand1970}.
+
+
+% temporal domain
+%   linear time
+%     time line
+%     time series: graph (t,y coordinate system)
+%     2.5D map: temporal dimension on z axis or on surface
+%     space-time path
+%   cyclic time
+%     time series: polar diagram
+%     time wheel
+%   both
+%     mono-temporal: one layer -> one time point
+%     multi-temporal: one layer -> multiple time points
+% \cite[p. 144]{ott2001time}
 
 % subsection presentation_of_historical_time (end)
 
@@ -714,7 +885,7 @@ Entities and their relations are visualized in an \emph{Entity-Relationship Mode
 
 The first RDBM developed was \emph{Oracle}, released in 1979 \cite{oracleDB}. Since then, the concept has been established as the state-of-the-art for databases. An example for a popular RDBMS used for Web-bases systems is \emph{MySQL}, the ``world's most popular open source database''
 \footnote{
-  \textit{MySQL :: About MySQL},
+  \emph{MySQL :: About MySQL},
   URL: \url{https://www.mysql.com/about/},
   last access: 31.10.2015
 }.
@@ -750,7 +921,7 @@ OODBMS support all those concept and allow to store the objects used in the appl
 
 ORDBMS combine the advantages of both worlds. Internally, it uses the established and efficient relational database for the data storage. The database model and the interaction with the data happens in an object-oriented way while supporting all of the concepts mentioned in the previous subsection \ref{sub:object_oriented_database_management_systems}. The most popular ORDBMS example for Web-based systems is \emph{PostgreSQL}, ``the world's most advanced open source database''
 \footnote{
-  \textit{PostgreSQL: About},
+  \emph{PostgreSQL: About},
   URL: \url{http://www.postgresql.org/about/},
   last access: 31.10.2015
 }.
@@ -761,37 +932,76 @@ ORDBMS combine the advantages of both worlds. Internally, it uses the establishe
 \subsection{Spatio-Temporal Databases} % (fold)
 \label{par:spatial_databases}
 
-Databases for HGIS have to deal with spatial, temporal and attribute data. Spatial data can easily become very large, because of large amounts of coordinates. \emph{Spatial databases} are specialized to work with spatial data: they process the data effieciently and to provide general data types, such as \texttt{Point} or \texttt{Polygon} and methods, e.g. to calculate the area or the distance between two points. \emph{PostGIS} is an extension for PostgreSQL that is especially utilized for GIS
+Databases for HGIS have to deal with spatial, temporal and attribute data. According to the Triadic Frame, these aspects should be modeled separately from each other, as they can change independently.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Spatial data} % (fold)
+\label{par:spatial_data}
+
+can easily become very large, because of the mass of very precise coordinate data. \emph{Spatial databases} are specialized to work with spatial data: they process the data effieciently and to provide general data types, such as \texttt{Point} or \texttt{Polygon} and methods, e.g. to calculate the area or the distance between two points. \emph{PostGIS}
 \footnote{
-  \textit{PostGIS},
+  \emph{PostGIS},
   URL: \url{http://postgis.net/},
   last access: 31.10.2015
-}.
+}
+is an extension for PostgreSQL that is especially utilized for handling spatial data.
 
-According to the Triadic Frame, the temporal aspect should be modeled separately from the spatial one. The temporal dimension of an event can be defined either by a time point or a time frame which is defined by two time points itself. A time point can be modeled in the database as an attribute with a \texttt{Date} object. Therefore, there is no additional framework or extension necessary.
-
-% TIME IN ASPATIAL DATABASES
-\cite[section 6]{peuquet99}
-
-% Spatio-Temporal Data Type (STT)
-time not as an attribute of space -> special entity
-spatio-temporal object model (everything is an object)
-  separate classes for Space and Time
-  -> aggregation to SpatioTemporal class
-  each object with temporal and spatial extension (start + end date, full geo)
-operators for time and space
-time in YYY-MM-DD (ISO 8601 standard)
-  `NOW' = still existing = no end date
-\cite{raza12}
+% paragraph spatial_data (end)
 
 
-% Spatio-Temporal Object-Oriented Data Models (STOODM)
-\cite[section 3.9.]{pelekis04stdms}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Temporal data} % (fold)
+\label{par:temporal_data}
 
-% subsection spatial_databases (end)
+usually relates to events and processes. It is defined either by a time point or a time interval which is again defined by two time points. This is called a \emph{bitemporal} element. A time point can be modeled in the database as an attribute of the complex \texttt{Date} type. For relational databases that only support simple data types, the date can be stored as a string or be expressed with a \texttt{long} integer (64 bit) $\forall n \in \mathbb{N}: n \in [-2^{63}~..~2^{63}-1]$) determining the number of milliseconds since \nth{1} January 1970 (UNIX time) \cite{timeInRDBMS}. SQL was extended by features to handle time in a database, e.g. \emph{SQL/MM} \cite[chapter 6]{peuquet99}.
+
+% paragraph temporal_data (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Object-Oriented Spatio-Temporal Database Models} % (fold)
+\label{par:object_oriented_spatio_temporal_database_models}
+
+The question is: How to implement the spatio-temporal data modles introduced in section \ref{sec:spatio_temporal_data_models} in a relational, object-oriented or object-relational database management system introduced in this section? While the implementation depends on the data model, there are common concepts and isses that have to be addressed.
+
+When storing time related data, it is important to distinguish between the time that was true in reality (\emph{valid time} or \emph{world time}) and the time it was stored in the database (\emph{transaction time} or \emph{database time}). A property of spatio-temporal database models is whether valid and transaction time are supported.
+
+Object-oriented concepts are more appropriate than the concept of relational databases, because of the complex nature of spatio-temporal data \cite[section 3.9]{pelekis04stdms}. One of the first concepts was the concept of a \emph{spatio-temporal object} combining geometrical and bitemporal properties in one object \cite{worboys90stdm}.
+
+A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT). Time is not considered an attribute of space, but a separate class. They are aggregated in the \texttt{SpatioTemporal} class, using both spatial and bitemporal attributes. The model also provides spatio-temporal operators, e.g. \texttt{STT\_intersects} returns \texttt{true} if two \texttt{SpatioTemporal} objects intersect in time and space, i.e. their geometries intersect and the time intervals in which they are active overlap. These operators are very helpful when analyzing spatio-temporal data or checking for data integrity.
+
+% paragraph object_oriented_spatio_temporal_database_models (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Version management} % (fold)
+\label{par:version_management}
+
+An issue is how to perform retrospective updates. Given a database model that stores objects that are created, updated and destroyed by events. Object $X$ is created at time point $t_x$. At time point $t_y$, $X$ gets destroyed and replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted at time point $t_u$ in between, i.e. $t_x < t_u < t_y$, then the event at time point $t_y$ is not correct anymore, because object $X$ does not exist. The question is how to maintain data integrity on insertion, update and deletion from a spatio-temporal database? This issue has to be addressed using formal logic for temporal reasoning
+\cite[section 6]{peuquet99}.
+
+% One approach to handle this issue is \emph{version management}, introduced by
+% \cite WH94
+% There are \emph{object version} and \emph{object configuration}. The concept is based on four premises:
+% \begin{compactenum}
+%   \item Each object must have an initial version.
+%   \item The versions of an object are hierachically structured.
+%   \item One object version relates to exactly one object instance and vice versa.
+%   \item There is always one current version of an object.
+% \end{compactenum}
+
+% Throughout time, a set of interrelating object versions is created. They are handled by four update procedures that create new object versions:
+% \begin{compactenum}
+%   \item Create of a new object.
+%   \item Clone an existing object.
+%   \item Update spatial attributes of an existing object (geometric change).
+%   \item Update aspatial attributes of an existing object (thematic change).
+% \end{compactenum}
+
+% paragraph version_management (end)
+
+
+% \cite[p. 69]{ott2001time}.
 
 % section database_management_systems (end)
-
 
 \vspace{2em}
 
