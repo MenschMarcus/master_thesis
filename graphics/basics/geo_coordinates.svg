@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.651313731784156"
-     inkscape:cx="507.3770967228008"
-     inkscape:cy="47.09632168410801"
+     inkscape:zoom="2.651313731784155"
+     inkscape:cx="412.5745463397643"
+     inkscape:cy="172.8029042526961"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -251,20 +251,16 @@
        x="492.86258"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Math;-inkscape-font-specification:Latin Modern Math"
        xml:space="preserve"><tspan
-         style="font-weight:normal;-inkscape-font-specification:Latin Modern Math;font-family:Latin Modern Math;font-style:normal;font-stretch:normal;font-variant:normal"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Math;-inkscape-font-specification:Latin Modern Math"
          y="241.85927"
          x="492.86258"
          id="tspan4102"
          sodipodi:role="line" /><tspan
-         id="tspan4104"
-         y="256.92596"
-         x="492.86258"
-         sodipodi:role="line">0°</tspan><tspan
-         y="271.85925"
+         y="256.85925"
          x="492.86258"
          sodipodi:role="line"
          id="tspan4160"
-         style="font-weight:normal;-inkscape-font-specification:Latin Modern Sans;font-family:Latin Modern Sans;font-style:normal;font-stretch:normal;font-variant:normal">Prime Meridian</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Math;-inkscape-font-specification:Latin Modern Math">0°</tspan></text>
     <path
        style="fill:#999999;stroke:#787878;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 585,132.3621826171875 L 585,242.3621826171875"
@@ -608,7 +604,7 @@
        y="241.85927"
        id="text4283"
        sodipodi:linespacing="125%"
-       transform="translate(185.9455537418579,15.50287445415205)"><tspan
+       transform="translate(185.9455537418579,0)"><tspan
          sodipodi:role="line"
          id="tspan4285"
          x="492.86258"
@@ -647,7 +643,7 @@
        id="path4307"
        d="M 585,132.3621826171875 L 585,242.3621826171875"
        style="fill:#999999;stroke:#787878;stroke-width:5.4077124596px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.1998984055758228,0,0,0.1710659156866561,561.3265517925334,218.8196154162704)" />
+       transform="matrix(0.1998984055758228,0,0,0.1710659156866561,561.3265517925334,200.9022739206577)" />
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
@@ -662,7 +658,7 @@
          y="241.85927"
          id="tspan3073">North Pole</tspan></text>
     <text
-       transform="translate(185.3211147227762,-4.497125545847951)"
+       transform="translate(185.3211147227762,33.74158112120836)"
        sodipodi:linespacing="125%"
        id="text3075"
        y="241.85927"
@@ -674,5 +670,18 @@
          x="492.86258"
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">South Pole</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="433.61877"
+       y="32.789978"
+       id="text3121"
+       sodipodi:linespacing="125%"
+       transform="translate(58.70205341255883,-0.427835384715138)"><tspan
+         sodipodi:role="line"
+         id="tspan3123"
+         x="433.61877"
+         y="32.789978"
+         style="font-size:12px;text-align:center;text-anchor:middle">Prime Meridian</tspan></text>
   </g>
 </svg>

@@ -82,46 +82,215 @@ The data model only represents sudden changes of Areas, no processes, i.e. chang
 \paragraph{Historical Geographic Operations} % (fold)
 \label{par:historical_geographic_operations}
 
-There are ten different types of changes that can happen to an Area. They can be classified by the number of Areas they affect and by the fact if they change the identity of an Area or not.
+There are ten different types of changes that can happen to an Area. They can be classified by the number of Areas they affect and by the fact if they change the identity of an Area or not. Identity-changing operations allow to trace historical predecessor-successor-relationships, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The following list explains ten historical geographic operations that allow to model all cases of historical changes. Historical relationships are only noted in one direction (predecessor), but are always valid also in the other direction (successor).
 
 \begin{enumerate}
+
   \item Identity-changing operations for one Area
   \begin{description}
     \item[CRE -- Creation]
-    A new Area gets created with a territory fully on previously unclaimed land. \\
-    The Roman Kingdom (753 - 509 B.C.) was created in Latinum, today central Italy, in a region that did not have anything before which would be considered a political entity
+    A new Area is created with a new name and a new territory fully on previously unclaimed land. \\
+    \begin{footnotesize}
+      The Roman Kingdom (753 - 509 B.C.) was created in Latinum, today central Italy, in a region that did not have anything before which would be considered a political entity.
+    \end{footnotesize}
     \item[ICH -- Identity Change]
-    The formal name of an Area changes, therefore the old Area is destructed and a new Area with the same territory is created. \\
-    In the end of the Cold War, the Polish People's Republic (1952-1989) got renamed to present-day Republic of Poland (since 1989). Although the short name (Poland) stayed, the new country is a new political entity and is therefore to be modeled a new Area.
-    \item[DES -- Destruction]
-    gfdas
+    The formal name of an Area changes, therefore the old Area is destructed and a new Area with the same territory is created. The old Area is the historical predecessor of the new Area. \\
+    \begin{footnotesize}
+      In the end of the Cold War, the Polish People's Republic (1952-1989) got renamed to present-day Republic of Poland (since 1989). Although the short name (Poland) stayed, the new country is a new political entity and is therefore to be modeled a new Area.
+    \end{footnotesize}
+    \item[CES -- Cessation]
+    An Area stops to exist and ceases, leaving unclaimed land. Cessation is the inverse operation of Creation. \\
+    \begin{footnotesize}
+      The Minoan civilisation, populating the nowadays Greek island of Crete (3650 to 1400 B.C.) declined and left no immediate successor.
+    \end{footnotesize}
   \end{description}
+
   \item Identity-changing operations for two or more Area
   \begin{description}
     \item[UNI -- Unification]
-    jhzfd
+    Two or more old Areas unify to a new Area. The old Areas cease, becoming the historical predecessors of the new Area. It receives a new name and its is the union of the territories of the old Areas. \\
+    \begin{footnotesize}
+      In 1922, the Russian SFSR, the Transcaucasian SFSR, the Ukrainian SSR and the Byelorussian SSR unified and formed the Union of Soviet Socialist Republics (USSR).
+    \end{footnotesize}
     \item[INC -- Incorporation]
-    jhtrgf
+    One or more old Areas are incorporated into another Area. This areas preserves its identity, i.e. formal name, but may get a new short name. Its territory in enlarged by the union of the old Areas. The old Areas are historical predecessors of the new Area. \\
+    \begin{footnotesize}
+      In 1990, the territory of the German Democratic Republic (East Germany) became part of the Federal Republic of Germany (West Germany). Although this event is known as the \emph{German Reunification}, it is historically an incorporation of East Germany into West Germany \cite{incorporationEastWestGermany}. Additionally, the commonly known short name of West Germany got changed into Germany, creating the country existing until today.
+    \end{footnotesize}
     \item[SEP -- Separation]
-    jthrgfe
+    As the inverse of unification, one old Area is preceded by two or more new Areas. Each new Area gets a new name, receives a part of the territory of the old Area, and the old Area as the historical predecessor. \\
+    \begin{footnotesize}
+      In 1993, the Czech and Slovak Federal Republic, commonly known as Czechoslovakia, dissolved into present-day Czech Republic and Solvak Republic, creating two new countries.
+    \end{footnotesize}
     \item[SEC -- Secession]
-    jzhtrgf
+    As the inverse of incorporation, one or more new areas are ceded from a previously exising area. This Area may receive a new short name, but keeps its formal name and therefore its identity. Each new Area gets a new name, receives the previously existing Area as the historical predecessor and a part of its territory. \\
+    \begin{footnotesize}
+      In 2008, the Republic of Kosovo declared independence from Serbia and has since then partially received international recognition, so it can be seen as a new country. Unlike in the case of separation, Serbia kept its name, but ceded only a part of its territory to Kosovo. Therefore, Serbia kept its identity and keeps on existing.
+    \end{footnotesize}
   \end{description}
+
   \item Identity-preserving operations for one or more Areas
   \begin{description}
-    \item[TCH -- Territory Change]
-    jtgf
     \item[BCH -- Border Change]
-    zhrf
+    Parts of the territory of one Area is ceded to one of its neighors. Therefore, the border shared by two neighboring Areas changes. The names of the two Areas remain unchanged.\\
+    \begin{footnotesize}
+      As the result of the Treaty of Versailles in 1919, the German Empire ceded 13 \% of its territory, e.g. Alsace-Lorraine to France, changing the German-French border.
+    \end{footnotesize}
+    \item[TCH -- Territory Change]
+    A territory change is a special case of a border change: The territory of an Area is partially expanding into previously unclaimed land or partially shrinking, leaving unclaimed land. \\
+    \begin{footnotesize}
+      Throughout the British Colonization of North America, several settlements and later colonies, e.g. in 1607 the colony of Virginia, were found. Their territory was often expanded westwards, incorporating previously unclaimed land.
+    \end{footnotesize}
     \item[NCH -- Name Change]
-    jhtre
+    An Area changes its short name. Its territory, formal name and identity is preserved. \\
+    \begin{footnotesize}
+      The most recent geopolitical change happened on 5. May 2016, when the cabinet of Czech Republic approved that the country will now offically be called ``Czechia''. However, the formal name stays Czech Republic.
+    \end{footnotesize}
   \end{description}
 \end{enumerate}
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{m{0.65cm} m{2.5cm} m{2.2cm}
+                m{0.35cm} m{0.3cm} m{0.35cm} m{0.01cm}
+                m{0.35cm} m{0.3cm} m{0.35cm} m{0.01cm}
+                m{0.35cm} m{0.3cm} m{0.88cm}}
+  \toprule
+    \multicolumn{2}{c}{operation}
+  & visualization
+  & \multicolumn{3}{c}{Area change} &
+  & \multicolumn{3}{c}{name change} &
+  & \multicolumn{3}{c}{territory change} \\
+  & & &
+  old & $ \rightarrow $ & new & &
+  old & $ \rightarrow $ & new & &
+  old & $ \rightarrow $ & new \\
+
+  \midrule
+  CRE & Creation & \includegraphics{graphics/concept/operations/CRE} &
+  $ \emptyset $ & $ \rightarrow $ & $ A $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ A_N $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ A_T $ \\
+
+  \midrule
+  ICH & Identity Change & \includegraphics{graphics/concept/operations/ICH} &
+  $ A   $ & $ \rightarrow $ & $ B $ & &
+  $ A_N $ & $ \rightarrow $ & $ B_N $ & &
+  $ A_T $ & $ \rightarrow $ & $ B_T $ \\
+
+  \midrule
+  CES & Cessation & \includegraphics{graphics/concept/operations/CRE} &
+  $ \emptyset $ & $ \rightarrow $ & $ A $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ A_N $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ A_T $ \\
+
+  \midrule
+  \multirow{3}{*}{UNI} &
+  \multirow{3}{*}{Unification} &
+  \multirow{3}{*}{\includegraphics{graphics/concept/operations/UNI}} &
+  $ A $ & $ \rightarrow $ & $ C $ & &
+  $ A_N $ & $ \rightarrow $ & $ \emptyset $ & &
+  $ A_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  & & &
+  $ B $ & $ \rightarrow $ & $ C $ & &
+  $ B_N $ & $ \rightarrow $ & $ \emptyset $ & &
+  $ B_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  & & &
+  & & & &
+  $ \emptyset $ & $ \rightarrow $ & $ C_N $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ C_T $ \footnotemark \\
+
+  \midrule
+  \multirow{2}{*}{INC} &
+  \multirow{2}{*}{Incorporation} &
+  \multirow{2}{*}{\includegraphics{graphics/concept/operations/INC}} &
+  & & & &
+  $ (A_N $ & $ \rightarrow $ & $ A_{N'}) $ & &
+  $ A_T $ & $ \rightarrow $ & $ A_{T'} $ \footnotemark \\
+  & & &
+  $ B $ & $ \rightarrow $ & $ A $ & &
+  $ B_N $ & $ \rightarrow $ & $ \emptyset $ & &
+  $ B_T $ & $ \rightarrow $ & $ \emptyset $ \\
+
+  \midrule
+  \multirow{3}{*}{SEP} &
+  \multirow{3}{*}{Separation} &
+  \multirow{3}{*}{\includegraphics{graphics/concept/operations/SEP}} &
+  $ A $ & $ \rightarrow $ & $ B $ & &
+  $ A_N $ & $ \rightarrow $ & $ \emptyset $ & &
+  $ A_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  & & &
+  $ A $ & $ \rightarrow $ & $ C $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ B_N $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ B_T $ \\
+  & & &
+  & & & &
+  $ \emptyset $ & $ \rightarrow $ & $ C_N $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ C_T $ \footnotemark \\
+
+  \midrule
+  \multirow{2}{*}{SEC} &
+  \multirow{2}{*}{Secession} &
+  \multirow{2}{*}{\includegraphics{graphics/concept/operations/SEC}} &
+  $ A $ & $ \rightarrow $ & $ B $ & &
+  $ (A_N $ & $ \rightarrow $ & $ A_{N'}) $ & &
+  $ A_T $ & $ \rightarrow $ & $ A_{T'} $ \\
+  & & &
+  & & & &
+  $ \emptyset $ & $ \rightarrow $ & $ B_N $ & &
+  $ \emptyset $ & $ \rightarrow $ & $ B_T $ \footnotemark \\
+
+  \midrule
+  \multirow{1}{*}{NCH} &
+  \multirow{1}{*}{Name Change} &
+  \multirow{1}{*}{\includegraphics{graphics/concept/operations/NCH_TCH}} &
+  & & & &
+  $ A_N $ & $ \rightarrow $ & $ A_{N'} $ & &
+  & & \\
+
+  \midrule
+  \multirow{2}{*}{BCH} &
+  \multirow{2}{*}{Border Change} &
+  \multirow{2}{*}{\includegraphics{graphics/concept/operations/BCH}} &
+  & & & &
+  & & & &
+  $ A_T $ & $ \rightarrow $ & $ A_{T'} $ \\
+  & & &
+  & & & &
+  & & & &
+  $ B_T $ & $ \rightarrow $ & $ B_{T'} $ \footnotemark \\
+
+  \midrule
+  \multirow{1}{*}{TCH} &
+  \multirow{1}{*}{Territory Change} &
+  \multirow{1}{*}{\includegraphics{graphics/concept/operations/NCH_TCH}} &
+  & & & &
+  & & & &
+  $ A_T $ & $ \rightarrow $ & $ A_{T'} $ \\
+
+  \bottomrule
+\end{tabular}
+\caption{Overview about all 10 historical geographic operations}
+\label{tab:historical_geographic_operations}
+\end{center}
+\end{table}[H]
+
+\addtocounter{footnote}{-4}
+\footnotetext{$C_{T} = A_T \cup B_T$}
+\addtocounter{footnote}{1}
+\footnotetext{$A_{T'} = A_T \cup B_T$}
+\addtocounter{footnote}{1}
+\footnotetext{$B_T \cup C_{T} = A_T$}
+\addtocounter{footnote}{1}
+\footnotetext{$A_{T'} \cup B_{T} = A_T$}
+\addtocounter{footnote}{1}
+\footnotetext{$A_{T} \cup B_{T} = A_{T'} \cup B_{T'}$}
 
 % paragraph historical_geographic_operations (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+combination of cases
 
 There are topological rules rules that can be applied, e.g. two neighboring countries (polygons) share one common border (polyline). That preserves the relationship between them if their common border changes.
 
