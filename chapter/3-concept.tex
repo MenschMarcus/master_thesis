@@ -3,23 +3,134 @@
 \chapter{Concept} % (fold)
 \label{cha:concept}
 
-domain: development of countries in time and space
-
-usable User Interface for both navigation and editing
--> problem: all interfaces are trés horrible!
-
-research questions --> HGIS <-- development of system
-  historians /                           ME
-  geographers
-(+) open source, direct manipulation, easy sharing and collaboration
-
+The problem space of this thesis is how to model, visualize and edit the development of countries in time and space in a HGIS. The first section of this chapter explains the spatio-temporal data model developed in this thesis and the related concepts of an  \emph{Hivent} and an \emph{Area}. It shows ten \emph{Historical Geographic Operations} that represent all kinds of changes that can happen in the development of a country. The second section introduces \emph{HistoGlobe}, the application used in this thesis. The chapter finishes with the \emph{EditMode} and the \emph{HistoGraph} as interface extensions to HistoGlobe to visualize and edit historical changes of countries.
 
 
 % ==============================================================================
-\section{Hivent-Based Spatio-Temporal Data Model} % (fold)
-\label{sec:hivent_based_spatio_temporal_data_model}
+\section{Hivent Model} % (fold)
+\label{sec:hivent_model}
 
-no perfect data model possible, because a model is just an incomplete abstraction of the real world
+In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced. The \emph{Snapshot Model}  was seen as unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but not explicitly model historical changes. The idea of the \emph{Event-Based Spatio-Temporal Data Model} fits the problem space well, but since it only works for raster data, it is also not suitable for this thesis. The \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity. The temporal changes introduced in the \emph{History Graph Model} allow to model historical changes and their influences on geographic entities. The \emph{Hivent Model} introduced in this thesis is constructed from components of some of these models.
+
+
+% ------------------------------------------------------------------------------
+\subsection{Area} % (fold)
+\label{sub:area}
+
+The main entity of the domain is a country, may it be historical or current. But since the model can easily be extended to model the history of states, provinces, regions or islands, the model is built on the abstract concept of an \emph{Area}. It represents one identical political entity and has two attributes:
+
+\begin{enumerate}
+  \item An \emph{area name} consisting of a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''.
+  \item An \emph{area territory} describing the spatial extension of the Area using a polypolygon, a set of weakly simple polygons, because it has to support enclaves and exclaves. The polylines of the polygons represent the borders of the Area.
+  % Additionally, there is a \emph{representative point} for the territory at which the name of the area will be displayed on the map.
+\end{enumerate}
+
+The area name changes according to sudden events, e.g. a declaration or a governmental bill. The territory of a political entity can change either because of a geographical processes, e.g. the change of the coastline, or according to a historical event, e.g. a treaty. The model in this thesis focuses only on discrete historical changes and not on long-term geographical developments. It is assumed that the geographical conditions on Earth, especially the position of land and water and the coastlines have not changed in history. While this assumption is obviously wrong, it helps to keep the problem space clear. The data model will be open to future extensions to account also for geographic changes. In this data model, the temporal behavior of an Area can therefore be described as a \emph{static object that changes according to sudden events}.
+
+% TODO: countries with enclaves or islands are not topologically equivalent.
+
+% subsection area (end)
+% ------------------------------------------------------------------------------
+
+\subsection{Hivent} % (fold)
+\label{sub:hivent}
+
+These sudden geopolitical changes result from historically significant happenining, e.g. a treaty, bill or declaration. In this data model, these events introducing historical changes to Areas are called \emph{Hivents} (\emph{\textbf{Hi}}storical e\emph{\textbf{vents}}). An Hivent has four different attributes:
+
+\begin{compactenum}
+  \item The \emph{name} of the Hivent
+  \item The point in time, identified by the Hivent \emph{date}.
+  \item A textual description of the Hivent \emph{location}.
+  \item The \emph{historical changes} resulting from the Hivent.
+\end{compactenum}
+
+The Hivent is the central element of the \emph{Hivent Model}, because it drives the changes to the Area.
+
+% subsection hivent (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Historical Changes} % (fold)
+\label{sub:historical_changes}
+
+Before the changes that can happen to an Area can be introduced, the question of the \emph{identity} of an area has to be answered: What identifies an Area uniquely?
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Area identity} % (fold)
+\label{par:area_identity}
+
+Given the example of Germany, the Area is independent from both its territory and short name: In 1949, four years after the end of World War II, the German Democratic Republic (\emph{East Germany}) and the Federal Republic of Germany (\emph{West Germany}) were created. In 1957, the Saar Protectorate (\emph{Saarland}) joined West Germany. Although the territory of the Area has changed, it is still the same Area. In 1990, East and West Germany reunited to what is currently known as Germany. This Germany is still the Federal Republic of Germany, so it is juristically the same as West Germany before 1990. That means that also the short name of an Area can change (West Germany to Germany) without affecting the identity of the Area.
+
+This model uses the formal name of an Area as its identifying attribute. That means, the short name can change, but as soon as the formal name of an area changes (e.g. German Empire to Federal Republic of Germany), it is considered a ``new'' Area.
+
+Throughout the lifetime of an Area, it is created at some point, then its territory and short name can change any number of times and at some point it ceased. Since all changes in this model are sudden, there are only two possible states an Area can be in:
+\begin{compactenum}
+  \item An Area is \emph{active}, if at the current time point it is historically existing, with a name and a territory associated to it.
+  \item On a contrarty, if an Area does not historically exist at this time point, it is \emph{inactive}.
+\end{compactenum}
+
+% paragraph area_identity (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Preconditions} % (fold)
+\label{par:preconditions}
+
+The data model only represents sudden changes of Areas, no processes, i.e. changes with duration. The model also assumes that coastlines never changed. Additionally to these two constraints, it is assumed that the surface of the Earth is divided into two types surfaces: unlivable \emph{water} and inhabitable \emph{land}. Land can at any point in time be either \emph{claimed}, i.e. it is currently the territory of exactly one active Area, or on a contrary be \emph{unclaimed}.
+
+% paragraph preconditions (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Historical Geographic Operations} % (fold)
+\label{par:historical_geographic_operations}
+
+There are ten different types of changes that can happen to an Area. They can be classified by the number of Areas they affect and by the fact if they change the identity of an Area or not.
+
+\begin{enumerate}
+  \item Identity-changing operations for one Area
+  \begin{description}
+    \item[CRE -- Creation]
+    A new Area gets created with a territory fully on previously unclaimed land. \\
+    The Roman Kingdom (753 - 509 B.C.) was created in Latinum, today central Italy, in a region that did not have anything before which would be considered a political entity
+    \item[ICH -- Identity Change]
+    The formal name of an Area changes, therefore the old Area is destructed and a new Area with the same territory is created. \\
+    In the end of the Cold War, the Polish People's Republic (1952-1989) got renamed to present-day Republic of Poland (since 1989). Although the short name (Poland) stayed, the new country is a new political entity and is therefore to be modeled a new Area.
+    \item[DES -- Destruction]
+    gfdas
+  \end{description}
+  \item Identity-changing operations for two or more Area
+  \begin{description}
+    \item[UNI -- Unification]
+    jhzfd
+    \item[INC -- Incorporation]
+    jhtrgf
+    \item[SEP -- Separation]
+    jthrgfe
+    \item[SEC -- Secession]
+    jzhtrgf
+  \end{description}
+  \item Identity-preserving operations for one or more Areas
+  \begin{description}
+    \item[TCH -- Territory Change]
+    jtgf
+    \item[BCH -- Border Change]
+    zhrf
+    \item[NCH -- Name Change]
+    jhtre
+  \end{description}
+\end{enumerate}
+
+
+% paragraph historical_geographic_operations (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+There are topological rules rules that can be applied, e.g. two neighboring countries (polygons) share one common border (polyline). That preserves the relationship between them if their common border changes.
+
+MECE principle: Mutually Exclusive and Collectively Exhaustive
+
+
+A data model is an incomplete abstraction of the real world to develop a reasonable solution for the problem space.
+Since the data model uses the concept of several existing one, it will derive also its name from it: The Hivent-Based Three-Domain Spatio-Temporal History Graph Data Model for Time-Stamped Vector Geometry
+... or in short: HBTDSTHGDMTSVG
 
 estd for vector graphics
 
@@ -29,9 +140,6 @@ identity: formal name of an entity
 history graph model without changing state: active, inactive
 
 simplification: just active / inactive, normal / contested + level of certainty
-
-Hivent-Based Three-Domain Spatio-Temporal History Graph Data Model for Vector Geometry
-... or in short: HBTDSTHGDMVG
 
 no transaction time, only valid / event time
 only world time is regarded, not database time.
@@ -59,113 +167,33 @@ A main problem is to maintain the integrity of the spatial topology when a new c
   Newtons concept of absolute space?
 
 
-
-% ==============================================================================
-\subsection{Hivent} % (fold)
-\label{sub:hivent}
-
-event which is in itself or whose outcome is historically significant (subjective) or with
-
-  WHAT? significant happening
-  WHO? different actors
-  WHEN? one point in time
-  WHERE? mostly also point in space, sometimes different from area that event affects
-  WHY? because
-
-models historically significant happenings with a focus on those who influence the geopolitical history of countries.
-
-In modern history, geopolitical changes of countries are manifested mostly in historical treaties which are the result of a conference or any other gathering of representatives of stakeholders of that initiated change. Since each of those treaties is signed on one particular day, in one particular place and has one particular name, the ~\texttt{Hivent}~ model seems appropriate.
-
-However, the first question arises regarding the relevance of the location: While the exact position of the battlefield of Verdun or the place where John F. Kennedy was assassinated might very relevant to the event itself, the location of a governmental bill, a declaration of independence or a border convention might not play an important role and usually happens in a representative place, e.g. the parliament or the office of a president. In a lot of cases, it is much more important which territories an event actually influences instead of where it happened.
-
-significant happening in time and space
-incluencing others
-central element in event based STDM
-
-store Hivents in DoublyLinkedList
-
-% subsection hivent (end)
-
-
-% ==============================================================================
-\subsection{Area} % (fold)
-\label{sub:area}
-
-model the main entity of the domain: historical or current countries. An ~\texttt{Area}~ represents one identical country, consisting at each time point of its existance of exactly one ~\texttt{AreaName}~ and one ~\texttt{AreaTerritory}. The model seems appropriate since the name and the territory of an area are exactly the two properties that are part of the domain.
-
-abstract: area
-
-  defined by borders
-  hierarchical structure
-
-countries with enclaves or islands are not topologically equivalent.
-
-country borders
-  coastlines
-  interior
-  disputed territories
-    situation: n fully recognized countries and m non or partially recognized entities claim sovereignty over 1 territory
-    territory is surrounded by disputed border
-    question: does this disputed area claim sovereignty?
-    \footnote \url{http://www.economist.com/blogs/economist-explains/2014/09/economist-explains-1}
-  uncertain borders
-    situation: n fully recognized countries commonly agree on a boundary between them, but the border is not clearly defined / fuzzy / uncertain
-  states of borders
-    planned
-    agreed
-    demarcated
-    provisional
-    valid
-    vs. disputed
-
-    borders: complex model: different states of boundaries: draft -> proposal -> dispute ->
-    % \cite Wachowitz 1998 pp. 55
-
-
-area
-territory
--> geometry
---> border
--> representative point
-name
--> short name
--> formal name
-
-enclaves
-exclaves
-
-
-
-% subsection area (end)
-
-% section hivent_based_spatio_temporal_data_model (end)
-
-
-% ==============================================================================
-\section{Historical Geographic Operations} % (fold)
-\label{sec:historical_geographic_operations}
-
-CRE
-UNI
-INC
-SEP
-SEC
-TCH
-BCH
-NCH
-ICH
-DES
-
-
-There are topological rules rules that can be applied, e.g. two neighboring countries (polygons) share one common border (polyline). That preserves the relationship between them if their common border changes.
-
 inclusion of universe $\Omega$:
 CRE = SEC from $\Omega$
 DES = INC into $\Omega$
 
-MECE principle: Mutually Exclusive and Collectively Exhaustive
+% subsection historical_changes (end)
 
-% section historical_geographic_operations (end)
+
+% section hivent_model (end)
+
+
+store Hivents in DoublyLinkedList
+
+
+% \subsection{Four-Domain Model}
+\label{sub:four_domain_model}
+
+According to the extension of the Three Domain model (see section \ref{sub:three_domain_model}), a spatio-temporal object can be represented separetely in the spatial, temporal and thematic domain. Additionally, the semantic domain uniquely identifies an object and is invariant. This applies to the concept of an Area that represents a country.
+
+
+id: formal name
+
+semantic: id (formal name)
+spatial:  spatial attributes (territory)
+temporal: Hivent -> HistoricalChange -> AreaChange
+thematic: aspatial attributes (short name)
+
+% subsection four_domain_model (end)
 
 % ==============================================================================
 \section{HistoGlobe} % (fold)
@@ -189,6 +217,11 @@ requirements
   contextualize / intersect historical sources
   accept imprecision
   prevent illusion of certainty
+
+usable User Interface for both navigation and editing
+-> problem: all interfaces are trés horrible!
+
+
 
 % ------------------------------------------------------------------------------
 \subsection{System Architecture} % (fold)

@@ -14,7 +14,13 @@ This chapter will lay the theoretical foundation of this Master's Thesis and wil
 
 It includes the domain (\emph{history of countries}) and the system to acquire, model, manage and visualize data of the domain: \emph{Historical Geographic Information Systems} (HGIS).
 
-The first section of this chapter will define HGIS and related terms. Afterwards, concepts to model time and space in an information system are introduced. Data sources suitable for input into an HGIS are listed in the next section, followed by techniques to manage and analyse the data. A special focus lies on concepts to visualize spatial and temporal data, explained in the next section. The chapter closes with possible HGIS applications and introduces the tool that is used in this thesis: HistoGlobe.
+The first section of this chapter will define HGIS and related terms. Afterwards, concepts to model time and space in an information system are introduced. Data sources suitable for input into an HGIS are listed in the next section, followed by techniques to manage and analyse the data.
+%A special focus lies on concepts to visualize spatial and temporal data, explained in the next section. The chapter closes with possible HGIS applications and introduces the tool that is used in this thesis: HistoGlobe.
+
+extension of Hivent model to actors
+
+% TODO: country
+% TODO: enclaves and exclaves
 
 
 % ==============================================================================
@@ -795,7 +801,11 @@ An event-based STDM for vector geometry including lines and polygons has to answ
   \item The \emph{temporal domain} stores all temporal objects, e.g. time points of an historical events, or time intervals of a war.
 \end{itemize}
 
-The model is not specific, but more a general abstract framework to handle space, time and identity. This makes the model very flexible, e.g. it can handle discrete and continuous changes, relative and absolute time, world and database time. Since countries, their territories and attributes can change independently over time, the data model used in this thesis will be built on top of the Three Domain Model.
+The model is not specific, but more a general abstract framework to handle space, time and identity. This makes the model very flexible, e.g. it can handle discrete and continuous changes, relative and absolute time, world and database time. One limitation of the model is that it only traces spatial attributes over time. In an alternative model by \cite{claramunt95timeingis}, the \emph{thematic domain} is added to fully describe a spatio-temporal object and trace also aspatial attributes that can change over time, e.g. the name of an entity.
+
+
+
+Since countries, their territories and attributes can change independently over time, the data model used in this thesis will be built on top of the Three Domain Model.
 
 % subsection three_domain_model (end)
 
@@ -803,7 +813,7 @@ The model is not specific, but more a general abstract framework to handle space
 \subsection{History Graph Model} % (fold)
 \label{sub:history_graph_model}
 
-Most of the data models introduced so far cover only static changes of geo-objects. \cite{key} identified three different types of temporal behaviour of changing objects:
+Most of the data models introduced so far cover only static changes of geo-objects. \cite{renolen96} identified three different types of temporal behaviour of changing objects:
 \begin{compactitem}
   \item Dynamic objects that change continuously.
   \item Static objects that change according to events with duration (processes).
