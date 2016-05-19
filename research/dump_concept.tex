@@ -3,56 +3,7 @@
 \chapter{Concept} % (fold)
 \label{cha:concept}
 
-The problem space of this thesis is how to model, visualize and edit the development of countries in time and space in a HGIS. The first section of this chapter explains the spatio-temporal data model developed in this thesis and the related concepts of an  \emph{Hivent} and an \emph{Area}. It shows ten \emph{Historical Geographic Operations} that represent all kinds of changes that can happen in the development of a country. The second section introduces \emph{HistoGlobe}, the application used in this thesis. The chapter finishes with the \emph{EditMode} and the \emph{HistoGraph} as interface extensions to HistoGlobe to visualize and edit historical changes of countries.
-
-
-% ==============================================================================
-\section{Hivent Model} % (fold)
-\label{sec:hivent_model}
-
-In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced. The \emph{Snapshot Model}  was seen as unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but not explicitly model historical changes. The idea of the \emph{Event-Based Spatio-Temporal Data Model} fits the problem space well, but since it only works for raster data, it is also not suitable for this thesis. The \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity. The temporal changes introduced in the \emph{History Graph Model} allow to model historical changes and their influences on geographic entities. The \emph{Hivent Model} introduced in this thesis is constructed from components of some of these models.
-
-
-% ------------------------------------------------------------------------------
-\subsection{Area} % (fold)
-\label{sub:area}
-
-The main entity of the domain is a country, may it be historical or current. But since the model can easily be extended to model the history of states, provinces, regions or islands, the model is built on the abstract concept of an \emph{Area}. It represents one identical political entity and has two attributes:
-
-\begin{enumerate}
-  \item An \emph{area name} consisting of a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''.
-  \item An \emph{area territory} describing the spatial extension of the Area using a polypolygon, a set of weakly simple polygons, because it has to support enclaves and exclaves. The polylines of the polygons represent the borders of the Area. One border has always either one or two neighboring Areas and two neighboring Areas share a discrete set of common borders.
-  % Additionally, there is a \emph{representative point} for the territory at which the name of the area will be displayed on the map.
-\end{enumerate}
-
-The area name changes according to sudden events, e.g. a declaration or a governmental bill. The territory of a political entity can change either because of a geographical processes, e.g. the change of the coastline, or according to a historical event, e.g. a treaty. The model in this thesis focuses only on discrete historical changes and not on long-term geographical developments. It is assumed that the geographical conditions on Earth, especially the position of land and water and the coastlines have not changed in history. While this assumption is obviously wrong, it helps to keep the problem space clear. The data model will be open to future extensions to account also for geographic changes. In this data model, the temporal behavior of an Area can therefore be described as a \emph{static object that changes according to sudden events}.
-
-% TODO: countries with enclaves or islands are not topologically equivalent.
-
-% subsection area (end)
-% ------------------------------------------------------------------------------
-
-\subsection{Hivent} % (fold)
-\label{sub:hivent}
-
-These sudden geopolitical changes result from historically significant happenining, e.g. a treaty, bill or declaration. In this data model, these events introducing historical changes to Areas are called \emph{Hivents} (\emph{\textbf{Hi}}storical e\emph{\textbf{vents}}). An Hivent has four different attributes:
-
-\begin{compactenum}
-  \item The \emph{name} of the Hivent
-  \item The point in time, identified by the Hivent \emph{date}.
-  \item A textual description of the Hivent \emph{location}.
-  \item The \emph{historical changes} resulting from the Hivent.
-\end{compactenum}
-
-The Hivent is the central element of the \emph{Hivent Model}, because it drives the changes to the Area.
-
-% subsection hivent (end)
-
-% ------------------------------------------------------------------------------
-\subsection{Historical Changes} % (fold)
-\label{sub:historical_changes}
-
-Before the changes that can happen to an Area can be introduced, the question of the \emph{identity} of an area has to be answered: What identifies an Area uniquely?
+The first section of this chapter explains the spatio-temporal data model developed in this thesis and the related concepts of an  \emph{Hivent} and an \emph{Area}. It shows ten \emph{Historical Geographic Operations} that represent all kinds of changes that can happen in the development of a country. The second section introduces \emph{HistoGlobe}, the application used in this thesis. The chapter finishes with the \emph{EditMode} and the \emph{HistoGraph} as interface extensions to HistoGlobe to visualize and edit historical changes of countries.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Area identity} % (fold)
@@ -60,23 +11,8 @@ Before the changes that can happen to an Area can be introduced, the question of
 
 Given the example of Germany, the Area is independent from both its territory and short name: In 1949, four years after the end of World War II, the German Democratic Republic (\emph{East Germany}) and the Federal Republic of Germany (\emph{West Germany}) were created. In 1957, the Saar Protectorate (\emph{Saarland}) joined West Germany. Although the territory of the Area has changed, it is still the same Area. In 1990, East and West Germany reunited to what is currently known as Germany. This Germany is still the Federal Republic of Germany, so it is juristically the same as West Germany before 1990. That means that also the short name of an Area can change (West Germany to Germany) without affecting the identity of the Area.
 
-This model uses the formal name of an Area as its identifying attribute. That means, the short name can change, but as soon as the formal name of an area changes (e.g. German Empire to Federal Republic of Germany), it is considered a ``new'' Area.
-
-Throughout the lifetime of an Area, it is created at some point, then its territory and short name can change any number of times and at some point it ceased. Since all changes in this model are sudden, there are only two possible states an Area can be in:
-\begin{compactenum}
-  \item An Area is \emph{active}, if at the current time point it is historically existing, with a name and a territory associated to it.
-  \item On a contrarty, if an Area does not historically exist at this time point, it is \emph{inactive}.
-\end{compactenum}
 
 % paragraph area_identity (end)
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Preconditions} % (fold)
-\label{par:preconditions}
-
-The data model only represents sudden changes of Areas, no processes, i.e. changes with duration. The model also assumes that coastlines never changed. Additionally to these two constraints, it is assumed that the surface of the Earth is divided into two types surfaces: unlivable \emph{water} and inhabitable \emph{land}. Land can at any point in time be either \emph{claimed}, i.e. it is currently the territory of exactly one active Area, or on a contrary be \emph{unclaimed}.
-
-% paragraph preconditions (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Historical Geographic Operations} % (fold)
@@ -152,7 +88,7 @@ There are ten different types of changes that can happen to an Area, expressed b
 \begin{table}[!h]
 \begin{center}
 \begin{tabular}{m{0.65cm} m{2.5cm} m{2.2cm}
-                m{0.35cm} m{0.3cm} m{0.35cm} m{0.01cm}
+                m{0.35cm} m{0.35cm} m{0.35cm} m{0.01cm}
                 m{0.35cm} m{0.3cm} m{0.35cm} m{0.01cm}
                 m{0.35cm} m{0.3cm} m{0.88cm}}
   \toprule
@@ -162,85 +98,85 @@ There are ten different types of changes that can happen to an Area, expressed b
   & \multicolumn{3}{c}{name change} &
   & \multicolumn{3}{c}{territory change} \\
   & & &
-  old & $ \rightarrow $ & new & &
+  old & $ \leftrightarrow_H $ & new & &
   old & $ \rightarrow $ & new & &
   old & $ \rightarrow $ & new \\
 
-  \midrule
+  \midrule[0.07em]
   \texttt{CRE} & Creation & \includegraphics{graphics/concept/operations/CRE} &
   $ \emptyset $ & $ \rightarrow $ & $ A $ & &
   $ \emptyset $ & $ \rightarrow $ & $ A_N $ & &
   $ \emptyset $ & $ \rightarrow $ & $ A_T $ \\
 
-  \midrule
+  \midrule[0.01em]
   \texttt{ICH} & Identity Change & \includegraphics{graphics/concept/operations/ICH} &
-  $ A   $ & $ \rightarrow $ & $ B $ & &
-  $ A_N $ & $ \rightarrow $ & $ B_N $ & &
-  $ A_T $ & $ \rightarrow $ & $ B_T $ \\
+  $ A   $ & $ \leftrightarrow_H $ & $ B $ & &
+  $ A_N $ & $ \rightarrow $       & $ B_N $ & &
+  $ A_T $ & $ \rightarrow $       & $ B_T $ \\
 
-  \midrule
+  \midrule[0.01em]
   \texttt{CES} & Cessation & \includegraphics{graphics/concept/operations/CES} &
-  $ A $ & $ \rightarrow $ & $ \emptyset $ & &
-  $ A_N $ & $ \rightarrow $ & $ \emptyset $ & &
-  $ A_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  $ A $   & $ \rightarrow $       & $ \emptyset $ & &
+  $ A_N $ & $ \rightarrow $       & $ \emptyset $ & &
+  $ A_T $ & $ \rightarrow $       & $ \emptyset $ \\
 
-  \midrule
+  \midrule[0.07em]
   \multirow{3}{*}{\texttt{UNI}} &
   \multirow{3}{*}{Unification} &
   \multirow{3}{*}{\includegraphics{graphics/concept/operations/UNI}} &
-  $ A $ & $ \rightarrow $ & $ C $ & &
-  $ A_N $ & $ \rightarrow $ & $ \emptyset $ & &
-  $ A_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  $ A $   & $ \leftrightarrow_H $ & $ C $ & &
+  $ A_N $ & $ \rightarrow $       & $ \emptyset $ & &
+  $ A_T $ & $ \rightarrow $       & $ \emptyset $ \\
   & & &
-  $ B $ & $ \rightarrow $ & $ C $ & &
-  $ B_N $ & $ \rightarrow $ & $ \emptyset $ & &
-  $ B_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  $ B $   & $ \leftrightarrow_H $ & $ C $ & &
+  $ B_N $ & $ \rightarrow $       & $ \emptyset $ & &
+  $ B_T $ & $ \rightarrow $       & $ \emptyset $ \\
   & & &
   & & & &
   $ \emptyset $ & $ \rightarrow $ & $ C_N $ & &
   $ \emptyset $ & $ \rightarrow $ & $ C_T $ \footnotemark \\
 
-  \midrule
+  \midrule[0.01em]
   \multirow{2}{*}{\texttt{INC}} &
   \multirow{2}{*}{Incorporation} &
   \multirow{2}{*}{\includegraphics{graphics/concept/operations/INC}} &
   & & & &
-  $ (A_N $ & $ \rightarrow $ & $ A_{N'}) $ & &
-  $ A_T $ & $ \rightarrow $ & $ A_{T'} $ \footnotemark \\
+  $ (A_N $ & $ \rightarrow $      & $ A_{N'}) $ & &
+  $ A_T $ & $ \rightarrow $       & $ A_{T'} $ \footnotemark \\
   & & &
-  $ B $ & $ \rightarrow $ & $ A $ & &
-  $ B_N $ & $ \rightarrow $ & $ \emptyset $ & &
-  $ B_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  $ B $   & $ \leftrightarrow_H $ & $ A $ & &
+  $ B_N $ & $ \rightarrow $       & $ \emptyset $ & &
+  $ B_T $ & $ \rightarrow $       & $ \emptyset $ \\
 
-  \midrule
+  \midrule[0.01em]
   \multirow{3}{*}{\texttt{SEP}} &
   \multirow{3}{*}{Separation} &
   \multirow{3}{*}{\includegraphics{graphics/concept/operations/SEP}} &
-  $ A $ & $ \rightarrow $ & $ B $ & &
-  $ A_N $ & $ \rightarrow $ & $ \emptyset $ & &
-  $ A_T $ & $ \rightarrow $ & $ \emptyset $ \\
+  $ A $         & $ \leftrightarrow_H $ & $ B $ & &
+  $ A_N $       & $ \rightarrow $       & $ \emptyset $ & &
+  $ A_T $       & $ \rightarrow $       & $ \emptyset $ \\
   & & &
-  $ A $ & $ \rightarrow $ & $ C $ & &
-  $ \emptyset $ & $ \rightarrow $ & $ B_N $ & &
-  $ \emptyset $ & $ \rightarrow $ & $ B_T $ \\
+  $ A $         & $ \leftrightarrow_H $ & $ C $ & &
+  $ \emptyset $ & $ \rightarrow $       & $ B_N $ & &
+  $ \emptyset $ & $ \rightarrow $       & $ B_T $ \\
   & & &
   & & & &
-  $ \emptyset $ & $ \rightarrow $ & $ C_N $ & &
-  $ \emptyset $ & $ \rightarrow $ & $ C_T $ \footnotemark \\
+  $ \emptyset $ & $ \rightarrow $       & $ C_N $ & &
+  $ \emptyset $ & $ \rightarrow $       & $ C_T $ \footnotemark \\
 
-  \midrule
+  \midrule[0.01em]
   \multirow{2}{*}{\texttt{SEC}} &
   \multirow{2}{*}{Secession} &
   \multirow{2}{*}{\includegraphics{graphics/concept/operations/SEC}} &
-  $ A $ & $ \rightarrow $ & $ B $ & &
-  $ (A_N $ & $ \rightarrow $ & $ A_{N'}) $ & &
-  $ A_T $ & $ \rightarrow $ & $ A_{T'} $ \\
+  $ A $     & $ \leftrightarrow_H $     & $ B $ & &
+  $ (A_N $  & $ \rightarrow $           & $ A_{N'}) $ & &
+  $ A_T $   & $ \rightarrow $           & $ A_{T'} $ \\
   & & &
   & & & &
   $ \emptyset $ & $ \rightarrow $ & $ B_N $ & &
   $ \emptyset $ & $ \rightarrow $ & $ B_T $ \footnotemark \\
 
-  \midrule
+  \midrule[0.07em]
   \multirow{1}{*}{\texttt{NCH}} &
   \multirow{1}{*}{Name Change} &
   \multirow{1}{*}{\includegraphics{graphics/concept/operations/NCH_TCH}} &
@@ -248,7 +184,7 @@ There are ten different types of changes that can happen to an Area, expressed b
   $ A_N $ & $ \rightarrow $ & $ A_{N'} $ & &
   & & \\
 
-  \midrule
+  \midrule[0.01em]
   \multirow{2}{*}{\texttt{BCH}} &
   \multirow{2}{*}{Border Change} &
   \multirow{2}{*}{\includegraphics{graphics/concept/operations/BCH}} &
@@ -260,7 +196,7 @@ There are ten different types of changes that can happen to an Area, expressed b
   & & & &
   $ B_T $ & $ \rightarrow $ & $ B_{T'} $ \footnotemark \\
 
-  \midrule
+  \midrule[0.01em]
   \multirow{1}{*}{\texttt{TCH}} &
   \multirow{1}{*}{Territory Change} &
   \multirow{1}{*}{\includegraphics{graphics/concept/operations/NCH_TCH}} &
@@ -271,6 +207,7 @@ There are ten different types of changes that can happen to an Area, expressed b
   \bottomrule
 \end{tabular}
 \caption{Overview about all 10 historical geographic operations}
+\small{$A \leftrightarrow_H B$ denotes historical relationship between two Areas, \\ i.e. $A$ is predecessor of $B$ and $B$ is successor of $A$}
 \label{tab:historical_geographic_operations}
 \end{center}
 \end{table}
@@ -294,12 +231,10 @@ There are ten different types of changes that can happen to an Area, expressed b
 
 The MECE principle -- mutually exclusive and collectively exhaustive -- is used by the consulting company McKinsey for organizing large amounts of data and as a strategy for effective problem solving. The advantages of a MECE model are \cite{mece}:
 \begin{itemize}
-  \item Each possible case in the real world can be mapped to a case in the model, because the model is thorough and covers all cases.
-  \item A case in the real world can be expressed by exactly one case in the model, because there is only one possibility and the model is clear.
+  \item Each possible case in the real world can be mapped to a case in the model, because the model covers all possibilities (\emph{collectively exhaustive}).
+  \item A case in the real world can be expressed by exactly one case in the model, because there is only one possibility (\emph{mutually exclusive}).
   \item The model is logical and comprehensive, can easily be understood and followed.
 \end{itemize}
-
-It is to be shown that the ten HG Operations are designed to cover all possible changes (collectively exhaustive) and that one operation can not be expressed by a combination of any other operations (mutually exclusive).
 
 % paragraph mece_principle (end)
 
@@ -307,11 +242,11 @@ It is to be shown that the ten HG Operations are designed to cover all possible 
 \paragraph{Mutual exclusion} % (fold)
 \label{par:mutual_exclusion}
 
-This is obviously true for \texttt{CRE}, because all other operations require at least one old area as an input to the operation. Vice versa, \texttt{CES} is unique, because it is the only operation without any new areas. \texttt{ICH} could geographically be represented by a combination of \texttt{CES} of and \texttt{CRE}, but that would not create a historical relationship between both Areas. Since the other identity-changing operations require either multiple old or new areas and the last three operations are identity-preserving, \texttt{ICH} is also unique.
+First it is to be shown that one operation can not be equivalently expressed by a combination of any other operations. This is obviously true for \texttt{CRE}, because all other operations require at least one old area as an input to the operation. Vice versa, \texttt{CES} is unique, because it is the only operation without any new areas. \texttt{ICH} could geographically be represented by a combination of \texttt{CES} of and \texttt{CRE}, but that would not create a historical relationship between both Areas. Since the other identity-changing operations require either multiple old or new areas and the last three operations are identity-preserving, \texttt{ICH} is also unique.
 
 \texttt{UNI}, \texttt{INC}, \texttt{SEP} and \texttt{SEC} require either old or new areas and establish historical relationships by changing identities. That is why they can neither be replaced by \texttt{CRE}, \texttt{ICH} and \texttt{CES} (only one old and/or new area), nor by \texttt{NCH}, \texttt{BCH} and \texttt{TCH} (identity-preserving). It is trivial that no operation can be expressed by its inverse and an operation that requires one old area can not replaced by one that requires multiple and vice versa. Therefore, the only possible combinations left are \texttt{UNI} $\leftrightarrow$ \texttt{INC} and \texttt{SEP} $\leftrightarrow$ \texttt{SEC}. While geographically, they are equivalent, because they unite respectively separate the territory in the same way, they are historically distinct: While in \texttt{UNI} and \texttt{SEP}, no Area is preserved in the operation, \texttt{INC} and \texttt{SEC} represent one Area that incorporate one Area into respectively cede one Area from its own territory. This shows the mutual exclulsion of all identity-preserving operations.
 
-It has already been argued that identity-preserving operations can not be expressed by a combination of any identity-changing ones. Also, \texttt{NCH} changes the name, whereas \texttt{TCH} and \texttt{BCH} manipulate the territory of an Area, so it is clear they can not replace each other. By intuition, \texttt{BCH} is the same as two \texttt{TCH} of both Areas affected by the \texttt{BCH}. Both operations do also not set up any historical relationship, so they are historically the same. However, geographically, two \texttt{TCH} of two neighboring countries would be redundant, since the territory ceded by one Area is exactly the same territory that is incorporate by the neighbor. Therefore it has been shown that all operations are mututally exclusive.
+It has already been argued that identity-preserving operations can not be expressed by a combination of any identity-changing ones. Also, \texttt{NCH} changes the name, whereas \texttt{TCH} and \texttt{BCH} manipulate the territory of an Area, so it is clear they can not replace each other. By intuition, \texttt{BCH} is the same as two \texttt{TCH} of both Areas affected by the \texttt{BCH}. Both operations do also not set up any historical relationship, so they are historically the same. However, geographically, two \texttt{TCH} of two neighboring countries would be redundant, since the territory ceded by one Area is exactly the same territory that is incorporate by the neighbor. Therefore it has been proofed that all operations are mututally exclusive.
 
 % paragraph mutual_exclusion (end)
 
@@ -319,30 +254,60 @@ It has already been argued that identity-preserving operations can not be expres
 \paragraph{Exhaustive collection} % (fold)
 \label{par:exhaustive_collection}
 
-show that all possible cases are covered.
+Next it needs to be shown that all cases that can happen in the real world can be expressed using a combination of one of the ten HG Operations. The first aspect is the identity of an Area, representing a political entity in the real world. In the life cycle of an entity, it is established at one point $t_s$, its name and territory can change multiple times while being active $U: \forall t_u \in U: t_u > t_s$ and it ceases at some other point $t_e: t_s < \forall t_u \in U < t_e$.
 
 
+
+In the real world, a political entity can be created in three ways:
+\begin{enumerate}
+  \item If before the creation of the entity its initial territory was fully unclaimed, it does it have any historical predecessors and is created new. This is represented in the \texttt{CRE} operation.
+  \item If its initial territory was fully claimed by a set of entities, then all of these entities are historical predecessors.
+  \begin{enumerate}
+    \item If the entity originates from itself by changing its formal name, the territory remains unchanged. The \texttt{ICH} operation reflects that case.
+    \item An entitiy can also originiate from one entity that has dissolved into several subsequent entities, which is represented in the \texttt{SEP} operation.
+    \item Finally, an entity can originate from several entities unifying. The \texttt{UNI} operation models this case.
+  \end{enumerate}
+  \item If the new entities territory was partially claimed and partially unclaimed, this process of creating entity $A$ can be expressed by a combination of three operations:
+  \begin{enumerate}
+    \item \texttt{CRE} creates the temporary entity $A_T$ with a new name and its territory on all unclaimed land that shall be occupied by $A$ later.
+    \item The rest is currently territory of a set of entities $B$. For each entity $B_i \in B$, the part that shall be territory of $A$ gets ceded from $B_i$ with a \texttt{SEC} operation, creating a set of entities $A_R$. This operation establishes a historical relationship between $B_i$ and $A_i$.
+    \item $A_T$ and all $A_i \in A_R$ are unified with \texttt{UNI} to the final entity $A$. $A$ inherits its name from $A_T$ and each Area $B_i \in B$ as a predecessor.
+    % TODO: graphic to visualize that
+  \end{enumerate}
+\end{enumerate}
+
+Throughout the lifetime of a political entity, the following changes can happen to it:
+\begin{enumerate}
+  \item The entity can change its name. A change of the commonly known short name is represented by \texttt{NCH} and preserves its identity. A change of the long official or formal name creates a new Area (\texttt{ICH}).
+  \item The territory of the political entity can change.
+  \begin{enumerate}
+    \item If it expands into land that is not claimed by any other entity at this time point or if it is shrinking without influencing the territory of potentially neighboring entities, the \texttt{TCH} operation can be used.
+    \item If the entity incorporates a territory from or cedes a territory to one neighboring entity, then this change is modeled by a \emph{BCH} operation.
+  \end{enumerate}
+\end{enumerate}
+
+
+
+is that historical relationships must always be established in both ways, i.e. $A \rightarrow_H B \Leftrightarrow A \leftarrow_H B $. There are five operations that set up an historical relationship and for all of them this is true. Regarding the Area name, it must be
+
+
+
+name: no problem, can overlap
+territory: by precondition: can not overlap
+=> geometrical and topological integrity
+
+investigate for each operation if it maintains integrity
+CRE
+ICH
+CES
+UNI, INC, SEP and SEC operate solely on
+NCH
+BCH
+TCH
 
 % paragraph exhaustive_collection (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\newpage
-Since the data model uses the concept of several existing one, it will derive also its name from it: The Hivent-Based Three-Domain Spatio-Temporal History Graph Data Model for Time-Stamped Vector Geometry
-... or in short: HBTDSTHGDMTSVG
-
-estd for vector graphics
-
-3 domain model
-identity: formal name of an entity
-
-history graph model without changing state: active, inactive
-
-no transaction time, only valid / event time
-only world time is regarded, not database time.
-
-interior borders of countries, which are straight lines between manually defined border points.
-=> vector model
-
 
 % subsection historical_changes (end)
 
@@ -352,13 +317,15 @@ interior borders of countries, which are straight lines between manually defined
 
 According to the extension of the Three Domain model (see section \ref{sub:three_domain_model}), a spatio-temporal object can be represented separetely in the spatial, temporal and thematic domain. Additionally, the semantic domain uniquely identifies an object and is invariant. This applies to the concept of an Area that represents a country.
 
-
 id: formal name
 
 semantic: id (formal name)
 spatial:  spatial attributes (territory)
 temporal: Hivent -> HistoricalChange -> AreaChange
 thematic: aspatial attributes (short name)
+
+Since the data model uses the concept of several existing one, it will derive also its name from it: The Hivent-Based Three-Domain Spatio-Temporal History Graph Data Model for Time-Stamped Vector Geometry
+... or in short: HBTDSTHGDMTSVG
 
 % subsection four_domain_model (end)
 
@@ -499,7 +466,6 @@ The system developed in this thesis is Web-based. That means, there is a \emph{c
 
 This clear separation between the data (\emph{model}), the user interface (\emph{view}) and the middleware (\emph{controller}) follows directly from the \emph{model-view-controller pattern}: One part can be changed without interfering the other parts, e.g. if the 2D map is replaced by a 3D globe, only the view changes, but the middleware and the database can stay untouched. Likewise, the implementation of a new database technology has no consequences to the view.
 
-
 graphic of basic system:
 UI
 Client-side mechanism
@@ -639,6 +605,8 @@ database model
   m     m          m     m
 AreaTerritory      AreaName
 
+no transaction time, only valid / event time
+only world time is regarded, not database time.
 
 view
 
@@ -649,9 +617,5 @@ save\_operation
 % subsection server_side_application (end)
 
 % section development (end)
-% ==============================================================================
-
-\vspace{2em}
-transition to uncertainty chapter
 
 % chapter concept (end)
