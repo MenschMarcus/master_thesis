@@ -21,7 +21,7 @@ The main entity of the domain is a country, may it be historical or current. But
 
 \begin{enumerate}
   \item An \emph{area name} consisting of a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''.
-  \item An \emph{area territory} describing the spatial extension of the Area using a polypolygon, a set of weakly simple polygons, because it has to support enclaves and exclaves. The polylines of the polygons represent the borders of the Area.
+  \item An \emph{area territory} describing the spatial extension of the Area using a polypolygon, a set of weakly simple polygons, because it has to support enclaves and exclaves. The polylines of the polygons represent the borders of the Area. One border has always either one or two neighboring Areas and two neighboring Areas share a discrete set of common borders.
   % Additionally, there is a \emph{representative point} for the territory at which the name of the area will be displayed on the map.
 \end{enumerate}
 
@@ -82,7 +82,7 @@ The data model only represents sudden changes of Areas, no processes, i.e. chang
 \paragraph{Historical Geographic Operations} % (fold)
 \label{par:historical_geographic_operations}
 
-There are ten different types of changes that can happen to an Area. They can be classified by the number of Areas they affect and by the fact if they change the identity of an Area or not. Identity-changing operations allow to trace historical predecessor-successor-relationships, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The following list explains ten historical geographic operations that allow to model all cases of historical changes. Historical relationships are only noted in one direction (predecessor), but are always valid also in the other direction (successor).
+There are ten different types of changes that can happen to an Area, expressed by one Historical Geographic Operation (HG Operation). They can be classified by the number of Areas they affect and by the fact if they change the identity of an Area or not. Identity-changing operations allow to trace historical predecessor-successor-relationships, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The following list explains ten historical geographic operations that allow to model all cases of historical changes. Historical relationships are only noted in one direction (predecessor), but are always valid also in the other direction (successor).
 
 \begin{enumerate}
 
@@ -132,7 +132,7 @@ There are ten different types of changes that can happen to an Area. They can be
   \item Identity-preserving operations for one or more Areas
   \begin{description}
     \item[BCH -- Border Change]
-    Parts of the territory of one Area is ceded to one of its neighors. Therefore, the border shared by two neighboring Areas changes. The names of the two Areas remain unchanged.\\
+    Parts of the territory of one Area is ceded to one of its neighors. Therefore, the border shared by two neighboring Areas changes. The names of the two Areas remain unchanged. Geographically, this operation preserves also the topology: Since only the border between two countries changes, they are still neighboring like before. \\
     \begin{footnotesize}
       As the result of the Treaty of Versailles in 1919, the German Empire ceded 13 \% of its territory, e.g. Alsace-Lorraine to France, changing the German-French border.
     \end{footnotesize}
@@ -149,7 +149,7 @@ There are ten different types of changes that can happen to an Area. They can be
   \end{description}
 \end{enumerate}
 
-\begin{table}[H]
+\begin{table}[!h]
 \begin{center}
 \begin{tabular}{m{0.65cm} m{2.5cm} m{2.2cm}
                 m{0.35cm} m{0.3cm} m{0.35cm} m{0.01cm}
@@ -167,25 +167,25 @@ There are ten different types of changes that can happen to an Area. They can be
   old & $ \rightarrow $ & new \\
 
   \midrule
-  CRE & Creation & \includegraphics{graphics/concept/operations/CRE} &
+  \texttt{CRE} & Creation & \includegraphics{graphics/concept/operations/CRE} &
   $ \emptyset $ & $ \rightarrow $ & $ A $ & &
   $ \emptyset $ & $ \rightarrow $ & $ A_N $ & &
   $ \emptyset $ & $ \rightarrow $ & $ A_T $ \\
 
   \midrule
-  ICH & Identity Change & \includegraphics{graphics/concept/operations/ICH} &
+  \texttt{ICH} & Identity Change & \includegraphics{graphics/concept/operations/ICH} &
   $ A   $ & $ \rightarrow $ & $ B $ & &
   $ A_N $ & $ \rightarrow $ & $ B_N $ & &
   $ A_T $ & $ \rightarrow $ & $ B_T $ \\
 
   \midrule
-  CES & Cessation & \includegraphics{graphics/concept/operations/CRE} &
-  $ \emptyset $ & $ \rightarrow $ & $ A $ & &
-  $ \emptyset $ & $ \rightarrow $ & $ A_N $ & &
-  $ \emptyset $ & $ \rightarrow $ & $ A_T $ \\
+  \texttt{CES} & Cessation & \includegraphics{graphics/concept/operations/CES} &
+  $ A $ & $ \rightarrow $ & $ \emptyset $ & &
+  $ A_N $ & $ \rightarrow $ & $ \emptyset $ & &
+  $ A_T $ & $ \rightarrow $ & $ \emptyset $ \\
 
   \midrule
-  \multirow{3}{*}{UNI} &
+  \multirow{3}{*}{\texttt{UNI}} &
   \multirow{3}{*}{Unification} &
   \multirow{3}{*}{\includegraphics{graphics/concept/operations/UNI}} &
   $ A $ & $ \rightarrow $ & $ C $ & &
@@ -201,7 +201,7 @@ There are ten different types of changes that can happen to an Area. They can be
   $ \emptyset $ & $ \rightarrow $ & $ C_T $ \footnotemark \\
 
   \midrule
-  \multirow{2}{*}{INC} &
+  \multirow{2}{*}{\texttt{INC}} &
   \multirow{2}{*}{Incorporation} &
   \multirow{2}{*}{\includegraphics{graphics/concept/operations/INC}} &
   & & & &
@@ -213,7 +213,7 @@ There are ten different types of changes that can happen to an Area. They can be
   $ B_T $ & $ \rightarrow $ & $ \emptyset $ \\
 
   \midrule
-  \multirow{3}{*}{SEP} &
+  \multirow{3}{*}{\texttt{SEP}} &
   \multirow{3}{*}{Separation} &
   \multirow{3}{*}{\includegraphics{graphics/concept/operations/SEP}} &
   $ A $ & $ \rightarrow $ & $ B $ & &
@@ -229,7 +229,7 @@ There are ten different types of changes that can happen to an Area. They can be
   $ \emptyset $ & $ \rightarrow $ & $ C_T $ \footnotemark \\
 
   \midrule
-  \multirow{2}{*}{SEC} &
+  \multirow{2}{*}{\texttt{SEC}} &
   \multirow{2}{*}{Secession} &
   \multirow{2}{*}{\includegraphics{graphics/concept/operations/SEC}} &
   $ A $ & $ \rightarrow $ & $ B $ & &
@@ -241,7 +241,7 @@ There are ten different types of changes that can happen to an Area. They can be
   $ \emptyset $ & $ \rightarrow $ & $ B_T $ \footnotemark \\
 
   \midrule
-  \multirow{1}{*}{NCH} &
+  \multirow{1}{*}{\texttt{NCH}} &
   \multirow{1}{*}{Name Change} &
   \multirow{1}{*}{\includegraphics{graphics/concept/operations/NCH_TCH}} &
   & & & &
@@ -249,7 +249,7 @@ There are ten different types of changes that can happen to an Area. They can be
   & & \\
 
   \midrule
-  \multirow{2}{*}{BCH} &
+  \multirow{2}{*}{\texttt{BCH}} &
   \multirow{2}{*}{Border Change} &
   \multirow{2}{*}{\includegraphics{graphics/concept/operations/BCH}} &
   & & & &
@@ -261,7 +261,7 @@ There are ten different types of changes that can happen to an Area. They can be
   $ B_T $ & $ \rightarrow $ & $ B_{T'} $ \footnotemark \\
 
   \midrule
-  \multirow{1}{*}{TCH} &
+  \multirow{1}{*}{\texttt{TCH}} &
   \multirow{1}{*}{Territory Change} &
   \multirow{1}{*}{\includegraphics{graphics/concept/operations/NCH_TCH}} &
   & & & &
@@ -273,7 +273,7 @@ There are ten different types of changes that can happen to an Area. They can be
 \caption{Overview about all 10 historical geographic operations}
 \label{tab:historical_geographic_operations}
 \end{center}
-\end{table}[H]
+\end{table}
 
 \addtocounter{footnote}{-4}
 \footnotetext{$C_{T} = A_T \cup B_T$}
@@ -289,15 +289,44 @@ There are ten different types of changes that can happen to an Area. They can be
 % paragraph historical_geographic_operations (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{MECE principle} % (fold)
+\label{par:mece_principle}
 
-combination of cases
+The MECE principle -- mutually exclusive and collectively exhaustive -- is used by the consulting company McKinsey for organizing large amounts of data and as a strategy for effective problem solving. The advantages of a MECE model are \cite{mece}:
+\begin{itemize}
+  \item Each possible case in the real world can be mapped to a case in the model, because the model is thorough and covers all cases.
+  \item A case in the real world can be expressed by exactly one case in the model, because there is only one possibility and the model is clear.
+  \item The model is logical and comprehensive, can easily be understood and followed.
+\end{itemize}
 
-There are topological rules rules that can be applied, e.g. two neighboring countries (polygons) share one common border (polyline). That preserves the relationship between them if their common border changes.
+It is to be shown that the ten HG Operations are designed to cover all possible changes (collectively exhaustive) and that one operation can not be expressed by a combination of any other operations (mutually exclusive).
 
-MECE principle: Mutually Exclusive and Collectively Exhaustive
+% paragraph mece_principle (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Mutual exclusion} % (fold)
+\label{par:mutual_exclusion}
+
+This is obviously true for \texttt{CRE}, because all other operations require at least one old area as an input to the operation. Vice versa, \texttt{CES} is unique, because it is the only operation without any new areas. \texttt{ICH} could geographically be represented by a combination of \texttt{CES} of and \texttt{CRE}, but that would not create a historical relationship between both Areas. Since the other identity-changing operations require either multiple old or new areas and the last three operations are identity-preserving, \texttt{ICH} is also unique.
+
+\texttt{UNI}, \texttt{INC}, \texttt{SEP} and \texttt{SEC} require either old or new areas and establish historical relationships by changing identities. That is why they can neither be replaced by \texttt{CRE}, \texttt{ICH} and \texttt{CES} (only one old and/or new area), nor by \texttt{NCH}, \texttt{BCH} and \texttt{TCH} (identity-preserving). It is trivial that no operation can be expressed by its inverse and an operation that requires one old area can not replaced by one that requires multiple and vice versa. Therefore, the only possible combinations left are \texttt{UNI} $\leftrightarrow$ \texttt{INC} and \texttt{SEP} $\leftrightarrow$ \texttt{SEC}. While geographically, they are equivalent, because they unite respectively separate the territory in the same way, they are historically distinct: While in \texttt{UNI} and \texttt{SEP}, no Area is preserved in the operation, \texttt{INC} and \texttt{SEC} represent one Area that incorporate one Area into respectively cede one Area from its own territory. This shows the mutual exclulsion of all identity-preserving operations.
+
+It has already been argued that identity-preserving operations can not be expressed by a combination of any identity-changing ones. Also, \texttt{NCH} changes the name, whereas \texttt{TCH} and \texttt{BCH} manipulate the territory of an Area, so it is clear they can not replace each other. By intuition, \texttt{BCH} is the same as two \texttt{TCH} of both Areas affected by the \texttt{BCH}. Both operations do also not set up any historical relationship, so they are historically the same. However, geographically, two \texttt{TCH} of two neighboring countries would be redundant, since the territory ceded by one Area is exactly the same territory that is incorporate by the neighbor. Therefore it has been shown that all operations are mututally exclusive.
+
+% paragraph mutual_exclusion (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Exhaustive collection} % (fold)
+\label{par:exhaustive_collection}
+
+show that all possible cases are covered.
 
 
-A data model is an incomplete abstraction of the real world to develop a reasonable solution for the problem space.
+
+% paragraph exhaustive_collection (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\newpage
 Since the data model uses the concept of several existing one, it will derive also its name from it: The Hivent-Based Three-Domain Spatio-Temporal History Graph Data Model for Time-Stamped Vector Geometry
 ... or in short: HBTDSTHGDMTSVG
 
@@ -308,48 +337,17 @@ identity: formal name of an entity
 
 history graph model without changing state: active, inactive
 
-simplification: just active / inactive, normal / contested + level of certainty
-
 no transaction time, only valid / event time
 only world time is regarded, not database time.
-
 
 interior borders of countries, which are straight lines between manually defined border points.
 => vector model
 
-A main problem is to maintain the integrity of the spatial topology when a new change gets inserted not at the end of the list. A simple example shows that problem: Given geo-object $X$ is part of the inital base configuration at change $t_b$. At a later change, e.g. $t_y$ $X$ gets replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted before at time point $t_x < t_y$, then $t_y$ is not integer anymore, because object $X$ does not exist. That is why on insertion of a change, all succeeding changes have to be tested for integrity and it might be necessary to update later changes.
-
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/event-based_spatio-temporal_data_model}
-%   \caption{The Event-Based Spatio-Temporal Data Model}
-%   \label{fig:event-based_spatio-temporal_data_model}
-
-
-\paragraph{possible extension} % (fold)
-\label{par:possible_extension}
-
-% paragraph possible_extension (end)
-
--> the whole earth is 100\% covered by spatial objects (full topology)
-  countries, debated territories, unknown land, water
-  Newtons concept of absolute space?
-
-
-inclusion of universe $\Omega$:
-CRE = SEC from $\Omega$
-DES = INC into $\Omega$
 
 % subsection historical_changes (end)
 
-
-% section hivent_model (end)
-
-
-store Hivents in DoublyLinkedList
-
-
-% \subsection{Four-Domain Model}
+% ------------------------------------------------------------------------------
+\subsection{Four-Domain Model} % (fold)
 \label{sub:four_domain_model}
 
 According to the extension of the Three Domain model (see section \ref{sub:three_domain_model}), a spatio-temporal object can be represented separetely in the spatial, temporal and thematic domain. Additionally, the semantic domain uniquely identifies an object and is invariant. This applies to the concept of an Area that represents a country.
@@ -364,44 +362,33 @@ thematic: aspatial attributes (short name)
 
 % subsection four_domain_model (end)
 
-% ==============================================================================
-\section{HistoGlobe} % (fold)
-\label{sec:histoglobe}
-
-Application: HistoGlobe
-A distributed \emph{Web Information System}, consists of a remote server side, on which the storage and management of the actual data happens, and the client side on which the user communicates with the system. It hosts the user interface that is rendered in a Web browser.
-
-map for spatial domain (x, y)
-timeline for temporal domain (t)
--> 3D system
-
-describe the components of the HG explicitally
-
-ancestors successors
-layers of administrative units
-open to extension for additional attribute data (e.g. statistics)
-
-requirements
-  geographical knowledge
-  contextualize / intersect historical sources
-  accept imprecision
-  prevent illusion of certainty
-
-usable User Interface for both navigation and editing
--> problem: all interfaces are trés horrible!
-
-
-
 % ------------------------------------------------------------------------------
-\subsection{System Architecture} % (fold)
-\label{sub:system_architecture}
+\subsection{Data Structure} % (fold)
+\label{sub:data_structure}
 
-The system developed in this thesis is Web-based. That means, there is a \emph{client}, a Web browser, and a remote Web \emph{server} with a database and a middleware. The Web browser hosts the applications user interface. If the user interacts with a tool the client sends a request to the Web server for new data. The middleware checks the request and queries the necessary data from the database. The data will be transformed and sendt back to the client. On the map and the timeline the new information will be shown.
+store Hivents in DoublyLinkedList
 
-This clear separation between the data (\emph{model}), the user interface (\emph{view}) and the middleware (\emph{controller}) follows directly from the \emph{model-view-controller pattern}: One part can be changed without interfering the other parts, e.g. if the 2D map is replaced by a 3D globe, only the view changes, but the middleware and the database can stay untouched. Likewise, the implementation of a new database technology has no consequences to the view.
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/event-based_spatio-temporal_data_model}
+%   \caption{The Event-Based Spatio-Temporal Data Model}
+%   \label{fig:event-based_spatio-temporal_data_model}
 
-% subsection system_architecture (end)
 
+A main problem is to maintain the integrity of the spatial topology when a new change gets inserted not at the end of the list. A simple example shows that problem: Given geo-object $X$ is part of the inital base configuration at change $t_b$. At a later change, e.g. $t_y$ $X$ gets replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted before at time point $t_x < t_y$, then $t_y$ is not integer anymore, because object $X$ does not exist. That is why on insertion of a change, all succeeding changes have to be tested for integrity and it might be necessary to update later changes.
+
+% subsection data_structure (end)
+
+% section hivent_model (end)
+
+% ==============================================================================
+%!TEX root = ../masters_thesis.tex
+\label{sec:development}
+
+\section{Development} % (fold)
+
+distributed Web-based system
+classic approach: UI <-> Client (main program) <-> Server (middleware) <-> DB
 
 % ------------------------------------------------------------------------------
 \subsection{Data Input} % (fold)
@@ -503,7 +490,31 @@ for quantitative data about international relations.
 
 % subsection data_input (end)
 
+% ------------------------------------------------------------------------------
+\subsection{System Architecture} % (fold)
+\label{sub:system_architecture}
 
+
+The system developed in this thesis is Web-based. That means, there is a \emph{client}, a Web browser, and a remote Web \emph{server} with a database and a middleware. The Web browser hosts the applications user interface. If the user interacts with a tool the client sends a request to the Web server for new data. The middleware checks the request and queries the necessary data from the database. The data will be transformed and sendt back to the client. On the map and the timeline the new information will be shown.
+
+This clear separation between the data (\emph{model}), the user interface (\emph{view}) and the middleware (\emph{controller}) follows directly from the \emph{model-view-controller pattern}: One part can be changed without interfering the other parts, e.g. if the 2D map is replaced by a 3D globe, only the view changes, but the middleware and the database can stay untouched. Likewise, the implementation of a new database technology has no consequences to the view.
+
+
+graphic of basic system:
+UI
+Client-side mechanism
+Server-side mechanism
+Database
+
+programming languages / Framworks
+Client                    HTML
+          Less ->         CSS
+          CoffeeScript -> JavaScript
+Server    Django ->       Python
+                          PostgreSQL
+                          + PostGIS
+
+% subsection system_architecture (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Edit Mode} % (fold)
@@ -534,5 +545,113 @@ geometries must be edited
 % section histoglobe (end)
 
 
+% ------------------------------------------------------------------------------
+\subsection{Interface Design} % (fold)
+\label{sub:interface_design}
+
+human centered design
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Paper Prototype} % (fold)
+\label{par:paper_prototype}
+
+description of process
+image of two prototypes
+
+% paragraph paper_prototype (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Mockup Prototype} % (fold)
+\label{par:mockup_prototype}
+
+description of process
+screenshot of two steps in between and of final version
+
+% paragraph mockup_prototype (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Web Interface} % (fold)
+\label{sub:final_version}
+
+screenshot
+explanation of all final UI Elements
+
+% paragraph final_version (end)
+
+% subsection interface_design (end)
+
+
+% ------------------------------------------------------------------------------
+\subsection{Client-Side Application} % (fold)
+\label{sub:client_side_application}
+
+Class diagram
+
+HistoGlobe
+
+SpatialDisplay -> Map
+
+TimeController  <-> Timeline
+                <-> NowMarker
+
+HiventController                AreaController <->  AreasOnMap
+HiventHandle                    AreaHandle
+Hivent
+HistoricalChange    AreaChange  Area
+                                AreaName            AreaNameLayerOnMap
+                                AreaTerritory       AreaTerritoryLayerOnMap
+
+DatabaseInterface
+
+EditMode -> EditOperation -> EditOperationStep
+NewTerritoryTool* NewNameTool NewHiventBox
+WorkflowWindow
+
+HistoGraph
+
+LabelManager*
+
+important little utils
+  Button, ButtonArea
+  NumberInput, TextInput, TextInputArea
+  Title
+  Watermark
+  DoublyLinkedList
+  WithinTree
+  Geometry -> Polypolygon -> Polygon -> Polyline -> Point
+
+
+% subsection client_side_application (end)
+
+% ==============================================================================
+\subsection{Server-Side Application} % (fold)
+\label{sub:server_side_application}
+
+database model
+
+           Hivent
+             m
+       HistoricalChange
+             m
+  --------AreaChange------
+  |          |           |
+  |     ----Area----     |
+  m     m          m     m
+AreaTerritory      AreaName
+
+
+view
+
+get\_all
+save\_operation
+
+
+% subsection server_side_application (end)
+
+% section development (end)
+% ==============================================================================
+
+\vspace{2em}
+transition to uncertainty chapter
 
 % chapter concept (end)
