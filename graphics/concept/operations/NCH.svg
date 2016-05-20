@@ -14,7 +14,7 @@
    id="svg3067"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="SEP.svg">
+   sodipodi:docname="NCH.svg">
   <defs
      id="defs3069" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.599999988180937"
-     inkscape:cx="8.308941142720627"
-     inkscape:cy="-2.198582671714078"
+     inkscape:zoom="7.919595930485319"
+     inkscape:cx="11.63659860172601"
+     inkscape:cy="21.04164938633554"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -79,97 +79,49 @@
          sodipodi:role="line"><tspan
            style="font-size:10px"
            id="tspan3002">A</tspan><tspan
-           id="tspan3122"
-           style="font-size:65.0009155273%;baseline-shift:sub">0</tspan></tspan></text>
-    <text
-       transform="translate(-55.41529846191406,1010.189327926635)"
-       sodipodi:linespacing="125%"
-       id="text3846"
-       y="9.6428547"
-       x="113.9153"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
-       xml:space="preserve"><tspan
-         dy="0"
-         dx="7.5"
-         rotate="0 0 0"
-         style="font-size:10px;text-align:start;line-height:125%;text-anchor:start;fill:#191919;fill-opacity:1"
-         y="9.6428547"
-         x="113.9153"
-         id="tspan3848"
-         sodipodi:role="line">B<tspan
-   style="font-size:65.0009155273%;text-align:start;text-anchor:start;baseline-shift:sub"
-   id="tspan3045">i</tspan></tspan></text>
-    <path
-       style="fill:none;stroke:#505050;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 40,5 L 40,35"
-       id="path3165"
-       inkscape:connector-curvature="0"
-       transform="matrix(-1,0,0,1,80,1012.362182617187)"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#505050;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 120.0178571402661,11.5 L 140.0178571402661,11.5"
-       id="path3838"
-       inkscape:connector-curvature="0"
-       transform="matrix(-1,0,0,-1,180.0178571402661,1058.862182617187)"
-       sodipodi:nodetypes="cc" />
+           id="tspan3145"
+           style="font-size:65%;baseline-shift:sub">0</tspan></tspan></text>
     <path
        sodipodi:nodetypes="cc"
-       transform="matrix(-1,0,0,1,180.0178571402661,1006.862182617187)"
+       transform="translate(-100.0178571402661,1021.862182617187)"
        inkscape:connector-curvature="0"
        id="path3826"
        d="M 120.0178571402661,10.5 L 140.0178571402661,10.5"
        style="fill:none;stroke:#505050;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        sodipodi:nodetypes="cc"
-       transform="matrix(-1,0,0,1,145,1017.362182617187)"
+       transform="translate(-65,1017.362182617187)"
        inkscape:connector-curvature="0"
        id="path3844"
        d="M 105,15 L 125,15"
        style="fill:none;stroke:#505050;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        sodipodi:type="arc"
-       style="fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:none;stroke:#191919;stroke-width:2.5000002384;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path3830"
        sodipodi:cx="70"
        sodipodi:cy="30"
        sodipodi:rx="5"
        sodipodi:ry="5"
        d="M 75,30 C 75,32.76142374915397 72.76142374915396,35 70,35 C 67.23857625084603,35 65,32.76142374915397 65,30 C 65,27.23857625084603 67.23857625084603,25 70,25 C 72.76142374915396,25 75,27.23857625084603 75,30 z"
-       transform="matrix(-1,0,0,1,110,1002.362182617187)" />
-    <text
-       xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
-       x="118.66"
-       y="9.6428547"
-       id="text2996"
-       sodipodi:linespacing="125%"
-       transform="matrix(0,1,-1,0,79.58570594787599,913.7042418041229)"><tspan
-         sodipodi:role="line"
-         id="tspan2998"
-         x="118.66"
-         y="9.6428547"
-         style="font-size:10px;text-align:center;line-height:125%;text-anchor:middle;fill:#191919;fill-opacity:1"
-         dy="0 0 0"
-         rotate="0 0 0 0"
-         dx="0 0 0">...</tspan></text>
+       transform="matrix(0.7999999942830795,0,0,0.7999999913053652,-15.99999959981557,1008.362182878026)" />
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
-       x="112.15378"
+       x="114.18058"
        y="9.6428547"
-       id="text3041"
+       id="text3769"
        sodipodi:linespacing="125%"
-       transform="translate(-53.65377807617187,1040.189327926635)"><tspan
+       transform="translate(-48.18058013916017,1026.189327926635)"><tspan
          sodipodi:role="line"
-         id="tspan3043"
-         x="112.15378"
+         id="tspan3771"
+         x="114.18058"
          y="9.6428547"
-         style="font-size:10px;text-align:start;line-height:125%;text-anchor:start;fill:#191919;fill-opacity:1"
+         style="font-size:10px;text-align:start;line-height:125%;text-anchor:start;fill:#cccccc;fill-opacity:1"
+         dy="0"
          rotate="0 0 0"
-         dx="7.5"
-         dy="0">B<tspan
-   style="font-size:65.0009155273%;text-align:start;text-anchor:start;baseline-shift:sub"
-   id="tspan3047">n</tspan></tspan></text>
+         dx="0">A<tspan
+   style="font-size:65.0009155273%;baseline-shift:sub"
+   id="tspan3147">0</tspan></tspan></text>
   </g>
 </svg>

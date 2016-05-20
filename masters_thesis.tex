@@ -40,8 +40,8 @@
 \usepackage{paralist}           % for compactenum
 \usepackage{adjustbox}          % for raisebox (vertically centering graphics in table)
 \usepackage{pbox}               % for pbox (line break inside table cell)
-
-
+\usepackage{scrextend}          % for addmargin (left indent of environment)
+\usepackage{listings}          % for nice code syntax highlighting
 
 
 %\*** HYPHENATION RULES ***\
@@ -76,6 +76,42 @@
 \newenvironment{quoteit}
 {\begin{quote}\itshape}
 {\end{quote}}
+
+
+%\*** CODE SYNTAX HIGHLIGHTING ***\
+% define pseudocode language
+\lstdefinelanguage{pseudocode}
+{
+  % list of keywords
+  morekeywords={             % define keywords
+    FUNCTION,
+    NEW,
+    IF,
+    ELSE,
+    WHILE,
+    FOREACH,
+    IN,
+    RETURN
+  },
+  sensitive=false,            % keywords are not case-sensitive
+  morecomment=[l]{\#},        % l is for line comment
+  morestring=[b]"             % defines that strings are enclosed in double quotes
+}
+% set style for pseudocode language
+\lstset{
+  language=     pseudocode,         % define the style for pseudocode
+  frame=        single,             % frame around the code
+  rulecolor=    \color{lightgray},  % color of frame
+  numbers=      left,               % position of line numbers
+  numberstyle=  \tiny,              % font size of line numbers
+  basicstyle=   \scriptsize,        % initial font size
+  captionpos=   b,                  % caption-position: bottom
+  % set keywords and their style
+  keywordstyle= \color{black}\bfseries,
+  % defines comments and their style
+  commentstyle=\color{gray},
+  comment=[l]{//}
+}
 
 
 %\*** NUMBERING AND TOC ***\
