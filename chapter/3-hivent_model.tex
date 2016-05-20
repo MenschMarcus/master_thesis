@@ -9,14 +9,15 @@ In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data
 
 The \emph{Hivent Model} developed in this thesis is constructed from components of some of these models: An Event-Based Spatio-Temporal Data Model organized according to the Three-Domain Model, using Simple Time-Stamping for the spatial entities, supporting vector data and visualization on a History Graph.
 
-In the first section of this chapter, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. The next section explains the Historical Geographic Operations that are used to change countries in time and space. The database model is illustrated in the third section and the data structures used to organize the elements of the model in the last section.
+In the first section of this chapter, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. The next section explains the Historical Geographic Operations that are used to change countries in time and space. The data structures used to organize the elements of the model are illustrated in the last section.
 % The chapter closes with an informal proof that the model is approproate.
+% -> no, this will be part of the evaluation
 
 % ==============================================================================
 \section{Elements} % (fold)
 \label{sec:elements}
 
-The main elements of the the model are the \emph{Hivent}, representing an historically significant happening, the \emph{Area}, an abstract entity on a map with a name and a territory and the \emph{Historical Change}, part of one Hivent and manipulating the history of one or more Areas.
+The main elements of the the model are the \emph{Hivent}, representing an historically significant happening and the \emph{Area}, an abstract entity on a map with a name and a territory. An \emph{Historical Change} is part of one Hivent and manipulates the history of one or more Areas.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Hivents} % (fold)
@@ -42,10 +43,14 @@ are the the visible entities on the map. They are an abstract representation of 
 
 Each Area has a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The main spatial dimension of the data model is the Areas \emph{territory}, represented by a polypolygon. It is a set of weakly simple polygons, because the model has to support enclaves and exclaves. The polylines of the polygons represent the borders of the political unit. A polyline consists of an ordered set of points, representing the border points.
 
-An Area can change over time. Throughout its lifetime, it is created at some point, then its territory and short name can change multiple times and at some point it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
+An Area can change over time. Throughout its lifetime, it is created at some point $t_s$, then its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < t_i < t_e$ it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
 
-% TODO: graphics  - - - - - - - O __________________ O - - - - - - - -
-%                  inactive    t_s      active      t_e     inactive
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/hivent_model/area_states}
+  \caption{Three types of changes to Areas, two different area states}
+  \label{fig:area_states}
+\end{figure}
 
 % paragraph area (end)
 
@@ -53,11 +58,9 @@ An Area can change over time. Throughout its lifetime, it is created at some poi
 \paragraph{Historical Changes} % (fold)
 \label{par:historical_changes}
 
-influence the development of an Area over time. They can create new Areas, update their territory or name and cease them. Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The actual historical change is defined by a set of five Historical Geographic Operations introduced in section \ref{sec:historical_geographic_operations}.
+influence the development of an Area over time. They can create new Areas, update their territory or name and cease them. Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The change is described by a Historical Geographic Operation introduced in section \ref{sec:historical_geographic_operations}.
 
 % paragraph historical_changes (end)
-
-% section elements (end)
 
 % ==============================================================================
 \section{Preconditions} % (fold)
@@ -72,6 +75,7 @@ And God said, “Let there be light” --- and there was light.
 
 The spatio-temporal system has to be initialized at some point. It is based on a set of trivial axioms stated in this section. Each Area in the system is located directly on the surface of the Earth. While the surface is curved, as explained in sections \ref{sub:model_of_geographical_space} and \ref{sub:presentation_of_geographic_space}, it can be projected on a two-dimensional map.
 
+\vspace{-1.0em}
 \newtheorem{invariant_surface}[assicounter]{Axiom}
 \begin{invariant_surface}
 \label{axm:invariant_surface}
@@ -80,6 +84,7 @@ The spatio-temporal system has to be initialized at some point. It is based on a
 
 This axiom sets the spatial foundation of the system: a constant dimension of the map. The basis of the temporal part of the system is introduced in the next three axioms:
 
+\vspace{-1.0em}
 \newtheorem{initial_configuration}[assicounter]{Axiom}
 \begin{initial_configuration}
 \label{axm:initial_configuration}
@@ -108,6 +113,7 @@ The borders of a political unit are either \emph{interior}, i.e. bordering anoth
 
 In the real world, The name of a political unit changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the Sea Level Rise influencing the change of the coastline, or according to a historical event, e.g. a treaty.
 
+\vspace{-1.0em}
 \newtheorem{constant_coastlines}[assicounter]{Assumption}
 \begin{constant_coastlines}
 \label{axm:constant_coastlines}
@@ -158,12 +164,58 @@ Respecting the preconditions, there are five different types of changes that can
   \end{footnotesize}
 \end{description}
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{m{0.75cm} m{2.5cm} m{2.5cm} m{2.0cm} m{2.5cm}}
+  \toprule
+  & operation
+  & \multicolumn{1}{c}{visualization}
+  & \multicolumn{1}{c}{\pbox{2.5cm}{historical\\relationship}}
+  & \multicolumn{1}{c}{territory} \\
+
+  \midrule
+  \texttt{UNI} & Unification & \raisebox{-0.25\height}
+  {\includegraphics{graphics/hivent_model/operations/UNI}} &
+  $ A_i \leftrightarrow_H B $ &
+  $ B^T = \cup_{i=1}^{n} A_i $ \\
+
+  \midrule
+  \texttt{INC} & Incorporation & \raisebox{-0.25\height}
+  {\includegraphics{graphics/hivent_model/operations/INC}} &
+  $ A_i \leftrightarrow_H A_0 $ &
+  $ A_0^T = \cup_{i=1}^{n} A_i $ \\
+
+  \midrule
+  \texttt{SEP} & Separation & \raisebox{-0.25\height}
+  {\includegraphics{graphics/hivent_model/operations/SEP}} &
+  $ A \leftrightarrow_H B_i $ &
+  $ B_i^T \cap A^T = B_i^T $ \\
+
+  \midrule
+  \texttt{SEC} & Secession & \raisebox{-0.25\height}
+  {\includegraphics{graphics/hivent_model/operations/SEC}} &
+  $ A_i \leftrightarrow_H A_0 $ &
+  $ B_i^T \cap A^T = B_i^T $ \\
+
+  \midrule
+  \texttt{NCH} & Name Change & \raisebox{-0.25\height}
+  {\includegraphics{graphics/hivent_model/operations/NCH}} &
+  $ \emptyset $ &
+  $ \emptyset $ \\
+
+  \bottomrule
+\end{tabular}
+\caption{Overview about the five HG Operations}
+\label{tab:historical_geographic_operations}
+\end{center}
+\end{table}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Functional description} % (fold)
 \label{par:functional_description}
 
-Each HG Operation can also be described by a mathematical function. The following symbols are used in the equations:
+Each HG Operation can be described by a mathematical function. The following symbols are used in the equations:
 
 \begin{addmargin}[1em]{0em}
 \begin{tabbing}
@@ -179,6 +231,7 @@ Each HG Operation can also be described by a mathematical function. The followin
 \end{tabbing}
 \end{addmargin}
 
+\vspace{-2.5em}
 \begin{align*}
   (B_0)                       &= UNI([A_1 .. A_i .. A_n], B_0^N) \\
   (A_0)                       &= INC(A_0, [A_1 .. A_i .. A_n]) \\
@@ -186,6 +239,15 @@ Each HG Operation can also be described by a mathematical function. The followin
   (A_0, [B_1 .. B_i .. B_n])  &= SEC(A_0, A_0^T, [[B_1^T, B_1^N] .. [B_i^T, B_i^N] .. [B_n^T, B_n^N]]) \\
   (A_0)                       &= NCH(A_0, A_0^N)
 \end{align*}
+
+
+% paragraph functional_description (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Pseudocode description} % (fold)
+\label{par:pseudocode_description}
+
+of the HG operations in an object-oriented manner. The existance of a class \texttt{Area} is assumed. Each \texttt{Area} object has the following member variables: a \texttt{name}, a \texttt{territory} and a list of historical \texttt{predecessors} and \texttt{successors}. Single capital letter variables (\texttt{A}/\texttt{B}) denote arrays of \texttt{Area} objects. Variables with a capital letter followed by a number or lowercase letter (e.g. \texttt{B0}) are single \texttt{Area} objects.
 
 \begin{minipage}[t]{0.47\textwidth}
 \begin{lstlisting}[language=pseudocode,
@@ -266,6 +328,7 @@ FUNCTION SEC(A0, A_territory, B_data)
 \end{lstlisting}
 \end{minipage}
 
+\vspace{-1.5em}
 \begin{minipage}[t]{0.47\textwidth}
 \begin{lstlisting}[language=pseudocode,
   caption=Name Change]
@@ -278,58 +341,67 @@ FUNCTION NCH(A0, A_name)
 \end{lstlisting}
 \end{minipage}
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{m{0.75cm} m{2.5cm} m{2.5cm} m{2.0cm} m{2.5cm}}
-  \toprule
-  & operation
-  & \multicolumn{1}{c}{visualization}
-  & \multicolumn{1}{c}{\pbox{2.5cm}{historical\\relationship}}
-  & \multicolumn{1}{c}{territory} \\
-
-  \midrule
-  \texttt{UNI} & Unification & \raisebox{-0.25\height}
-  {\includegraphics{graphics/concept/operations/UNI}} &
-  $ A_i \leftrightarrow_H B $ &
-  $ B^T = \cup_{i=1}^{n} A_i $ \\
-
-  \midrule
-  \texttt{INC} & Incorporation & \raisebox{-0.25\height}
-  {\includegraphics{graphics/concept/operations/INC}} &
-  $ A_i \leftrightarrow_H A_0 $ &
-  $ A_0^T = \cup_{i=1}^{n} A_i $ \\
-
-  \midrule
-  \texttt{SEP} & Separation & \raisebox{-0.25\height}
-  {\includegraphics{graphics/concept/operations/SEP}} &
-  $ A \leftrightarrow_H B_i $ &
-  $ B_i^T \cap A^T = B_i^T $ \\
-
-  \midrule
-  \texttt{SEC} & Secession & \raisebox{-0.25\height}
-  {\includegraphics{graphics/concept/operations/SEC}} &
-  $ A_i \leftrightarrow_H A_0 $ &
-  $ B_i^T \cap A^T = B_i^T $ \\
-
-  \midrule
-  \texttt{NCH} & Name Change & \raisebox{-0.25\height}
-  {\includegraphics{graphics/concept/operations/NCH}} &
-  $ \emptyset $ &
-  $ \emptyset $ \\
-
-  \bottomrule
-\end{tabular}
-\caption{Overview about the five HG Operations}
-\label{tab:historical_geographic_operations}
-\end{center}
-\end{table}
-
-
-% paragraph functional_description (end)
+% paragraph pseudocode_description (end)
 
 % section historical_geographic_operations (end)
 
+% ==============================================================================
+\subsection{Data Structures} % (fold)
+\label{sub:data_structures}
 
+execute function for all operations the same
+
+\begin{lstlisting}[language=pseudocode,
+  caption=class HGOperation]
+
+## member variables
+update_area = {
+  area :          null  # Area
+  old_name :      null  # AreaName
+  new_name :      null  # AreaName
+  old_territory : null  # AreaTerritory
+  new_territory : null  # AreaTerritory
+}
+old_areas = []          # Area
+new_areas = []          # Area
+
+## main function
+FUNCTION execute(direction)
+
+  # check if one area is updated
+  IF update_area.area
+    IF update_area.area.new_name
+      IF direction IS 1 # forward change
+        update_area.area.name = new_name
+      ELSE              # backward change
+        update_area.area.name = old_name
+    IF update_area.area.new_territory
+      IF direction IS 1 # forward change
+        update_area.area.territory = new_territory
+      ELSE              # backward change
+        update_area.area.territory = old_territory
+    update_area.area.update()
+
+  # hide old areas
+  FOREACH old_area IN old_areas
+    IF direction IS 1 # forward change
+      old_area.hide()
+    ELSE              # backward change
+      old_area.show()
+
+  # show new areas
+  FOREACH new_area IN new_areas
+    IF direction IS 1 # forward change
+      new_area.show()
+    ELSE              # backward change
+      new_area.hide()
+
+
+
+\end{lstlisting}
+
+
+% subsection data_structures (end)
 
 % ==============================================================================
 

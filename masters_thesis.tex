@@ -79,6 +79,10 @@
 
 
 %\*** CODE SYNTAX HIGHLIGHTING ***\
+
+% use a tt (monospace) font with a bold variant
+\renewcommand{\ttdefault}{pcr}
+
 % define pseudocode language
 \lstdefinelanguage{pseudocode}
 {
@@ -88,6 +92,8 @@
     NEW,
     IF,
     ELSE,
+    IS,
+    ISNT,
     WHILE,
     FOREACH,
     IN,
@@ -99,15 +105,15 @@
 }
 % set style for pseudocode language
 \lstset{
-  language=     pseudocode,         % define the style for pseudocode
-  frame=        single,             % frame around the code
-  rulecolor=    \color{lightgray},  % color of frame
-  numbers=      left,               % position of line numbers
-  numberstyle=  \tiny,              % font size of line numbers
-  basicstyle=   \scriptsize,        % initial font size
-  captionpos=   b,                  % caption-position: bottom
+  language=     pseudocode,           % define the style for pseudocode
+  frame=        single,               % frame around the code
+  rulecolor=    \color{lightgray},    % color of frame
+  numbers=      left,                 % position of line numbers
+  numberstyle=  \tiny,                % font size of line numbers
+  basicstyle=   \scriptsize\ttfamily, % initial font family and size
+  captionpos=   b,                    % caption-position: bottom
   % set keywords and their style
-  keywordstyle= \color{black}\bfseries,
+  keywordstyle= \color{gray}\bfseries,
   % defines comments and their style
   commentstyle=\color{gray},
   comment=[l]{//}
