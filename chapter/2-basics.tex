@@ -477,27 +477,27 @@ or ESRI Shapefiles (\texttt{.shp})
 % paragraph raster_vs_vector_model (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Geospatial Topology} % (fold)
-\label{par:geospatial_topology}
+% \paragraph{Geospatial Topology} % (fold)
+% \label{par:geospatial_topology}
 
-\emph{Topology} is the study of position, how objects are spatially arranged and relatively positioned to each other. It does not include measures like distances or angles. Two objects are said to be topologically equivalent, if they can be deformed into each other, e.g. an ellipse can be stretched into a circle. A \emph{geospatial topological vector model} defines the relationship between geospatial objects, i.e. equals, disjoint, intersects, touches / neighbors, contains, covers, within, interior and boundary
-\cite{clementiniTopology}.
+% \emph{Topology} is the study of position, how objects are spatially arranged and relatively positioned to each other. It does not include measures like distances or angles. Two objects are said to be topologically equivalent, if they can be deformed into each other, e.g. an ellipse can be stretched into a circle. A \emph{geospatial topological vector model} defines the relationship between geospatial objects, i.e. equals, disjoint, intersects, touches / neighbors, contains, covers, within, interior and boundary
+% \cite{clementiniTopology}.
 
-The 2D vector model can be extended with a topology. The elements in this topological space are nodes (0D), edges (1D) and meshes (2D) and they correspond directly to the geometric primitives stated above. A topological vector model has strict connectivity (a ``clean'' geometry), if no two edges intersect without a node at their intersection point (planar), each interior edge has exactly two adjacent areas and each edge contains at least two nodes
-\cite[pp.37-39]{bolstad2008gis}.
+% The 2D vector model can be extended with a topology. The elements in this topological space are nodes (0D), edges (1D) and meshes (2D) and they correspond directly to the geometric primitives stated above. A topological vector model has strict connectivity (a ``clean'' geometry), if no two edges intersect without a node at their intersection point (planar), each interior edge has exactly two adjacent areas and each edge contains at least two nodes
+% \cite[pp.37-39]{bolstad2008gis}.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.55\textwidth]{graphics/basics/topological_vector_model}
-  \caption{An example of a topological vector model and an adjacancy table}
-  \label{fig:topological_vector_model}
-\end{figure}
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.55\textwidth]{graphics/basics/topological_vector_model}
+%   \caption{An example of a topological vector model and an adjacancy table}
+%   \label{fig:topological_vector_model}
+% \end{figure}
 
-The topological vector model has a great asset: if an edge between two adjacent areas changes, the connectivity and adjacency does not change and therefore also the topology stays constant. The lookup for neighboring areas is very fast if the topology ensures strict connectivity: The neighbors of an area can be found in the adjacency table. Potentially problematic is the creation of a clean geometry: it can be cumbersome and require a lot of manual adjustment, for example ensuring strict connectivity by manually connecting nodes.
+% The topological vector model has a great asset: if an edge between two adjacent areas changes, the connectivity and adjacency does not change and therefore also the topology stays constant. The lookup for neighboring areas is very fast if the topology ensures strict connectivity: The neighbors of an area can be found in the adjacency table. Potentially problematic is the creation of a clean geometry: it can be cumbersome and require a lot of manual adjustment, for example ensuring strict connectivity by manually connecting nodes.
 
-% paragraph geospatial_topology (end)
+% % paragraph geospatial_topology (end)
 
-% subsection model_of_geographical_space (end)
+% % subsection model_of_geographical_space (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Presentation of Geographic Space} % (fold)

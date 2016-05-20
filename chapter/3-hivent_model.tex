@@ -3,29 +3,32 @@
 \chapter{The Hivent Model} % (fold)
 \label{cha:the_hivent_model}
 
-The task of this thesis is how to model, visualize and edit the development of countries in time and space in a HGIS. Before the system itself can be developed, the underlying data model has to be fixed. This is the purpose of this chapter.
+The task of this thesis is to model, visualize and edit the development of countries in time and space in a HGIS. Before the system itself can be developed, the underlying data model has to be fixed. This is the purpose of this chapter.
 
-In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced to solve this problem. The \emph{Snapshot Model} was seen as unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but the method does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity. The \emph{Hivent Model} developed in this thesis is constructed from components of some of these models: An Event-Based Spatio-Temporal Data Model organized according to the Three-Domain Model, supporting vector data and visualization on a History Graph.
+In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced to solve this problem. The \emph{Snapshot Model} was seen as unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but the method does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity.
 
-In the first section of this chapter, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. The next section explains the Hivent operations that are used to change countries in time and space. The data structures used to organize the elements of the model are illustrated in the third section.
+The \emph{Hivent Model} developed in this thesis is constructed from components of some of these models: An Event-Based Spatio-Temporal Data Model organized according to the Three-Domain Model, using Simple Time-Stamping for the spatial entities, supporting vector data and visualization on a History Graph.
+
+In the first section of this chapter, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. The next section explains the Hivent Operations that are used to change countries in time and space. The database model is illustrated in the third section and the data structures used to organize the elements of the model in the last section.
 % The chapter closes with an informal proof that the model is approproate.
 
 % ==============================================================================
 \section{Elements} % (fold)
 \label{sec:elements}
 
-The main elements of the the model are the \emph{Hivent}, representing an historically significant happening, an \emph{Area}, an abstract entity on a map with a name and a territory and an \emph{Historical Change}, that changes the history of one or more Areas and belongs to one Hivent.
+The main elements of the the model are the \emph{Hivent}, representing an historically significant happening, the \emph{Area}, an abstract entity on a map with a name and a territory and the \emph{Historical Change}, part of one Hivent and manipulating the history of one or more Areas.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Hivents} % (fold)
 \label{par:hivent}
 
-are the main organizing element of the data model. The word is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}}. It represents a significant happening in history at one specific time point, e.g. a treaty, bill or declaration. In this domain, the focus is on events that influence the geopolitical situation Earth. That means, they introduce historical changes at their point in history. An Hivent has four different attributes:
+are the main organizing element of the data model. The word is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}}. It represents a significant happening in history at one specific time point, e.g. a treaty, bill or declaration. In this domain, the focus is on events that influence the geopolitical situation on Earth. That means, they introduce historical changes at their point in history. An Hivent has five different attributes:
 
 \begin{compactenum}
-  \item The \emph{name} of the Hivent
+  \item The \emph{name} of the Hivent.
+  \item A textual \emph{description} of the topic of the Hivent.
   \item The point in time, identified by the Hivent \emph{date}.
-  \item A textual description of the Hivent \emph{location}.
+  \item The Hivent \emph{location}.
   \item The \emph{historical changes} resulting from the Hivent.
 \end{compactenum}
 
@@ -35,20 +38,14 @@ are the main organizing element of the data model. The word is an acronym for \e
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-are the the visible entities on the map. They are an abstract representation of one identical current or historical country. The model can easily be extended to model the history of states, provinces or regions. Therefore from now on the term \emph{political unit}, not \texttt{country} is used for the element in the real world. Each area has a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The main spatial dimension of the data model is the Areas \emph{territory} represented by a polypolygon. The polypolygon is a set of weakly simple polygons, because the model has to support enclaves and exclaves. The polylines of the polygons represent the borders of the political unit. One border has always either one or two neighboring Areas and two neighboring Areas share a discrete set of common borders. A polyline consists of an ordered set of points, representing the border points.
+are the the visible entities on the map. They are an abstract representation of one identical current or historical country. The model can easily be extended to the history of states, provinces or regions. Therefore, from now on the term \emph{political unit} instead of \emph{country} is used to describe the object in the real world that is modeled by an Area.
 
-An Area can change over time. Throughout the lifetime of an Area, it is created at some point, then its territory and short name can change any number of times and at some point it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in:
-\begin{compactenum}
-  \item An Area is \emph{active}, if at the current time point it is historically existing, with a name and a territory associated to it.
-  \item On a contrarty, if an Area does not historically exist at this time point, it is \emph{inactive}.
-\end{compactenum}
+Each Area has a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The main spatial dimension of the data model is the Areas \emph{territory}, represented by a polypolygon. It is a set of weakly simple polygons, because the model has to support enclaves and exclaves. The polylines of the polygons represent the borders of the political unit. A polyline consists of an ordered set of points, representing the border points.
 
-Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
+An Area can change over time. Throughout its lifetime, it is created at some point, then its territory and short name can change multiple times and at some point it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
 
 % TODO: graphics  - - - - - - - O __________________ O - - - - - - - -
 %                  inactive    t_s      active      t_e     inactive
-
-% TODO: countries with enclaves or islands are not topologically equivalent.
 
 % paragraph area (end)
 
@@ -56,7 +53,7 @@ Each area is uniquely identified by its formal name. That means, the short name 
 \paragraph{Historical Changes} % (fold)
 \label{par:historical_changes}
 
-drive the development of an Area over time. They can create new Areas, update their territory and name and cease them. Each Historical Change belongs to one Hivent, inheriting its time point at which the change of the Areas happens. The actual historical change is defined by a set of Hivent Operations that will be introduced in section \ref{sec:hivent_operations}.
+influence the development of an Area over time. They can create new Areas, update their territory or name and cease them. Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The actual historical change is defined by a set of five Hivent Operations introduced in section \ref{sec:hivent_operations}.
 
 % paragraph historical_changes (end)
 
@@ -67,39 +64,67 @@ drive the development of an Area over time. They can create new Areas, update th
 \label{sec:preconditions}
 
 \begin{quoteit}
-In the beginning God created the heavens and the earth \\
-Now the earth was formless and empty [...] \\
+In the beginning God created the heavens and the Earth \\
+Now the Earth was formless and empty [...] \\
 And God said, “Let there be light” --- and there was light.
 \end{quoteit}
 \hfill -- Genesis 1:1, The First Book of Moses, Old Testament
 
-This section defines the exact problem space and assumptions that the Hivent Model is based on. As defined in sections \ref{sub:model_of_geographical_space} and \ref{sub:presentation_of_geographic_space}, the surface of the Earth is curved, but can be projected on the two-dimensional map. Each point on the surface can uniquely be described by a pair of coordinates: latitude and longitude.
+The spatio-temporal system has to be initialized at some point. It is based on a set of trivial axioms stated in this section. Each Area in the system is located directly on the surface of the Earth. While the surface is curved, as explained in sections \ref{sub:model_of_geographical_space} and \ref{sub:presentation_of_geographic_space}, it can be projected on a two-dimensional map.
 
-\newtheorem{invariant_surface}[assumptioncounter]{Assumption}
+\newtheorem{invariant_surface}[assicounter]{Axiom}
 \begin{invariant_surface}
-\label{ass:invariant_surface}
-The surface of the Earth has an invariant area, i.e. it does not change over time. It is called the \emph{universe} entity and is denoted as $\Omega$.
+\label{axm:invariant_surface}
+  The Earth's surface has an invariant area size, i.e. it does not change over time.
 \end{invariant_surface}
 
-\newtheorem{initial_configuration}[assumptioncounter]{Assumption}
+This axiom sets the spatial foundation of the system: a constant dimension of the map. The basis of the temporal part of the system is introduced in the next three axioms:
+
+\newtheorem{initial_configuration}[assicounter]{Axiom}
 \begin{initial_configuration}
-\label{ass:initial_configuration}
-At the inital state of the system, $\Omega$ covers the whole surface of the Earth.
+\label{axm:initial_configuration}
+  The spatio-temporal system has an initial state at time point $t_0$. At this initial state, there exists exactly one Area, denoted by $\Omega$ and referred to as the \emph{universe} Area. It has no name and its territory covers the whole surface of the Earth.
 \end{initial_configuration}
 
-\newtheorem{change}[assumptioncounter]{Assumption}
-\begin{change}
-\label{ass:change}
-Each change of an Area is the result of exactly one Historical Change that belongs to exactly one Hivent.
-\end{change}
+\vspace{-1.5em}
+\newtheorem{historical_change}[assicounter]{Axiom}
+\begin{historical_change}
+\label{axm:historical_change}
+  At each time point $t_i \geq t_0$ an Historical Change can be introduced.
+\end{historical_change}
 
-The area name changes according to sudden events, e.g. a declaration or a governmental bill. The territory of a political entity can change either because of a geographical processes, e.g. the change of the coastline, or according to a historical event, e.g. a treaty. The model in this thesis focuses only on discrete historical changes and not on long-term geographical developments. It is assumed that the geographical conditions on Earth, especially the position of land and water and the coastlines have not changed in history. While this assumption is obviously wrong, it helps to keep the problem space clear. The data model will be open to future extensions to account also for geographic changes. In this data model, the temporal behavior of an Area can therefore be described as a \emph{static object that changes according to sudden events}.
+\vspace{-1.5em}
+\newtheorem{unique_coverage}[assicounter]{Axiom}
+\begin{unique_coverage}
+\label{axm:unique_coverage}
+  At each time point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one Area.
+\end{unique_coverage}
 
+As it has been defined in section \ref{par:historical_changes}, an Historical Change can create, manipulate and cease Areas on the Earth's surface. According to axoim \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map. That means, as soon as an Area is created in one territory on the map, the territory that was there before has to cease. Vice versa, if an Area ceases from the map, it has to be replaced with at least one new Area and these new Areas combined have to occupy exactly this same territory.
 
+The first Historical Changes introduced in the system at time point $t_0$ are the creation of all bodies of water, including the oceans and lakes. They are created as Areas with their name and territory which is cut out of $\Omega$. That means, at $t_0$, the map of the world is divided into a set of Areas representing water and $\Omega$, representing land that can at each time point $t_i > t_0$ be occupied by an Area representing a political unit claiming the land as their territory. To simplify the data model, two assumptions are made:
 
-Assumption \ref{ass:invariant_surface} is the fundamental axoim of the data model: $\Omega$ is used as the universe entity and it initially covers
+\newtheorem{international_borders}[assicounter]{Assumption}
+\begin{international_borders}
+\label{axm:international_borders}
+  The borders of a political unit are either \emph{interior}, i.e. bordering another political unit, or a \emph{coastline}, bordering a body of water.
+\end{international_borders}
 
+This assumption is a concious simplification of the reality: It assumes the territory of a political unit stops at the coastline. Juristically, this is not true, because in line with \cite{UNSeaBorders}, the territory extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters. This model disregards the sea territory of a political entity to keep the model simple.
 
+In the real world, The name of a political unit changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the Sea Level Rise influencing the change of the coastline, or according to a historical event, e.g. a treaty.
+
+\newtheorem{constant_coastlines}[assicounter]{Assumption}
+\begin{constant_coastlines}
+\label{axm:constant_coastlines}
+  The geographical conditions on Earth, especially the position of land and water and the coastlines have not changed over time.
+\end{constant_coastlines}
+
+While this assumption is obviously wrong, it helps to keep the problem space clear and the data model simple: The Hivent model of this thesis focuses only on discrete historical changes and not on long-term geographical developments.  However, it is designed to be open to future extensions to account also for geographic changes and international sea borders. In this data model, the temporal behavior of an Area can therefore be described as a \emph{static object that changes according to sudden events}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% subtractive model
 
 Earth is initially fully covered with one area: $\Omega$
 1) secession of water $W$ from $\Omega$
