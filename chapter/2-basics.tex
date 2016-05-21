@@ -332,6 +332,105 @@ HGIS are not widely accepted in the humanities. One reason is the nature of the 
 
 % subsection applications (end)
 
+% ------------------------------------------------------------------------------
+\subsection{Data Sources} % (fold)
+\label{sub:input}
+
+This HGIS needs data about historical countries, their names and borders and historical events that lead to historical changes of these countries. There are a lot of free and open sources for geographic data about the current countries, their names and borders. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth
+\footnote{
+  \textit{Natural Earth},
+  URL: \url{http://www.naturalearthdata.com/downloads/},
+  last access: 30.10.2015
+}.
+There is physical data (e.g. coastlines, rivers, or glacier areas) and cultural data (e.g. political borders, cities, roads, airports or timezones). OpenStreetMap also opens its database to the public
+\footnote{
+  \textit{Planet OSM},
+  URL: \url{http://planet.openstreetmap.org/},
+  last access: 30.10.2015
+}.
+
+However, data about historical countries and events are not as straightforward to aquire, because of the mostly qualitative nature of historical research (see section \ref{sub:history}). The most exhaustive free and open source of historical is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}
+\footnote{
+  \textit{Category:Treaties},
+  Wikipedia, the free encyclopedia,\\
+  URL: \url{https://en.wikipedia.org/wiki/Category:Treaties},
+  last access: 13.05.2016
+}.
+All sorts of historical events can be found, even translated into different languages. Some information is structured in information boxes, e.g. some historical treaties have a name, an image, a location, a signature and an effect date, an overview about treaty conditions and signatories. Particularily interesting for this thesis are articles about historical countries
+\footnote{
+  \textit{List of former sovereign states},
+  Wikipedia, the free encyclopedia,
+  URL: \url{https://en.wikipedia.org/wiki/List_of_former_sovereign_states},
+  last access: 13.05.2016
+},
+because they contain the name of the country and meta information, e.g. their historical successors and predecessors. Building an open-source Historical Geographic Information System on the basis of Wikipedia would be a huge project with significant impact on the world of free and open education --- however, it would also be a big challenge: Wikipedia is incomplete, not all historical countries and events necessary to model the history of the world are available. It is also inconsistent, because not all articles about historical countries and events are structured, especially not to those who actually have an influence on a territorial change of a country, e.g. a border agreement. Retrieving, parsing and processing this information is a big challenge. Also the problem of accuracy and quality of information in the Wikipedia due to their open source nature has to be considered. Overall, using the Wikipedia as a data source for this thesis is not feasible, but is subject to further research.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Historical maps} % (fold)
+\label{par:historical_map}
+
+The most problematic data to acquire is about the territories and borders of historical countries. There is no primary data source for that, so the only way to retrieve a border is to extract it from an historical map.
+
+They also can be found on Wikipedia, or in historical map colletions, e.g. \emph{OldMapsOnline}. The project is developed ``out of a love of history and heritage of old maps'' and currently stores about 400000 historical maps
+\footnote{
+  \textit{Old Maps Online},
+  URL: \url{http://www.oldmapsonline.org/},
+  last access: 13.05.2016
+}.
+There are five steps to retrieve a border with points in geographic coordinates from an historical map.
+\begin{enumerate}
+  \item \textbf{Digitization}: If the map is on paper, it has to be scanned in the best possible quality. The result is a raster graphic.
+  \item \textbf{Georeferencing}: The historical map has to fit as good possible on the reference map. This requires to manually define a set of reference points which are used to transform the map into the geographic coordinate system. This process is error-prone, especially if the projection of the historical map is not known and the map itself is not accurate
+  \cite[pp. xvii]{knowles2002past}.
+  The outcome is a raster graphic in which each pixel is assigned a geographic coordinate.
+  \item \textbf{Preprocessing}: The raster image has to be be processed so that the desired border stands out and can be traced in the next step. This happens via greyscale conversion, thresholding or the Canny Edge Detector. This results in a monochrome graphic in which the desired border must be uninterrupted and clearly be seen.
+  \item \textbf{Line detection}: By selecting a start and an end point of the border, the line gets traced automatically. This step vectorizes one particular feature, a borderline, from the raster graphic and produces a polyline in geographic coordinates.
+  \item \textbf{Postprocessing}: In the last step, the polyline can be adapted: The line can be simplified to reduce unnatural artifacts and the position of border points can be manually edited. The final output of the whole process is a polyline whose points are expressed in the geographic coordinate system which can be used in the system as a border of an historic country.
+\end{enumerate}
+
+This process was developed in a preceding \emph{HiBo} project
+\footnotetext{
+  \textit{HiBo - semi-automatic extraction of borders from historical maps},
+  Project of: B. Weber, N. K. Dankwa, K. Singh and T. Kashyappan, supervised by: Prof. Volker Rodehorst and Marcus Kossatz, Bauhaus-Universität Weimar, February 2015,
+  URL: \url{https://bitbucket.org/bastian_weber/hibo},
+  last access: 29.10.2015
+}
+(see figure \ref{fig:hibo}).
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{graphics/basics/hibo1.png}
+    \caption{Georeferencing}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{graphics/basics/hibo2.png}
+    \caption{Semi-automatic digitizing}
+  \end{subfigure}
+  \caption{Semi-automatic extraction of a border from a map of the Roman Empire \protect\footnotemark}
+  \label{fig:hibo}
+\end{figure}
+
+% paragraph historical_map (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Manual data input} % (fold)
+\label{par:manual_data_input}
+
+For the domain of this HGIS, the development of countries over time, there is no complete dataset available. Therefore, the system developed in this thesis needs to have an interface to enter historical data. The user needs to have an interface to enter information about historical events that change territories and names of historical countries. This data has to be acuired either from primary historical sources directly, or from free online sources. Next to Wikipedia, there are other collections of historical events, e.g. \emph{Correlates of War}
+\footnote{
+  \textit{Data Sets},
+  Correlates of War,
+  URL: \url{http://www.correlatesofwar.org/data-sets/folder_listing},
+  last access: 13.05.2016
+}
+for quantitative data about international relations.
+% paragraph manual_data_input (end)
+
+% subsection data_sources (end)
+
 % section historical_geographic_information_systems (end)
 
 
@@ -1041,6 +1140,8 @@ usable User Interface for both navigation and editing
 -> problem: all interfaces are trés horrible!
 
 % section histoglobe (end)
+
+% chapter bascis (end)
 
 % ==============================================================================
 \vspace{2em}
