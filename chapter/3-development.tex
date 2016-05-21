@@ -3,10 +3,13 @@
 \chapter{Development} % (fold)
 \label{cha:development}
 
-The aim of this thesis is to create a Historical Geographic Information System to visualize and edit the evolution of countries in time and space. The development of this system is a complicated task, because the reality that is modeled is complex and the human being that should be able to use the system is complex. The task is to create an interface that a human can easily understand and use. For these complex applications in which the interface matters, the methodologies of \emph{Human Centered Design} are promising to achieve a good solution.
+The aim of this thesis is to create a Historical Geographic Information System to visualize and edit the evolution of countries in time and space. This is a complicated task, because both the reality and the human that should be able to use the system are complex. The task is to create an interface that a human can easily understand and use. For complex applications in which the interface matters, the methodologies of \emph{Human Centered Design} are promising to achieve a good solution.
 
-The development process is highly iterative and happenes in several phases with increasing fidelty. Each phase starts with an initial set of insights and requirements about the problem and the desired solution. The interface is developed in several iterations, each one consisting of four steps. In the first \emph{planning} step, the requirements for the system are analyzed. Afterwards, they translated into an abstract \emph{design} which is then realized in a specific \emph{implementation} of the interface. Finally, this interface is tested with humans to find out how well it works. Based on the results of this \emph{testing} step, the requirements are updated in the next iteration. This is repeated until a version of the interface is created that sufficiently solves the problem at the current level of fidelty. Then the fidelity is increased, starting the next development phase.
+The development process is iterative divided in several phases. In each phase, the fidelty towards the final solution is increased. A phase starts with an initial set of requirements about the problem. In multiple iterations, an interface is developed that solves the problem. Each iteration has four steps: The requirements for the system are analyzed in the \emph{planning} step. Afterwards, they translated into an abstract \emph{design} which is realized in a specific \emph{implementation} of the interface. Finally, this interface is tested with humans to find out how well it works. Based on the results of this \emph{testing} step, the requirements are updated and the next iteration starts. This is repeated until a version of the interface is created that sufficiently solves the problem. Then the fidelity is increased, starting the next development phase.
 
+
+% graphic: iterations
+% idea -> interviews -> paper prototype -> mockup prototype -> final interface -> application -> extension
 The five phases in this thesis were:
 \begin{compactenum}
   \item \textbf{Idea}: The initial idea how to edit and visualize the history of countries.
@@ -16,55 +19,34 @@ The five phases in this thesis were:
   \item \textbf{Extensions}: Design approaches how to fit the uncertain nature of history.
 \end{compactenum}
 
-% graphic: iterations
-% idea -> interviews -> paper prototype -> mockup prototype -> final interface -> application -> extension
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/development/hcd_models}
+  \caption{Human Centered Design and relevant models for the system}
+  \label{fig:hcd_models}
+\end{figure}
 
-
-The \emph{data model} the abstraction and simplification of the real world. In this thesis, the \emph{Hivent Model} was created. It is explained in the first section \ref{sec:hivent_model} of this chapter. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface he or she is interacting with should work. On the other hand, the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:histoglobe_interface} outlines the gradual interface design process in this thesis and presents the final interface. In the application, the conceptual model of the interface has to translate to and from the data model using the \emph{computational model}. This model is introduced in the last section \ref{sec:histoglobe_application} of this chapter.
-
-% graphic: task
-%        user
-%           mental model
-%     UI    conceptual model
-%     MW    computational model
-%     DB    data model
-%        reality
+The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} created in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface he or she is interacting with should work. On the other hand, the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:histoglobe_interface} outlines the gradual interface design process to reach this goal. In the application, the implemented \emph{database model} has to match the abstract data model. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The working of the HistoGlobe application, including the computational model, is introduced in the last section \ref{sec:histoglobe_application} of this chapter.
 
 % ==============================================================================
 \section{Hivent Model} % (fold)
 \label{sec:hivent_model}
 
-- the final version of the data model: Hivent Model
+This section introduces the data model that represents countries and their evolution in time and space. In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced to solve this problem. The \emph{Snapshot Model} is unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, it does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity.
 
-The task of this thesis is to model, visualize and edit the development of countries in time and space in a HGIS. Before the system itself can be developed, the underlying data model has to be fixed. This is the purpose of this section.
-
-In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced to solve this problem. The \emph{Snapshot Model} was seen as unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but the method does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity.
-
-The \emph{Hivent Model} developed in this thesis is constructed from components of some of these models: An Event-Based Spatio-Temporal Data Model organized according to the Three-Domain Model, using Simple Time-Stamping for the spatial entities, supporting vector data and visualization on a History Graph.
-
-In the first section of this section, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. The next section explains the Historical Geographic Operations that are used to change countries in time and space. The data structures used to organize the elements of the model are illustrated in the last section.
-% The section closes with an informal proof that the model is approproate.
-% -> no, this will be part of the evaluation
+The \emph{Hivent Model} is constructed from components of some of these models: An Event-Based Spatio-Temporal Data Model supporting vector data. It is organized according to the Three-Domain Model, uses Simple Time-Stamping to define the lifetime of a spatial entity, and to visualize it on a History Graph. In the first section of this section, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. Finally, the Historical Geographic Operations that describe changes of countries in time and space are explained.
 
 % ------------------------------------------------------------------------------
 \subsection{Elements} % (fold)
 \label{sub:elements}
 
-The main elements of the the model are the \emph{Hivent}, representing an historically significant happening and the \emph{Area}, an abstract entity on a map with a name and a territory. An \emph{Historical Change} is part of one Hivent and manipulates the history of one or more Areas.
+The main elements of the the model are \emph{Hivent}s, representing an historically significant happening and \emph{Area}s, an abstract entity on a map with a name and a territory. An \emph{Historical Change} is part of one Hivent and manipulates the history of one or more Areas.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Hivents} % (fold)
 \label{par:hivent}
 
-are the main organizing element of the data model. The word is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}}. It represents a significant happening in history at one specific time point, e.g. a treaty, bill or declaration. In this domain, the focus is on events that influence the geopolitical situation on Earth. That means, they introduce historical changes at their point in history. An Hivent has five different attributes:
-
-\begin{compactenum}
-  \item The \emph{name} of the Hivent.
-  \item A textual \emph{description} of the topic of the Hivent.
-  \item The point in time, identified by the Hivent \emph{date}.
-  \item The Hivent \emph{location}.
-  \item The \emph{historical changes} resulting from the Hivent.
-\end{compactenum}
+are the main organizing elements of the data model. The word is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}}. It represents a significant happening in history, e.g. a treaty, bill or declaration. The focus in this work is on events that influence the geopolitical situation on Earth. An Hivent happens at one particular point in time and space and introduces historical changes to countries.
 
 % paragraph hivent (end)
 
@@ -72,18 +54,7 @@ are the main organizing element of the data model. The word is an acronym for \e
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-are the the visible entities on the map. They are an abstract representation of one identical current or historical country. The model can easily be extended to the history of states, provinces or regions. Therefore, from now on the term \emph{political unit} instead of \emph{country} is used to describe the object in the real world that is modeled by an Area.
-
-Each Area has a \emph{short name}, e.g. ``Germany'', and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The main spatial dimension of the data model is the Areas \emph{territory}, represented by a polypolygon. It is a set of weakly simple polygons, because the model has to support enclaves and exclaves. The polylines of the polygons represent the borders of the political unit. A polyline consists of an ordered set of points, representing the border points.
-
-An Area can change over time. Throughout its lifetime, it is created at some point $t_s$, then its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < t_i < t_e$ it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{graphics/hivent_model/area_states}
-  \caption{Three types of changes to Areas, two different area states}
-  \label{fig:area_states}
-\end{figure}
+represent one identical current or historical country with a \emph{name} and a \emph{territory} on the map. The name of the Area consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to support enclaves and exclaves. The polylines of the polygons consist of an ordered set of points that represent the country border.
 
 % paragraph area (end)
 
@@ -91,7 +62,17 @@ An Area can change over time. Throughout its lifetime, it is created at some poi
 \paragraph{Historical Changes} % (fold)
 \label{par:historical_changes}
 
-influence the development of an Area over time. They can create new Areas, update their territory or name and cease them. Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The change is described by a Historical Geographic Operation introduced in section \ref{sub:historical_geographic_operations}.
+influence the development of an Area over time. Throughout the lifetime of an Area, it is created at some point $t_s$, then its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < t_i < t_e$ it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
+
+\begin{figure}[H]
+  \vspace{1em}
+  \centering
+  \includegraphics[width=0.9\textwidth]{graphics/development/area_states}
+  \caption{Three event types that change Areas, resulting in two different area states}
+  \label{fig:area_states}
+\end{figure}
+
+Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The change is described by a Historical Geographic Operation introduced in section \ref{sub:historical_geographic_operations}.
 
 % paragraph historical_changes (end)
 
@@ -137,16 +118,16 @@ This axiom sets the spatial foundation of the system: a constant dimension of th
 \newtheorem{unique_coverage}[assicounter]{Axiom}
 \begin{unique_coverage}
 \label{axm:unique_coverage}
-  At each time point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one Area.
+  At each time point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
 \end{unique_coverage}
 
 As it has been defined in section \ref{par:historical_changes}, an Historical Change can create, manipulate and cease Areas on the Earth's surface. According to axoim \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map. That means, as soon as an Area is created in one territory on the map, the territory that was there before has to cease. Vice versa, if an Area ceases from the map, it has to be replaced with at least one new Area and these new Areas combined have to occupy exactly this same territory.
 
 The first Historical Changes introduced in the system at time point $t_0$ are the creation of all bodies of water, including the oceans and lakes. They are created as Areas with their name and territory which is cut out of $\Omega$. That means, at $t_0$, the map of the world is divided into a set of Areas representing water and $\Omega$, representing land. Land can at any point in time be either \emph{claimed}, i.e. it is currently occupied by the territory of exactly one active Area, or on a contrary be \emph{unclaimed}, i.e. belonging to $\Omega$. It is a subtractive data model, because each Area that is created new will be cut out of $\Omega$.
 
-The borders of a political unit are either \emph{interior}, i.e. bordering another political unit, or a \emph{coastline}, bordering a body of water. This assumption is a concious simplification of the reality: It assumes the territory of a political unit stops at the coastline. Juristically, this is not true, because in line with \cite{UNSeaBorders}, the territory extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters. This model disregards the sea territory of a political entity to keep the model simple.
+The borders of a country are either \emph{interior}, i.e. bordering another country, or a \emph{coastline}, bordering a body of water. This assumption is a concious simplification of the reality: It assumes the territory of a country stops at the coastline. Juristically, this is not true, because in line with \cite{UNSeaBorders}, the territory extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters. This model disregards the sea territory of a political entity to keep the model simple.
 
-In the real world, The name of a political unit changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the Sea Level Rise influencing the change of the coastline, or according to a historical event, e.g. a treaty.
+In the real world, The name of a country changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the Sea Level Rise influencing the change of the coastline, or according to a historical event, e.g. a treaty.
 
 \vspace{-1.0em}
 \newtheorem{constant_coastlines}[assicounter]{Assumption}
@@ -211,31 +192,31 @@ Respecting the preconditions, there are five different types of changes that can
 
   \midrule
   \texttt{UNI} & Unification & \raisebox{-0.25\height}
-  {\includegraphics{graphics/hivent_model/operations/UNI}} &
+  {\includegraphics{graphics/development/operations/UNI}} &
   $ A_i \leftrightarrow_H B $ &
   $ B^T = \cup_{i=1}^{n} A_i $ \\
 
   \midrule
   \texttt{INC} & Incorporation & \raisebox{-0.25\height}
-  {\includegraphics{graphics/hivent_model/operations/INC}} &
+  {\includegraphics{graphics/development/operations/INC}} &
   $ A_i \leftrightarrow_H A_0 $ &
   $ A_0^T = \cup_{i=1}^{n} A_i $ \\
 
   \midrule
   \texttt{SEP} & Separation & \raisebox{-0.25\height}
-  {\includegraphics{graphics/hivent_model/operations/SEP}} &
+  {\includegraphics{graphics/development/operations/SEP}} &
   $ A \leftrightarrow_H B_i $ &
   $ B_i^T \cap A^T = B_i^T $ \\
 
   \midrule
   \texttt{SEC} & Secession & \raisebox{-0.25\height}
-  {\includegraphics{graphics/hivent_model/operations/SEC}} &
+  {\includegraphics{graphics/development/operations/SEC}} &
   $ A_i \leftrightarrow_H A_0 $ &
   $ B_i^T \cap A^T = B_i^T $ \\
 
   \midrule
   \texttt{NCH} & Name Change & \raisebox{-0.25\height}
-  {\includegraphics{graphics/hivent_model/operations/NCH}} &
+  {\includegraphics{graphics/development/operations/NCH}} &
   $ \emptyset $ &
   $ \emptyset $ \\
 
@@ -246,36 +227,6 @@ Respecting the preconditions, there are five different types of changes that can
 \end{center}
 \end{table}
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Functional description} % (fold)
-\label{par:functional_description}
-
-Each HG Operation can be described by a mathematical function. The following symbols are used in the equations:
-
-\begin{addmargin}[1em]{0em}
-\begin{tabbing}
-  symbolxx \= description1xx \= description2 \kill
-  $A$ \> set of old Areas that were active before the Historical Change \\
-  $B$ \> set of new Areas that are created in the Historical Change \\
-  $n:$ \> $n \in \mathbb{N}, n>0$ \> total number of old respectively new Areas \\
-  $i:$ \> $i \in [\textbf{1} .. n]$ \> iterator for the current old respectively new Area \\
-  $A_0/B_0$ \>    the first old respectively new Area ($i \geq 1 \Rightarrow$ not $A_i/B_i$~!) \\
-  $A_i/B_i$ \>    the current old respectively new Area ($i \geq 1 \Rightarrow$ not $A_0/B_0$~!) \\
-  $A_i^T/B_i^T$ \>the new territory of the current Area (a polypolygon) \\
-  $A_i^N/B_i^N$ \>the new name of the current Area (short and formal name) \\
-\end{tabbing}
-\end{addmargin}
-
-\vspace{-2.5em}
-\begin{align*}
-  (B_0)                       &= UNI([A_1 .. A_i .. A_n], B_0^N) \\
-  (A_0)                       &= INC(A_0, [A_1 .. A_i .. A_n]) \\
-  ([B_1 .. B_i .. B_n])       &= SEP(A_0, [[B_1^T, B_1^N] .. [B_i^T, B_i^N] .. [B_n^T, B_n^N]]) \\
-  (A_0, [B_1 .. B_i .. B_n])  &= SEC(A_0, A_0^T, [[B_1^T, B_1^N] .. [B_i^T, B_i^N] .. [B_n^T, B_n^N]]) \\
-  (A_0)                       &= NCH(A_0, A_0^N)
-\end{align*}
-
-% paragraph functional_description (end)
 
 % subsection historical_geographic_operations (end)
 
@@ -395,6 +346,15 @@ Server    Django ->       Python
 
 database model
 
+\begin{compactenum}
+  \item The \emph{name} of the Hivent.
+  \item A textual \emph{description} of the topic of the Hivent.
+  \item The point in time, identified by the Hivent \emph{date}.
+  \item The Hivent \emph{location}.
+  \item The \emph{historical changes} resulting from the Hivent.
+\end{compactenum}
+
+
            Hivent
              m
        HistoricalChange
@@ -461,6 +421,37 @@ translation
 Edit Operations   CRE   UNI   SEP   TCH   NCH   DES
 
 HG Operations     UNI   INC   SEP   SEC   NCH
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Functional description} % (fold)
+\label{par:functional_description}
+
+Each HG Operation can be described by a mathematical function. The following symbols are used in the equations:
+
+\begin{addmargin}[1em]{0em}
+\begin{tabbing}
+  symbolxx \= description1xx \= description2 \kill
+  $A$ \> set of old Areas that were active before the Historical Change \\
+  $B$ \> set of new Areas that are created in the Historical Change \\
+  $n:$ \> $n \in \mathbb{N}, n>0$ \> total number of old respectively new Areas \\
+  $i:$ \> $i \in [\textbf{1} .. n]$ \> iterator for the current old respectively new Area \\
+  $A_0/B_0$ \>    the first old respectively new Area ($i \geq 1 \Rightarrow$ not $A_i/B_i$~!) \\
+  $A_i/B_i$ \>    the current old respectively new Area ($i \geq 1 \Rightarrow$ not $A_0/B_0$~!) \\
+  $A_i^T/B_i^T$ \>the new territory of the current Area (a polypolygon) \\
+  $A_i^N/B_i^N$ \>the new name of the current Area (short and formal name) \\
+\end{tabbing}
+\end{addmargin}
+
+\vspace{-2.5em}
+\begin{align*}
+  (B_0)                       &= UNI([A_1 .. A_i .. A_n], B_0^N) \\
+  (A_0)                       &= INC(A_0, [A_1 .. A_i .. A_n]) \\
+  ([B_1 .. B_i .. B_n])       &= SEP(A_0, [[B_1^T, B_1^N] .. [B_i^T, B_i^N] .. [B_n^T, B_n^N]]) \\
+  (A_0, [B_1 .. B_i .. B_n])  &= SEC(A_0, A_0^T, [[B_1^T, B_1^N] .. [B_i^T, B_i^N] .. [B_n^T, B_n^N]]) \\
+  (A_0)                       &= NCH(A_0, A_0^N)
+\end{align*}
+
+% paragraph functional_description (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Pseudocode description} % (fold)
