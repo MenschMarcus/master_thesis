@@ -7,9 +7,6 @@ The aim of this thesis is to create a Historical Geographic Information System t
 
 The development process is iterative divided in several phases. In each phase, the fidelty towards the final solution is increased. A phase starts with an initial set of requirements about the problem. In multiple iterations, an interface is developed that solves the problem. Each iteration has four steps: The requirements for the system are analyzed in the \emph{planning} step. Afterwards, they translated into an abstract \emph{design} which is realized in a specific \emph{implementation} of the interface. Finally, this interface is tested with humans to find out how well it works. Based on the results of this \emph{testing} step, the requirements are updated and the next iteration starts. This is repeated until a version of the interface is created that sufficiently solves the problem. Then the fidelity is increased, starting the next development phase.
 
-
-% graphic: iterations
-% idea -> interviews -> paper prototype -> mockup prototype -> final interface -> application -> extension
 The five phases in this thesis were:
 \begin{compactenum}
   \item \textbf{Idea}: The initial idea how to edit and visualize the history of countries.
@@ -21,18 +18,26 @@ The five phases in this thesis were:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/hcd_models}
-  \caption{Human Centered Design and relevant models for the system}
-  \label{fig:hcd_models}
+  \includegraphics[width=0.8\textwidth]{graphics/development/hcd}
+  \caption{Human Centered Design process with five project phases}
+  \label{fig:hcd}
 \end{figure}
 
-The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} created in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface he or she is interacting with should work. On the other hand, the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:histoglobe_interface} outlines the gradual interface design process to reach this goal. In the application, the implemented \emph{database model} has to match the abstract data model. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The working of the HistoGlobe application, including the computational model, is introduced in the last section \ref{sec:histoglobe_application} of this chapter.
+There are several models involved in the development of the software, each of them has to be developed or analyzed separately. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} created in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface he or she is interacting with should work. On the other hand, the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:histoglobe_interface} outlines the gradual interface design process to reach this goal. In the application, the implemented \emph{database model} has to match the abstract data model. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The working of the HistoGlobe application, including the computational model, is introduced in the last section \ref{sec:histoglobe_application} of this chapter.
+
+\begin{figure}[H]
+  \vspace{1em}
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/development/models}
+  \caption{Relevant models for the system}
+  \label{fig:models}
+\end{figure}
 
 % ==============================================================================
 \section{Hivent Model} % (fold)
 \label{sec:hivent_model}
 
-This section introduces the data model that represents countries and their evolution in time and space. In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced to solve this problem. The \emph{Snapshot Model} is unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, it does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity.
+This section introduces the data model that represents countries and their evolution in time and space. In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced to solve this problem. The \emph{Snapshot Model} is unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but it does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity.
 
 The \emph{Hivent Model} is constructed from components of some of these models: An Event-Based Spatio-Temporal Data Model supporting vector data. It is organized according to the Three-Domain Model, uses Simple Time-Stamping to define the lifetime of a spatial entity, and to visualize it on a History Graph. In the first section of this section, the main elements of the Hivent model are introduced. Afterwards, the preconditions are defined. Finally, the Historical Geographic Operations that describe changes of countries in time and space are explained.
 
@@ -43,6 +48,7 @@ The \emph{Hivent Model} is constructed from components of some of these models: 
 The main elements of the the model are \emph{Hivent}s, representing an historically significant happening and \emph{Area}s, an abstract entity on a map with a name and a territory. An \emph{Historical Change} is part of one Hivent and manipulates the history of one or more Areas.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\vspace{-1em}
 \paragraph{Hivents} % (fold)
 \label{par:hivent}
 
@@ -51,18 +57,22 @@ are the main organizing elements of the data model. The word is an acronym for \
 % paragraph hivent (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\vspace{-1em}
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-represent one identical current or historical country with a \emph{name} and a \emph{territory} on the map. The name of the Area consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to support enclaves and exclaves. The polylines of the polygons consist of an ordered set of points that represent the country border.
+represent one identical current or historical country with a \emph{name} and a \emph{territory} on the map. The name of the Area consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to support enclaves and exclaves. The polylines of the polygons consist of an ordered set of points that represent the country border. The borders of a country are either \emph{interior}, i.e. bordering another country, or a \emph{coastline}, bordering a body of water.
 
 % paragraph area (end)
 
 % ------------------------------------------------------------------------------
+\vspace{-1em}
 \paragraph{Historical Changes} % (fold)
 \label{par:historical_changes}
 
 influence the development of an Area over time. Throughout the lifetime of an Area, it is created at some point $t_s$, then its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < t_i < t_e$ it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each area is uniquely identified by its formal name. That means, the short name can change, but as soon as the formal name of an area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area.
+
+Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The change is described by a Historical Geographic Operation introduced in section \ref{sub:historical_geographic_operations}.
 
 \begin{figure}[H]
   \vspace{1em}
@@ -72,7 +82,6 @@ influence the development of an Area over time. Throughout the lifetime of an Ar
   \label{fig:area_states}
 \end{figure}
 
-Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The change is described by a Historical Geographic Operation introduced in section \ref{sub:historical_geographic_operations}.
 
 % paragraph historical_changes (end)
 
@@ -89,7 +98,7 @@ And God said, “Let there be light” --- and there was light.
 \end{quoteit}
 \hfill -- Genesis 1:1, The First Book of Moses, Old Testament
 
-The spatio-temporal system has to be initialized at some point. It is based on a set of trivial axioms stated in this section. Each Area in the system is located directly on the surface of the Earth. While the surface is curved, as explained in sections \ref{sub:model_of_geographical_space} and \ref{sub:presentation_of_geographic_space}, it can be projected on a two-dimensional map.
+There are five axoims and two assumptions that are the basis of the spatio-temporal system developed in this thesis. The theoretical foundation is the model of the Earth, its curved surface that can be projected on a two-dimensional map using a map projection, as introduced in sections \ref{sub:model_of_geographical_space} and \ref{sub:presentation_of_geographic_space}.
 
 \vspace{-1.0em}
 \newtheorem{invariant_surface}[assicounter]{Axiom}
@@ -98,7 +107,14 @@ The spatio-temporal system has to be initialized at some point. It is based on a
   The Earth's surface has an invariant area size, i.e. it does not change over time.
 \end{invariant_surface}
 
-This axiom sets the spatial foundation of the system: a constant dimension of the map. The basis of the temporal part of the system is introduced in the next three axioms:
+\vspace{-2.5em}
+\newtheorem{area_on_surface}[assicounter]{Axiom}
+\begin{area_on_surface}
+\label{axm:area_on_surface}
+  Each Area in the spatio-temporal system is located directly on the surface of the Earth.
+\end{area_on_surface}
+
+These axiom sets the spatial foundation of the system: a constant dimension of the map and Areas covering the map. The basis of the temporal part of the system is content of the next three axioms:
 
 \vspace{-1.0em}
 \newtheorem{initial_configuration}[assicounter]{Axiom}
@@ -107,36 +123,51 @@ This axiom sets the spatial foundation of the system: a constant dimension of th
   The spatio-temporal system has an initial state at time point $t_0$. At this initial state, there exists exactly one Area, denoted by $\Omega$ and referred to as the \emph{universe} Area. It has no name and its territory covers the whole surface of the Earth.
 \end{initial_configuration}
 
-\vspace{-1.5em}
+\vspace{-2.5em}
 \newtheorem{historical_change}[assicounter]{Axiom}
 \begin{historical_change}
 \label{axm:historical_change}
   At each time point $t_i \geq t_0$ an Historical Change can be introduced.
 \end{historical_change}
 
-\vspace{-1.5em}
+\vspace{-2.5em}
 \newtheorem{unique_coverage}[assicounter]{Axiom}
 \begin{unique_coverage}
 \label{axm:unique_coverage}
   At each time point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
 \end{unique_coverage}
 
-As it has been defined in section \ref{par:historical_changes}, an Historical Change can create, manipulate and cease Areas on the Earth's surface. According to axoim \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map. That means, as soon as an Area is created in one territory on the map, the territory that was there before has to cease. Vice versa, if an Area ceases from the map, it has to be replaced with at least one new Area and these new Areas combined have to occupy exactly this same territory.
+As it has been defined in section \ref{par:historical_changes}, an Historical Change can create, manipulate and cease Areas on the Earth's surface. According to axoim \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map: When an Area with a territory is created on the map, the Area claiming this territory before has to cease this territory. Formally, it can be said that each change consists of a set of old Areas $A$ that are manipulated, a set of new Areas $B$ that are created in the change, and an operation $\rightarrow_C$ describing the change. Each Area $A_i \in A$ and $B_i \in B$ has a territory $A_i^T$  respectively $B_i^T$. For each change introduced in the system, the territories of the old Areas must have the same size than the territories of the new Areas to maintain the spatial integrity of axiom \ref{axm:unique_coverage}:
+\begin{align}
+  \bigcup\limits_{i=1}^n A_i^T ~\textbf{=}~ \bigcup\limits_{i=1}^n B_i^T
+\end{align}
 
-The first Historical Changes introduced in the system at time point $t_0$ are the creation of all bodies of water, including the oceans and lakes. They are created as Areas with their name and territory which is cut out of $\Omega$. That means, at $t_0$, the map of the world is divided into a set of Areas representing water and $\Omega$, representing land. Land can at any point in time be either \emph{claimed}, i.e. it is currently occupied by the territory of exactly one active Area, or on a contrary be \emph{unclaimed}, i.e. belonging to $\Omega$. It is a subtractive data model, because each Area that is created new will be cut out of $\Omega$.
+The first Historical Changes introduced in the system at time point $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that at $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e. it is currently occupied by the territory of exactly one active Area, or on a contrary be \emph{unclaimed}, i.e. belonging to $\Omega$. It is a subtractive data model, because each new Areas territory is cut out of $\Omega$.
 
-The borders of a country are either \emph{interior}, i.e. bordering another country, or a \emph{coastline}, bordering a body of water. This assumption is a concious simplification of the reality: It assumes the territory of a country stops at the coastline. Juristically, this is not true, because in line with \cite{UNSeaBorders}, the territory extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters. This model disregards the sea territory of a political entity to keep the model simple.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/development/init_map}
+  \caption{The initial state of the world map at time point $t_0$}
+  \label{fig:init_map}
+\end{figure}
 
-In the real world, The name of a country changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the Sea Level Rise influencing the change of the coastline, or according to a historical event, e.g. a treaty.
+In the real world, the name of a country changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the sea level rise influencing the change of the coastline, or according to a historical event, e.g. a treaty. The Hivent model is based on two assumptions that simplify the model and keep the problem space clear:
 
 \vspace{-1.0em}
+\newtheorem{coastline_territory}[assicounter]{Assumption}
+\begin{coastline_territory}
+\label{axm:coastline_territory}
+  The territory of a country stops at the coastline.
+\end{coastline_territory}
+
+\vspace{-1.5em}
 \newtheorem{constant_coastlines}[assicounter]{Assumption}
 \begin{constant_coastlines}
 \label{axm:constant_coastlines}
   The spatial configuration of the Earth's surface, i.e. land, water and the coastlines, has not changed over time.
 \end{constant_coastlines}
 
-While this assumption is obviously wrong, it helps to keep the problem space clear and the Hivent Model simple: it focuses only on discrete historical changes and not on long-term processes. However, it is open to future extensions to account also for geographic changes and international sea borders. In this data model, the temporal behavior of an Area can therefore be described as a \emph{static object that changes according to sudden events}.
+Both assumptions are obviously wrong: In line with \cite{UNSeaBorders}, the territory of a country extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters. They are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent Model to focus only on discrete historical changes and not on long-term processes. In this data model, the temporal behavior of an Area can therefore be described as a \emph{static object that changes according to sudden events}.
 
 % base: Newtons concept of absolute space?
 % TODO: topological rule?
@@ -149,35 +180,35 @@ While this assumption is obviously wrong, it helps to keep the problem space cle
 \subsection{Historical Geographic Operations} % (fold)
 \label{sub:historical_geographic_operations}
 
-Respecting the preconditions, there are five different types of changes that can occur to a set of Areas. They can be expressed with five spatio-temporal operations which are called \emph{Historical Geographic Operations} (HG Operations). Four of them change the identity of a set of Areas and therefore establish historical predecessor-successor-relationships. That means, if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area.
+Respecting the preconditions, there are several different types of changes that can occur to a set of Areas. All possible changes can be expressed with only five spatio-temporal operations that are called \emph{Historical Geographic Operations} (HG Operations): \emph{Unification}, \emph{Separation}, \emph{Incorporation}, \emph{Secession} and \emph{Name Change}. The first four change the identity of a set of Areas and therefore establish historical predecessor-successor-relationships. That means, if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The \emph{Name Change} operation preserves the identity and changes only an aspatial property of one Area.
 % Historical relationships are only noted in one direction (predecessor), but are always valid also in the other direction (successor).
 
 \begin{description}
   \item[UNI -- Unification]
-  A set of old Areas unifies to ome new Area. The old Areas cease, becoming the historical predecessors of the new Area. This new Area receives a new name and its territory is the union of the territories of the old Areas. \\
-  \begin{footnotesize}
+  A set of old Areas unifies to one new Area. The old Areas cease, becoming the historical predecessors of the new Area. This new Area receives a new name and its territory is the union of the territories of the old Areas. \\[0.3em]
+  \begin{small}
     In 1922, the Russian SFSR, the Transcaucasian SFSR, the Ukrainian SSR and the Byelorussian SSR unified and formed the Union of Soviet Socialist Republics (USSR).
-  \end{footnotesize}
+  \end{small}
   \item[INC -- Incorporation]
-  One or more old Areas are incorporated into another Area that stays active. Its territory is enlarged by the union of the territories of the old Areas. The old Areas are historical predecessors of the new Area. \\
-  \begin{footnotesize}
+  One or more old Areas are incorporated into another Area that stays active. Its territory is enlarged by the union of the territories of the old Areas. The old Areas are historical predecessors of the new Area. \\[0.3em]
+  \begin{small}
     In 1990, the territory of the German Democratic Republic (East Germany) became part of the Federal Republic of Germany (West Germany). Although this event is known as the \emph{German Reunification}, it is historically an incorporation of East Germany into West Germany \cite{incorporationEastWestGermany}.
-  \end{footnotesize}
+  \end{small}
   \item[SEP -- Separation]
-  As the inverse of unification, one old Area is preceded by multiple new Areas. Each new Area gets a new name, receives a part of the territory of the old Area, and the old Area as its only historical predecessor. \\
-  \begin{footnotesize}
+  As the inverse of unification, one old Area is preceded by multiple new Areas. Each new Area gets a new name, receives a part of the territory of the old Area, and the old Area as its only historical predecessor. \\[0.3em]
+  \begin{small}
     In 1993, the Czech and Slovak Federal Republic, commonly known as Czechoslovakia, dissolved into present-day Czech Republic and Solvak Republic, creating two new countries.
-  \end{footnotesize}
+  \end{small}
   \item[SEC -- Secession]
-  As the inverse of incorporation, one or more new areas are ceded from a previously exising area that stays active. Each new Area gets a new name, receives the previously existing Area as the only historical predecessor and a part of its territory. \\
-  \begin{footnotesize}
+  As the inverse of incorporation, one or more new areas are ceded from a previously exising area that stays active. Each new Area gets a new name, receives the previously existing Area as the only historical predecessor and a part of its territory. \\[0.3em]
+  \begin{small}
     In 2008, the Republic of Kosovo declared independence from Serbia and has since then partially received international recognition. Unlike in the case of separation, Serbia stays as country, keeping its name, but ceding a part of its territory to Kosovo.
-  \end{footnotesize}
+  \end{small}
   \item[NCH -- Name Change]
-  An Area changes its short name but preserves its identity. \\
-  \begin{footnotesize}
+  An Area changes its short name but preserves its identity. \\[0.3em]
+  \begin{small}
     A recent change happened on 5. May 2016: The cabinet of Czech Republic approved that the country will now offically be called ``Czechia''. The formal name stays ``Czech Republic''.
-  \end{footnotesize}
+  \end{small}
 \end{description}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -193,19 +224,19 @@ Respecting the preconditions, there are five different types of changes that can
   \midrule
   \texttt{UNI} & Unification & \raisebox{-0.25\height}
   {\includegraphics{graphics/development/operations/UNI}} &
-  $ A_i \leftrightarrow_H B $ &
-  $ B^T = \cup_{i=1}^{n} A_i $ \\
+  $ A_i \leftrightarrow_H B_1 $ &
+  $ B^T = \bigcup\limits_{i=1}^{n} A_i $ \\
 
   \midrule
   \texttt{INC} & Incorporation & \raisebox{-0.25\height}
   {\includegraphics{graphics/development/operations/INC}} &
   $ A_i \leftrightarrow_H A_0 $ &
-  $ A_0^T = \cup_{i=1}^{n} A_i $ \\
+  $ A_0^T = \bigcup\limits_{i=1}^{n} A_i $ \\
 
   \midrule
   \texttt{SEP} & Separation & \raisebox{-0.25\height}
   {\includegraphics{graphics/development/operations/SEP}} &
-  $ A \leftrightarrow_H B_i $ &
+  $ A_1 \leftrightarrow_H B_i $ &
   $ B_i^T \cap A^T = B_i^T $ \\
 
   \midrule
@@ -223,10 +254,10 @@ Respecting the preconditions, there are five different types of changes that can
   \bottomrule
 \end{tabular}
 \caption{Overview about the five HG Operations}
+\small{$A_i \leftrightarrow_H B_i$ denotes: $\forall i \in [1..n]:$ $A_i$ is historical predecessor of $B_i$ and $B_i$ is successor of $A_i$}
 \label{tab:historical_geographic_operations}
 \end{center}
 \end{table}
-
 
 % subsection historical_geographic_operations (end)
 
@@ -236,15 +267,92 @@ Respecting the preconditions, there are five different types of changes that can
 \section{HistoGlobe Interface} % (fold)
 \label{sec:histoglobe_interface}
 
-understand the visualization
-be able to edit the data
+The work of this thesis is developed in the HistoGlobe application. The Hivent Model shall be the basis of HistoGlobe. Developing the system bottom-up from the data model to the interface might lead to a system that is not well usable. Human Centered Design promotes a top-down process from the user via the interface into the core of the application. This process is introduced in this section. Figure \ref{fig:hcd} shows the five phases that lead from the identification of the mental model of the user all the way to the final interface and possible extensions to it that were not yet implemented.
 
-- the final version of the conceptual model for the user: Hivent
-- the gradual process of interface design (PP -> MP -> HG)
+The two main use cases for HistoGlobe that are focused in this thesis are:
+\begin{compactenum}
+  \item \textbf{Understanding} the history of countries.
+  \item \textbf{Editing} the spatio-temporal evolution of countries with historical changes.
+\end{compactenum}
+
+For both use cases an appropriate visualization and interaction has to be designed. Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted to understand the mental model. The research confirmed that the combination of a map and a timeline are a very appropriate and intuitive way to interactively visualize the history of countries. Thefore, the main concept of HistoGlobe, introduced in section \ref{sec:histoglobe} does not need to be changed.
+
+However, two extensions have emerged to be necessary modules: The \emph{HistoGraph} visualizes the history of countries aspatially on a graph. Its main idea is introduced in section \ref{sub:histograph}. To edit historical changes, an \emph{EditMode} is proposed in section \ref{sub:edit_mode}. Hoewever, for editing purposes a different set of six \emph{Hivent Operations} were identified in section \ref{sub:hivent_operations}. The gradual process from the inital idea to the final user interface implemented in HistoGlobe is outlined in the last section \ref{sub:design_iterations}.
 
 % ------------------------------------------------------------------------------
-\subsection{Edit Operations} % (fold)
-\label{sub:Edit_operations}
+\subsection{HistoGraph} % (fold)
+\label{sub:histograph}
+
+Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the history of countries on a graph. The edges of the graph represent an Area, the nodes an Hivent that changes the Areas evolution. The graph visualizes the historical predecessor-successor-relationships between Areas, a main feature of the Hivent Model. It allows to trace the evolution of the Area backward through time.
+
+The two-dimensional HistoGraph has a horizontal orientation, expanding the timeline. The \texttt{x}-coordinate of the graph therefore refers to one time point on the timeline. The \texttt{y}-coordinate has no spatial or temporal relation. The graph uses the visualization approach of the five HG Operations (table \ref{tab:historical_geographic_operations}), including the following symbols (table \ref{tab:histograph_symbols}):
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{c l}
+
+  \raisebox{2.5\height}
+  {\includegraphics{graphics/development/histograph/line}}
+  & Area \\
+
+  \raisebox{-0.2\height}
+  {\includegraphics{graphics/development/histograph/circle_filled}}
+  & Hivent with identity-changing HG Operation (\texttt{UNI}, \texttt{INC}, \texttt{SEP}, \texttt{SEC}) \\
+
+  \raisebox{-0.2\height}
+  {\includegraphics{graphics/development/histograph/circle_unfilled}}
+  & Hivent with property-changing HG Operation (\texttt{NCH}) \\
+
+  \raisebox{-0.2\height}
+  {\includegraphics{graphics/development/histograph/circle_combo}}
+  & Hivent with a combination of both (e.g. \texttt{INC} and \texttt{NCH})
+
+\end{tabular}
+\caption{symbols used in the HistoGraph}
+\label{tab:histograph_symbols}
+\end{center}
+\end{table}
+
+
+The change resulting of an identity-changing HG Operation is visualized by a vertical line, indicating a sudden change with zero duration. From this vertical lines, the new Areas emerging from the change branch out with a right angle. A horizontal line going straight through a circle indicates that the identity of the Area was preserved in the change. This behavior is shown in the example HistoGraph for the history of Germany back to 1993 in figure \ref{fig:example_germany}:
+
+\begin{figure}[H]
+  \vspace{1em}
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/development/histograph/example_germany}
+  \caption{The concept of the HistoGraph at the example of the history of Germany back to 1933}
+  \label{fig:example_germany}
+\end{figure}
+
+history for one country: backwards oriented graph (showing only 1st grade predecessors and their predecessors, but not their successors)
+
+explain German history here
+
+1933
+1945
+1947
+1949 May
+1949 Oct
+1957
+1990
+
+% subsection histograph (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Edit Mode} % (fold)
+\label{sub:edit_mode}
+
+edit mode
+
+% subsection edit_mode (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Hivent Operations} % (fold)
+\label{sub:hivent_operations}
+
+Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand the mental model of humans when
+independent from HG Operations.
+
 
 CRE
 UNI
@@ -253,22 +361,8 @@ BCH
 NCH
 CES
 
-% subsection Edit_operations (end)
+% subsection hivent_operations (end)
 
-% ------------------------------------------------------------------------------
-\subsection{Edit Mode} % (fold)
-\label{sub:edit_mode}
-
-
-geometries must be edited
-
-% subsection edit_mode (end)
-
-% ------------------------------------------------------------------------------
-\subsection{HistoGraph} % (fold)
-\label{sub:histograph}
-
-% subsection histograph (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Design Iterations} % (fold)
@@ -611,6 +705,19 @@ FUNCTION execute(direction)
 \end{lstlisting}
 
 % paragraph execute_historical_change (end)
+
+
+store Hivents in DoublyLinkedList
+
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/event-based_spatio-temporal_data_model}
+%   \caption{The Event-Based Spatio-Temporal Data Model}
+%   \label{fig:event-based_spatio-temporal_data_model}
+
+
+A main problem is to maintain the integrity of the spatial topology when a new change gets inserted not at the end of the list. A simple example shows that problem: Given geo-object $X$ is part of the inital base configuration at change $t_b$. At a later change, e.g. $t_y$ $X$ gets replaced by object $Y$. If a new change that updates $X$ to $X'$ gets inserted before at time point $t_x < t_y$, then $t_y$ is not integer anymore, because object $X$ does not exist. That is why on insertion of a change, all succeeding changes have to be tested for integrity and it might be necessary to update later changes.
+
 
 % subsection computational_model (end)
 

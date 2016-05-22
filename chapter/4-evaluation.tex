@@ -5,6 +5,90 @@
 
 % The section closes with an informal proof that the model is approproate.
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{MECE principle} % (fold)
+\label{par:mece_principle}
+
+The MECE principle -- mutually exclusive and collectively exhaustive -- is used by the consulting company McKinsey for organizing large amounts of data and as a strategy for effective problem solving. The advantages of a MECE model are \cite{mece}:
+\begin{itemize}
+  \item Each possible case in the real world can be mapped to a case in the model, because the model covers all possibilities (\emph{collectively exhaustive}).
+  \item A case in the real world can be expressed by exactly one case in the model, because there is only one possibility (\emph{mutually exclusive}).
+  \item The model is logical and comprehensive, can easily be understood and followed.
+\end{itemize}
+
+% paragraph mece_principle (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Mutual exclusion} % (fold)
+\label{par:mutual_exclusion}
+
+First it is to be shown that one operation can not be equivalently expressed by a combination of any other operations. This is obviously true for \texttt{CRE}, because all other operations require at least one old area as an input to the operation. Vice versa, \texttt{CES} is unique, because it is the only operation without any new areas. \texttt{ICH} could geographically be represented by a combination of \texttt{CES} of and \texttt{CRE}, but that would not create a historical relationship between both Areas. Since the other identity-changing operations require either multiple old or new areas and the last three operations are identity-preserving, \texttt{ICH} is also unique.
+
+\texttt{UNI}, \texttt{INC}, \texttt{SEP} and \texttt{SEC} require either old or new areas and establish historical relationships by changing identities. That is why they can neither be replaced by \texttt{CRE}, \texttt{ICH} and \texttt{CES} (only one old and/or new area), nor by \texttt{NCH}, \texttt{BCH} and \texttt{TCH} (identity-preserving). It is trivial that no operation can be expressed by its inverse and an operation that requires one old area can not replaced by one that requires multiple and vice versa. Therefore, the only possible combinations left are \texttt{UNI} $\leftrightarrow$ \texttt{INC} and \texttt{SEP} $\leftrightarrow$ \texttt{SEC}. While geographically, they are equivalent, because they unite respectively separate the territory in the same way, they are historically distinct: While in \texttt{UNI} and \texttt{SEP}, no Area is preserved in the operation, \texttt{INC} and \texttt{SEC} represent one Area that incorporate one Area into respectively cede one Area from its own territory. This shows the mutual exclulsion of all identity-preserving operations.
+
+It has already been argued that identity-preserving operations can not be expressed by a combination of any identity-changing ones. Also, \texttt{NCH} changes the name, whereas \texttt{TCH} and \texttt{BCH} manipulate the territory of an Area, so it is clear they can not replace each other. By intuition, \texttt{BCH} is the same as two \texttt{TCH} of both Areas affected by the \texttt{BCH}. Both operations do also not set up any historical relationship, so they are historically the same. However, geographically, two \texttt{TCH} of two neighboring countries would be redundant, since the territory ceded by one Area is exactly the same territory that is incorporate by the neighbor. Therefore it has been proofed that all operations are mututally exclusive.
+
+% paragraph mutual_exclusion (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Exhaustive collection} % (fold)
+\label{par:exhaustive_collection}
+
+Next it needs to be shown that all cases that can happen in the real world can be expressed using a combination of one of the ten HG Operations. The first aspect is the identity of an Area, representing a political entity in the real world. In the life cycle of an entity, it is established at one point $t_s$, its name and territory can change multiple times while being active $U: \forall t_u \in U: t_u > t_s$ and it ceases at some other point $t_e: t_s < \forall t_u \in U < t_e$.
+
+
+
+In the real world, a political entity can be created in three ways:
+\begin{enumerate}
+  \item If before the creation of the entity its initial territory was fully unclaimed, it does it have any historical predecessors and is created new. This is represented in the \texttt{CRE} operation.
+  \item If its initial territory was fully claimed by a set of entities, then all of these entities are historical predecessors.
+  \begin{enumerate}
+    \item If the entity originates from itself by changing its formal name, the territory remains unchanged. The \texttt{ICH} operation reflects that case.
+    \item An entitiy can also originiate from one entity that has dissolved into several subsequent entities, which is represented in the \texttt{SEP} operation.
+    \item Finally, an entity can originate from several entities unifying. The \texttt{UNI} operation models this case.
+  \end{enumerate}
+  \item If the new entities territory was partially claimed and partially unclaimed, this process of creating entity $A$ can be expressed by a combination of three operations:
+  \begin{enumerate}
+    \item \texttt{CRE} creates the temporary entity $A_T$ with a new name and its territory on all unclaimed land that shall be occupied by $A$ later.
+    \item The rest is currently territory of a set of entities $B$. For each entity $B_i \in B$, the part that shall be territory of $A$ gets ceded from $B_i$ with a \texttt{SEC} operation, creating a set of entities $A_R$. This operation establishes a historical relationship between $B_i$ and $A_i$.
+    \item $A_T$ and all $A_i \in A_R$ are unified with \texttt{UNI} to the final entity $A$. $A$ inherits its name from $A_T$ and each Area $B_i \in B$ as a predecessor.
+    % TODO: graphic to visualize that
+  \end{enumerate}
+\end{enumerate}
+
+Throughout the lifetime of a political entity, the following changes can happen to it:
+\begin{enumerate}
+  \item The entity can change its name. A change of the commonly known short name is represented by \texttt{NCH} and preserves its identity. A change of the long official or formal name creates a new Area (\texttt{ICH}).
+  \item The territory of the political entity can change.
+  \begin{enumerate}
+    \item If it expands into land that is not claimed by any other entity at this time point or if it is shrinking without influencing the territory of potentially neighboring entities, the \texttt{TCH} operation can be used.
+    \item If the entity incorporates a territory from or cedes a territory to one neighboring entity, then this change is modeled by a \emph{BCH} operation.
+  \end{enumerate}
+\end{enumerate}
+
+
+
+is that historical relationships must always be established in both ways, i.e. $A \rightarrow_H B \Leftrightarrow A \leftarrow_H B $. There are five operations that set up an historical relationship and for all of them this is true. Regarding the Area name, it must be
+
+
+
+name: no problem, can overlap
+territory: by precondition: can not overlap
+=> geometrical and topological integrity
+
+investigate for each operation if it maintains integrity
+CRE
+ICH
+CES
+UNI, INC, SEP and SEC operate solely on
+NCH
+BCH
+TCH
+
+% paragraph exhaustive_collection (end)
+
+
+compare 5 HG operations with temporal operations in History Graph Model
 
 % chapter evaluation (end)
 
