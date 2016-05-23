@@ -238,13 +238,13 @@ HG Operations can be combined when they happen at the same time, e.g. if one Are
   \texttt{SEP} & Separation & \raisebox{-0.25\height}
   {\includegraphics{graphics/development/operations/SEP}} &
   $ A_1 \leftrightarrow_H B_i $ &
-  $ B_i^T \cap A^T = B_i^T $ \\
+  $ B_i^T \cap A_1^T = B_i^T $ \\
 
   \midrule
   \texttt{SEC} & Secession & \raisebox{-0.25\height}
   {\includegraphics{graphics/development/operations/SEC}} &
-  $ A_i \leftrightarrow_H A_0 $ &
-  $ B_i^T \cap A^T = B_i^T $ \\
+  $ A_0 \leftrightarrow_H B_i $ &
+  $ B_i^T \cap A_0^T = B_i^T $ \\
 
   \midrule
   \texttt{NCH} & Name Change & \raisebox{-0.25\height}
@@ -373,30 +373,53 @@ This example also reveals many problems of the graph visualization: If many Hive
 % subsection histograph (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Edit Mode} % (fold)
-\label{sub:edit_mode}
-
-edit mode
-
-% subsection edit_mode (end)
-
-% ------------------------------------------------------------------------------
 \subsection{Hivent Operations} % (fold)
 \label{sub:hivent_operations}
 
-Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand the mental model of humans when
-independent from HG Operations.
+Before the \emph{EditMode} for manipulating Areas, Hivents and Historical Changes in the HistoGlobe interface can be introduced in section \ref{sub:edit_mode}, the underlying operations have to be defined. That means: What kind of changes can be introduced by a user that wants to edit the content in the system? Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand their mental model about historical changes of countries.
 
+Section \ref{sub:historical_geographic_operations} presented the five basic Historical Geographic Operations that can model all possible changes of countries in time and space. In the interviews it turned out that the HG Operations are not suitable to be used for human edit purposes, because of their low-level nature: The operations do not provide a straightforward way to create a new country on previously unclaimed land. Also changing the formal name of an Area is modelled by a \texttt{UNI} operation, which is not very intuitive. The interviews revealed the following six high-level operations for editing the countries on the map. They will be directly associated to an Hivent, so they are called \emph{Hivent Operations}.
 
-CRE
-UNI
-SEP
-BCH
-NCH
-CES
+\begin{description}
+  \item[CRE -- Create]
+  a new Area with a new name and territory on the map.
+  \item[MRG -- Merge]
+  two or more Areas to a new Area. The name has to be set manually, the territory is automatically unified.
+  \item[DIS -- Dissolve]
+  one Area into several new Areas, manually setting their new territory and name.
+  \item[CHB -- Change Borders]
+  between two neighboring Areas by defining the territory that changes sides.
+  \item[REN -- Rename]
+  an Area and set a new formal and / or short name.
+  \item[CES -- Cease]
+  an Area by deleting it from the map, leaving unclaimed land behind.
+\end{description}
+
+Each of the operations can be expressed with a combination of the HG Operations. Therefore the Hivent Operations serve as an abstraction layer between the Hivent and the HG Operations. The conversion between the operations is presented in table \ref{tab:hivent_to_hg_operations}.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{l l l l l l}
+  \toprule
+  muh & & & & & \\
+  \bottomrule
+\end{tabular}
+\caption{Expression of Hivent Operations with Historical Geographic Operations}
+\label{tab:hivent_to_hg_operations}
+\end{center}
+\end{table}
+
 
 % subsection hivent_operations (end)
 
+% ------------------------------------------------------------------------------
+\subsection{Edit Mode} % (fold)
+\label{sub:edit_mode}
+
+what is to be said about that great thing?
+
+
+% subsection edit_mode (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Design Iterations} % (fold)
