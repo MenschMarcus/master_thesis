@@ -224,31 +224,31 @@ HG Operations can be combined when they happen at the same time, e.g. if one Are
 
   \midrule
   \texttt{UNI} & Unification & \raisebox{-0.25\height}
-  {\includegraphics{graphics/development/operations/UNI}} &
+  {\includegraphics{graphics/development/hg_operations/UNI}} &
   $ A_i \leftrightarrow_H B_1 $ &
   $ B^T = \bigcup\limits_{i=1}^{n} A_i $ \\
 
   \midrule
   \texttt{INC} & Incorporation & \raisebox{-0.25\height}
-  {\includegraphics{graphics/development/operations/INC}} &
+  {\includegraphics{graphics/development/hg_operations/INC}} &
   $ A_i \leftrightarrow_H A_0 $ &
   $ A_0^T = \bigcup\limits_{i=1}^{n} A_i $ \\
 
   \midrule
   \texttt{SEP} & Separation & \raisebox{-0.25\height}
-  {\includegraphics{graphics/development/operations/SEP}} &
+  {\includegraphics{graphics/development/hg_operations/SEP}} &
   $ A_1 \leftrightarrow_H B_i $ &
   $ B_i^T \cap A_1^T = B_i^T $ \\
 
   \midrule
   \texttt{SEC} & Secession & \raisebox{-0.25\height}
-  {\includegraphics{graphics/development/operations/SEC}} &
+  {\includegraphics{graphics/development/hg_operations/SEC}} &
   $ A_0 \leftrightarrow_H B_i $ &
   $ B_i^T \cap A_0^T = B_i^T $ \\
 
   \midrule
   \texttt{NCH} & Name Change & \raisebox{-0.25\height}
-  {\includegraphics{graphics/development/operations/NCH}} &
+  {\includegraphics{graphics/development/hg_operations/NCH}} &
   $ \emptyset $ &
   $ \emptyset $ \\
 
@@ -278,7 +278,7 @@ The two main use cases for HistoGlobe that are focused in this thesis are:
 
 For both use cases an appropriate visualization and interaction has to be designed. Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted to understand the mental model. The research confirmed that the combination of a map and a timeline are a very appropriate and intuitive way to interactively visualize the history of countries. Thefore, the main concept of HistoGlobe, introduced in section \ref{sec:histoglobe} does not need to be changed.
 
-However, two extensions have emerged to be necessary modules: The \emph{HistoGraph} visualizes the history of countries aspatially on a graph. Its main idea is introduced in section \ref{sub:histograph}. To edit historical changes, an \emph{EditMode} is proposed in section \ref{sub:edit_mode}. Hoewever, for editing purposes a different set of six \emph{Hivent Operations} were identified in section \ref{sub:hivent_operations}. The gradual process from the inital idea to the final user interface implemented in HistoGlobe is outlined in the last section \ref{sub:design_iterations}.
+However, two extensions have emerged to be necessary modules: The \emph{HistoGraph} visualizes the history of countries aspatially on a graph. Its main idea is introduced in section \ref{sub:histograph}. Next to the normal exploration mode with map, timeline and HistoGraph, a need for an \emph{EditMode} to edit historical changes is proposed in section \ref{sub:editmode}. For editing purposes a different set of six \emph{EditOperations} were identified. The gradual process from the inital idea to the final user interface implemented in HistoGlobe is outlined in the last section \ref{sub:design_iterations}.
 
 % ------------------------------------------------------------------------------
 \subsection{HistoGraph} % (fold)
@@ -373,57 +373,89 @@ This example also reveals many problems of the graph visualization: If many Hive
 % subsection histograph (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Hivent Operations} % (fold)
-\label{sub:hivent_operations}
+\subsection{EditMode} % (fold)
+\label{sub:editmode}
 
-Before the \emph{EditMode} for manipulating Areas, Hivents and Historical Changes in the HistoGlobe interface can be introduced in section \ref{sub:edit_mode}, the underlying operations have to be defined. That means: What kind of changes can be introduced by a user that wants to edit the content in the system? Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand their mental model about historical changes of countries.
+The user interface of HistoGlobe has two modi: The exploration mode to view the evollution of countries on a map with a timeline and a HistoGraph and the \emph{EditMode} proposed in this section. In the Human Centered Design process of this thesis, an interface was found that allows to intuitively edit historical changes directly in HistoGlobe, without the need to write data into database tables or standardised forms.
 
-Section \ref{sub:historical_geographic_operations} presented the five basic Historical Geographic Operations that can model all possible changes of countries in time and space. In the interviews it turned out that the HG Operations are not suitable to be used for human edit purposes, because of their low-level nature: The operations do not provide a straightforward way to create a new country on previously unclaimed land. Also changing the formal name of an Area is modelled by a \texttt{UNI} operation, which is not very intuitive. The interviews revealed the following six high-level operations for editing the countries on the map. They will be directly associated to an Hivent, so they are called \emph{Hivent Operations}.
+There two main use cases in the EditMode:
+\begin{compactenum}
+  \item Introduce an historical change to Areas on the map.
+  \item Correcting the name or the territory of an Area on the map.
+\end{compactenum}
 
-\begin{description}
-  \item[CRE -- Create]
-  a new Area with a new name and territory on the map.
-  \item[MRG -- Merge]
-  two or more Areas to a new Area. The name has to be set manually, the territory is automatically unified.
-  \item[DIS -- Dissolve]
-  one Area into several new Areas, manually setting their new territory and name.
-  \item[CHB -- Change Borders]
-  between two neighboring Areas by defining the territory that changes sides.
-  \item[REN -- Rename]
-  an Area and set a new formal and / or short name.
-  \item[CES -- Cease]
-  an Area by deleting it from the map, leaving unclaimed land behind.
-\end{description}
+Looking at the data model, both use cases lead to the same result: If the information at one point in history $t_1$ is wrong, e.g. the name of country $X$ should actually be $Y$, then this means the historical change that created name $X$ at time point $t_0$ is erroneous and has be changed. Especially if $t_0$ is far away in the past, the studies have shown that altering an historical change to correct an information on a map now is not very intuitive. Therefore, the EditMode is designed to do serve both use cases.
 
-Each of the operations can be expressed with a combination of the HG Operations. Therefore the Hivent Operations serve as an abstraction layer between the Hivent and the HG Operations. The conversion between the operations is presented in table \ref{tab:hivent_to_hg_operations}.
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{EditOperations} % (fold)
+\label{par:editoperations}
+
+The question to be answered to introduce changes in the EditMode: What kind of changes can be introduced by a user that wants to edit the information about the evolution of countries in the system? Throughout the development process, many interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand their mental model about historical changes of countries. Section \ref{sub:historical_geographic_operations} presented the five basic Historical Geographic Operations that can model all possible changes of countries in time and space. In the interviews it turned out that the HG Operations are not suitable to be used for human edit purposes, because of their low-level nature: The operations do not provide a straightforward way to create a new country on previously unclaimed land. Also changing the formal name of an Area is performed by a \texttt{UNI} operation, which is not very intuitive. The interviews revealed the following six high-level \emph{EditOperations} for introducing changes to countries on the map.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{l l l l l l}
-  \toprule
-  muh & & & & & \\
-  \bottomrule
+\begin{tabular}{m{0.75cm} m{0.8cm} m{2.4cm} m{9.1cm}}
+  \raisebox{-0.35\height}
+  {\includegraphics[width=0.75cm]{graphics/development/edit_operations/CRE}} &
+  \texttt{CRE} & Create &
+  a new Area with a new name and territory on the map. \\
+
+  \raisebox{-0.35\height}
+  {\includegraphics[width=0.75cm]{graphics/development/edit_operations/MRG}} &
+  \texttt{MRG} & Merge &
+  two or more Areas to a new Area. The name has to be set manually, the territory is automatically unified. \\
+
+  \raisebox{-0.35\height}
+  {\includegraphics[width=0.75cm]{graphics/development/edit_operations/DIS}} &
+  \texttt{DIS} & Dissolve &
+  one Area into two or more new Areas, manually setting their new territory and name. \\
+
+  \raisebox{-0.35\height}
+  {\includegraphics[width=0.75cm]{graphics/development/edit_operations/CHB}} &
+  \texttt{CHB} & Change Borders &
+  between two neighboring Areas by defining the territory that changes sides. \\
+
+  \raisebox{-0.35\height}
+  {\includegraphics[width=0.75cm]{graphics/development/edit_operations/REN}} &
+  \texttt{REN} & Rename &
+  an Area and set a new formal name, short name or both. \\
+
+  \vspace{0.35em}
+  \raisebox{-0.35\height}
+  {\includegraphics[width=0.75cm]{graphics/development/edit_operations/CES}} &
+  \texttt{CES} & Cease &
+  an Area by deleting it from the map, leaving unclaimed land. \\
+
 \end{tabular}
-\caption{Expression of Hivent Operations with Historical Geographic Operations}
+\caption{Visualization of EditOperations}
 \label{tab:hivent_to_hg_operations}
 \end{center}
 \end{table}
 
+The EditOperation have proven to be understandable in several user studies in the development process of this thesis. The conceptual model will promote these six EditOperations that humans can understand, the data model is based on five related HG Operations that can model all cases of historical changes to countries in time and space. Therefore the task for the computational model of the HGIS is to translate between both operations. The idea of any of the six EditOperations is to introduce a change that transformes a set of old areas to a set of new areas. Therefore, the workflow consists of four EditOperation steps:
+\begin{enumerate}
+  \item \texttt{SELECT\_OLD\_AREAS}: The user selects the Areas that shall be manipulated by clicking them on the map.
+  \item \texttt{CREATE\_NEW\_TERRITORIES}: For each Area that is to be created new in the step, the user creates a polypolygon describing the Areas territory either by clicking the territory manually or by importing it from an external source and then manipulating it.
+  \item \texttt{CREATE\_NEW\_NAMES}: Additionally to the territory, the user writes the name of each new Area directly on the map where it belongs.
+  \item \texttt{ADD\_CHANGE}: Finally, when the historical change described by the EditOperation is performed successfully, it has to be added to an Hivent that introduced the change. In this step, the change inherits the time point from the Hivent, completing all information necessary for the spatio-temporal Hivent Model.
+\end{enumerate}
 
-% subsection hivent_operations (end)
+% paragraph editoperations (end)
 
-% ------------------------------------------------------------------------------
-\subsection{Edit Mode} % (fold)
-\label{sub:edit_mode}
-
-what is to be said about that great thing?
-
-
-% subsection edit_mode (end)
+% subsection editmode (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Design Iterations} % (fold)
 \label{sub:design_iterations}
+
+The EditMode is entered throught an edit button on the upper right corner of the user interface.
+
+EditOperation buttons
+
+WorkflowWindow
+NewNameTool
+NewTerritoryTool
+NewHiventBox
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Paper Prototype} % (fold)
@@ -569,7 +601,7 @@ important little utils
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 translation
 
-Edit Operations   CRE   UNI   SEP   TCH   NCH   DES
+EditOperations   CRE   UNI   SEP   TCH   NCH   DES
 
 HG Operations     UNI   INC   SEP   SEC   NCH
 

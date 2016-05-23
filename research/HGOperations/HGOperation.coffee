@@ -8,9 +8,9 @@ class HistoricalGeographicOperation
   constructor: () ->
 
     # init members
-    @oldAreas = []          # Area
-    @newAreas = []          # Area
-    @updateArea = {
+    @_oldAreas = []         # Area
+    @_newAreas = []         # Area
+    @_updateArea = {
       area :         null   # Area
       oldName :      null   # AreaName
       newName :      null   # AreaName
