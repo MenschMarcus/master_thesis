@@ -180,36 +180,37 @@ Both assumptions are obviously wrong: In line with \cite{UNSeaBorders}, the terr
 \subsection{Historical Geographic Operations} % (fold)
 \label{sub:historical_geographic_operations}
 
-Respecting the preconditions, there are several different types of changes that can occur to a set of Areas. All possible changes can be expressed with only five spatio-temporal operations that are called \emph{Historical Geographic Operations} (HG Operations): \emph{Unification}, \emph{Separation}, \emph{Incorporation}, \emph{Secession} and \emph{Name Change}. The first four change the identity of a set of Areas and therefore establish historical predecessor-successor-relationships. That means, if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The \emph{Name Change} operation preserves the identity and changes only an aspatial property of one Area.
-% Historical relationships are only noted in one direction (predecessor), but are always valid also in the other direction (successor).
+Respecting the preconditions, there are several different types of changes that can occur to a set of Areas. All possible changes can be expressed with only five spatio-temporal operations that are called \emph{Historical Geographic Operations} (HG Operations). The first four change the identity of a set of Areas and therefore establish historical predecessor-successor-relationships. They are always symmetric, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area.
 
 \begin{description}
   \item[UNI -- Unification]
-  A set of old Areas unifies to one new Area. The old Areas cease, becoming the historical predecessors of the new Area. This new Area receives a new name and its territory is the union of the territories of the old Areas. \\[0.3em]
-  \begin{small}
+  A set of old Areas unifies to one new Area. The old Areas cease, becoming the historical predecessors of the new Area. This new Area receives a new name and its territory is the union of the territories of the old Areas. \\[0.25em]
+  \begin{footnotesize}
     In 1922, the Russian SFSR, the Transcaucasian SFSR, the Ukrainian SSR and the Byelorussian SSR unified and formed the Union of Soviet Socialist Republics (USSR).
-  \end{small}
+  \end{footnotesize}
   \item[INC -- Incorporation]
-  One or more old Areas are incorporated into another Area that stays active. Its territory is enlarged by the union of the territories of the old Areas. The old Areas are historical predecessors of the new Area. \\[0.3em]
-  \begin{small}
+  One or more old Areas are incorporated into another Area that stays active. Its territory is enlarged by the union of the territories of the old Areas. The old Areas are historical predecessors of the new Area. \\[0.25em]
+  \begin{footnotesize}
     In 1990, the territory of the German Democratic Republic (East Germany) became part of the Federal Republic of Germany (West Germany). Although this event is known as the \emph{German Reunification}, it is historically an incorporation of East Germany into West Germany \cite{incorporationEastWestGermany}.
-  \end{small}
+  \end{footnotesize}
   \item[SEP -- Separation]
-  As the inverse of unification, one old Area is preceded by multiple new Areas. Each new Area gets a new name, receives a part of the territory of the old Area, and the old Area as its only historical predecessor. \\[0.3em]
-  \begin{small}
-    In 1993, the Czech and Slovak Federal Republic, commonly known as Czechoslovakia, dissolved into present-day Czech Republic and Solvak Republic, creating two new countries.
-  \end{small}
+  As the inverse of unification, one old Area is preceded by multiple new Areas. Each new Area gets a new name, receives a part of the territory of the old Area, and the old Area as its only historical predecessor. \\[0.25em]
+  \begin{footnotesize}
+    In 1993, the Czech and Slovak Federal Republic, commonly known as Czechoslovakia, dissolved into present-day Czech Republic and Solvak Republic, creating two new countries out of one old.
+  \end{footnotesize}
   \item[SEC -- Secession]
-  As the inverse of incorporation, one or more new areas are ceded from a previously exising area that stays active. Each new Area gets a new name, receives the previously existing Area as the only historical predecessor and a part of its territory. \\[0.3em]
-  \begin{small}
+  As the inverse of incorporation, one or more new areas are ceded from a previously exising area that stays active. Each new Area gets a new name, receives the previously existing Area as the only historical predecessor and a part of its territory. \\[0.25em]
+  \begin{footnotesize}
     In 2008, the Republic of Kosovo declared independence from Serbia and has since then partially received international recognition. Unlike in the case of separation, Serbia stays as country, keeping its name, but ceding a part of its territory to Kosovo.
-  \end{small}
+  \end{footnotesize}
   \item[NCH -- Name Change]
-  An Area changes its short name but preserves its identity. \\[0.3em]
-  \begin{small}
-    A recent change happened on 5. May 2016: The cabinet of Czech Republic approved that the country will now offically be called ``Czechia''. The formal name stays ``Czech Republic''.
-  \end{small}
+  An Area changes its short name but preserves its identity. \\[0.25em]
+  \begin{footnotesize}
+    A recent change happened on 5. May 2016: The cabinet of Czech Republic approved that the country will now offically be called ``Czechia''. However, the formal name stays ``Czech Republic'', which preserves its identity.
+  \end{footnotesize}
 \end{description}
+
+HG Operations can be combined when they happen at the same time, e.g. if one Area incorporates another Area and thereby changes its short name, this is a combination of \texttt{INC + NCH}. When West Germany incorporated East Germany in 1900, it was from that moment on just called Germany.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \begin{table}[H]
@@ -283,7 +284,7 @@ However, two extensions have emerged to be necessary modules: The \emph{HistoGra
 \subsection{HistoGraph} % (fold)
 \label{sub:histograph}
 
-Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the history of countries on a graph. The edges of the graph represent an Area, the nodes an Hivent that changes the Areas evolution. The graph visualizes the historical predecessor-successor-relationships between Areas, a main feature of the Hivent Model. It allows to trace the evolution of the Area backward through time.
+Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the history of countries on a graph. The edges of the graph represent an Area, the nodes an Hivent that changes the Areas evolution. The graph visualizes the historical predecessor-successor-relationships between Areas, a main feature of the Hivent Model. It allows to trace the evolution of the Area through time.
 
 The two-dimensional HistoGraph has a horizontal orientation, expanding the timeline. The \texttt{x}-coordinate of the graph therefore refers to one time point on the timeline. The \texttt{y}-coordinate has no spatial or temporal relation. The graph uses the visualization approach of the five HG Operations (table \ref{tab:historical_geographic_operations}), including the following symbols (table \ref{tab:histograph_symbols}):
 
@@ -291,7 +292,7 @@ The two-dimensional HistoGraph has a horizontal orientation, expanding the timel
 \begin{center}
 \begin{tabular}{c l}
 
-  \raisebox{2.5\height}
+  \raisebox{3.5\height}
   {\includegraphics{graphics/development/histograph/line}}
   & Area \\
 
@@ -305,7 +306,7 @@ The two-dimensional HistoGraph has a horizontal orientation, expanding the timel
 
   \raisebox{-0.2\height}
   {\includegraphics{graphics/development/histograph/circle_combo}}
-  & Hivent with a combination of both (e.g. \texttt{INC} and \texttt{NCH})
+  & Hivent with a combination of both (e.g. \texttt{INC + NCH} at the same time)
 
 \end{tabular}
 \caption{symbols used in the HistoGraph}
@@ -313,28 +314,61 @@ The two-dimensional HistoGraph has a horizontal orientation, expanding the timel
 \end{center}
 \end{table}
 
+The change resulting of an identity-changing HG Operation is visualized by a vertical line, indicating a sudden change with zero duration. From this line, the new Areas emerging from this change branch out right-angled. A horizontal line going straight through a circle indicates that the identity of the Area was preserved in the change. The HistoGraph is always created starting from one particular reference Area. It visualizes historically related Areas in one direction. That means, in historically backward direction, it recursively plots the predecessors and their predecessors on the graph, but not the predecessors successors. In the opposite historically forward direction, the successors and recursively the successors of the successors of the reference Area are plotted, but not their predecessors.
 
-The change resulting of an identity-changing HG Operation is visualized by a vertical line, indicating a sudden change with zero duration. From this vertical lines, the new Areas emerging from the change branch out with a right angle. A horizontal line going straight through a circle indicates that the identity of the Area was preserved in the change. This behavior is shown in the example HistoGraph for the history of Germany back to 1993 in figure \ref{fig:example_germany}:
+The behavior of the HistoGraph is shown for the example of the history of Germany since the end of World War II in figure \ref{fig:example_germany}. This history was driven by six historical events, which provide examples for all five HG Operations (table \ref{tab:german_history_since_1945}).
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{l p{8.5cm} l}
+  \toprule
+  Hivent date & Hivent description & HG Operations \\
+  \midrule
+
+    05.06.1945
+  & \footnotesize{In the Berlin Declaration the total dissolution of the Third German Reich is confirmed. It separated into several different parts, returning the territories annexed by the German Reich in World War II to their original countries. The rest is controlled by the Allied Control Council in four occupation zones: the British, French, American and Soviet occupation zone.}
+  & \texttt{SEP} \\
+
+    16.02.1946
+  & \footnotesize{The Saar Protectorate is entangled from the French Zone of Occupation Germany, creating an own country.}
+  & \texttt{SEC} \\
+
+    28.05.1949
+  & \footnotesize{The Federal Republic of Germany (West Germany) is created from the British, American and French Zone of Occupation.}
+  & \texttt{UNI} \\
+
+    07.10.1949
+  & \footnotesize{The German Democratic Republic (East Germany) is created from the Soviet Zone of Occupation}
+  & \texttt{UNI} \\
+
+    01.01.1957
+  & \footnotesize{The Saar Treaty (``Little Reunification'') joins the Saar Protectorate as the Bundesland Saarland in West Germany.}
+  & \texttt{INC} \\
+
+    03.10.1990
+  & \footnotesize{In the German Reunification, East Germany joins West Germany. The Federal Republic of Germany is now just called ``Germany''.}
+  & \texttt{INC + NCH} \\
+
+  \bottomrule
+\end{tabular}
+\caption{Historical events in German state history since 1945}
+\label{tab:german_history_since_1945}
+\end{center}
+\end{table}
+
+This example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} can not be performed, because the identity is not preserved: The German Democratic Republic is a new Area. The change can be described by a \texttt{UNI} of only one Area (Soviet Zone), creating a new Area (East Germany) and establishing a historical relationship between both.
 
 \begin{figure}[H]
   \vspace{1em}
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/development/histograph/example_germany}
-  \caption{The concept of the HistoGraph at the example of the history of Germany back to 1933}
+  \caption{The concept of the HistoGraph at the example of the history of Germany since 1945}
   \label{fig:example_germany}
 \end{figure}
 
-history for one country: backwards oriented graph (showing only 1st grade predecessors and their predecessors, but not their successors)
+The plot behavior becomes apparent in this example: starting from Germany, it plots East Germany as their predecessor incorporated in 1990. At the same date, it got renamed from West Germany to Germany, while still being the same Area. In 1957, the Saar Protectorate was incorporated. Its direct predecessor was the French Zone of Occupation. It is also one of the predecessors of West Germany, additional to the British and American Zone. East Germany was created from the Soviet Zone of Occupation. All of the four occupation zones originated from the German Reich. However, the German Reich dissolved into many more Areas, e.g. the Memel territory or the Polish Occupation Zone. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
 
-explain German history here
-
-1933
-1945
-1947
-1949 May
-1949 Oct
-1957
-1990
+This example also reveals many problems of the graph visualization: If many Hivents happened in a short period of time (in this case between 1945 and 1949), dots might overlap. Additionally, the names of the Areas of the four post-war occupation zones can not be shown in the Graph, because there is no space for them. The name ``West Germany'' collides with the vertical line indicating the incorporation of the Saar Protectorate, which should also be avoided. One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the Hivent circle to the outgoing Area line of the new Area. This would give the impression that this midmost Area has the same identity than the newly created Area, which is not the case. Therefore, the Hivent circle for \texttt{UNI} operations with an add number of old Areas must be displaced off the center, so that it becomes obvious that the identity has changed. All these issues are not in the scope of this thesis and subject to future work in the field of Information Visualization.
 
 % subsection histograph (end)
 
@@ -706,6 +740,24 @@ FUNCTION execute(direction)
 
 % paragraph execute_historical_change (end)
 
+HistoGraph
+\begin{lstlisting}[language=pseudocode,
+  caption=plotting Areas on the HistoGraph,
+  label=lst:histograph_plot]
+FUNCTION plot(reference_area, plot_start_date, plot_end_date)
+  # plot the current Area
+  # logic is omitted
+
+  # recursively plot in historically backward direction
+  FOREACH predecessor IN reference_area.predecessors
+    IF predecessor.end_date >= plot_start_date
+      plot(predecessor)
+
+  # recursively plot in historically forward direction
+  FOREACH successor IN reference_area.successors
+    IF successor.start_date <= plot_end_date
+      plot(successor)
+\end{lstlisting}
 
 store Hivents in DoublyLinkedList
 
