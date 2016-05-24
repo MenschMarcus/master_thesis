@@ -432,7 +432,16 @@ The question to be answered to introduce changes in the EditMode: What kind of c
 \end{center}
 \end{table}
 
-The EditOperation have proven to be understandable in several user studies in the development process of this thesis. The conceptual model will promote these six EditOperations that humans can understand, the data model is based on five related HG Operations that can model all cases of historical changes to countries in time and space. Therefore the task for the computational model of the HGIS is to translate between both operations. The idea of any of the six EditOperations is to introduce a change that transformes a set of old areas to a set of new areas. Therefore, the workflow consists of four EditOperation steps:
+The EditOperations have proven to be understandable in several user studies in the development process of this thesis. The conceptual model will promote these six EditOperations that humans can understand, the data model is based on five related HG Operations that can model all cases of historical changes to countries in time and space. Therefore the task for the computational model of the HGIS is to translate between both operation sets.
+
+% paragraph editoperations (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Workflow} % (fold)
+\label{par:workflow}
+
+The idea of any of the six EditOperations is to introduce a change that transformes a set of old areas to a set of new areas. Therefore, the workflow consists of four EditOperation steps:
+
 \begin{enumerate}
   \item \texttt{SELECT\_OLD\_AREAS}: The user selects the Areas that shall be manipulated by clicking them on the map.
   \item \texttt{CREATE\_NEW\_TERRITORIES}: For each Area that is to be created new in the step, the user creates a polypolygon describing the Areas territory either by clicking the territory manually or by importing it from an external source and then manipulating it.
@@ -440,7 +449,349 @@ The EditOperation have proven to be understandable in several user studies in th
   \item \texttt{ADD\_CHANGE}: Finally, when the historical change described by the EditOperation is performed successfully, it has to be added to an Hivent that introduced the change. In this step, the change inherits the time point from the Hivent, completing all information necessary for the spatio-temporal Hivent Model.
 \end{enumerate}
 
-% paragraph editoperations (end)
+For each EditOperation, the requirements for the steps are different. Not all operations need all steps, some are processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behaviour of each operation in the first three steps.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{m{0.9cm} m{4.0cm} m{4.4cm} m{3.8cm}}
+  \toprule
+
+  EditOp. &
+  \texttt{SELECT\_OLD\_AREAS} &
+  \texttt{CREATE\_NEW\_TERRITORIES} &
+  \texttt{CREATE\_NEW\_NAMES} \\
+
+  \midrule
+  \texttt{CRE} &
+  -- &
+  \pbox{4.4cm}{create a territory of the new country\\
+  \footnotesize{either in unclaimed land or overlapping existing countries}} &
+  create a name of the new country \\
+
+  \midrule
+  \texttt{MRG} &
+  select the countries to be merged &
+  \pbox{4.4cm}{--\\
+  \footnotesize{automatic unification of territories of selected countries}} &
+  create a name of the merged country
+  \\
+
+  \midrule
+  \texttt{DIS} &
+  select a country to be \mbox{dissolved} &
+  create a territory for each new country &
+  create a name for each new country \\
+
+  \midrule
+  \texttt{CHB} &
+  select two neighboring countries to change their border &
+  \pbox{4.4cm}{create the new border between both countries \\
+  \footnotesize{the territory for both countries will be created automatically}}  &
+  -- \\
+
+  \midrule
+  \texttt{REN} &
+  select a country to change its name &
+  -- &
+  create a new name of the country \\
+
+  \midrule
+  \texttt{CES} &
+  select a country to cease it &
+  -- &
+  -- \\
+
+  \bottomrule
+\end{tabular}
+\caption{The requirements of each step for the EditOperations}
+\label{tab:editoperations_in_worklow}
+\end{center}
+\end{table}
+
+The last step is the same for every operation: The historical change created by the EditOperation is added to an Hivent. For that purpose, the user either selects an existing Hivent or creates a new one, setting a name, date, location and descripion of the Hivent.
+
+% paragraph workflow (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Reduction to HG Operations} % (fold)
+\label{par:reduction_to_hg_operations}
+
+% wording:
+% UNI of "[old]"  to    "new"
+% INC of "[old]"  into  "pres"
+% SEP of "old"    into  "[new]"
+% SEC of "[new]"  from  "pres"
+
+Each EditOperation will internally be expressed by a set of Historical Geographic Operations that describe the change on a low level. Depending on the input of the user in the EditOperation steps, there are different possibilities. They are introduced in table \ref{tab:editoperations_to_hg_operations}.
+
+\begin{center}
+\begin{longtable}{m{1.2cm} m{0.95cm} m{0.95cm} m{0.95cm} m{6.0cm} m{2.3cm}}
+  \toprule
+
+  \pbox{1.2cm}{EditOp.\\(case)} &
+  \pbox{0.95cm}{old\\Areas\\[-0.8em]} &
+  \pbox{0.95cm}{update\\Areas\\[-0.8em]} &
+  \pbox{0.95cm}{new\\Areas\\[-0.8em]} &
+  expression by HG Operations \protect\footnotemark &
+  visualization \\
+  \midrule
+  \endhead
+
+  % TODO: introduce T as territory that is used like a temporary Area with exactly that territoy
+  % CREATE
+
+  \multirow{9}{*}{\texttt{CRE} (1)} &
+  \multicolumn{4}{p{10cm}}{
+    Area $B_1$ is created with territory $T$. The part of $T$ that is on previously unclaimed land ($T_\Omega$) is seceded as $B_1$ from $\Omega$.
+    If $T_\Omega$ is empty, then $B_1$ is initialized with an empty territory.
+    The rest of $T$ covers some Areas $A_p$ partially and some Areas $A_f$ fully.
+    For each $A_p$, the covered territory $T_p$ is seceded and incorporated into $B_1$.
+    Each $A_f$ is completely incorporated into $B_1$.
+  } &
+  \multirow{9}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CRE_to_SEC+UNI}
+  } \\
+
+  &
+  $n_f$ &
+  $n_p$ &
+  $1$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{SEC} of $B_1$ from $\Omega$ \\
+    \texttt{SEC} of $T_p$ from $A_p$, \texttt{INC} of $T_p$ into $B_1$ \\
+    \texttt{INC} of $A_f$ into $B_1$
+  } &
+  \\
+
+  % MERGE
+  \midrule
+  \multirow{3}{*}{\texttt{MRG} (1)} &
+  \multicolumn{4}{p{10cm}}{
+    Multiple Areas $A_i$ are unified to $B_1$. The new Area receives a new name distinct from all the names of $A_i$.
+  } &
+  \multirow{3}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/MRG_to_UNI}
+  } \\
+  &
+  $n \geq 2$ &
+  $0$ &
+  $1$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{UNI} of $\forall A_i$ to $B_1$
+  } &
+  \\
+
+  \midrule
+  \multirow{4}{*}{\texttt{MRG} (2)} &
+  \multicolumn{4}{p{10cm}}{
+    Multiple Areas $A_i$ are unified, the resulting Area reuses the short and formal name of one of the old Areas ($A_p$) and therefore preserves it. The remaining Areas $A_i$ are incorporated into $A_p$.
+  } &
+  \multirow{4}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/MRG_to_INC}
+  } \\
+  &
+  $n \geq 1$ &
+  $1$ &
+  $1$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{INC} of $\forall A_i$ into $A_p$
+  } &
+  \\
+
+  \midrule
+  \multirow{4}{*}{\texttt{MRG} (3)} &
+  \multicolumn{4}{p{10cm}}{
+    The same as the previous case, just that $A_p$ receives a new short name and therefore an additional name change is required.
+  } &
+  \multirow{4}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/MRG_to_INC+NCH}
+  } \\
+  &
+  $n \geq 1$ &
+  $1$ &
+  $1$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{INC} of $\forall A_i$ into $A_p$ \\
+    \texttt{NCH} of $A_p$
+  } &
+  \\
+
+  % DISSOLVE
+
+  \midrule
+  \multirow{4}{*}{\texttt{DIS} (1)} &
+  \multicolumn{4}{p{10cm}}{
+    Separate one Area $A_1$ into multiple new Areas $B_i$ and define a territory and name for each of them. Each name is distinct from the name of the old Area.
+  } &
+  \multirow{4}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/DIS_to_SEP}
+  } \\
+  &
+  $1$ &
+  $0$ &
+  $n \geq 2$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{SEP} of $A_1$ into $\forall B_i$
+  } &
+  \\
+
+  \midrule
+  \multirow{5}{*}{\texttt{DIS} (2)} &
+  \multicolumn{4}{p{10cm}}{
+    Separate multiple Areas $B_1$ from one initial Area $A_p$ and define a territory and name for each of them. One of the separated Areas has the same short and formal name as $A_p$, so it continues its identity and preserves the Area. The remaining new Areas secede from $A_p$.
+  } &
+  \multirow{5}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/DIS_to_SEC}
+  } \\
+  &
+  $1$ &
+  $1$ &
+  $n \geq 1$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{SEC} of $\forall B_i$ from $A_p$
+  } &
+  \\
+
+  \midrule
+  \multirow{4}{*}{\texttt{DIS} (3)} &
+  \multicolumn{4}{p{10cm}}{
+    The same as the previous case, just that $A_p$ receives a new short name and therefore an additional name change is required.
+  } &
+  \multirow{4}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/DIS_to_SEC+NCH}
+  } \\
+  &
+  $1$ &
+  $1$ &
+  $n \geq 1$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{SEC} of $\forall B_i$ from $A_p$  \\
+    \texttt{NCH} of $A_p$
+  } &
+  \\
+
+  % CHANGE BORDER
+
+  \midrule
+  \multirow{10}{*}{\texttt{CHB} (1)} &
+  \multicolumn{4}{p{10cm}}{
+    One existing Area $A_1$ is selected and its territory changes. Relative to the old territory some parts of the territory expanded ($T_e$) and some withdrew ($T_w$).
+    The part of $T_e$ that expanded into unclaimed land ($T_\Omega \in T_e$) is seceded from $\Omega$ and incorporated into $A_1$.
+    The Areas $A_f$ fully covered by $T_e$ are incorporated into $A_1$,
+    the Areas $A_p$ partially covered by $T_e$ secede this territory $T_p \in T_e$ to $A_1$.
+    $T_w$ will be incorporated into $\Omega$, resulting in unclaimed land.
+  } &
+  \multirow{10}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CHB_to_SEC+INC_omega}
+  } \\
+  &
+  $n_f$ &
+  $1+n_p$ &
+  $0$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{SEC} of $T_\Omega$ from $\Omega$,
+    \texttt{INC} of $T_\Omega$ into $A_1$ \\
+    \texttt{SEC} of $T_p$ from $A_p$,
+    \texttt{INC} of $T_p$ into $B_1$ \\
+    \texttt{INC} of $A_f$ into $B_1$ \\
+    \texttt{SEC} of $T_w$ from $B_1$,
+    \texttt{INC} of $T_w$ into $\Omega$
+  } &
+  \\
+
+  \midrule
+  \multirow{7}{*}{\texttt{CHB} (2)} &
+  \multicolumn{4}{p{10cm}}{
+    Two existing Areas $A_1$ and $A_2$ are selected and their common border changes. This results in a symmetrical change of territories, made up by two sets of territories: $T_2$ that previously belonged to $A_1$ and is now part of $A_2$ and $T_1$ for which the opposite is true. $T_2$ is seceded by $A_1$ and incorporated into $A_2$, the opposite happenes to $T_1$.
+  } &
+  \multirow{7}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CHB_to_SEC+INC}
+  } \\
+  &
+  $0$ &
+  $2$ &
+  $0$ &
+  \pbox{6.0cm}{
+    ~\\
+    \texttt{SEC} of $T_2$ from $A_1$,
+    \texttt{INC} of $T_2$ into $A_2$ \\
+    \texttt{SEC} of $T_1$ from $A_2$,
+    \texttt{INC} of $T_1$ into $A_1$
+  } &
+  \\
+
+  % RENAME
+
+  \midrule
+  \multirow{3}{*}{\texttt{REN} (1)} &
+  \multicolumn{4}{p{10cm}}{
+    One Area $A_1$ is selected and both its short and formal name is changed. Therefore, a new Area $B_1$ is created as a direct successor of $A_1$. This is a special case of a unification with only one Area.
+  } &
+  \multirow{3}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/REN_to_UNI}
+  } \\
+  &
+  $1$ &
+  $0$ &
+  $1$ &
+  \pbox{6.0cm}{
+    \texttt{UNI} of $A_1$ to $B_1$
+  } &
+  \\
+
+  \midrule
+  \multirow{3}{*}{\texttt{REN} (2)} &
+  \multicolumn{4}{p{10cm}}{
+    One Area $A_1$ is selected and receives a new short name, but the formal name and therefore the identity is preserved. $A_1$ is updated.
+  } &
+  \multirow{3}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/REN_to_NCH}
+  } \\
+  &
+  $0$ &
+  $1$ &
+  $0$ &
+  \pbox{6.0cm}{
+    \texttt{NCH} of $A_1$
+  } &
+  \\
+
+  % CEASE
+
+  \midrule
+  \multirow{2}{*}{\texttt{CES} (1)} &
+  \multicolumn{4}{p{10cm}}{
+    One Area $A_1$ is selected and ceases by incorporating into the universe.
+  } &
+  \multirow{2}{*}{
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CES_to_INC}
+  } \\
+  &
+  $1$ &
+  $0$ &
+  $0$ &
+  \pbox{6.0cm}{
+    \texttt{INC} of $A_1$ into $\Omega$
+  } &
+  \\
+
+  \bottomrule
+\caption{Translation from EditOperations to HG Operations}
+\end{longtable}
+\label{tab:editoperations_to_hg_operations}
+\end{center}
+\footnotetext{multiple HG Operations in one row happen exactly at the same time point, so they are combined}
+
+% paragraph reduction_to_hg_operations (end)
+
 
 % subsection editmode (end)
 
