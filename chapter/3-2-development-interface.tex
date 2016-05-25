@@ -1,9 +1,9 @@
 %!TEX root = ../masters_thesis.tex
 
-\section{HistoGlobe Interface} % (fold)
-\label{sec:histoglobe_interface}
+\section{User Interface} % (fold)
+\label{sec:user_interface}
 
-The Hivent Model presented in the previous section is the data model for HistoGlobe, the application in which the work of this thesis is implemented in. Developing the system bottom-up from the data model to the interface might lead to a system that is not well usable. Human Centered Design promotes a top-down process from the user via the interface into the core of the application. Figure \ref{fig:hcd} shows the five phases that lead from the identification of the mental model of the user all the way to the final interface and possible extensions to it that were not yet implemented. This section illustrates the iterative design process for this thesis. The two main use cases for HistoGlobe that are focused in this thesis are:
+The Hivent Model presented in the previous section serves as the data model for HistoGlobe, the application in which the work of this thesis is implemented. Developing the system bottom-up from the data model to the interface might not lead to usable system. Human Centered Design promotes a top-down process from the user via the interface into the core of the application. This section illustrates the iterative design process for this thesis seen in figure \ref{fig:hcd}. The two main use cases for HistoGlobe that are focused in this thesis are:
 
 \begin{compactenum}
   \item \textbf{Understanding} the history of countries.
@@ -12,13 +12,13 @@ The Hivent Model presented in the previous section is the data model for HistoGl
 
 For both use cases a visualization and interaction was designed. The interviews with humanity researchers confirmed that the combination of a map and a timeline are a very appropriate and intuitive way to interactively visualize the history of countries. Thefore, the main concept of HistoGlobe introduced in section \ref{sec:histoglobe} does not need to be changed.
 
-However, two necessary extension modules have emerged: The \emph{HistoGraph} visualizes the history of countries aspatially on a graph. Its main idea is introduced in section \ref{sub:histograph}. Next to the normal exploration mode with map, timeline and HistoGraph, the concept of the \emph{Edit Mode} based on the Edit Operations to manipulate historical changes is proposed in section \ref{sub:editmode}. The gradual process from the inital idea to the final user interface implemented in HistoGlobe is illustrated in the last section \ref{sub:design_iterations}.
+However, two necessary extension modules have emerged: The \emph{HistoGraph} introduced in section \ref{sub:histograph} visualizes the history of countries on a graph. Next to the normal browsing mode, the \emph{Edit Mode} is proposed in section \ref{sub:edit_mode}. It uses the six Edit Operations to introduce historical changes to the current state on the map. The gradual process from the inital idea to the final user interface implemented in HistoGlobe is illustrated in the last section \ref{sub:design_iterations}.
 
 % ------------------------------------------------------------------------------
 \subsection{HistoGraph} % (fold)
 \label{sub:histograph}
 
-Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the history of countries on a graph. The edges of the graph represent an Area, the nodes an Hivent that changes the Areas evolution. The graph focuses on the historical, rather than the spatial aspect of countries: the predecessor-successor-relationships between Areas to trace the evolution throughout time. This is easily possible because of the usage of Simple Time-Stamping, one feature of the Hivent Model.
+Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the evolution of countries in time, without any spatial relation. The edges of the graph represent an Area, the nodes a HG Operation. The graph shows the predecessor-successor-relationships between Areas. This is easily possible, because in the Hivent Model an Area keeps references to the historical changes creating, updating and ceasing the Area (section \ref{par:area}).
 
 The two-dimensional HistoGraph has an horizontal orientation. It expands the timeline: the x-axis of the graph refers to one time point. The y-axis has no spatial or temporal relation, its dimension changes depending on how much space the visualization needs. The graph uses the visualization approach of the five HG Operations (table \ref{tab:historical_geographic_operations}), including the following symbols (table \ref{tab:histograph_symbols}):
 
@@ -44,7 +44,7 @@ The two-dimensional HistoGraph has an horizontal orientation. It expands the tim
   \raisebox{-0.2\height}
   {\includegraphics{graphics/development/histograph/circle_combo}}
   & A combination of both
-  & e.g. \texttt{INC + NCH} \\
+  & e.g. \texttt{INC + NCH}
 
 \end{tabular}
 \caption{symbols used in the HistoGraph}
@@ -52,19 +52,19 @@ The two-dimensional HistoGraph has an horizontal orientation. It expands the tim
 \end{center}
 \end{table}
 
-Each uninterrupted horizontal line refers to exactly one identical Area. New Areas resulting from an identity-changing HG Operation, emerge from an operation with a vertical line, indicating a sudden change with zero duration. From this line, the new Areas branch out right-angled. A horizontal line going straight through a circle indicates that the identity of the Area was preserved in the operation.
+\vspace{-1em}
 
-The HistoGraph is always created starting from one particular reference Area. It visualizes historically related Areas in one direction. That means, in historically backward direction, it recursively plots the predecessors on the graph, but not the predecessors successors. In the opposite historically forward direction, recursively the successors of the reference Area are plotted, but not their predecessors.
+Each uninterrupted horizontal line refers to exactly one Area. If an horizontal line leads straight through a circle, the identity of the Area is preserved in the operation. New Areas resulting from an identity-changing HG Operation emerge from the circle with a vertical line, indicating a sudden change with zero duration. From this line, the new Areas branch out right-angled. The HistoGraph is created from one particular reference Area. It visualizes historically related Areas in one direction: into the past, it recursively plots the predecessors on the graph, but not the predecessors successors. Into the future, the successors of the reference Area are plotted recursively, but not their predecessors.
 
-\begin{figure}[H]
-  \vspace{1em}
+\begin{figure}[ht]
+  \vspace{0.5em}
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/development/histograph/example_germany}
   \caption{The concept of the HistoGraph at the example of the history of Germany since 1945}
   \label{fig:example_germany}
 \end{figure}
 
-The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at the example of present-day Germany and its state history since the end of World War II. This history was driven by six historical events, which provide examples for all five HG Operations (table \ref{tab:german_history_since_1945}). The graph first plots Germany. Since it does not have any successors, the plot goes only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. All emerged from the four post-war occupation zones, which are also plotted. All of the four occupation zones themselves originated from the German Reich. However, the German Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
+The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at the example of present-day Germany and its state history since the end of World War II. This history was driven by six historical events, which provide examples for all five HG Operations. They are listed in table \ref{tab:german_history_since_1945}. The graph plots Germany first. Since it does not have any successors, the plot goes only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. All emerged from the four post-war occupation zones, which are also plotted. All of the four occupation zones themselves originated from the German Reich. However, the German Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
 
 \begin{table}[H]
 \begin{center}
@@ -74,7 +74,7 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
   \midrule
 
     05.06.1945
-  & \footnotesize{In the Berlin Declaration the total dissolution of the Third German Reich is confirmed. It separated into several different parts, returning the territories annexed by the German Reich in World War II to their original countries. The rest is controlled by the Allied Control Council in four occupation zones: the British, French, American and Soviet occupation zone.}
+  & \footnotesize{In the Berlin Declaration the total dissolution of the Third Reich is confirmed. It separates into multiple parts, returning the territories annexed by the German Reich in World War II. The rest is controlled by the British, French, American and Soviet occupation zone.}
   & \texttt{SEP} \\
 
     16.02.1946
@@ -86,7 +86,7 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
   & \texttt{UNI} \\
 
     07.10.1949
-  & \footnotesize{The German Democratic Republic (East Germany) is created from the Soviet Zone of Occupation}
+  & \footnotesize{The German Democratic Republic (East Germany) is created from the Soviet Zone of Occupation.}
   & \texttt{UNI} \\
 
     01.01.1957
@@ -106,10 +106,10 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 
 The example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} can not be performed, because the identity is not preserved: The German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one Area (Soviet Zone), creating a new Area (East Germany) and establishing a historical relationship between both.
 
-Many problems of the graph visualization are apparent in this example: If many operations happened in a short period of time (in this case between 1945 and 1949), dots might overlap.
+Many problems of the graph visualization are apparent in this example: Circles my overlap, if many operations happen in a short period of time -- in this case between 1945 and 1949.
 The name ``West Germany'' collides with the vertical line indicating the incorporation of the Saar Protectorate, which should also be avoided.
 Additionally, the names of the Areas of the four post-war occupation zones can not be shown in the Graph, because there is no space for them.
-One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the Hivent circle to the outgoing Area line of the new Area. This would give the impression that this midmost Area has the same identity than the newly created Area, which is not the case. Therefore, the Hivent circle for \texttt{UNI} and \texttt{SEP} operations with an add number of old respectively new Areas must be displaced off the center to emphasize that the identity has changed.
+One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the circle to the outgoing Area line of the new Area. This would give the impression that this midmost Area has the same identity than the newly created Area, which is not the case. In general, the circle for \texttt{UNI} and \texttt{SEP} operations with an odd number of old respectively new Areas must be displaced off the center to emphasize that the identity has changed.
 All these issues are not in the scope of this thesis and subject to future work in the field of Information Visualization.
 
 % subsection histograph (end)
@@ -118,23 +118,15 @@ All these issues are not in the scope of this thesis and subject to future work 
 \subsection{Edit Mode} % (fold)
 \label{sub:edit_mode}
 
-The user interface of HistoGlobe has two modi: The exploration mode to view the evolution of countries on a map with a timeline and a HistoGraph and the \emph{Edit Mode} proposed in this section. In the Human Centered Design process of this thesis, an interface was found that allows to intuitively edit historical changes directly in HistoGlobe, without the need to write data into database tables or standardised forms. There two main use cases in the Edit Mode:
+The user interface of HistoGlobe has two modi: The browsing mode to view the evolution of countries on a map with a timeline and the \emph{Edit Mode} proposed in this section to introduce historical changes to Areas. The Human Centered Design process of this thesis produced an interface that allows to intuitively edit Hivents, Areas and historical changes directly in HistoGlobe, without the need to write data into tables or forms.
 
-\begin{compactenum}
-  \item \textbf{Introducing an historical change} to Areas on the map.
-  \item \textbf{Correcting} the name or the territory of an Area on the map.
-\end{compactenum}
-
-Looking at the data model, both use cases lead to the same result: If the information at one point in history $t_1$ is wrong, e.g. the name of country $X$ should actually be $Y$, this means that the historical change that created name $X$ at time point $t_0$ is erroneous and has be corrected. Especially if $t_0$ is far away in the past, the studies have shown that altering an historical change to correct an information on a map now is not very intuitive. Therefore, the Edit Mode is designed to serve both use cases.
-
-The conceptual model promotes the six Edit Operations (section \ref{sub:edit_operations}) that humans can understand, the data model is based on five HG Operations (section \ref{tab:historical_geographic_operations}) that can model all evolutionary changes to countries in time and space. Therefore the task for the computational model of HistoGlobe is to translate between both operation sets.
-
+It is important to understand how correcting wrong information in the event-based system works: Given time point $t_y$ and an Area $A$ with the name $X$. If $X$ happens to be wrong, it means that the historical change at time point $t_x: t_x < t_y$ that created the name $X$ into Area $A$ is erroneous and has be corrected. Correcting a state means correcting the event that created this state.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Workflow} % (fold)
 \label{par:workflow}
 
-This happens in a workflow with four steps. They are based on the idea, that an historical change, described by an Edit Operation, transformes a set of old areas to a set of new areas.
+The conceptual model of the interface promotes six Edit Operations, introduced in section \ref{sub:edit_operations}. They describe one historical change that transforms a set of old areas into a set of new areas, using internally the HG Operations (see section \ref{sub:historical_geographic_operations}). In the interface, the historical change is prepared in a workflow of four steps:
 
 \begin{enumerate}
   \item \texttt{SELECT\_OLD\_AREAS}: The user selects the old Areas that will be changed in the Edit Operation.
@@ -143,7 +135,7 @@ This happens in a workflow with four steps. They are based on the idea, that an 
   \item \texttt{ADD\_CHANGE}: Finally, the historical change has to be added to an Hivent that introduces it and inherits the time point to it. The user either selects an existing Hivent or creates a new one. All the information necessary for the spatio-temporal Hivent Model are completed.
 \end{enumerate}
 
-For each Edit Operation, the requirements for the steps are different. Not all operations need all steps and some data is processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behaviour of each operation in the first three steps. The last step is the same for each operation: Adding the historical change to an Hivent.
+For each Edit Operation, the requirements for the steps are different. Not all operations need all steps and some data is processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behaviour of each operation in the first three steps. The last step is the same for each operation: Each historical change has to be added to an Hivent.
 
 \begin{table}[H]
 \begin{center}
@@ -210,17 +202,15 @@ For each Edit Operation, the requirements for the steps are different. Not all o
 \subsection{Design Iterations} % (fold)
 \label{sub:design_iterations}
 
-The previous two sections introduced the concept of the HistoGraph and the Edit Mode. This section presents the gradual Human Centered Design process integrating both concepts in the existing HistoGlobe user interface. In each step, interviews with students and employees of the Scholar's Lab of University of Virginia were conducted to find out what works well and to identify current problems and design flaws.
+The previous sections introduced the concepts of the HistoGraph and the Edit Mode. This section illustrates the Human Centered Design process integrating both concepts into the existing user interface of HistoGlobe. In each phase, interviews with students and employees of Scholar's Lab at University of Virginia were conducted to determine what works well and what has to be improved.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Initial interviews} % (fold)
 \label{par:initial_interviews}
 
-The first step was an interview with four researchers asking about their comments to the idea of HistoGlobe, potential use cases and the concept of the Edit Mode. The result was that the idea of te system proved popular, especially for students and teachers in school, historically interested people in general and also for researchers in the field of digital humanities.
+The first phase, four researchers were asked about their opinions on the idea of HistoGlobe, potential use cases and the concept of the Edit Mode. The idea proved popular, especially for students and teachers in school, historically interested people in general and also for scholars in digital humanities. All researchers agreed that the key to successful Edit Mode is usability, because editing data in time and space is a challenging task. A main concern is uncertainty in historical research: Almost all sorts of information -- temporal, spatial and attribute -- are potentially uncertain. A good user interface for researchers therefore has to support uploading historical sources and indicating uncertainty. The Edit Operations from section \ref{sub:edit_operations} resulted from the initial interviews.
 
-All researchers agreed that the key to a successful Edit Mode is a good usability, because editing data in time and space is a challenging task. A main concern is uncertainty in historical research: Almost all sorts of information -- temporal, spatial and attribute -- are potentially uncertain. A good user interface for researchers therefore has to support uploading historical sources and indicating uncertainty. The Edit Operations from section \ref{sub:edit_operations} resultes from the initial interviews.
-
-An important problem that has to be tackled is the difference between a \emph{forward} and a \emph{backward change}. The general idea of the Hivent Model is to add historical changes that manipulate the current state of the system into the future. This state will not change until a new Hivent is inserted that manipulates it. For researching purposes this is not suitable, because the current state of the map is very much known (see section \ref{sub:input}). The problem is to describe states in the past. For this purpose the concept of a backward change comes into play: An historical change that manipulates a set of old Areas to a set of new Areas is inserted at time point $t_1$, but into the past. As an example: Given the initial state is 2016 with present-day Germany created on 03.10.1990 on the map. The user wants to enter the German Reunification. The interface must support separating Germany into East and West, but indicating that this was the state \emph{before} 1990 and the original state was \emph{after} this date. This is complicated, because the conceptual, data and computational model have to support it.
+An important problem that was identified is the difference between a \emph{forward} and a \emph{backward change}. The general idea of the Hivent Model is to start at one initial time point $t_0$ and to consecutively add historical changes at time points $t_i > t_0$ that manipulate the current state into the future. A state is invariant until a new historical change is inserted that manipulates it again. For researching purposes this is not suitable, because the current state $t_c: t_c > t_0$ of the map is known. The problem is to describe states in the past. For this purpose the concept of a backward change comes into play: An historical change that manipulates a set of old Areas to a set of new Areas is inserted at time point $t_i$, but into the past ($ t_0 < t_i < t_c$). As an example: Given the initial state 10.06.2016 with present-day Germany created on 03.10.1990 on the map. The user wants to enter the German Reunification. The interface must support separating Germany into East and West, but indicating that this was the state \emph{before} 1990 and the original state was \emph{after} this date. This is complicated, because the conceptual, data and computational model have to support it.
 
 % paragraph initial_interviews (end)
 
@@ -229,13 +219,7 @@ An important problem that has to be tackled is the difference between a \emph{fo
 \paragraph{Paper Prototype} % (fold)
 \label{par:paper_prototype}
 
-From the results of the inital interview, the first interface concept for the Edit Mode was developed and transformed into a paper prototype: A map of Europe, a timeline centered at 1975, the buttons for the Edit Mode and a set of dialogs for the Edit Operation steps. The users had to solve four tasks with the interface that covered different use cases and operations:
-\begin{compactenum}
-  \item 1300: Rename incorrectly spelled name of Switzerland on the map (\emph{correction})
-  \item 1990: Unite East and West Germany (\emph{forward change})
-  \item 1993: Separate the Soviet Union into Russia, Estonia, Latvia, etc. (\emph{forward change})
-  \item 1944: Change the border between Finland and the Soviet Union before 1944 (\emph{backward change})
-\end{compactenum}
+From the results of the inital interview, the first interface concept for the Edit Mode was developed and transformed into a paper prototype. It is an interface out of paper that is very fast to create and allows to identify flaws in the concept early in the design process. In this process, two paper prototype iterations were created. Both iteration took about three full work days: one day to create the conceptualize and create prototype, half a day to conduct the study with three people, and one and a half days to analyze the results and rethink the concept.
 
 \begin{figure}[H]
 \centering
@@ -251,9 +235,15 @@ From the results of the inital interview, the first interface concept for the Ed
 \label{fig:paper_prototypes}
 \end{figure}
 
-A paper prototype is very fast to create and allows to identify flaws in the concept early in the design process. Two paper prototype iterations were created in this thesis. Each iteration took about three full work days: one day to create the conceptualize and create prototype, half a day to conduct the study with three people, and one and a half days to analyze the results and rethink the concept.
+The interface consists of a map of Europe, a timeline centered at 1975 and the buttons with a set of dialogs for the for the Edit Mode. Both prototypes were evaluated with three test subjects that had to solve four tasks covering different use cases and operations:
+\begin{compactenum}
+  \item 1300: Rename incorrectly spelled name of Switzerland on the map (\emph{correction})
+  \item 1990: Unite East and West Germany (\emph{forward change})
+  \item 1993: Separate the Soviet Union into Russia, Estonia, Latvia, etc. (\emph{forward change})
+  \item 1944: Change the border between Finland and the Soviet Union before 1944 (\emph{backward change})
+\end{compactenum}
 
-Both prototypes were evaluated with three test subjects. Most parts of the interface concept were understood and all subjects could solve the first three tasks. However, there were also problems:
+Most parts of the interface concept were understood and all subjects could solve the first three tasks. However, there were also problems:
 
 \begin{compactenum}
   \item There difference between Hivents, the history of a country and an historical change was unclear.
@@ -262,7 +252,7 @@ Both prototypes were evaluated with three test subjects. Most parts of the inter
   \item Correcting the name Switzerland by changing the event that created it in 1300 caused confusion.
 \end{compactenum}
 
-The main finding of this step was that depending on the task, there is both an Hivent-based and an Area-based mental model of the task. This became apparent in the German Reunification Hivent: Some users created the unification operation first, and added West and East Germany afterwards -- and some selected first West Germany, then created a unification operation and then added East Germany. From that finding arose that the interface has to support both an Hivent-based and an Area-based approach to introduce historical changes and correct information on the map.
+The main finding of this step was that depending on the task, there is both an Hivent-based and an Area-based mental model of the task. This became apparent in the German Reunification Hivent: Some users started the unification operation first, and added West and East Germany afterwards -- and some selected first West Germany, then initiated a unification operation and then added East Germany. From that finding arose that the interface has to support both an Hivent-based and an Area-based approach to introduce historical changes and correct information on the map.
 
 % paragraph paper_prototype (end)
 
@@ -270,25 +260,25 @@ The main finding of this step was that depending on the task, there is both an H
 \paragraph{Mockup Prototype} % (fold)
 \label{par:mockup_prototype}
 
-The main part of the design process was spent on the mockup prototypes. They were created in \emph{LibreOffice Impress}, an open-source slide-based presentation tool. The interface was simulated on a slide, with the map in the background, the timeline in the bottom, the set of buttons and dialogs for the Edit Mode and also the HistoGraph with geometric elements: lines, circles and rectangles. Interactivity is simulated by linking a click on a geometric element with a different slide that shows the effect of the operation. This way, sudden changes in the interface can be modelled. Creating such a mockup prototype takes longer than a paper prototype, but is still much faster than actually implementing an interactive Web-based interface. The purpose of the prototype is to rapidly develop a workflow through the interface that is understandable by the users.
+The main part of the design process was spent on the mockup prototypes. They were created in \emph{LibreOffice Impress}, an open-source slide-based presentation tool. The interface is simulated on slides: the map in the background, the timeline, the set of buttons and dialogs for the Edit Mode and also the HistoGraph modelled with geometric elements: lines, circles and rectangles. Interactivity is simulated by linking a click on a geometric element with a different slide that shows the effect of the operation. This way, sudden changes in the interface can be modelled. Creating such a mockup prototype takes longer than a paper prototype, but is still much faster than actually implementing an interactive Web-based interface. The purpose of the prototype is to rapidly develop a workflow through the interface that is understandable by the users.
 
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{.5\textwidth}
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=200px]{graphics/development/design_process/mockup_prototype_1.png}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=200px]{graphics/development/design_process/mockup_prototype_2.png}
-\end{subfigure} \\[0.8em]
+  \begin{subfigure}[b]{.5\textwidth}
+    \centering
+    \includegraphics[width=200px]{graphics/development/design_process/mockup_prototype_1.png}
+  \end{subfigure}%
+  \begin{subfigure}[b]{.5\textwidth}
+    \centering
+    \includegraphics[width=200px]{graphics/development/design_process/mockup_prototype_3.png}
+  \end{subfigure} \\[0.8em]
 
-\begin{subfigure}[b]{1.0\textwidth}
-  \centering
-  \includegraphics[width=325px]{graphics/development/design_process/mockup_prototype_3.png}
-\end{subfigure}
-\caption{The three iteration stages of the mockup prototype for the Edit Mode}
-\label{fig:mockup_prototypes}
+  % \begin{subfigure}[b]{1.0\textwidth}
+  %   \centering
+  %   \includegraphics[width=325px]{graphics/development/design_process/mockup_prototype_3.png}
+  % \end{subfigure}
+  \caption{Two iteration stages of the mockup prototype for the Edit Mode}
+  \label{fig:mockup_prototypes}
 \end{figure}
 
 Each prototype iteration was tested with multiple subjects and similar tasks as for the paper prototype. From one test to the next one changes to the interfaces were made. Finally, the users were able to solve all the tasks. Some interesting and partially contradicting quotes from the users were:
@@ -306,13 +296,13 @@ Each prototype iteration was tested with multiple subjects and similar tasks as 
   \end{tabular}
 \end{quoteit}
 
-The main evolution was from a separate dialogue window for the Edit Operation workflow to an intergrated workflow window in the title bar. Also the HistoGraph was introduced to visualize the historical change at while editing it. A lot of smaller design issues, e.g. position of buttons, font sizes or color schemes were identified and fixed. But also concept issues arose and especially the backward change proved to be very difficult.
+The main evolution was from a separate dialogue window for the Edit Operation workflow to an intergrated workflow window in the title bar. Also the HistoGraph was introduced to visualize the historical change at while editing it. A lot of smaller design issues, e.g. position of buttons, font sizes or color schemes were identified and fixed. But also conceptual issues arose
 
-Three different design solutions were tested throughout the iterations and two of them proved to be promising: First of all, instead of initializing a change in 1990 to separate Germany into East and West, the user can introduce two creation events for the two German states in May and October 1949. The interface needs to provide a visual clue that after creating West Germany, this Area can only be active until 1990, because then another Area, present-day Germany, uses its territory (see figure \ref{sfig:backward_change_1}). The change from West Germany to Germany will be created automatically. The second approach is to introduce a button that flippes an Edit Operation that has just been created (see figure \ref{sfig:backward_change_2}) -- in this case the \texttt{DIS} operation introduced to secede East Germany from Germany will be flipped into a \texttt{UNI} operation to incorporate East Germany into Germany. This approach makes use of the fact that each Edit Operation and therefore also each underlying HG Operation has an inverse.
+Especially the backward change proved to be very difficult. Two promising design solutions were developed: First, instead of initializing a change in 1990 to separate Germany into East and West, the user can introduce two creation events for the two German states in May and October 1949. The interface needs to provide a visual clue that after creating West Germany, this Area can only be active until 1990, because then another Area, present-day Germany, uses its territory (see figure \ref{sfig:backward_change_1}). The change from West Germany to Germany will be created automatically. The second approach is to introduce a button that flippes an Edit Operation that has just been created (see figure \ref{sfig:backward_change_2}) -- in this case the \texttt{DIS} operation introduced to secede East Germany from Germany will be flipped into a \texttt{UNI} operation to incorporate East Germany into Germany. This approach makes use of the fact that each Edit Operation and therefore also each underlying HG Operation has an inverse.
 % TODO: reference to inverse?
 However, this flipping requires the introduction of additional creation events: West and East Germany were introduced in the change, but only the event that ceases both of them (\texttt{INC} of West Germany into East Germany). They also need a creation event, otherwise they would be active backwards all the way to $t_0$, the initial state of the system.
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
 \begin{subfigure}[b]{.5\textwidth}
   \centering
@@ -330,7 +320,7 @@ However, this flipping requires the introduction of additional creation events: 
 \label{fig:backward_change}
 \end{figure}
 
-The prototype proved to be very valuable for the development process. In a total of two weeks, an interface concept and workflow was designed that proved to be understandable by the users.
+The prototype was very valuable for the development process. In a total of two weeks, an interface concept and workflow was designed that proved to be understandable by the users.
 
 
 % paragraph mockup_prototype (end)
@@ -339,11 +329,9 @@ The prototype proved to be very valuable for the development process. In a total
 \paragraph{Final Web-based prototype} % (fold)
 \label{par:final_web_based_prototype}
 
-The main advantage of the design process is that it prevents major redesigns of the final Web-based prototype. After three months of implementation of the final system, the interface looks very similar to the last version of the mockup prototype.
+The main advantage of the design process is that it prevents major redesigns of the final Web-based prototype. After three months of implementation of the final system, the interface looks very similar to the last version of the mockup prototype. The original main elements of the interface are the map, the timeline with the Now Marker indicating the current date of the visualization and the control buttons for zooming the map and the timeline. They are preserved and extended by new interface elements for the Edit Mode. Their interaction and behavior are introduced in this section at the example of the fictional secession of Scotland from the United Kingdom in 2018. The HistoGraph was not implemented, because of the conceptual problems mentioned in section \ref{sub:histograph} that have to be solved first.
 
-The original main elements of the interface are the map, the timeline with the Now Marker indicating the current date of the visualization and the control buttons for zooming the map and the timeline. They are preserved and extended by new interface elements for the Edit Mode. Their interaction and behavior are introduced in this section at the example of the fictional secession of Scotland from the United Kingdom in 2018. The HistoGraph was not implemented, because of the conceptual problems mentioned in section \ref{sub:histograph} that have to be solved first.
-
-
+\newpage
 \begin{minipage}[t]{0.47\textwidth}
 
   \begin{figure}[H]
@@ -455,4 +443,4 @@ The original main elements of the interface are the map, the timeline with the N
 
 % subsection design_iterations (end)
 
-% section histoglobe_interface (end)
+% section user_interface (end)
