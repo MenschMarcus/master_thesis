@@ -227,11 +227,9 @@ HG Operations can be combined when they happen at the same time, e.g. if one Are
 \subsection{Edit Operations} % (fold)
 \label{sub:edit_operations}
 
-The Historical Geographic Operations are a valuable set of tools to describe all kinds of changes in the evolution of countries in time and space. They are really well understood from the system point of view and are therefore the basis for the Hivent Model. However, the purpose of the HGIS developed in this thesis is to provide an interface for the user to introduce historical changes to countries on the map.
+The Historical Geographic Operations are valuable, because they can describe all possible changes in the evolution of countries in time and space. They are really well understood from the system point of view and are therefore the basis for the Hivent Model. However, the purpose of the HGIS developed in this thesis is to provide a well understood user interface to introduce historical changes to countries. Throughout the development process, interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand their mental model about the task. In the interviews it turned out that the HG Operations are not suitable to be used for human edit purposes, because of their low-level nature. One example is that the operations do not provide a straightforward way to create a new country on previously unclaimed land. The same is true for changing the formal name of an Area.
 
-Throughout the development process, interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand their mental model about historical changes of countries. In the interviews it turned out that the HG Operations are not suitable to be used for human edit purposes, because of their low-level nature. One example is that the operations do not provide a straightforward way to create a new country on previously unclaimed land. The same is true for changing the formal name of an Area.
-
-Therefore, this thesis introduces a second set of high-level operations to introduce changes to countries on the map: the \emph{Edit Operations} in table \ref{tab:edit_operations} have proven to be understandable in several user studies.
+Therefore, this thesis introduces a second set of high-level operations to introduce changes to countries on the map: the \emph{Edit Operations} in table \ref{tab:edit_operations} have proven to be understandable in several user studies:
 
 \begin{table}[H]
 \begin{center}
@@ -273,6 +271,30 @@ Therefore, this thesis introduces a second set of high-level operations to intro
 \end{center}
 \end{table}
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Change direction} % (fold)
+\label{par:change_direction}
+
+An important issue is the difference between a \emph{forward} and a \emph{backward change}. The general idea of the Hivent Model is to start at one initial time point $t_0$ and to consecutively add historical changes at time points $t_i > t_0$ that manipulate the current state into the future. A state is invariant until a new historical change is inserted that manipulates it again. For researching purposes this is not suitable, because the current state $t_c: t_c > t_0$ of the map is known. The problem is to describe states in the past. For this purpose the concept of a backward change comes into play: An historical change that manipulates a set of old Areas to a set of new Areas is inserted at time point $t_i$, but into the past ($ t_0 < t_i < t_c$). As an example: Given the initial state 10.06.2016 with present-day Germany created on 03.10.1990 on the map. The user wants to enter the German Reunification. The interface must support separating Germany into East and West, but indicating that this was the state \emph{before} 1990 and the original state was \emph{after} this date. This is complicated, because the conceptual, data and computational model have to support it.
+
+% paragraph change_direction (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Inverse operations} % (fold)
+\label{par:inverse_operations}
+
+Related to this problem is the fact that just like the HG Operations in the previous section, also the Edit Operations have inverses: A \texttt{CRE} can be inverted with a \texttt{CES} and a \texttt{MRG} with a \texttt{DIS} operation. \texttt{CHB} and \texttt{REN} can be inverted with themselves,
+
+% paragraph inverse_operations (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Error correction} % (fold)
+\label{par:error_correction}
+
+Correcting wrong information in an event-based system is important to understand: Given time point $t_y$ and an Area $A$ with the name $X$. If $X$ happens to be wrong, it means that the historical change at time point $t_x: t_x < t_y$ that created the name $X$ into Area $A$ is erroneous and has be corrected. Correcting a state means correcting the event that created this state.
+
+
+% paragraph error_correction (end)
 
 % subsection edit_operations (end)
 
