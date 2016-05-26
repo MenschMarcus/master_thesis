@@ -3,37 +3,28 @@
 \section{Application} % (fold)
 \label{sec:application}
 
-- the final version of the application behind the interface built on top of the data model
+HistoGlobe is a Web-based Historical Geographic Information System. The Data model and the conceptual model of the user interface were introduced in the first two sections of this chapter. This section introduces the underlying database model, a specific implementation of the data model, and the computational model that translates between the conceptual model and the database model of the system.
 
-distributed Web-based system
-classic approach: UI <-> Client (main program) <-> Server (middleware) <-> DB
-
-problems
-- backward change: all HG Operations and Edit Operations are inversible :)
-- support uncertainty
+The first part provides an overview about the architecture of the system in section \ref{sub:system_architecture}.
+% ... bla bla bla, the rest comes last
+% problems
+% - backward change: all HG Operations and Edit Operations are inversible :)
+% - support uncertainty
 
 % ------------------------------------------------------------------------------
 \subsection{System Architecture} % (fold)
 \label{sub:system_architecture}
 
+HistoGlobe uses a classical client-server architecture of a Web-based information system. The user opens the application and interacts with it through the user interface in a Web browser, the \emph{client} side of the system. The Web \emph{server} is a remote computer that hosts the database and the middleware. The user interacts with the interface, the client-side application sends a request to the Web server for new data. The middleware checks the request and queries the necessary data from the database. It transforms the data and sends it back to the client. On the map and the timeline the new information will be shown.
 
-The system developed in this thesis is Web-based. That means, there is a \emph{client}, a Web browser, and a remote Web \emph{server} with a database and a middleware. The Web browser hosts the applications user interface. If the user interacts with a tool the client sends a request to the Web server for new data. The middleware checks the request and queries the necessary data from the database. The data will be transformed and sendt back to the client. On the map and the timeline the new information will be shown.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{graphics/development/system_architecture}
+  \caption{The system architecture of HistoGlobe}
+  \label{fig:system_architecture}
+\end{figure}
 
-This clear separation between the data (\emph{model}), the user interface (\emph{view}) and the middleware (\emph{controller}) follows directly from the \emph{model-view-controller pattern}: One part can be changed without interfering the other parts, e.g. if the 2D map is replaced by a 3D globe, only the view changes, but the middleware and the database can stay untouched. Likewise, the implementation of a new database technology has no consequences to the view.
-
-graphic of basic system:
-UI
-Client-side mechanism
-Server-side mechanism
-Database
-
-programming languages / Framworks
-Client                    HTML
-          Less ->         CSS
-          CoffeeScript -> JavaScript
-Server    Django ->       Python
-                          PostgreSQL
-                          + PostGIS
+This clear separation between the data, the application and the user interaction in this chapter and in the system follows directly from the \emph{model-view-controller} pattern: One part can be changed independently from the others parts: if the 2D map is replaced by a 3D globe, only the view changes, but the middleware and the database can stay untouched. Likewise, the implementation of a new database technology has no consequences to the view.
 
 % subsection system_architecture (end)
 
