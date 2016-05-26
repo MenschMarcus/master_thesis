@@ -15,9 +15,10 @@ The first part provides an overview about the architecture of the system in sect
 \subsection{System Architecture} % (fold)
 \label{sub:system_architecture}
 
-HistoGlobe uses a classical client-server architecture of a Web-based information system. The user opens the application and interacts with it through the user interface in a Web browser, the \emph{client} side of the system. The Web \emph{server} is a remote computer that hosts the database and the middleware. The user interacts with the interface, the client-side application sends a request to the Web server for new data. The middleware checks the request and queries the necessary data from the database. It transforms the data and sends it back to the client. On the map and the timeline the new information will be shown.
+HistoGlobe uses a classical client-server architecture of a Web-based information system. The user opens the application and interacts with it through the user interface in a Web browser, the \emph{client} side of the system. The Web \emph{server} is a remote computer that hosts the database and the middleware. The user interacts with the interface, the client-side application sends a request to the Web server for new data. The middleware checks the request and queries the necessary data from the database. It transforms the data and sends it back to the client. The interface shows the new information.
 
 \begin{figure}[H]
+  \vspace{1em}
   \centering
   \includegraphics[width=0.7\textwidth]{graphics/development/system_architecture}
   \caption{The system architecture of HistoGlobe}
@@ -44,12 +45,15 @@ database model
 
 
            Hivent
+             |
              m
        HistoricalChange
+             |
              m
-  --------AreaChange------
-  |          |           |
-  |     ----Area----     |
+  |-------AreaChange-----|
+  |         |  |         |
+  |         m  m         |
+  |     |---Area---|     |
   m     m          m     m
 AreaTerritory      AreaName
 
