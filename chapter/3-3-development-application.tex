@@ -30,11 +30,55 @@ This clear separation between the data, the application and the user interaction
 % subsection system_architecture (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Database Model} % (fold)
+\subsection{Hivent Database Model} % (fold)
 \label{sub:database_model}
 
-database model
+From the system point of view, the underlying data model explained in section \ref{sec:hivent_model} has to be implemented in a database model. HistoGlobe uses \emph{Django}, a free and open-source web framework
+\footnote{
+  \emph{Django},
+  The Web framework for perfectionists with deadlines,
+  URL: \url{https://www.djangoproject.com/},
+  last access: 27.05.2016
+},
+combined with \emph{PostgreSQL}
+\footnote{
+  \emph{PostgreSQL:},
+  The world's most advanced open source database,
+  URL: \url{http://www.postgresql.org/},
+  last access: 31.10.2015
+}
+, one of the most popular Object-Relational Database Management Systems introduced in section \ref{sub:object_relational_database_management_systems}, on the server-side of the system. This allows HistoGlobe to take advantage of object-oriented concepts in a stable and fast relational database. Since the database is using a lot of geospatial data, the \emph{PostGIS} is used as a spatial database extension for PostgreSQL
+\footnote{
+  \emph{PostGIS},
+  Spatial and Geographic Objects for PostgreSQL,
+  URL: \url{http://postgis.net/},
+  last access: 27.05.2016
+}.
 
+With these tools at hand, the database model shown in figure \ref{fig:database_model} was developed. It is the final result of a highly iterative process that underwent many improvements and adpations to new requirements introduced in the Human Centered Design process. The model is structured in two parts: The lower part describes the semantic, spatial and thematic domain of Areas, their names and territories. The upper part represents the temporal domain that introduces changes to the entities of the other three domains. It is the core of the spatio-temporal \emph{Hivent Database Model}.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Semantic, Spatial and Thematic Domain} % (fold)
+\label{par:semantic_spatial_and_thematic_domain}
+
+\texttt{Area}
+  \texttt{universe}
+
+\texttt{AreaName}
+  \texttt{short\_name}
+  \texttt{formal\_name}
+
+\texttt{AreaTerritory}
+  \texttt{geometry}
+  \texttt{representative\_point}
+
+% paragraph semantic_spatial_and_thematic_domain (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Temporal Domain} % (fold)
+\label{par:temporal_domain}
+
+\texttt{Hivent}
 \begin{compactenum}
   \item The \emph{name} of the Hivent.
   \item A textual \emph{description} of the topic of the Hivent.
@@ -43,19 +87,50 @@ database model
   \item The \emph{historical changes} resulting from the Hivent.
 \end{compactenum}
 
+\texttt{HistoricalChange}
+  \texttt{edit\_operaton}  -> 6 high-level Edit Operations
 
-           Hivent
-             |
-             m
-       HistoricalChange
-             |
-             m
-  |-------AreaChange-----|
-  |         |  |         |
-  |         m  m         |
-  |     |---Area---|     |
-  m     m          m     m
-AreaTerritory      AreaName
+\texttt{AreaChange}
+  \texttt{hg\_operaton}    -> 5 low-level Historical Geographic Operations
+
+
+
+example German Reunification:
+
+Hivent
+  ``German Reunification''
+  03.10.1990
+
+HistoricalChange
+  \texttt{MRG}
+
+AreaChange
+  \texttt{INC}
+  \texttt{NCH}
+
+OldArea
+  DDR,  east territory, ``East Germany''
+
+UpdateArea
+  BRD:  west territory -> full territory
+  BRD:  ``West Germany'' -> ``Germany''
+
+NewArea
+  none
+
+% paragraph temporal_domain (end)
+
+
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/development/database_model}
+  \caption{The Hivent Database Model}
+  \label{fig:database_model}
+\end{figure}
+
+
 
 no transaction time, only valid / event time
 only world time is regarded, not database time.
