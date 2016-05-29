@@ -3,6 +3,7 @@
 
 % thesis details
 % ---------------------------------------------------------------------------
+\newcommand{\thesisauthor}{Marcus Kossatz}
 \newcommand{\titleFirst}  {Visualizing and Editing the}
 \newcommand{\titleSecond} {Evolution of Countries in Time and Space}
 \newcommand{\submissionDate}{6. June 2016}
@@ -158,42 +159,23 @@
 % use bullets for itemize
 \renewcommand{\labelitemi}{$\bullet$}
 
+% allow 90° rotated column titles in tabular
+% usage: \rot{title column}
+\newcommand*\rot{\rotatebox{90}}
 
 % meta information
 \title{\titleFirst \\ \titleSecond}
-\author{Marcus Kossatz}
+\author{\thesisauthor}
 \date{\submissionDate}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
 %\* TITLE PAGE *\
 
-\begin{titlepage}
-
-Bauhaus-Universität Weimar \\
-Faculty of Media \\
-Degree Programme Computer Science and Media \\ [2.0cm]
-
-\begin{center}
-
-{\huge \titleFirst} \\[0.5cm]
-{\huge \titleSecond} \\[3.5cm]
-\end{center}
-
-{\LARGE Master's Thesis} \\[1.0cm]
-
-Marcus Kossatz \hfill Matriculation Number 90487 \\
-b. 21.08.1989 in Spremberg, Germany \\
-
-1. First Referee: Univ.-Prof. Dr.-Ing. habil. Volker Rodehorst \\
-2. Second Referee: Prof. Dr. rer. nat. Sven Bertel \\
-
-\vfill
-Submission date: \submissionDate
-
-\end{titlepage}
-
+\include{chapter/x-titlepage}
 
 %\* LISTINGS *\
 
