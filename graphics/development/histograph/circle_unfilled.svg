@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="15.16687965393066"
-   height="15.16687965393066"
+   width="15"
+   height="15"
    id="svg3948"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="circle_combo.svg">
+   sodipodi:docname="circle_unfilled.svg">
   <defs
      id="defs3950" />
   <sodipodi:namedview
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="15.83919185261334"
-     inkscape:cx="11.8311727191353"
-     inkscape:cy="13.80293748291278"
+     inkscape:cx="-2.153126610091801"
+     inkscape:cy="13.80293748291277"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,7 +37,7 @@
      inkscape:window-width="1600"
      inkscape:window-height="834"
      inkscape:window-x="0"
-     inkscape:window-y="377"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3953">
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,16 +55,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-283.8451318004857,-301.9216001319587)">
+     transform="translate(-283.8451318004857,-302.0884797858894)">
     <path
-       transform="matrix(1.378807205106523,0,0,1.378807205106523,-811.6171926566469,-955.3605473247794)"
+       transform="matrix(1.362119279489348,0,0,1.362119279489348,-798.3502917909927,-939.9682358291686)"
        d="M 805,917.3621826171875 C 805,920.1236063663415 802.761423749154,922.3621826171875 800,922.3621826171875 C 797.2385762508459,922.3621826171875 795,920.1236063663415 795,917.3621826171875 C 795,914.6007588680334 797.2385762508459,912.3621826171875 800,912.3621826171875 C 802.761423749154,912.3621826171875 805,914.6007588680334 805,917.3621826171875 z"
        sodipodi:ry="5"
        sodipodi:rx="5"
        sodipodi:cy="917.3621826171875"
        sodipodi:cx="800"
        id="path3915"
-       style="fill:none;stroke:#323232;stroke-opacity:1"
+       style="fill:none;stroke:#323232;stroke-width:1.0122514963;stroke-opacity:1"
        sodipodi:type="arc" />
   </g>
 </svg>

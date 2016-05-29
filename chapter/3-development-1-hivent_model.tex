@@ -28,7 +28,7 @@ An Hivent happens at one particular point in time and space and is therefore the
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-represent one identical current or historical country. They are an abstract entity on the map with a \emph{name} and a \emph{territory}. The name consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to support enclaves and exclaves. The polylines of a polygon consist of an ordered set of points that represent a border of the country. They are either \emph{interior}, i.e. bordering another country, or a \emph{coastline}, bordering a body of water.
+represent one identical current or historical country. They are an abstract entity on the map with a \emph{name} and a \emph{territory}. The name consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to support enclaves and exclaves. The polylines of a polygon consist of an ordered set of points that represent a border of the country. They are either \emph{interior}, i.e. bordering another country, or a \emph{coastline}, bordering a body of water. Additionally, an Area keeps a reference to the historical changes creating, updating and ceasing it.
 
 % paragraph area (end)
 
@@ -188,14 +188,13 @@ Respecting the preconditions, there are several different types of changes that 
 
   \toprule
   \texttt{UNI} & \texttt{INC} & \texttt{SEP} & \texttt{SEC} & \texttt{NCH} \\
-  Unification & Incorporation & Separation & Secession & Name Change \\
+  Unification & Incorporation & Separation & Secession & Name Change \\[1em]
 
-  \midrule
-  \includegraphics{graphics/development/hg_operations/UNI} &
-  \includegraphics{graphics/development/hg_operations/INC} &
-  \includegraphics{graphics/development/hg_operations/SEP} &
-  \includegraphics{graphics/development/hg_operations/SEC} &
-  \includegraphics{graphics/development/hg_operations/NCH} \\
+  \includegraphics{graphics/development/hivent_operations/UNI} &
+  \includegraphics{graphics/development/hivent_operations/INC} &
+  \includegraphics{graphics/development/hivent_operations/SEP} &
+  \includegraphics{graphics/development/hivent_operations/SEC} &
+  \includegraphics{graphics/development/hivent_operations/NCH} \\
 
   \bottomrule
 \end{tabular}
@@ -210,7 +209,9 @@ Respecting the preconditions, there are several different types of changes that 
 \subsection{HistoGraph} % (fold)
 \label{sub:histograph}
 
-Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the evolution of countries in time, without any spatial relation. The edges of the graph represent an Area, the nodes a HG Operation. The graph shows the predecessor-successor-relationships between Areas. This is easily possible, because in the Hivent Model an Area keeps references to the historical changes creating, updating and ceasing the Area (section \ref{par:area}). The two-dimensional HistoGraph has an horizontal orientation. It expands the timeline: the x-axis of the graph refers to one time point. The y-axis has no spatial or temporal relation, its dimension changes depending on how much space the visualization needs. The graph uses the visualization approach of the five Hivent Operations (table \ref{tab:hivent_operations}), including the following symbols (table \ref{tab:histograph_symbols}):
+Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the evolution of countries in time, without any spatial relation. The edges of the graph represent an Area, the nodes a Hivent Operation. The graph shows the predecessor-successor-relationships between Areas. This is easily possible, because in the Hivent Model an Area keeps references to the historical changes creating, updating and ceasing the Area (section \ref{par:area}).
+
+The two-dimensional HistoGraph has an horizontal orientation. The x-axis refers to one time point, the y-axis has no spatio-temporal relation and depends how much space it needs. The graph uses the visualization approach of the five Hivent Operations (table \ref{tab:hivent_operations}), including the following symbols:
 
 \begin{table}[H]
 \begin{center}
@@ -223,12 +224,12 @@ Based on the idea of the History Graph Model (section \ref{fig:history_graph_mod
 
   \raisebox{-0.2\height}
   {\includegraphics{graphics/development/histograph/circle_filled}}
-  & Identity-changing HG Operation
+  & Identity-changing Hivent Operation
   & \texttt{UNI}, \texttt{INC}, \texttt{SEP}, \texttt{SEC} \\
 
   \raisebox{-0.2\height}
   {\includegraphics{graphics/development/histograph/circle_unfilled}}
-  & Property-changing HG Operation
+  & Property-changing Hivent Operation
   & \texttt{NCH} \\
 
   \raisebox{-0.2\height}
@@ -237,16 +238,24 @@ Based on the idea of the History Graph Model (section \ref{fig:history_graph_mod
   & e.g. \texttt{INC + NCH}
 
 \end{tabular}
-\caption{symbols used in the HistoGraph}
 \label{tab:histograph_symbols}
 \end{center}
 \end{table}
 
-\vspace{-1em}
+\vspace{-2em}
 
-Each uninterrupted horizontal line refers to exactly one Area. If an horizontal line leads straight through a circle, the identity of the Area is preserved in the operation. New Areas resulting from an identity-changing HG Operation emerge from the circle with a vertical line, indicating a sudden change with zero duration. From this line, the new Areas branch out right-angled. The HistoGraph is created from one particular reference Area. It visualizes historically related Areas in one direction: into the past, it recursively plots the predecessors on the graph, but not the predecessors successors. Into the future, the successors of the reference Area are plotted recursively, but not their predecessors.
+Each uninterrupted horizontal line refers to exactly one Area. If an horizontal line leads straight through a circle, the identity of the Area is preserved in the operation. New Areas resulting from an identity-changing Hivent Operation emerge from the circle with a vertical line, indicating a sudden change with zero duration. From this line, the new Areas branch out right-angled. The HistoGraph is created from one particular reference Area. It visualizes historically related Areas in one direction: into the past, it recursively plots the predecessors on the graph, but not the predecessors successors. Into the future, the successors of the reference Area are plotted recursively, but not their predecessors.
 
-The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at the example of present-day Germany and its state history since the end of World War II. This history was driven by six historical events, which provide examples for all five Hivent Operations. They are listed in table \ref{tab:german_history_since_1945}.
+The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at the example of present-day Germany and its state history since the end of World War II. This history is driven by six historical events, which provide examples for all five Hivent Operations. They are listed in table \ref{tab:german_history_since_1945}.
+
+\begin{figure}[ht]
+  \vspace{0.5em}
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/development/histograph/example_germany}
+  \caption{The concept of the HistoGraph at the example of the history of Germany since 1945}
+  \label{fig:example_germany}
+\end{figure}
+
 
 \begin{table}[ht]
 \begin{center}
@@ -286,22 +295,14 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 \end{center}
 \end{table}
 
-The example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} can not be performed, because the identity is not preserved: The German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one Area (Soviet Zone), creating a new Area (East Germany) and establishing a historical relationship between both.
+The example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of Occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} can not be performed, because the identity is not preserved: The German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one Area (Soviet zone), creating a new Area (East Germany) and establishing a historical relationship between both.
 
-\begin{figure}[ht]
-  \vspace{0.5em}
-  \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/histograph/example_germany}
-  \caption{The concept of the HistoGraph at the example of the history of Germany since 1945}
-  \label{fig:example_germany}
-\end{figure}
-
-The graph plots Germany first. Since it does not have any successors, the plot goes only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. All emerged from the four post-war occupation zones, which are also plotted. All of the four occupation zones themselves originated from the German Reich. However, the German Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
+The graph plots Germany first. Since it does not have any successors, the plot goes only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. They emerged from the four post-war occupation zones, visualized next. All of the four occupation zones themselves originated from the German Reich. However, the Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
 
 Many problems of the graph visualization are apparent in this example: Circles my overlap, if many operations happen in a short period of time -- in this case between 1945 and 1949.
 The name ``West Germany'' collides with the vertical line indicating the incorporation of the Saar Protectorate, which should also be avoided.
-Additionally, the names of the Areas of the four post-war occupation zones can not be shown in the Graph, because there is no space for them.
-One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the circle to the outgoing Area line of the new Area. This would give the impression that this midmost Area has the same identity than the newly created Area, which is not the case. In general, the circle for \texttt{UNI} and \texttt{SEP} operations with an odd number of old respectively new Areas must be displaced off the center to emphasize that the identity has changed.
+Additionally, the names of the Areas of the four post-war occupation zones can not be shown in the graph, because there is no space for them.
+One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the circle to the outgoing Area line of the new Area. This would give the wrong impression that this midmost Area has the same identity than the newly created Area. In general, the circle for \texttt{UNI} and \texttt{SEP} operations with an odd number of old respectively new Areas must be displaced off the center to emphasize that the identity has changed.
 All these issues are not in the scope of this thesis and subject to future work in the field of Information Visualization.
 
 % subsection histograph (end)
