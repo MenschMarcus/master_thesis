@@ -3,40 +3,42 @@
 \chapter{Development} % (fold)
 \label{cha:development}
 
-The aim of this thesis is to create a Historical Geographic Information System to visualize and edit the evolution of countries in time and space. This is a complicated task, because both the reality and the human that should be able to use the system are complex. The task is to create an interface that a human can easily understand and use. For complex applications in which the interface matters, the methodologies of \emph{Human Centered Design} are promising to achieve a good solution.
+The aim of this thesis is to create a Historical Geographic Information System to visualize and edit the evolution of countries in time and space. This is a complicated task, because both the reality and the human using the system are complex. For such complex applications the methodologies of \emph{Human Centered Design} are promising to create an interface that humans can easily understand.
 
-The development process is iterative divided in several phases. In each phase, the fidelty towards the final solution is increased. A phase starts with an initial set of requirements about the problem. In multiple iterations, an interface is developed that solves the problem. Each iteration has four steps: The requirements for the system are analyzed in the \emph{planning} step. Afterwards, they translated into an abstract \emph{design} which is realized in a specific \emph{implementation} of the interface. Finally, this interface is tested with humans to find out how well it works. Based on the results of this \emph{testing} step, the requirements are updated and the next iteration starts. This is repeated until a version of the interface is created that sufficiently solves the problem. Then the fidelity is increased, starting the next development phase.
+The development process is iterative and divided in several phases. In each phase creates a prototype or the interface that gets closer to the final solution by increasing the fidelity of the prototype. A phase starts with an initial set of requirements. In multiple iterations, a prototype is developed that solves the problem. Each iteration has four steps: The requirements for the system are analyzed in the \emph{planning} step. Afterwards, they translated into an abstract \emph{design} which is realized in a specific \emph{implementation} of the prototype. Finally, this prototype is tested with humans to find out how well it works. Based on the results of this \emph{testing} step, the requirements are updated and the next iteration starts. This is repeated until a version of the interface is created that sufficiently solves the problem. Then the fidelity is increased, starting the next development phase. The five phases in this thesis are shown in figure \ref{fig:hcd}.
 
-The five phases in this thesis were:
+\begin{figure}[H]
+  \vspace{1em}
+  \centering
+  \includegraphics[width=0.9\textwidth]{graphics/development/hcd}
+  \caption{Human Centered Design process with five project phases}
+  \label{fig:hcd}
+\end{figure}
+
+\newpage
 \begin{compactenum}
   \item \textbf{Idea}: The initial idea how to edit and visualize the history of countries.
   \item \textbf{Paper Prototype}: The concept of the interface realized and tested on paper.
   \item \textbf{Mockup Prototype}: The concrete workflow developed in a slide-based presentation.
   \item \textbf{Web-Based Prototype}: The final version developed in a Web application.
-  \item \textbf{Extensions}: Design approaches how to fit the uncertain nature of history.
+  \item \textbf{Extensions}: Design approaches to account for the uncertain nature of history.
 \end{compactenum}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/hcd}
-  \caption{Human Centered Design process with five project phases}
-  \label{fig:hcd}
-\end{figure}
-
-There are several models involved in the development of the software, each of them has to be developed or analyzed separately. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} created in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface he or she is interacting with should work. On the other hand, the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface} outlines the gradual interface design process to reach this goal. In the application, the implemented \emph{database model} has to match the abstract data model. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The working of the HistoGlobe application, including the computational model, is introduced in the last section \ref{sec:application} of this chapter.
+There are several models involved in the development of the software, each of them has to be developed or analyzed separately. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} developed in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. It follows the method to \emph{edit} the spatio-temporal data in the system in section \ref{sec:editing_hivent_data}. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface should work -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The HistoGlobe application, including the database and computational model, is introduced in the last section \ref{sec:application} of this chapter.
 
 \begin{figure}[H]
   \vspace{1em}
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/development/models}
-  \caption{Relevant models for the system}
+  \caption{Relevant models for an information system}
   \label{fig:models}
 \end{figure}
 
 % ==============================================================================
-\input{chapter/3-1-development-hivent_model}
-\input{chapter/3-2-development-interface}
-\input{chapter/3-3-development-application}
+\input{chapter/3-development-1-hivent_model}
+\input{chapter/3-development-2-editing}
+\input{chapter/3-development-3-interface}
+\input{chapter/3-development-4-application}
 
 % chapter development (end)
 
