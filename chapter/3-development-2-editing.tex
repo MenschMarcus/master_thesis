@@ -3,19 +3,18 @@
 \section{Editing Hivent Data} % (fold)
 \label{sec:editing_hivent_data}
 
-The previous section explained the abstract Hivent Model, a set of Hivent operations and a promising visualization method. However, one purpose of the HGIS developed in this thesis is to add, alter and delete historical changes. This section presents tools and methods to edit spatio-data in the Hivent Model.
-
-Whereas the Hivent Operations are well-defined and specific, user studies have shown that they are not well understood by humans editing data in the system. This thesis therefore proposes a different set of six \emph{Edit Operations} in section \ref{sub:edit_operations}. Afterwards, section \ref{sub:edit_workflow} introduces a \emph{workflow} to create the data for an Edit Operation step by sep. The main use case of event-based spatio-temporal data models is to append changes to the end of time. But the Hivent Mode also needs to support adding historical changes in between. The last section \ref{sub:retrospective_updates} explains the theoretical approach to \emph{retrospecitve updates} of spatio-temporal data in the Hivent Model.
+The previous section proposed the abstract Hivent Model, a set of Hivent operations and a visualization method. However, one purpose of the HGIS developed in this thesis is to add, alter and delete historical changes. This section presents the tools and methods to edit spatio-temporal data about the evolution of Areas in the Hivent Model. Whereas the Hivent Operations are well-defined and specific, user studies have shown that they are not well understood by humans to edit Areas. This thesis therefore introduces a different set of six \emph{Edit Operations} in section \ref{sub:edit_operations}. Afterwards, section \ref{sub:edit_workflow} shows a \emph{workflow} to perform an Edit Operation step by step. The Hivent Model needs to support editing historical changes in between other historical changes. The last section \ref{sub:retrospective_updates} explains the theoretical approach to \emph{retrospecitve updates} of spatio-temporal data in the Hivent Model.
 
 
 % ------------------------------------------------------------------------------
 \subsection{Edit Operations} % (fold)
 \label{sub:edit_operations}
 
-The Hivent Operations are valuable, because they can describe all possible changes in the evolution of countries in time and space. They are really well understood from the system point of view and are therefore the basis for the Hivent Model. However, the purpose of the HGIS developed in this thesis is to provide a well understood user interface to introduce historical changes to countries. Throughout the development process, interviews with historians and other researchers in humanities at University of Virginia were conducted, to understand their mental model about the task. In the interviews it turned out that the Hivent Operations are not suitable to be used for human edit purposes, because of their low-level nature. One example is that the operations do not provide a straightforward way to create a new country on previously unclaimed land. The same is true for changing the formal name of an Area.
+The Hivent Operations are valuable, because they can describe all possible changes in the evolution of Areas in time and space. They are really well understood from the system point of view and form the basis for the Hivent Model. However, one purpose of the HGIS developed in this thesis is to provide a well understood user interface to edit historical changes to Areas.
 
-Therefore, this thesis introduces a second set of operations: five high-level \emph{Edit Operations} describe changes to countries on the map (see table \ref{tab:edit_operations}). They have proven to be understandable in several user studies.
+Throughout the development process, interviews with researchers in humanities at University of Virginia were conducted to understand their mental model about the task. It turned out that the Hivent Operations are not suitable to be used for human edit purposes, because of their low-level nature. One example is that the operations do not provide a straightforward way to create a new Area on previously unclaimed land. The same is true for changing the formal name of an Area. Therefore, this thesis introduces a second set of operations: five high-level \emph{Edit Operations} describe changes to countries on the map (see table \ref{tab:edit_operations}). They have proven to be understandable in several user studies.
 
+\vspace{0.5em}
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{m{0.75cm} m{0.8cm} m{2.4cm} m{9.1cm}}
@@ -56,28 +55,6 @@ Therefore, this thesis introduces a second set of operations: five high-level \e
 \end{center}
 \end{table}
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Change direction} % (fold)
-\label{par:change_direction}
-
-An important issue is the difference between a \emph{forward} and a \emph{backward change}. The general idea of the Hivent Model is to start at one initial time point $t_0$ and to consecutively add historical changes at time points $t_i > t_0$ that manipulate the current state into the future. A state is invariant until a new historical change is inserted that manipulates it again. For researching purposes this is not suitable, because the current state $t_c: t_c > t_0$ of the map is known. The problem is to describe states in the past. For this purpose the concept of a backward change comes into play: An historical change that manipulates a set of old Areas to a set of new Areas is inserted at time point $t_i$, but into the past ($ t_0 < t_i < t_c$). As an example: Given the initial state 10.06.2016 with present-day Germany created on 03.10.1990 on the map. The user wants to enter the German Reunification. The interface must support separating Germany into East and West, but indicating that this was the state \emph{before} 1990 and the original state was \emph{after} this date. This is complicated, because the conceptual, data and computational model have to support it.
-
-% paragraph change_direction (end)
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Inverse operations} % (fold)
-\label{par:inverse_operations}
-
-Related to this problem is the fact that just like the Hivent Operations in the previous section, also the Edit Operations have inverses: A \texttt{CRE} can be inverted with a \texttt{CES} and a \texttt{MRG} with a \texttt{DIS} operation. \texttt{CHB} and \texttt{REN} can be inverted with themselves,
-
-% paragraph inverse_operations (end)
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Error correction} % (fold)
-\label{par:error_correction}
-
-Correcting wrong information in an event-based system is important to understand: Given time point $t_y$ and an Area $A$ with the name $X$. If $X$ happens to be wrong, it means that the historical change at time point $t_x: t_x < t_y$ that created the name $X$ into Area $A$ is erroneous and has be corrected. Correcting a state means correcting the event that created this state.
-
 
 % paragraph error_correction (end)
 
@@ -87,40 +64,39 @@ Correcting wrong information in an event-based system is important to understand
 \subsection{Edit Workflow} % (fold)
 \label{sub:edit_workflow}
 
-The conceptual model of the interface promotes six Edit Operations, introduced in section \ref{sub:edit_operations}. They describe one historical change that transforms a set of old areas into a set of new areas, using internally the Hivent Operations (see section \ref{sub:hivent_operations}). In the interface, the historical change is prepared in a workflow of four steps:
+An Edit Operation describes an historical change that can be understood and performed by a user of the HGIS. This section shows that each Edit Operation can be internally expressed by a set of Hivent Operations. Therefore the Edit Operations are an abstraction layer in the Hivent Model between the Hivent and the Hivent Operations. To create an Edit Operation, four steps in a workflow need to be performed:
 
-\begin{enumerate}
-  \item \texttt{SELECT\_OLD\_AREAS}: The user selects the old Areas that will be changed in the Edit Operation.
-  \item \texttt{CREATE\_NEW\_TERRITORIES}: For each new Area resulting from the Edit Operation, the user creates a polypolygon describing the territory of the Area.
-  \item \texttt{CREATE\_NEW\_NAMES}: Afterwards the user writes the name of each new Area directly on the map. This finalizes the set of new Areas for the historical change.
-  \item \texttt{ADD\_CHANGE}: Finally, the historical change has to be added to an Hivent that introduces it and inherits the time point to it. The user either selects an existing Hivent or creates a new one. All the information necessary for the spatio-temporal Hivent Model are completed.
-\end{enumerate}
+\begin{compactenum}
+  \item Select the Areas that will be changed in the Edit Operation.
+  \item For each new Area resulting from the Edit Operation, create a territory.
+  \item For each new Area create a name.
+  \item Add the Edit Operation to an Hivent to inherit the time point.
+\end{compactenum}
 
-For each Edit Operation, the requirements for the steps are different. Not all operations need all steps and some data is processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behaviour of each operation in the first three steps. The last step is the same for each operation: Each historical change has to be added to an Hivent.
+For each Edit Operation, the requirements for the steps are different. Not all operations need all steps, because some data can be processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behaviour of the Edit Operations in the first three steps. The last step is necessary for all.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{m{0.9cm} m{4.0cm} m{4.4cm} m{3.8cm}}
+\begin{tabular}{m{0.9cm} m{4.2cm} m{4.2cm} m{3.5cm}}
   \toprule
 
   &
-  \texttt{SELECT\_OLD\_AREAS} &
-  \texttt{CREATE\_NEW\_TERRITORIES} &
-  \texttt{CREATE\_NEW\_NAMES} \\
+  \emph{Select old Areas} &
+  \emph{Create new territories} &
+  \emph{Create new names} \\
 
   \midrule
   \texttt{CRE} &
   -- &
-  \pbox{4.4cm}{create a territory of the new country\\
-  \footnotesize{on unclaimed land and/or overlapping existing countries}} &
-  create a name of the new country \\
+  create a territory of the new country &
+  create a name for the new country \\
 
   \midrule
   \texttt{MRG} &
   select the countries to be merged &
   \pbox{4.4cm}{--\\
-  \footnotesize{automatic unification of territories of selected countries}} &
-  create a name of the merged country
+  \footnotesize{territories of selected countries are automatically unified}} &
+  create a name for the new country
   \\
 
   \midrule
@@ -138,7 +114,7 @@ For each Edit Operation, the requirements for the steps are different. Not all o
 
   \midrule
   \texttt{REN} &
-  select a country to change its name &
+  select a country to rename it &
   -- &
   create a new name of the country \\
 
@@ -155,10 +131,7 @@ For each Edit Operation, the requirements for the steps are different. Not all o
 \end{center}
 \end{table}
 
-
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Edit Operations to Hivent Operations} % (fold)
-\label{par:edit_operations_to_hg_operations}
 
 % wording:
 % UNI of "[old]"  to    "new"
@@ -167,12 +140,10 @@ For each Edit Operation, the requirements for the steps are different. Not all o
 % SEC of "[new]"  from  "pres"
 % NCH of "pres"
 
-The six high-level Edit Operations can be expressed by a combination of the and the five low-level Hivent Operations. Depending on the input of the user in the Edit Operation steps, there are different possibilities. They are introduced in table \ref{tab:editoperations_to_hg_operations}.
+\vspace{-1.0em}
 
-Hivent Operations can be combined when they happen at the same time, e.g. if one Area incorporates another Area and thereby changes its short name, this is a combination of \texttt{INC + NCH}. When West Germany incorporated East Germany in 1900, it was from that moment on just called Germany.
+Depending on the input of the user in the steps for an Edit Operation, there are different possibilities to express it by a set of Hivent Operations. Each Hivent Operation transforms a set of old Areas into a set of new Areas and can update the name or territory of one specific Area. All possibilities are introduced in table \ref{tab:editoperations_to_hg_operations}. Hivent Operations are combined when they happen at the same time. In the example of the German Reunification, East Germany was incorporated into West Germany which at the same time changed its short name to ``Germany'' (\texttt{INC + NCH}).
 
-
-\newpage
 \begin{center}
 \begin{longtable}{m{1.2cm} m{0.95cm} m{0.95cm} m{0.95cm} m{6.0cm} m{2.3cm}}
   \toprule
@@ -198,7 +169,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
     Each $A_f$ is completely incorporated into $B_1$.
   } &
   \multirow{9}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CRE_to_SEC+UNI}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CRE_to_SEC+UNI}
   } \\
 
   &
@@ -217,17 +188,16 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   \midrule
   \multirow{3}{*}{\texttt{MRG} (1)} &
   \multicolumn{4}{p{10cm}}{
-    Multiple Areas $A_i$ are unified to $B_1$. The new Area receives a new name distinct from all the names of $A_i$.
+    Multiple Areas $A_i$ are unified to $B_1$. The new Area receives a name distinct from all the names of $A_i$.
   } &
   \multirow{3}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/MRG_to_UNI}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/MRG_to_UNI}
   } \\
   &
   $n \geq 2$ &
   $0$ &
   $1$ &
   \pbox{6.0cm}{
-    ~\\
     \texttt{UNI} of $\forall A_i$ to $B_1$
   } &
   \\
@@ -235,28 +205,27 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   \midrule
   \multirow{4}{*}{\texttt{MRG} (2)} &
   \multicolumn{4}{p{10cm}}{
-    Multiple Areas $A_i$ are unified, the resulting Area reuses the short and formal name of one of the old Areas ($A_p$) and therefore preserves it. The remaining Areas $A_i$ are incorporated into $A_p$.
+    Multiple Areas $A_i$ are unified. The resulting Area reuses the short and formal name of one of the old Areas ($A_0$) and therefore preserves it. The remaining Areas $A_i$ are incorporated into $A_0$.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/MRG_to_INC}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/MRG_to_INC}
   } \\
   &
   $n \geq 1$ &
   $1$ &
   $1$ &
   \pbox{6.0cm}{
-    ~\\
-    \texttt{INC} of $\forall A_i$ into $A_p$
+    \texttt{INC} of $\forall A_i$ into $A_0$
   } &
   \\
 
   \midrule
   \multirow{4}{*}{\texttt{MRG} (3)} &
   \multicolumn{4}{p{10cm}}{
-    The same as the previous case, just that $A_p$ receives a new short name and therefore an additional name change is required.
+    The same as the previous case, just that $A_0$ receives a new short name and therefore an additional name change is required.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/MRG_to_INC+NCH}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/MRG_to_INC+NCH}
   } \\
   &
   $n \geq 1$ &
@@ -264,8 +233,8 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   $1$ &
   \pbox{6.0cm}{
     ~\\
-    \texttt{INC} of $\forall A_i$ into $A_p$ \\
-    \texttt{NCH} of $A_p$
+    \texttt{INC} of $\forall A_i$ into $A_0$ \\
+    \texttt{NCH} of $A_0$
   } &
   \\
 
@@ -274,10 +243,10 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   \midrule
   \multirow{4}{*}{\texttt{DIS} (1)} &
   \multicolumn{4}{p{10cm}}{
-    Separate one Area $A_1$ into multiple new Areas $B_i$ and define a territory and name for each of them. Each name is distinct from the name of the old Area.
+    Multiple Areas $B_i$ are separated from one initial Area $A_0$. Each $B_i$ receives a part of the territory of $A_0$ and a name. Each name is distinct from the name of $A_0$.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/DIS_to_SEP}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/DIS_to_SEP}
   } \\
   &
   $1$ &
@@ -292,10 +261,10 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   \midrule
   \multirow{5}{*}{\texttt{DIS} (2)} &
   \multicolumn{4}{p{10cm}}{
-    Separate multiple Areas $B_1$ from one initial Area $A_p$ and define a territory and name for each of them. One of the separated Areas has the same short and formal name as $A_p$, so it continues its identity and preserves the Area. The remaining new Areas secede from $A_p$.
+    Multiple Areas $B_i$ are separated from one initial Area $A_0$. Each $B_i$ receives a part of the territory of $A_0$ and a name. One of the separated Areas has the same short and formal name as $A_0$, so it preserves its identity. The remaining new Areas secede from $A_0$.
   } &
   \multirow{5}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/DIS_to_SEC}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/DIS_to_SEC}
   } \\
   &
   $1$ &
@@ -303,17 +272,17 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   $n \geq 1$ &
   \pbox{6.0cm}{
     ~\\
-    \texttt{SEC} of $\forall B_i$ from $A_p$
+    \texttt{SEC} of $\forall B_i$ from $A_0$
   } &
   \\
 
   \midrule
   \multirow{4}{*}{\texttt{DIS} (3)} &
   \multicolumn{4}{p{10cm}}{
-    The same as the previous case, just that $A_p$ receives a new short name and therefore an additional name change is required.
+    The same as the previous case, just that $A_0$ receives a new short name and therefore an additional name change is required.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/DIS_to_SEC+NCH}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/DIS_to_SEC+NCH}
   } \\
   &
   $1$ &
@@ -321,7 +290,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   $n \geq 1$ &
   \pbox{6.0cm}{
     ~\\
-    \texttt{SEC} of $\forall B_i$ from $A_p$  \\
+    \texttt{SEC} of $\forall B_i$ from $A_0$  \\
     \texttt{NCH} of $A_p$
   } &
   \\
@@ -331,14 +300,14 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   \midrule
   \multirow{10}{*}{\texttt{CHB} (1)} &
   \multicolumn{4}{p{10cm}}{
-    One existing Area $A_1$ is selected and its territory changes. Relative to the old territory some parts of the territory expanded ($T_e$) and some withdrew ($T_w$).
-    The part of $T_e$ that expanded into unclaimed land ($T_\Omega \in T_e$) is seceded from $\Omega$ and incorporated into $A_1$.
-    The Areas $A_f$ fully covered by $T_e$ are incorporated into $A_1$,
-    the Areas $A_p$ partially covered by $T_e$ secede this territory $T_p \in T_e$ to $A_1$.
-    $T_w$ will be incorporated into $\Omega$, resulting in unclaimed land.
+    One existing Area $A_0$ is selected and its territory changes. Relative to the old territory some parts of the territory expands ($T_e$) and some withdraws ($T_w$).
+    The part of $T_e$ that expands into unclaimed land ($T_\Omega: T_\Omega \in T_e$) is seceded from $\Omega$ and incorporated into $A_0$.
+    The Areas $A_f$ fully covered by $T_e$ are incorporated into $A_0$,
+    the Areas $A_p$ partially covered by $T_e$ secede this territory $T_p \in T_e$ to $A_0$.
+    $T_w$ is be incorporated into $\Omega$, resulting in unclaimed land.
   } &
   \multirow{10}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CHB_to_SEC+INC_omega}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CHB_to_SEC+INC_omega}
   } \\
   &
   $n_f$ &
@@ -347,7 +316,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
   \pbox{6.0cm}{
     ~\\
     \texttt{SEC} of $T_\Omega$ from $\Omega$,
-    \texttt{INC} of $T_\Omega$ into $A_1$ \\
+    \texttt{INC} of $T_\Omega$ into $A_0$ \\
     \texttt{SEC} of $T_p$ from $A_p$,
     \texttt{INC} of $T_p$ into $B_1$ \\
     \texttt{INC} of $A_f$ into $B_1$ \\
@@ -362,7 +331,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
     Two existing Areas $A_1$ and $A_2$ are selected and their common border changes. This results in a symmetrical change of territories, made up by two sets of territories: $T_2$ that previously belonged to $A_1$ and is now part of $A_2$ and $T_1$ for which the opposite is true. $T_2$ is seceded by $A_1$ and incorporated into $A_2$, the opposite happenes to $T_1$.
   } &
   \multirow{7}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CHB_to_SEC+INC}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CHB_to_SEC+INC}
   } \\
   &
   $0$ &
@@ -385,7 +354,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
     One Area $A_1$ is selected and both its short and formal name is changed. Therefore, a new Area $B_1$ is created as a direct successor of $A_1$. This is a special case of a unification with only one Area.
   } &
   \multirow{3}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/REN_to_UNI}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/REN_to_UNI}
   } \\
   &
   $1$ &
@@ -402,7 +371,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
     One Area $A_1$ is selected and receives a new short name, but the formal name and therefore the identity is preserved. $A_1$ is updated.
   } &
   \multirow{3}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/REN_to_NCH}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/REN_to_NCH}
   } \\
   &
   $0$ &
@@ -421,7 +390,7 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
     One Area $A_1$ is selected and ceases by incorporating into the universe.
   } &
   \multirow{2}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hg_operations/CES_to_INC}
+    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CES_to_INC}
   } \\
   &
   $1$ &
@@ -439,13 +408,38 @@ Hivent Operations can be combined when they happen at the same time, e.g. if one
 \end{center}
 \footnotetext{multiple Hivent Operations in one row happen exactly at the same time point, so they are combined}
 
-% paragraph edit_operations_to_hg_operations (end)
 
 % subsection edit_workflow (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Retrospective Updates} % (fold)
 \label{sub:retrospective_updates}
+
+%%% CONTINUE HERE %%%
+
+The main use case of event-based spatio-temporal data models is to append changes to the end of time.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Change direction} % (fold)
+\label{par:change_direction}
+
+An important issue is the difference between a \emph{forward} and a \emph{backward change}. The general idea of the Hivent Model is to start at one initial time point $t_0$ and to consecutively add historical changes at time points $t_i > t_0$ that manipulate the current state into the future. A state is invariant until a new historical change is inserted that manipulates it again. For researching purposes this is not suitable, because the current state $t_c: t_c > t_0$ of the map is known. The problem is to describe states in the past. For this purpose the concept of a backward change comes into play: An historical change that manipulates a set of old Areas to a set of new Areas is inserted at time point $t_i$, but into the past ($ t_0 < t_i < t_c$). As an example: Given the initial state 10.06.2016 with present-day Germany created on 03.10.1990 on the map. The user wants to enter the German Reunification. The interface must support separating Germany into East and West, but indicating that this was the state \emph{before} 1990 and the original state was \emph{after} this date. This is complicated, because the conceptual, data and computational model have to support it.
+
+% paragraph change_direction (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Inverse operations} % (fold)
+\label{par:inverse_operations}
+
+Related to this problem is the fact that just like the Hivent Operations in the previous section, also the Edit Operations have inverses: A \texttt{CRE} can be inverted with a \texttt{CES} and a \texttt{MRG} with a \texttt{DIS} operation. \texttt{CHB} and \texttt{REN} can be inverted with themselves,
+
+% paragraph inverse_operations (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Error correction} % (fold)
+\label{par:error_correction}
+
+Correcting wrong information in an event-based system is important to understand: Given time point $t_y$ and an Area $A$ with the name $X$. If $X$ happens to be wrong, it means that the historical change at time point $t_x: t_x < t_y$ that created the name $X$ into Area $A$ is erroneous and has be corrected. Correcting a state means correcting the event that created this state.
 
 % subsection retrospective_updates (end)
 
