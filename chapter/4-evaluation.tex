@@ -22,6 +22,12 @@ The MECE principle -- mutually exclusive and collectively exhaustive -- is used 
 \paragraph{Mutual exclusion} % (fold)
 \label{par:mutual_exclusion}
 
+are UNI <-> INC
+and SEP <-> SEC
+really mutually exclusive?
+
+idea: express UNI as INC + SEC at the same time, just like border change, but leaving no territory for one of the areas => no SEC into $\Omega$ but directly into other Area. Would that work? If so, could we simplify everything by having only three Hivent Operations (INC, SEC, NCH) ?
+
 First it is to be shown that one operation can not be equivalently expressed by a combination of any other operations. This is obviously true for \texttt{CRE}, because all other operations require at least one old area as an input to the operation. Vice versa, \texttt{CES} is unique, because it is the only operation without any new areas. \texttt{ICH} could geographically be represented by a combination of \texttt{CES} of and \texttt{CRE}, but that would not create a historical relationship between both Areas. Since the other identity-changing operations require either multiple old or new areas and the last three operations are identity-preserving, \texttt{ICH} is also unique.
 
 \texttt{UNI}, \texttt{INC}, \texttt{SEP} and \texttt{SEC} require either old or new areas and establish historical relationships by changing identities. That is why they can neither be replaced by \texttt{CRE}, \texttt{ICH} and \texttt{CES} (only one old and/or new area), nor by \texttt{NCH}, \texttt{BCH} and \texttt{TCH} (identity-preserving). It is trivial that no operation can be expressed by its inverse and an operation that requires one old area can not replaced by one that requires multiple and vice versa. Therefore, the only possible combinations left are \texttt{UNI} $\leftrightarrow$ \texttt{INC} and \texttt{SEP} $\leftrightarrow$ \texttt{SEC}. While geographically, they are equivalent, because they unite respectively separate the territory in the same way, they are historically distinct: While in \texttt{UNI} and \texttt{SEP}, no Area is preserved in the operation, \texttt{INC} and \texttt{SEC} represent one Area that incorporate one Area into respectively cede one Area from its own territory. This shows the mutual exclulsion of all identity-preserving operations.
