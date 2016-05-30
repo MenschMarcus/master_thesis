@@ -1,9 +1,0 @@
-  SEC -> A does not exist anymore to secede from. T1 and T2 occupy exactly the same territory as A before
-S)    => CONFLICT! a) keep Ti) or b) keep Bi
-      -> if a)
--> A)    remove INC operation
-      -> if b)
-        it is impossible to say where Bi should secede from, since A does not exist anymore
--> M)    => CONFLICT! needs to be resolved manually
-
-      -> secede both from T1 and T2, unify to new Area
