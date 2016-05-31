@@ -84,31 +84,34 @@
 %\*** CODE SYNTAX HIGHLIGHTING ***\
 
 % use a tt (monospace) font with a bold variant
-\renewcommand{\ttdefault}{pcr}
+\renewcommand{\ttdefault}{pcr}{\hyphenchar \font=45}
 
-% define pseudocode language
-\lstdefinelanguage{pseudocode}
+% define coffeescript language
+\lstdefinelanguage{coffeescript}
 {
   % list of keywords
   morekeywords={             % define keywords
-    FUNCTION,
-    NEW,
-    IF,
-    ELSE,
-    IS,
-    ISNT,
-    WHILE,
-    FOREACH,
-    IN,
-    RETURN
+    class,
+    new,
+    if,
+    else,
+    is,
+    isnt,
+    for,
+    while,
+    in,
+    return,
+    constructor,              % names of functions
+    execute,
+    insert
   },
   sensitive=false,            % keywords are not case-sensitive
   morecomment=[l]{\#},        % l is for line comment
   morestring=[b]"             % defines that strings are enclosed in double quotes
 }
-% set style for pseudocode language
+% set style for coffeescript language
 \lstset{
-  language=     pseudocode,           % define the style for pseudocode
+  language=     coffeescript,         % define the style for coffeescript
   frame=        single,               % frame around the code
   rulecolor=    \color{lightgray},    % color of frame
   numbers=      left,                 % position of line numbers
@@ -116,7 +119,7 @@
   basicstyle=   \scriptsize\ttfamily, % initial font family and size
   captionpos=   b,                    % caption-position: bottom
   % set keywords and their style
-  keywordstyle= \color{gray}\bfseries,
+  keywordstyle= \color{darkgray}\bfseries,
   % defines comments and their style
   commentstyle=\color{gray},
   comment=[l]{//}
