@@ -50,7 +50,7 @@ influence the evolution of Areas over time. Throughout the lifetime of an Area, 
 \begin{figure}[H]
   \vspace{1em}
   \centering
-  \includegraphics[width=0.9\textwidth]{graphics/development/area_states}
+  \includegraphics[width=0.9\textwidth]{graphics/development/hivent_model/area_states}
   \caption{Three event types that change Areas, resulting in two different area states}
   \label{fig:area_states}
 \end{figure}
@@ -120,7 +120,7 @@ The first changes introduced in the system at time point $t_0$ are the creation 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{graphics/development/init_map}
+  \includegraphics[width=0.5\textwidth]{graphics/development/hivent_model/init_map}
   \caption{The initial state of the world map at time point $t_0$}
   \label{fig:init_map}
 \end{figure}
@@ -198,11 +198,11 @@ Respecting the preconditions, there are several different types of changes that 
   \texttt{UNI} & \texttt{INC} & \texttt{SEP} & \texttt{SEC} & \texttt{NCH} \\
   Unification & Incorporation & Separation & Secession & Name Change \\[1em]
 
-  \includegraphics{graphics/development/hivent_operations/UNI} &
-  \includegraphics{graphics/development/hivent_operations/INC} &
-  \includegraphics{graphics/development/hivent_operations/SEP} &
-  \includegraphics{graphics/development/hivent_operations/SEC} &
-  \includegraphics{graphics/development/hivent_operations/NCH} \\
+  \includegraphics{graphics/development/hivent_model/operations/UNI} &
+  \includegraphics{graphics/development/hivent_model/operations/INC} &
+  \includegraphics{graphics/development/hivent_model/operations/SEP} &
+  \includegraphics{graphics/development/hivent_model/operations/SEC} &
+  \includegraphics{graphics/development/hivent_model/operations/NCH} \\
 
   \bottomrule
 \end{tabular}
@@ -226,22 +226,22 @@ The two-dimensional HistoGraph has an horizontal orientation. The x-axis refers 
 \begin{tabular}{c l l}
 
   \raisebox{3.5\height}
-  {\includegraphics{graphics/development/histograph/line}}
+  {\includegraphics{graphics/development/hivent_model/histograph/line}}
   & Area
   & \\
 
   \raisebox{-0.2\height}
-  {\includegraphics{graphics/development/histograph/circle_filled}}
+  {\includegraphics{graphics/development/hivent_model/histograph/circle_filled}}
   & Identity-changing Hivent Operation
   & \texttt{UNI}, \texttt{INC}, \texttt{SEP}, \texttt{SEC} \\
 
   \raisebox{-0.2\height}
-  {\includegraphics{graphics/development/histograph/circle_unfilled}}
+  {\includegraphics{graphics/development/hivent_model/histograph/circle_unfilled}}
   & Property-changing Hivent Operation
   & \texttt{NCH} \\
 
   \raisebox{-0.2\height}
-  {\includegraphics{graphics/development/histograph/circle_combo}}
+  {\includegraphics{graphics/development/hivent_model/histograph/circle_combo}}
   & A combination of both
   & e.g. \texttt{INC + NCH}
 
@@ -259,7 +259,7 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 \begin{figure}[ht]
   \vspace{0.5em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/histograph/example_germany}
+  \includegraphics[width=0.8\textwidth]{graphics/development/hivent_model/histograph/example_germany}
   \caption{The concept of the HistoGraph at the example of the history of Germany since 1945}
   \label{fig:example_germany}
 \end{figure}

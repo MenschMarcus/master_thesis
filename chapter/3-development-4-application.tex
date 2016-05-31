@@ -17,7 +17,7 @@ HistoGlobe uses a classical client-server architecture of a Web-based informatio
 \begin{figure}[H]
   \vspace{1em}
   \centering
-  \includegraphics[width=0.7\textwidth]{graphics/development/system_architecture}
+  \includegraphics[width=0.7\textwidth]{graphics/development/application/system_architecture}
   \caption{The system architecture of HistoGlobe}
   \label{fig:system_architecture}
 \end{figure}
@@ -56,7 +56,7 @@ With these tools at hand, the database model shown in figure \ref{fig:database_m
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/database_model/er_model}
+  \includegraphics[width=0.8\textwidth]{graphics/development/application/database_model}
   \caption{The Hivent Database Model}
   \small{Each entity additionally has an \texttt{id} attribute, which is omitted for simplification purposes.}
   \label{fig:database_model_er}
@@ -92,7 +92,7 @@ Figure \ref{fig:database_example_reunification} shows the Hivent Database Model 
 
 \begin{figure}[ht]
   \vspace{1em}
-  \includegraphics[width=0.9\textwidth]{graphics/development/database_model/example_reunification}
+  \includegraphics[width=0.9\textwidth]{graphics/development/application/example_reunification}
   \caption{Visualization of the German Reunification in the Hivent Database Model}
   \label{fig:database_example_reunification}
 \end{figure}
@@ -127,42 +127,13 @@ The Django web framework provides \emph{view} classes as the middleware that rec
 \subsection{Classes} % (fold)
 \label{sub:classes}
 
-% HERE GOES IT WIDER %
-
-Class diagram
-
-HistoGlobe
-
-SpatialDisplay -> Map
-
-TimeController  <-> Timeline
-                <-> NowMarker
-
-HiventController                AreaController <->  AreasOnMap
-HiventHandle                    AreaHandle
-Hivent
-HistoricalChange    AreaChange  Area
-                                AreaName            AreaNameLayerOnMap
-                                AreaTerritory       AreaTerritoryLayerOnMap
-
-DatabaseInterface
-
-EditMode -> EditOperation -> EditOperationStep
-NewTerritoryTool* NewNameTool NewHiventBox
-WorkflowWindow
-
-HistoGraph
-
-LabelManager*
-
-important little utils
-  Button, ButtonArea
-  NumberInput, TextInput, TextInputArea
-  Title
-  Watermark
-  DoublyLinkedList
-  WithinTree
-  Geometry -> Polypolygon -> Polygon -> Polyline -> Point
+\begin{sidewaysfigure}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{graphics/development/application/class_diagram}
+  \vspace{1em}
+  \caption{Class Diagram of HistoGlobe}
+  \label{fig:class_diagram}
+\end{sidewaysfigure}
 
 
 % subsection classes (end)

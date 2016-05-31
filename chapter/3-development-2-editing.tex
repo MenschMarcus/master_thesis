@@ -18,33 +18,33 @@ Throughout the development process, interviews with researchers in humanities at
 \begin{center}
 \begin{tabular}{m{0.75cm} m{0.8cm} m{2.4cm} m{9.1cm}}
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/edit_operations/CRE}} &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CRE}} &
   \texttt{CRE} & Create &
   a new Area with a new name and territory on the map. \\
 
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/edit_operations/MRG}} &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/MRG}} &
   \texttt{MRG} & Merge &
   two or more Areas to a new Area. The name has to be set manually, the territory is automatically unified. \\
 
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/edit_operations/DIS}} &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/DIS}} &
   \texttt{DIS} & Dissolve &
   one Area into two or more new Areas, manually setting their new territory and name. \\
 
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/edit_operations/CHB}} &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CHB}} &
   \texttt{CHB} & Change Borders &
   between two neighboring Areas by defining the territory that changes sides. \\
 
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/edit_operations/REN}} &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/REN}} &
   \texttt{REN} & Rename &
   an Area and set a new formal name, short name or both. \\
 
   \vspace{0.35em}
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/edit_operations/CES}} &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CES}} &
   \texttt{CES} & Cease &
   an Area by deleting it from the map, leaving unclaimed land. \\
 
@@ -174,7 +174,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     Each $A_f$ is completely incorporated into $B_1$.
   } &
   \multirow{9}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CRE_to_SEC+UNI}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CRE_to_SEC+UNI}
   } \\
 
   &
@@ -197,7 +197,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     Multiple Areas $A_i$ are unified to $B_1$. The new Area receives a name distinct from all the names of $A_i$.
   } &
   \multirow{3}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/MRG_to_UNI}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/MRG_to_UNI}
   } \\
   &
   $n \geq 2$ &
@@ -214,7 +214,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     Multiple Areas $A_i$ are unified. The resulting Area reuses the short and formal name of one of the old Areas ($A_0$) and therefore preserves it. The remaining Areas $A_i$ are incorporated into $A_0$.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/MRG_to_INC}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/MRG_to_INC}
   } \\
   &
   $n \geq 1$ &
@@ -231,7 +231,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     The same as the previous case, just that $A_0$ receives a new short name and therefore an additional name change is required.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/MRG_to_INC+NCH}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/MRG_to_INC+NCH}
   } \\
   &
   $n \geq 1$ &
@@ -252,7 +252,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     Multiple Areas $B_i$ are separated from one initial Area $A_0$. Each $B_i$ receives a part of the territory of $A_0$ and a name. Each name is distinct from the name of $A_0$.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/DIS_to_SEP}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DIS_to_SEP}
   } \\
   &
   $1$ &
@@ -270,7 +270,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     Multiple Areas $B_i$ are separated from one initial Area $A_0$. Each $B_i$ receives a part of the territory of $A_0$ and a name. One of the separated Areas has the same short and formal name as $A_0$, so it preserves its identity. The remaining new Areas secede from $A_0$.
   } &
   \multirow{5}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/DIS_to_SEC}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DIS_to_SEC}
   } \\
   &
   $1$ &
@@ -288,7 +288,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     The same as the previous case, just that $A_0$ receives a new short name and therefore an additional name change is required.
   } &
   \multirow{4}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/DIS_to_SEC+NCH}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DIS_to_SEC+NCH}
   } \\
   &
   $1$ &
@@ -313,7 +313,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     $T_w$ is be incorporated into $\Omega$, resulting in unclaimed land.
   } &
   \multirow{10}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CHB_to_SEC+INC_omega}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CHB_to_SEC+INC_omega}
   } \\
   &
   $n_f$ &
@@ -337,7 +337,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     Two existing Areas $A_1$ and $A_2$ are selected and their common border changes. This results in a symmetrical change of territories, made up by two sets of territories: $T_2$ that previously belonged to $A_1$ and is now part of $A_2$ and $T_1$ for which the opposite is true. $T_2$ is seceded by $A_1$ and incorporated into $A_2$, the opposite happenes to $T_1$.
   } &
   \multirow{7}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CHB_to_SEC+INC}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CHB_to_SEC+INC}
   } \\
   &
   $0$ &
@@ -360,7 +360,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     One Area $A_1$ is selected and both its short and formal name is changed. Therefore, a new Area $B_1$ is created as a direct successor of $A_1$. This is a special case of a unification with only one Area.
   } &
   \multirow{3}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/REN_to_UNI}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/REN_to_UNI}
   } \\
   &
   $1$ &
@@ -377,7 +377,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     One Area $A_1$ is selected and receives a new short name, but the formal name and therefore the identity is preserved. $A_1$ is updated.
   } &
   \multirow{3}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/REN_to_NCH}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/REN_to_NCH}
   } \\
   &
   $0$ &
@@ -396,7 +396,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     One Area $A_1$ is selected and ceases by incorporating into the universe.
   } &
   \multirow{2}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/edit_to_hivent_operations/CES_to_INC}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CES_to_INC}
   } \\
   &
   $1$ &
@@ -435,7 +435,7 @@ Each Hivent Operation that is not entered to the end of the timeline must mainta
 \begin{figure}[H]
   \vspace{1em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/update_conflict/example}
+  \includegraphics[width=0.8\textwidth]{graphics/development/editing_hivent_data/retrospective_updates/example}
   \caption{Example for a simple conflict due to a retrospective update}
   \label{fig:update_conflict_example}
 \end{figure}
@@ -490,7 +490,7 @@ An \texttt{INC} ceases a set of old Areas and changes the territory of one Area.
 \begin{figure}[ht]
 \vspace{1em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/update_conflict/INC}
+  \includegraphics[width=0.8\textwidth]{graphics/development/editing_hivent_data/retrospective_updates/INC}
   \caption{Conflicts after a retrospective incorporation}
   \label{fig:update_conflict_INC}
 \end{figure}
@@ -512,7 +512,7 @@ Retrospective secessions are comparable to incorporations: The identity and the 
 \begin{figure}[ht]
 \vspace{1em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/update_conflict/SEC}
+  \includegraphics[width=0.8\textwidth]{graphics/development/editing_hivent_data/retrospective_updates/SEC}
   \caption{Conflicts after a retrospective secession}
   \label{fig:update_conflict_SEC}
 \end{figure}
@@ -543,7 +543,7 @@ If a \texttt{UNI} is inserted in retrospective, the semantic integrity of $H_o$ 
 \begin{figure}[ht]
 \vspace{1em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/update_conflict/UNI}
+  \includegraphics[width=0.8\textwidth]{graphics/development/editing_hivent_data/retrospective_updates/UNI}
   \caption{Conflicts after a retrospective unification}
   \label{fig:update_conflict_UNI}
 \end{figure}
@@ -559,7 +559,7 @@ In contrast to the previous example, retrospective separations behave slightly d
 \begin{figure}[ht]
 \vspace{1em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/update_conflict/SEP}
+  \includegraphics[width=0.8\textwidth]{graphics/development/editing_hivent_data/retrospective_updates/SEP}
   \caption{Conflicts after a retrospective separation}
   \label{fig:update_conflict_SEP}
 \end{figure}
