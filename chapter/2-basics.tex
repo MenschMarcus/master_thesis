@@ -22,7 +22,7 @@ This chapter will form the theoretical foundation to understand these terms and 
 \begin{description}[labelindent=1.53em]
   \item[$^1$] The purpose of a \emph{visualization} is to present information to a human in a comprehensable way. The visualization is one component of an \emph{Historical Geographic Information System} introduced in section \ref{sec:historical_geographic_information_systems}.
   \item[$^2$] An information system can allow the user to modify, correct or generally \emph{edit} the information in the system in order to improve it.
-  \item[$^3$] History is the study of our past, to understand the present and reason about the future. Its main ideas are introduced in section \ref{sub:history}.
+  \item[$^3$] History is the study of our past, to understand the present and reason about the future. Its main ideas are introduced in section \ref{sub:history_vs_geography}.
   \item[$^4$] A \emph{country} is probably a political entitry with a clearly defined territory, a permanent population and a government. But as section \ref{sec:countries} shows, its definition is surprisingly difficult.
   \item[$^5$] The work in this thesis focuses on data models of \emph{time and space}. Existing \emph{spatio-temporal data models} are discussed in section \ref{sec:spatio_temporal_data_models}.
   \item[$^6$] The chapter closes in \ref{sec:histoglobe} with a presentation of \emph{HistoGlobe}, a Web-based Historical Geographic Information System in which the data model of this thesis was developed in.
@@ -86,22 +86,9 @@ In addition to the Republic of China, there are five other member states of the 
 
 There are also territories belonging to fully sovereign countries with a varying degree of sovereignty: Greenland is an autonomous country within the Kingdom of Denmark, but not a sovereign state. The same applies to numerous overseas territories of the United Kingdom, the French Republic or the Kingdom of the Netherlands. Moreover, there are five quasi-independent countries in a so called \emph{Free Association}: Niue and Cook Islands are associated to New Zealand and not part of the United Nations. The Marshall Islands, the Federated States of Micronesia and Palau are associated to United States, but are in contrast full UN members \cite{SpecialTerritories}.
 
-% TODO?
-% example United Kingdom:  country?
-% difference clear: geography             politics
-%                   British Isles         United Kingdom of Great Britain and NI
-%                     Great Britain         Scotland, England, Wales, Northern Ireland (province)
-%                     Ireland             Republic of Ireland
-%                     Shetland Islands
-%                     Isle of Men
-%                     ...
-
-% Scotland, England and Wales are countries, but not sovereign states, Northern Ireland is a province and not a country. The UK is a constituent country, just like the Kingdom of the Netherlands and the Kingdom of Denmark.
-
 % paragraph special_territories (end)
 
 This incomplete and simplified list of special cases manifests the big problem that is associated with the terms ``country'', ``state'' or ``nation'': There is neither a \emph{de jure} consistent definition nor a \emph{de facto} consistent usage of these terms.
-
 
 % subsection special_cases (end)
 
@@ -146,103 +133,87 @@ the same way as History is Geography over time.
 \end{quoteit}
 \hfill \textit{-- Élisée Reclus: ``L'Homme et la Terre'' (1908)}
 
-An Historical Geographic Information System helps to answer research questions about how geographical phenomena have developed over time. To understand how it works, it is important to understand the four parts of the word: The research fields \emph{history} and \emph{geography} and the concepts of \emph{information} an \emph{systems}.
+Historical Geographic Information Systems help to answer research questions of scholars in humanities and geography regarding the temporal development of spatial phenomena. This section explains the four parts of the word.
+
+% TODO: and more
 
 
 % ------------------------------------------------------------------------------
-\subsection{History} % (fold)
-\label{sub:history}
+\subsection{History vs. Geography} % (fold)
+\label{sub:history_vs_geography}
 
-Alike many other fields in humanities, history is ``an ideal field for thinking long and hard about important questions''
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{History} % (fold)
+\label{par:history}
+
+% paragraph history (end)
+
+Alike many other fields in humanities, \emph{history} is ``an ideal field for thinking long and hard about important questions''
 \cite{ahaFiveCs}.
-The Greek word \emph{\textIota\textsigma\texttau\textomikron\textrho\textiota\textalpha / historia}, meaning ``finding out, learning through research, narration of what is learned'', is the origin
+It originates from the Greek word \emph{\textIota\textsigma\texttau\textomikron\textrho\textiota\textalpha / historia}: ``finding out, learning through research, narration of what is learned''
 \footnote{
   \emph{History},
   Dictionary.com, based on Random House Dictionary, 2015,
   URL: \url{http://dictionary.reference.com/browse/history},
   last access: 23.10.2015
 }
-and it signifies the two main modern usage forms of the term: To research about and learning something and to tell a story. There are many different definitions of the word \emph{history}
-\footnote{
-  \emph{History},
-  Merriam Webster -- an Encyclopædia Britannica Company,
-  URL: \url{http://www.merriam-webster.com/dictionary/history},
-  last access: 23.10.2015
-}.
-The main goal of history is to study processes in the past to understand the situation in the present and make reasonable decisions for the future. The American Historical Association has developed the ``five C`s of historical thinking [that] together describe the shared foundations of [the] discipline''\cite{ahaFiveCs}:
+and it signifies the two main modern usage forms of the term: To research about something and to tell a story. Historians interpret primary sources, such as written documents, photographs or historical maps to explain complex phenomena \cite[pp.4-7]{knowles2008placing}. The main goal of history is to study processes in the past to understand the situation in the present and make reasonable decisions for the future. The American Historical Association has developed the ``five C`s of historical thinking [that] together describe the shared foundations of [the] discipline''\cite{ahaFiveCs}:
 
 \vspace{-1em}
 \begin{description} % manipulation of indentation
   \item[Change over time]
-  The lives of people, their languages and their cultures are continuously changing. Describing these historical changes, triggered by historical events happed in the past, is a major goal of history. Snapshots in the form of historical maps or historical photography are used to tackle this task.
+  The lives of people, their languages and cultures are continuously changing. One goal of history is to describe these historical changes triggered by historical events. Snapshots in the form of historical maps or historical photography are used to tackle this task.
   %TODO: refer to this in later sections
-  \item[Context]
-  is an important element of historical thinking. The goal is to travel back in time to the moment of the event and recreate the world based on primary sources. The understanding of the historical context is crucial for the understanding of the event.
+  \item[Context] The goal is to travel back in time to a moment in the past and recreate the world. Therefore it is crucial to understand the historical context via primary sources.
   \item[Causality]
-  The overall goal of each science is to answer the \emph{why}-question concerning an event or a process. For historians that means to reasonably explain an historical event or process based on evidence. The problem is that history is not a science that can alter experimental conditions to extract new information, in a way that e.g. experiments in physics work. Historians have to focus on the interpretation of primary sources, which inherently yields multiple explanations for a single event.
+  The overall goal of each science is to answer the question \emph{why} something is the way it is. Historians want to explain an historical event or process based on evidence. The problem is that history can not run experiments, because the same condition can not be repeated. Therefore historians have to focus on the interpretation of primary sources.
   \item[Contingency]
-  is a derived aspect from this problem. Each event has a whole network of prior conditions, because the world is highly interconnected. A slight change in one prior condition could have led to a completely different outcome of the event and a different state of the world.
+  Each event has a network of prior conditions, because the world is highly interconnected. A slight change in one prior condition could have led to a completely different outcome of the event and a different state of the world.
   \item[Complexity]
-  The intrinsic human need for order conflicts with the complexity of history and their events and processes, because of its contingency. It is questionable if all details about events in the world are scientifically explainable.
+  The intrinsic human need for order conflicts with the contingency of history. It is questionable if all details about events in the world are scientifically explainable.
   %This problem is comparable to the Heisenberg problem in physics: Whereas on the macro-level e.g. physical movements are a direct cause of a set of preconditions (speed, fraction, wind, weight, ...) and are therefore predictable, the smallest of all particles are not traceable, their movements are not predictable and therefore their processes not explainable.
 \end{description}
 
-Historical research is conducted by studying and interpreting primary sources, such as written documents, verbal texts, speeches, photographs, audio, video or historical maps. This signifies that most historical research is qualitative. The main organization principle in history is periodization: classifying events and processes to describe broader long-term changes and to explain complex phenomena
-\cite[pp.4-7]{knowles2008placing}.
-A special focus in this thesis is laid on historical maps as primary source to extract spatial information.
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Geography} % (fold)
+\label{par:geography}
 
-% subsection history (end)
-
-% ------------------------------------------------------------------------------
-\subsection{Geography} % (fold)
-\label{sub:geography}
-
-
-The term ``geography'' comes from Greek ~\emph{\textgamma\textepsilon\textomega\textgamma\textrho\textalpha\textphi\textiota\textalpha / geographia}~, literally ``describing the earth.''
+(Greek ~\emph{\textgamma\textepsilon\textomega\textgamma\textrho\textalpha\textphi\textiota\textalpha / geographia}) literally means ``describing the earth.''
 \footnote{
   \emph{Geography},
   Dictionary.com, based on Random House Dictionary, 2015,
   URL: \url{http://dictionary.reference.com/browse/geography},
   last access: 23.10.2015
 }
-It is a science that studies the interplay between the landscapes and environments of the Earth (\emph{physical geography}) on the one hand and the people, their cultures, societies and economies (\emph{human geography}) on the other. That means geography is an interdisciplinary field between natural and social sciences
-\cite{rgsGeography}.
-
-Geographical research aims to understand where things are found, why they are there and how they developed over time.
-% In regional geography, another subbranch, also the causes of social or environmental differences between cultures and landscapes want to be found.
-It focuses on the interconnectivity between elements of physical and human geography, which gets expressed in Tobler's First Law of Geography: ``Everything is related to everything else, but near things are more related than distant things.''
+It is a science that studies the interplay between the landscapes and environments of the Earth (\emph{physical geography}) on the one hand and the people, their cultures, societies and economies (\emph{human geography}) on the other. It is an interdisciplinary field between natural and social sciences
+\cite{rgsGeography}. Geographical research aims to understand where things are found, why they are there and how they developed over time. It focuses on the interconnectivity between elements of physical and human geography, which gets expressed in Tobler's First Law of Geography: ``Everything is related to everything else, but near things are more related than distant things.''
 \footnote{
   ``A computer movie simulating urban growth in the Detroit region'',
   Waldo Tobler, 1970
   Economic Geography, 46(2): 234-240.
 }
 
-Geographers use different technology and techniques to analyze geographic processes and to answer their research questions. The oldest and most important among those are maps. A map is a graphical expression of something that is not tangible: a part of the real world. A map shows the physical, environmental, political, economical or social properties of the Earth in order for the user of the map to get the most relevant information for his task, may it be orientation, learning or teaching. The ``art and science of making maps'' is the field of \emph{cartography}
+Geographers use different techniques to answer their research questions. One important technique is a \emph{map}: A graphical expression of something that is not tangible. A map shows the physical, environmental, political, economical or social properties of the Earth. The ``art and science of making maps'' is the field of \emph{cartography}
 \footnote{
   \emph{History of maps and cartography},
   James S. Aber,
   URL: \url{http://academic.emporia.edu/aberjame/map/h_map/h_map.htm},
   last access: 24.10.2015
-}. Since maps visualize a model, they have a natural constraint: ``No map can perfectly replicate the real world, since it inevitably generalizes, abstracts and approximates the complexity of the reality''
+}.
+Since maps visualize a model, they have a natural constraint: ``No map can perfectly replicate the real world, since it inevitably generalizes, abstracts and approximates the complexity of the reality''
 \cite[p. 181]{knowles2008placing}.
 
-% TODO:                 had? had? has had? is having?
-% The scientific background of GIS is \emph{geographic information science} (GISci) that studies patterns in natural and human development, e.g. erosion of valleys, literacy rate, natural hazards and deals with approaches and techniques to manage, analyze and visualize this information
-% \cite{ngGeography}.
+% paragraph geography (end)
 
-
-\paragraph{Comparison between geography and history} % (fold)
-\label{par:comparison_of_geography_and_history}
-
-Both research fields utilize maps for answering their research questions, which is the main commonality for the work of this thesis. However, the nature of both fields are also very different, illustrated in table \ref{tab:history_vs_geography}.
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{p{0px} r c l p{0px}}
     \toprule
-    & geography
-    & difference
-    & history
+    & \emph{geography}
+    & \emph{difference}
+    & \emph{history}
     & \\
     \midrule
     & where
@@ -257,7 +228,7 @@ Both research fields utilize maps for answering their research questions, which 
 
     & mainly quantitative
     & research
-    & qualitative
+    & mainly qualitative
     & \\
 
     & spatial proximity of conditions
@@ -271,7 +242,7 @@ Both research fields utilize maps for answering their research questions, which 
     & \\
 
     & clustering
-    & ordering
+    & organization principle
     & periodization
     & \\
 
@@ -291,17 +262,11 @@ Both research fields utilize maps for answering their research questions, which 
 \end{center}
 \end{table}
 
-
-Whereas geography answers the questions \emph{where?}, history focuses on \emph{when?} -- but the ultimate goal for both sciences is to answer the question \emph{why?}
-
-% paragraph comparison_of_geography_and_history (end)
-
-
-% subsection geography (end)
+% subsection history_vs_geography (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Information} % (fold)
-\label{sub:information}
+\subsection{Information System} % (fold)
+\label{sub:information_system}
 
 The terms ``signs'', ``data'', ``information'' and ``knowledge'' are sometimes used interchangeably and there is no coherent definition for any of them. However, all describe different concepts. This explanation seen in figure \ref{fig:information} is based on the work of \cite{datinfwis}.
 
@@ -463,7 +428,7 @@ There is physical data (e.g. coastlines, rivers, or glacier areas) and cultural 
   last access: 30.10.2015
 }.
 
-However, data about historical countries and events are not as straightforward to aquire, because of the mostly qualitative nature of historical research (see section \ref{sub:history}). The most exhaustive free and open source of historical is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}
+However, data about historical countries and events are not as straightforward to aquire, because of the mostly qualitative nature of historical research (see section \ref{sub:history_vs_geography}). The most exhaustive free and open source of historical is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}
 \footnote{
   \textit{Category:Treaties},
   Wikipedia, the free encyclopedia,\\
