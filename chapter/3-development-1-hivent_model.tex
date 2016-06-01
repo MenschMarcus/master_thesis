@@ -7,6 +7,10 @@
 % main difference spatial <-> thematic: no relations between names of two Areas. While it does not make any sense, potentially there could be two Areas active at the same time with exactly the same name. The update of the name of one Area is independent from any other Area. This is not true for the territory: They are highly related to each other. Geospatially each Area has at least one neighbor and two neighbors share the same border. An update of the territory of one Areas results in the update of at least one other territory.
 % concrete working of changes: [OldAreas], updateArea, [NewAreas]
 % execution of changes (forwards / backwards): hide old areas, show new areas, update updateArea
+%  For modelling the shapes of countries, the vector model is appropriate, because it is scale-independent and represents the real world very well. The territory of a country can be represented by a polypolygon. It consists of a set of cohesive parts of the territory, described by polygons. Each of these territorial parts contains of a eitehr interior borders or coastlines, represented by polylines which themselves consist of an ordered set of border points in gps coordinates.
+% speciality: enclaves and exclaves
+% They can represent enclaves, i.e. territories inside the territory of a country
+
 
 \section{Hivent Model} % (fold)
 \label{sec:hivent_model}

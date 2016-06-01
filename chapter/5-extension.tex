@@ -82,6 +82,57 @@ For precision purposes it would be important to be able to import existing geome
 
 extension of Hivent model to actors
 
+analysis of data
+----------------
+A GIS shall solve the problem for a user or answer his or her research question. Given a well-filled database with a working DBMS, the data might not answer the research question directly. It has to be sorted, selected or classified in order to convey the required information. For this process there are \emph{spatial operations} on the data in the system. Several operations can be applied in a certain order
+\cite[pp. 321-325]{bolstad2008gis}.
+Both spatial and attribute data are analyzed to combine the dimensions \emph{where?} and \emph{what?} in order to answer the ultimate question \emph{why?} something is the way it is
+\cite[p.xii-xvi]{knowles2002past}.
+
+analysis: determine, change, evaluate
+
+analysis methods
+  spatial analysis
+  temporal analysis
+    time series analysis
+    process analysis      (modification modeling + future forecasting)
+  attribute analysis
+alteration of \cite[p. 128]{ott2001time}
+
+spatial queries
+  query of spatial properties and attribute values
+  e.g. size of Germany in 1871
+thematic queries
+  query objects based on certain criteria (spatial and attribute)
+  multi-criteria analysis
+  e.g. all democratic countries larger than 10.000 km²
+statistical analysis
+  artithmetic calculation and classification of characteristics of objects
+  univariate, multivariate investigation
+  e.g. What was the population density in Germany in 1945 compared to 1995
+overlay/split
+  aggregation and splitting of spatial components based on the layer principle
+  e.g. Germany in 1945 gets split up into FRG and GDR by one polyline (inner German border) and one polygon (West Berlin)
+geometric-topological operations
+  analyze the neighborhood relations between geometric objects
+  e.g. is the geometry all countries at time point 1991 strictly connected?
+temporal analysis
+  using spatial and temporal operators in figure
+  %\ref{fig:spatial_temporal_operators}
+  e.g. in which year did the largest amount of border changes happen?
+\cite[p. 129-140]{ott2001time}
+
+Multivariate Historical-Geographical Model
+  multivariate
+    features of a spatial object
+    connection between temporal development of features
+  geographical model
+    location (geometry)
+    neighborhood relation (topology)
+  historical model
+    object at different points in times
+  \cite[p. 128]{ott2001time}
+
 % ==============================================================================
 
 
