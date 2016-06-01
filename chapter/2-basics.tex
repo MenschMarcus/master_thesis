@@ -5,23 +5,134 @@
 \chapter{Basics} % (fold)
 \label{cha:basics}
 
-This chapter will lay the theoretical foundation of this Master's Thesis and will embed it into the context of current research. The title of this work is:
+The title of this Master's Thesis is:
 
 \vspace{-1em}
+\begin{large}
 \begin{center}
-\textbf{\titleFirst \\ \titleSecond}
+  \textbf{
+    \emph{Visualizing}$^1$ and \emph{Editing}$^2$ the \emph{History}$^3$ of\\
+    \emph{Countries}$^4$ in \emph{Time and Space}$^5$ with \emph{HistoGlobe}$^6$
+  }
 \end{center}
+\end{large}
 
-It includes the domain (\emph{history of countries}) and the system to acquire, model, manage and visualize data of the domain: \emph{Historical Geographic Information Systems} (HGIS).
+This chapter will form the theoretical foundation to understand these terms and present related work to the topic of this thesis.
 
-The first section of this chapter will define HGIS and related terms. Afterwards, concepts to model time and space in an information system are introduced. Data sources suitable for input into an HGIS are listed in the next section, followed by techniques to manage and analyse the data.
-%A special focus lies on concepts to visualize spatial and temporal data, explained in the next section. The chapter closes with possible HGIS applications and introduces the tool that is used in this thesis: HistoGlobe.
+\begin{description}[labelindent=1.53em]
+  \item[$^1$] The purpose of a \emph{visualization} is to present information to a human in a comprehensable way. The visualization is one component of an \emph{Historical Geographic Information System} introduced in section \ref{sec:historical_geographic_information_systems}.
+  \item[$^2$] An information system can allow the user to modify, correct or generally \emph{edit} the information in the system in order to improve it.
+  \item[$^3$] History is the study of our past, to understand the present and reason about the future. Its main ideas are introduced in section \ref{sub:history}.
+  \item[$^4$] A \emph{country} is probably a political entitry with a clearly defined territory, a permanent population and a government. But as section \ref{sec:countries} shows, its definition is surprisingly difficult.
+  \item[$^5$] The work in this thesis focuses on data models of \emph{time and space}. Existing \emph{spatio-temporal data models} are discussed in section \ref{sec:spatio_temporal_data_models}.
+  \item[$^6$] The chapter closes in \ref{sec:histoglobe} with a presentation of \emph{HistoGlobe}, a Web-based Historical Geographic Information System in which the data model of this thesis was developed in.
+\end{description}
 
-extension of Hivent model to actors
-
-% TODO: country definition
 % TODO: enclaves and exclaves
 % TODO: ecisting systems have horrible user interfaces
+% ==============================================================================
+\section{Countries} % (fold)
+\label{sec:countries}
+
+Almost everybody in the world is familiar with the term ``country'', because almost everybody has at least one home country he or she can potentially hold a passport from. However, the reality is very complex. If the information system of this thesis deals with countries, it must be possible to decide for each current and historic political entity in the world if it is or was a country or not. This requires a clear and non-conflicting definition of a country. This section will show that this is impossible.
+
+The Oxford Dictionary reads as follows: ``The \emph{territory} of a \emph{nation}; a \emph{region} constituting an \emph{independent state}, or a region, province, etc., which was once independent and is still distinct in institutions, language, etc.''
+\footnote{
+  \emph{country},
+  Oxford Dictionary,
+  URL: \url{http://www.oed.com/view/Entry/43085?},
+  last access: 25.04.2016
+}
+This definition includes many different concepts and terms: the territory or region that the country is on, a nation or state, a population and a culture of the territory in terms of institutions or languages. \emph{Nation} and \emph{state} are commonly used as synonyms for countries.
+
+To understand what a country really is, it is helpful to consult the United Nations, an intergovernmental organisation found in October 1945 that promotes international peace keeping, security, protection of human rights. The committee currently has 193 full member states and two permanent obervers\cite{UNmembers}. But these 195 members do not cover all places in the world -- and also a membership in the United Nations does not guarantee being a undisputed country.
+
+% ------------------------------------------------------------------------------
+\subsection{Special Cases} % (fold)
+\label{sub:special_cases}
+
+Examining the list of the UN member states yields several special cases, which can be classified by their membership status in the United Nations and their degree of international recognition.
+
+
+\paragraph{UN observer states} % (fold)
+\label{par:un_observer_states}
+
+The \emph{Holy See} is the juridcal and spiritual entity representing Vatican City. It is a fully recognized and sovereign state but not a full member of the UN, because it has never applied. It is the by far smallest sovereign state in the world (0.44 m²), an enclave inside the city of Rome with a population of only 800 people, including 30 women \cite{VaticanPopulation}.
+
+The \emph{State of Palestine} with a population of 4.8 million people \cite[as of 2016]{PalestinePopulation} has a totally different situation, because it does not have a clearly defined territoy. The West Bank, East Jerusalem and the Gaza Strip were created in the 1949 Green Line Armistice Agreement but were never intended to be used as international boundaries \cite{PalestineTerritory}. Moreover, while 114 states officially recognize the Palestinian state, almost all current main economic powers do not, including the Germany and the United States. Unlike the Holy See, Palestine is not a fully sovereign and recognized country.
+
+% paragraph un_observer_states (end)
+
+\paragraph{UN non-members with limited recognition} % (fold)
+\label{par:un_non_members_with_limited_recognition}
+
+\emph{Kosovo} declared independence from Serbia in 2008. It has a clearly defined territory and a permanent population and is recognized by 111 UN member states. In order for Kosovo to become a full member of the United Nations, all permanent members of the security council (United Kingdom, France, Russia, China and the United States) must agree. But since Russia and China strongly support the territorial integrity of Serbia, they would veto Kosovos membership. Therefore, Kosovo is not even a UN observer state, although having about the same degree of international recognition as Palestine \cite{KosovoThanksYou}.
+
+The status of \emph{Taiwan} is a very complicated issue. Two territories and two political entities are involved in the conflict: The \emph{People's Republic as China} (commonly known as China) has full control over mainland China, and the \emph{Republic of China} governs the island of Taiwan. The problem is that both states claim the exact same territory: whole China. Since 1971 the People's Republic of China is the only representative of China in the United Nations, including the island of Taiwan. It is part of the Security Council and can successfully veto membership requests of the Republic of China. However, Taiwan operates like an independend country by international standards: They have an own jurisdiction, issue own passports and have unofficial diplomatic relations to most countries in the world. Officially only 22 UN members uphold diplomatic relations to Taiwan \cite{TaiwanRecognition}. To all of these states the People's Republic of China does not uphold any diplomatic relations.
+
+There are other places with limited international recognition: the Sahrawi Arab Democratic Republic (recognized by 84 UN member states) \cite{WesternSaharaRecognition}, Abkhazia (6) \cite{AbkhaziaRecognition}, South Ossetia (5) \cite{SouthOssetiaRecognition}, the Turkish Republic of Northern Cyprus (1) \cite{NorthernCyprusRecognition}, Nagorno-Karabakh Republic (0) \cite{NagornoRecognition}, Transnistria (0) \cite{TransnistriaRecognition} and Somaliland (0) \cite{SomalilandRecognition}.
+
+% paragraph un_non_members_with_limited_recognition (end)
+
+\paragraph{UN members with limited recognition} % (fold)
+\label{par:un_members_with_limited_recognition}
+
+In addition to the Republic of China, there are five other member states of the United Nations that are not fully recognized by all other UN members: Armenia is not recognized by Pakistan \cite{ArmeniaRecognition}, Turkey does not recognize the Republic of Cyprus \cite{CyprusRecognition}), North and South Korea mutually do not recognize each other \cite{KoreaRecognition} and the State of Israel is not recognized by 32 UN member states \cite{IsraelRecognition}.
+
+% paragraph un_members_with_limited_recognition (end)
+
+\paragraph{Special Territories} % (fold)
+\label{par:special_territories}
+
+There are also territories belonging to fully sovereign countries with a varying degree of sovereignty: Greenland is an autonomous country within the Kingdom of Denmark, but not a sovereign state. The same applies to numerous overseas territories of the United Kingdom, the French Republic or the Kingdom of the Netherlands. Moreover, there are five quasi-independent countries in a so called \emph{Free Association}: Niue and Cook Islands are associated to New Zealand and not part of the United Nations. The Marshall Islands, the Federated States of Micronesia and Palau are associated to United States, but are in contrast full UN members \cite{SpecialTerritories}.
+
+% TODO?
+% example United Kingdom:  country?
+% difference clear: geography             politics
+%                   British Isles         United Kingdom of Great Britain and NI
+%                     Great Britain         Scotland, England, Wales, Northern Ireland (province)
+%                     Ireland             Republic of Ireland
+%                     Shetland Islands
+%                     Isle of Men
+%                     ...
+
+% Scotland, England and Wales are countries, but not sovereign states, Northern Ireland is a province and not a country. The UK is a constituent country, just like the Kingdom of the Netherlands and the Kingdom of Denmark.
+
+% paragraph special_territories (end)
+
+This incomplete and simplified list of special cases manifests the big problem that is associated with the terms ``country'', ``state'' or ``nation'': There is neither a \emph{de jure} consistent definition nor a \emph{de facto} consistent usage of these terms.
+
+
+% subsection special_cases (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Declaratory vs. Constituitive Theory} % (fold)
+\label{sub:declaratory_vs_constituitive_theory}
+
+Officially there are two different concepts that define what a country is: The \emph{declaratory theory}, established in the Montevideo Convention 1933 \cite{MontevideoConvention}, gives each entity the right to declare a state if it matches all of the four requirements: a clearly defined territory, a permanent population. a political representation / government and the \emph{capacity} to enter diplomatic relations. These four requirements ensure that a state can exist physically and politically, independent from its recognition by others.
+%In other words: ``A country is a country when it thinks it is a country.''
+In contrast, the constituitive theory requires exactly that: A state can only be considered as such if it is recognized by other states. However, it is not defined anywhere by how many other states \cite{StateTheory}. In short: ``A country is a country when other countries think that country is a country.'' \cite{greyCountries}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{graphics/basics/countries/decl_const_theory}
+  \caption{The Declaratory Theory (left) and the Constituitive Theory (right) of Statehood}
+  \label{fig:declaratory_constituitive_theory}
+\end{figure}
+
+Both theories have advantages and disadvantages, but the main problems are:
+\begin{enumerate}
+  \item Following the declarative theory, countries are self-classifying and potentially conflicting entities. The application of this measure would grant Kosovo, the Republic of China and Abkhazia statehood. But this would lead to overlapping territories with Serbia, China and Georgia.
+  \item There is no super-national organization that can judge if a country is a country or not. Even the United Nations fail to do so, because their membership requirements prevent states like Kosovo or the Republic of China from becoming members.
+\end{enumerate}
+
+Nobody can clearly say if Kosovo, Taiwan or Abkhazia are countries or not -- and if they do, there will be people that disagree. This is a big problem for the information system, because it is impossible to objectivly classify a place as a country or not. And this section only covers the current countries. 100 years ago these two theories were not existing. For the time before that, a conflict-free decision of what is country is not just impossible, but also not justifyable because of a lack of jurisdiction.
+
+That means, the HGIS developed in this thesis inevitably deals with uncertain information that some parties disagree. Its data model can not perfectly fit self-classifying data and can not rely on an objective data source. The system has to contain approaches that deal with this problem.
+
+% subsection declaratory_vs_constituitive_theory (end)
+
+% section countries (end)
 
 % ==============================================================================
 \section{Historical Geographic Information Systems} % (fold)
@@ -42,7 +153,7 @@ An Historical Geographic Information System helps to answer research questions a
 \subsection{History} % (fold)
 \label{sub:history}
 
-History is the study of our past, to understand the present and reason about the future. Alike many humanities, it is ``an ideal field for thinking long and hard about important questions''
+Alike many other fields in humanities, history is ``an ideal field for thinking long and hard about important questions''
 \cite{ahaFiveCs}.
 The Greek word \emph{\textIota\textsigma\texttau\textomikron\textrho\textiota\textalpha / historia}, meaning ``finding out, learning through research, narration of what is learned'', is the origin
 \footnote{
@@ -422,7 +533,7 @@ This process was developed in a preceding \emph{HiBo} project
 \paragraph{Manual data input} % (fold)
 \label{par:manual_data_input}
 
-For the domain of this HGIS, the evolution of countries over time, there is no complete dataset available. Therefore, the system developed in this thesis needs to have an interface to enter historical data. The user needs to have an interface to enter information about historical events that change territories and names of historical countries. This data has to be acuired either from primary historical sources directly, or from free online sources. Next to Wikipedia, there are other collections of historical events, e.g. \emph{Correlates of War}
+For the domain of this HGIS, the historical development of countries over time, there is no complete dataset available. Therefore, the system developed in this thesis needs to have an interface to enter historical data. The user needs to have an interface to enter information about historical events that change territories and names of historical countries. This data has to be acuired either from primary historical sources directly, or from free online sources. Next to Wikipedia, there are other collections of historical events, e.g. \emph{Correlates of War}
 \footnote{
   \textit{Data Sets},
   Correlates of War,
@@ -606,7 +717,7 @@ or ESRI Shapefiles (\texttt{.shp})
 \subsection{Presentation of Geographic Space} % (fold)
 \label{sub:presentation_of_geographic_space}
 
-The most common ways to present geographic space are two-dimensional \emph{maps} and three-dimensional \emph{globes}. The HGIS in this thesis will use a map to show the evolution of countries over time. A map is a discrete graphical expression of the geographical features of the continuous real world. The creation of a map is not just a scientific, but also a creative process: The form, function and interaction methods shall follow the purpose of the usage of the map.
+The most common ways to present geographic space are two-dimensional \emph{maps} and three-dimensional \emph{globes}. The HGIS in this thesis will use a map to show how countries have developed over time. A map is a discrete graphical expression of the geographical features of the continuous real world. The creation of a map is not just a scientific, but also a creative process: The form, function and interaction methods shall follow the purpose of the usage of the map.
 
 A map is typically structured according to the \emph{layer} principle: Each layer is a transparent film showing one specific aspect, e.g. a physical layer showing coastlines, mountains or forests, a political layer showing international borders or a cultural layer showing cities or population densities. The layers are interchangeable, can be switched on and off and serve to serve a different visualization purpose. A \emph{legend} including the scale bar and north arrow shall explain all symbols used on the map and give orientation. In interactive web based systems, there should be \emph{menus} with different visualization options, e.g. panning and zooming on the map, switching map layers on and off or changing the color scheme of the map
 \cite[pp. 159-166]{bolstad2008gis}.

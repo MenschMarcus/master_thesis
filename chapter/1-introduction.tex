@@ -25,7 +25,7 @@ Now, another 45 years later, the situation in Europe looks much different: Most 
 \section{Motivation} % (fold)
 \label{sec:motivation}
 
-What we might call ``our country'' today has changed a lot in the past. Hardly any of the current 193 member states of the United Nations is in its same border as 100 years ago. The countries have evolved in time and space. Would it not be nice to see this evolution? On a map that shows the state of the world at an arbitrary point in history? So that we can see how our country looked like 100 years ago? 200 years ago? 1000 years ago? How settelements became cities and principalities became national states? While there are many historical sources describing one point in history, may it be governmental bills, historical maps or diary entries of kings, there is no such thing as a comprehensive historical world atlas that lets you travel back in time and space and explore \emph{when} our country changed, \emph{where} it changed -- and most importantly \emph{why}? This thesis is all about that: How can the evolution of countries in time and space be shown, for the benefit of a better understanding of our history -- how we became what we are today.
+What we might call ``our country'' today has changed a lot in the past. Hardly any of the current 193 member states of the United Nations is in its same border as 100 years ago. The countries have evolved in time and space. Would it not be nice to see this development? On a map that shows the state of the world at an arbitrary point in history? So that we can see how our country looked like 100 years ago? 200 years ago? 1000 years ago? How settelements became cities and principalities became national states? While there are many historical sources describing one point in history, may it be governmental bills, historical maps or diary entries of kings, there is no such thing as a comprehensive historical world atlas that lets you travel back in time and space and explore \emph{when} our country changed, \emph{where} it changed -- and most importantly \emph{why}? This thesis is all about that: How can the historical development of countries be shown, for the benefit of a better understanding of how we became what we are today.
 
 This is a very complicated undertaking, given that countries have changed frequently. But there are even more severe problems: How do we know how a country has looked like in 1600? And if we find an historical map of this time, can we trust it? How certain can we be that the countries and their borders are true? The next problem is that the history of countries can also be contradictory. There is not always \emph{one story} which is supported by all sides. There are contested territories, even today, from which it is not clear who they belong to. There are ``places'', even today, which are not clearly a ``country'' because some might disagree. There is a whole lot of uncertainty and diagreement in the history of countries that this thesis deals with.
 
@@ -75,15 +75,15 @@ Figure \ref{fig:event_based_approach} shows an example of an event-based approac
 \paragraph{Research Questions} % (fold)
 \label{par:research_questions}
 
-The goal of this thesis is to lay a theoretical foundation for an information system that deals with the evolution countries in time and space. The domain is limited to countries, their names and their borders and historical events that change them. In addition to the theory, an open-source Web-based prototype is to be developed. It should provide a well-designed user interface for editing historical data about countries allowing the user to directly manipulate the countries on the map. For that matter there are three research questions to be answered throughout the thesis:
+The goal of this thesis is to lay a theoretical foundation for an information system that deals with the development of countries in time and space. The domain is limited to countries, their names and their borders and historical events that change them. In addition to the theory, an open-source Web-based prototype is to be developed. It should provide a well-designed user interface for editing historical data about countries allowing the user to directly manipulate the countries on the map. For that matter there are three research questions to be answered throughout the thesis:
 
 \begin{enumerate}
-  \item What type of historical changes can happen in the evolution of countries in time and space?
+  \item What type of historical changes can happen in the development of countries in time and space?
   \item How can these changes be
-  \begin{compactenum}
+  \begin{enumerate}
     \item modeled in an information system?
     \item edited by humans in a user interface?
-  \end{compactenum}
+  \end{enumerate}
   \item How can the model handle uncertainty and disagreement in history?
 \end{enumerate}
 
@@ -94,9 +94,9 @@ The goal of this thesis is to lay a theoretical foundation for an information sy
 \section{Overview} % (fold)
 \label{sec:overview}
 
-The following part of the thesis is structured in four chapters. The second chapter introduces the basic concepts of the problem domain: A clarification of the term \emph{Historical Geographic Information Systems} (section \ref{sec:historical_geographic_information_systems}) and an overview about the state of the art of \emph{spatio-temporal data models} (\ref{sec:spatio_temporal_data_models}). Additionally, the last section \ref{sec:histoglobe} presents the application that the model developed in this thesis will be implemented in: \emph{HistoGlobe}.
+The following part of the thesis is structured in four chapters. The second chapter introduces the basic concepts of the problem domain: First of all the suprisingly difficult concept of a \emph{country} is introduced in section \ref{sec:countries}. Afterwards the term \emph{Historical Geographic Information Systems} is clarified in section \ref{sec:historical_geographic_information_systems}), followed by state of the art of \emph{spatio-temporal data models} (\ref{sec:spatio_temporal_data_models}). The last section \ref{sec:histoglobe} presents the application that the model developed in this thesis will be implemented in: \emph{HistoGlobe}.
 
-Chapter 3 is the main chapter of this thesis. It describes the development process of this thesis and answeres the first two research questions: The \emph{Hivent Model} in section \ref{sec:hivent_model} introduces a set of five \emph{Hivent Operations} that can model all possible changes to the evolution of countries in time and spae. The next section \ref{sec:editing_hivent_data} presents approaches to edit data in the Hivent Model using \emph{Edit Operations}, a different set of operations that is well-understood by humans. The interface for the information system of this thesis was developed using a \emph{Human-Centered Design} approach. The process and the result of it is illustrated in section \ref{sec:user_interface_design_process}. The chapter closes in \ref{sec:application} with an insight into the implementation of the data model and the user interface in the HistoGlobe application.
+Chapter 3 is the main chapter of this thesis. It describes the development process of this thesis and answeres the first two research questions: The \emph{Hivent Model} in section \ref{sec:hivent_model} introduces a set of five \emph{Hivent Operations} that can model all possible changes to the development of countries in time and space. The next section \ref{sec:editing_hivent_data} presents approaches to edit data in the Hivent Model using \emph{Edit Operations}, a different set of operations that is well-understood by humans. The interface for the information system of this thesis was developed using a \emph{Human-Centered Design} approach. The process and the result of it is illustrated in section \ref{sec:user_interface_design_process}. The chapter closes in \ref{sec:application} with an insight into the implementation of the data model and the user interface in the HistoGlobe application.
 
 extensions
 first briefly evaluate the data model, edit methods, interface and system as a whole.

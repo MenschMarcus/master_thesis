@@ -80,6 +80,7 @@ border change: manipulate border, not territory
 
 For precision purposes it would be important to be able to import existing geometries from external sources or to import an historical map and extract the territory from there. However, this was not in the scope of this thesis and has to be integrated in the future.
 
+extension of Hivent model to actors
 
 % ==============================================================================
 
@@ -89,119 +90,7 @@ For precision purposes it would be important to be able to import existing geome
 
 Every aspect of the development chapter \ref{cha:development} of this work is based on the prerequisite of full certainty of the data. That means both the Historical-Geographic Operations and the Hivent-Based Spatio-Temporal Data Model assume that the dates of the historical events, the names and territories of the historical and current areas and the historical relations between events and areas are accurate and reasonably precise (definitions see \ref{sec:types_of_uncertainty}).
 
-However, this assumption is far from valid. In historical research, uncertainty is one of the major problems (see \ref{sub:history}) a historian has to deal with on a daily basis: sources, even primary sources, can be biased towards the author of the source, information can be imprecise or even inaccurate and information can be conflicting with other sources. This chapter explains problems with uncertainty in the domain of evolution of countries in time and space and develops approaches to deal with these problems.
-
-
-% ==============================================================================
-\section{Definition of a Country} % (fold)
-\label{sec:definition_of_a_country}
-
-The problem begins with the definition of a term that almost everybody in the world is familiar with: a ``country''. Since countries are the domain of this historical geographic information system, it must be possible to decide for each current and historic territorial entity in the world if it is or was a country or not. Therefore a clear and non-conflicting definition of a country is necessary. However, this is impossible to do.
-
-The Oxford Dictionary definition of a country reads as follows:
-\begin{quote}
-  ``The \emph{territory} of a \emph{nation}; a \emph{region} constituting an \emph{independent state}, or a region, province, etc., which was once independent and is still distinct in institutions, language, etc.''
-  \footnote{\textit{country, n. and adj}, Oxford English Dictionary, URL: \url{http://www.oed.com/view/Entry/43085?}, last access: 2016-04-25}
-\end{quote}
-
-This definition includes many different concepts and terms: the territory or region that the country is on, a nation or state, a population and a culture of the territory in terms of institutions or languages. While nation and state are commonly used as synonyms for countries, their meaning varies from case to case, as it will be examined in this section.
-
-To understand what a country really is, the United Nations as an intergovernmental organisation are a valuable source. It was found after World War II (October 1945) and promotes international peace keeping, security, protection of human rights or humanitarian aid to all its member states which should coincide with all the countries in the world. The committee currently has 193 full member states and two permanent obervers: The Holy See (Vatican City) and the State of Palestine \cite{UNmembers}. But these 195 members in total do not cover all places in the world -- and also a membership in the United Nations does not mean that the question of statehood can simply be answered.
-
-% ------------------------------------------------------------------------------
-\subsection{Special Cases} % (fold)
-\label{sub:special_cases}
-
-Examining the list of the UN member states yields several interesting observations and special cases, which can be classified by their membership status in the United Nations and their degree of international recognition.
-
-
-\paragraph{UN observer states} % (fold)
-\label{par:un_observer_states}
-
-The \emph{Holy See} is the juridcal and spiritual entity representing the territory of Vatican City. It is a fully recognized and sovereign state but is not a full member of the UN, because it has never applied for it. It is the by far smallest sovereign state in the world (0.44 m²), is an enclave inside the city of Rome with a population of only 800 people, including 30 women \cite{VaticanPopulation}.
-
-The \emph{State of Palestine} has a population of 4.8 million people \cite[as of 2016]{PalestinePopulation} and is also an UN observer state. However, it is totally different in terms of sovereignty: While it consists of the territories of the West Bank, East Jerusalem and the Gaza Strip, their borders were drawn in the 1949 Green Line Armistice Agreement but were never intended to be used as international boundaries \cite{PalestineTerritory}. Since then, the ongoing and complex conflict with the State of Israel lead to a difficult situations regarding the sovereignty over the territories. Therefore, the state has no clearly defined territoy. Moreover, while 114 states officially recognize the Palestinian state, almost all current main economic powers do not, including the Canada, France, Germany, Italy, the United Kingdom and the United States. None of them even voted in favor of Palestine receiving an observing status in the UN \cite{PalestineUN}. That means, unlike the Holy See, Palestine is not a fully sovereign and recognized state.
-
-% paragraph un_observer_states (end)
-
-\paragraph{UN non-members with limited recognition} % (fold)
-\label{par:un_non_members_with_limited_recognition}
-
-\emph{Kosovo} is a state Europe and and declared independence from Serbia in 2008. It has a clearly defined territory and a permanent population and is recognized by 111 UN member states. In order for Kosovo to become a full member of the United Nations, all permanent members of the security council (United Kingdom, France, Russia, China and the United States) must agree. But since Russia and China strongly support the territorial integrity of Serbia, they would veto Kosovos membership in the United Nations. Therefore, Kosovo is not even an observer state of the United Nations, although having about the same degree of international recognition as Palestine \cite{KosovoThanksYou}.
-
-The status of Taiwan is a very complicated issue. An overgeneralized description of the problem, which involves two territories and two political entities, is: There is the \emph{People's Republic as China} (commonly known as China), with full control over mainland China, and the \emph{Republic of China}, governing the island of Taiwan. However, both political entities claim each others land. That means, there are two states claiming the exact same territory. But, since 1971 the People's Republic of China is the representative of whole China in the United Nations, including the island of Taiwan. Because it is part of the Security Council, it successfully vetos membership requests of the Republic of China. Therefore, it can not be a member of the United Nations, although it operates like an independend country by international standards: They have an own jurisdiction, issue own passports and have unofficial diplomatic relations to most countries in the world. But officially, only 22 member states of the United Nations uphold diplomatic relations to Taiwan \cite{TaiwanRecognition}. To all of these states the People's Republic of China does not have any diplomatic relations, which makes also them an only partially recognized state.
-
-There are other non-member states of the United Nations which have not yet gained broad international recognition: the Sahrawi Arab Democratic Republic (recognized by 84 UN member states \cite{WesternSaharaRecognition}), Abkhazia (6 \cite{AbkhaziaRecognition}), South Ossetia (5 \cite{SouthOssetiaRecognition}), the Turkish Republic of Northern Cyprus (1 \cite{NorthernCyprusRecognition}), Nagorno-Karabakh Republic (0 \cite{NagornoRecognition}), Transnistria (0 \cite{TransnistriaRecognition}) and Somaliland (0 \cite{SomalilandRecognition}).
-
-% paragraph un_non_members_with_limited_recognition (end)
-
-\paragraph{UN members with limited recognition} % (fold)
-\label{par:un_members_with_limited_recognition}
-
-In addition to the Republic of China, there are five other member states of the United Nations that are not fully recognized by all other UN members: Armenia (not recognized by Pakistan \cite{ArmeniaRecognition}), the Republic of Cyprus (not recognized by Turkey \cite{CyprusRecognition}), North and South Korea (officially Democratic People's Republic of Korea and Republic of Korea, mutual non-recognition \cite{KoreaRecognition}) and the State of Israel, which 32 UN member states do not recognize \cite{IsraelRecognition}.
-
-% paragraph un_members_with_limited_recognition (end)
-
-\paragraph{Special Territories} % (fold)
-\label{par:special_territories}
-
-Additionally to countries gaining for international recognition there are territories belonging to fully sovereign countries with a varying degree of sovereignty. For example Greenland is an autonomous country within the Kingdom of Denmark, but not a  sovereign state and therefore not a member of the United Nations. The same applies to the Faroer Islands (part of Denmark) and numerous overseas territories of the United Kingdom, the French Republic and the Kingdom of the Netherlands in the Carribean, the Indian Ocean or the Southern Pacific Ocean. Moreover, there are five quasi-independent countries in a so called \emph{Free Association}: Niue and Cook Islands are associated to New Zealand and not part of the United Nations. The Marshall Islands, the Federated States of Micronesia and Palau are associated to United States, but in contrast are full UN members \cite{SpecialTerritories}.
-
-% TODO?
-% example United Kingdom:  country?
-% difference clear: geography             politics
-%                   British Isles         United Kingdom of Great Britain and NI
-%                     Great Britain         Scotland, England, Wales, Northern Ireland (province)
-%                     Ireland             Republic of Ireland
-%                     Shetland Islands
-%                     Isle of Men
-%                     ...
-
-% Scotland, England and Wales are countries, but not sovereign states, Northern Ireland is a province and not a country. The UK is a constituent country, just like the Kingdom of the Netherlands and the Kingdom of Denmark.
-
-% paragraph special_territories (end)
-
-This incomplete and simplified list of special cases manifests the big problem that is associated with the terms ``country'', ``state'' or ``nations'': There is neither a \emph{de jure} consistent definition nor a \emph{de facto} consistent usage of these terms. Everything breaks down to two different concepts:
-
-
-% subsection special_cases (end)
-
-% ------------------------------------------------------------------------------
-\subsection{Declaratory vs. Constituitive Theory} % (fold)
-\label{sub:declaratory_vs_constituitive_theory}
-
-The declaratory theory, established in the Montevideo Convention 1933 \cite{MontevideoConvention}, gives each entity the right to declare a state if it matches all of the four requirements:
-\begin{compactenum}
-  \item a clearly defined territory
-  \item a permanent population
-  \item a political representation / government
-  \item the \emph{capacity} to enter diplomatic relations
-\end{compactenum}
-
-These four requirements make sure that a state can exist physically and politically. However, it is worth noticing that this definition does not include any actual diplomatic relations to other states, but only the capacity to enter them. Therefore the existance of a state is independent from its recognition by other states. In other words: ``A country is a country when it thinks it is a country.''
-
-In contrast, the constituitive theory requires exactly that: A state can only be considered as such if it is recognized by other states. However, it is not defined anywhere by how many other states \cite{StateTheory}. In short: ``A country is a country when other countries think that country is a country.'' \cite{greyCountries}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/uncertainty/decl_const_theory}
-  \caption{The Declaratory Theory (left) and the Constituitive Theory (right) of Statehood}
-  \label{fig:declaratory_constituitive_theory}
-\end{figure}
-
-Both theories have advantages and disadvantages, but the two main problems are:
-\begin{enumerate}
-  \item Following the declarative theory, countries are self-classifying and potentially conflicting entities. The application of this measure would grant Kosovo, the Republic of China, Abkhazia or the Sarhawi Arab Democratic Republic full statehood. However, since their territories are contested, this would lead to overlapping territories with Serbia, China, Georgia and Morocco, which is impossible.
-  \item There is no superior organization that can judge if a country is a country or not. Even the United Nations fail to do so, because their membership requirements prevent states like Kosovo or the Republic of China from becoming full members. They also have no power to rule out problems regarding the independence of Transnistria or Somaliland.
-\end{enumerate}
-
-Therefore it is impossible to objectivly classify an area as a country or not: nobody can say if Kosovo, the State of Palestine or Niue are countries or not. These theories have been introduced in the previous 80 years. For the time before that, a conflict-free decision of what is country is not just impossible, but also not justifyable because of a lack of jurisdiction.
-
-That means, an historical geographic information system with the goal to visualize the development of the countries on Earth in time and space inevitably deals with uncertain information that certain parties see as wrong. Its data model can not perfectly fit self-classifying data and can not rely on an objective data source. The system has to contain approaches that deal with this problem.
-
-% subsection declaratory_vs_constituitive_theory (end)
-
-% section definition_of_a_country (end)
+However, this assumption is far from valid. In historical research, uncertainty is one of the major problems (see \ref{sub:history}) a historian has to deal with on a daily basis: sources, even primary sources, can be biased towards the author of the source, information can be imprecise or even inaccurate and information can be conflicting with other sources. This chapter explains problems with uncertainty in the domain of development of countries in time and space and develops approaches to deal with these problems.
 
 
 % ==============================================================================
@@ -247,7 +136,7 @@ The even larger problem is an integral lack of accuracy: The whole nature of his
 \paragraph{Areas} % (fold)
 \label{par:evaluation_areas}
 
-Also the model of an abstract area, consisiting of a territory and a name, is problematic in terms of accuracy and precision. As it has been discussed in subsection \ref{sec:definition_of_a_country} in detail, it is impossible to objectively model all areas free of conflicts. But the current model does not support the status of a territory as being contested Also, countries can be part of other autonomous (constituent) countries, like England is part of the United Kingdom of Great Britain and Northern Ireland or Greenland is part of Denmark. However, the data model does not support different levels of sovereignty, autonomy or international recognition.
+Also the model of an abstract area, consisiting of a territory and a name, is problematic in terms of accuracy and precision. As it has been discussed in subsection \ref{sec:countries} in detail, it is impossible to objectively model all areas free of conflicts. But the current model does not support the status of a territory as being contested Also, countries can be part of other autonomous (constituent) countries, like England is part of the United Kingdom of Great Britain and Northern Ireland or Greenland is part of Denmark. However, the data model does not support different levels of sovereignty, autonomy or international recognition.
 % Additionally the historical context acquired by the start and end change that created or destroyed the ~\texttt{Area}~ can be ambiguous. While the motvation was to historically connect different countries to form an historical graph, the automatic deduction of historical succession from the historical geographic operations might not accurately replicate the identity of a state. An example is the German Democratic Republic which both historically and geographically seems to be a decendent of Allied-occupied Germany after World War II and therefore an indirect successor of the German Empire. However, the constitution of the GDR emphazised
 % TODO: source? -> Berno
 % think about it: is it really the case?
