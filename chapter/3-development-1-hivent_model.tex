@@ -12,14 +12,13 @@ The Hivent Model is constructed from components of some of these models: It is e
 \label{sub:elements}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\vspace{-1em}
 \paragraph{Hivents} % (fold)
 \label{par:hivent}
 
+-- an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}} --
 represent historically significant happenings, e.g. a treaty, bill or declaration.
-The word is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}}.
-The focus in this work is on events that influence the geopolitical situation on Earth.
 An Hivent happens at one particular point in time and space and is therefore the main organizing element of the eponymic data model.
+The focus in this work is on events that influence the geopolitical situation on Earth.
 
 % paragraph hivent (end)
 
@@ -28,16 +27,18 @@ An Hivent happens at one particular point in time and space and is therefore the
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-represent one identical current or historical country. They are an abstract entity on the map with a \emph{name} and a \emph{territory}. The name consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to account for enclaves and exclaves. The polylines of a polygon consist of an ordered set of points that represent a border of the country. Additionally, an Area keeps a reference to the historical changes creating, updating and ceasing it.
+represent one identical current or historical country. They are an abstract entity on the map with a \emph{name} and a \emph{territory}. In the real world, a country has a common \emph{short name}, e.g. ``Germany'' and a potentially longer \emph{formal name}, e.g. ``Federal Republic of Germany''. Both attributes are part of the Area model. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to account for enclaves and exclaves. The polylines of a polygon consist of an ordered set of points that represent the borders of the country.
 
 % paragraph area (end)
 
-% ------------------------------------------------------------------------------
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \vspace{-1em}
 \paragraph{Historical Changes} % (fold)
 \label{par:historical_changes}
 
-influence the development of Areas over time. Throughout the lifetime of an Area, it is created at some point $t_s$, then its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < t_i < t_e$ it ceases. Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing and it is \emph{inactive} if it does not. Each Area is \textbf{uniquely identified by its formal name}. That means as soon as the formal name of an Area changes (e.g. ``German Empire'' to ``Federal Republic of Germany''), it is considered a ``new'' Area. Each Historical Change belongs to exactly one Hivent, inheriting its time point at which the change happens.  The change is described by a Hivent Operation introduced in section \ref{sub:hivent_operations}.
+The idea of the Hivent Model is that Areas can change over time. This happens via \emph{historical changes} that are part of exactly one Hivent. Throughout the lifetime of an Area, it is created at some point $t_s$, its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < \forall t_i < t_e$ it ceases.
+Each Area is \textbf{uniquely identified by its formal name}. That means as soon as the formal name of an Area changes, it is considered a ``new'' Area.
+Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current time point it is historically existing, otherwise it is \emph{inactive}.
 
 \begin{figure}[H]
   \vspace{1em}
@@ -47,8 +48,26 @@ influence the development of Areas over time. Throughout the lifetime of an Area
   \label{fig:area_states}
 \end{figure}
 
+Historical changes and Areas are mututally linked, i.e. an Area keeps references to the changes creating, updating and ceasing it and an historical change stores a set old Areas that cease, a set of new Areas that are created and a set of update Areas that are manipulated in the change.
 
 % paragraph historical_changes (end)
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Four-Domain Model} % (fold)
+\label{par:four_domain_model}
+
+Following the idea of the Three-Domain Model and its extension introduced in section \ref{sub:three_domain_model}, the Hivent Model is as well organized by four domains that are modelled independently from each other:
+
+\begin{compactitem}
+  \item The \emph{semantic domain} holding the Area uniquely identifiable is represented by its formal name.
+  \item The \emph{spatial domain} is the territory of the Area that is visible on the map.
+  \item The \emph{thematic domain} is represented by the short name of the Area
+  \item The \emph{temporal domain} is the entirety of all historical changes associated to the Area.
+\end{compactitem}
+
+The main difference between the spatial and the thematic thematic is that there is no relation between the names of two Areas: While it does not make sense, there could potentially be two Areas active at the same time with the same name. The update of the name of one Area is independent from any other Area. This is not true for the spatial domain: The territories of two Areas are highly related to each other. Geospatially each territory has at least one neighbor and two neighbors share the same border. An update of the territory of one Area results in the update of at least one other territory.
+
+% paragraph four_domain_model (end)
 
 % subsection section area (end)
 
@@ -57,30 +76,30 @@ influence the development of Areas over time. Throughout the lifetime of an Area
 \label{sub:preconditions}
 
 \begin{quoteit}
-In the beginning God created the heavens and the Earth \\
-Now the Earth was formless and empty [...] \\
-And God said, “Let there be light” --- and there was light.
+  In the beginning God created the heavens and the Earth \\
+  Now the Earth was formless and empty [...] \\
+  And God said, “Let there be light” --- and there was light.
 \end{quoteit}
-\vspace{-1em}
 \hfill -- Genesis 1:1, The First Book of Moses, Old Testament
+\vspace{1em}
+
 
 There are five axoims and two assumptions the Hivent Model is based on. The theoretical foundation is the model of the Earth and its curved surface that can be projected on a two-dimensional map using a map projection, as introduced in sections \ref{sub:geospatial_data}.
 
-\vspace{-1.0em}
 \newtheorem{invariant_surface}[assicounter]{Axiom}
 \begin{invariant_surface}
 \label{axm:invariant_surface}
   The Earth's surface has an invariant area size, i.e. it does not change over time.
 \end{invariant_surface}
 
-\vspace{-2.5em}
+\vspace{-2.0em}
 \newtheorem{area_on_surface}[assicounter]{Axiom}
 \begin{area_on_surface}
 \label{axm:area_on_surface}
   Each Area in the spatio-temporal system is located directly on the surface of the Earth.
 \end{area_on_surface}
 
-These axiom sets the spatial foundation of the system: a constant dimension of the map and Areas covering the map. The basis of the temporal part of the system is content of the next three axioms:
+These axioms set the spatial foundation of the system: a constant dimension of the map and Areas covering the map. The basis of the temporal part of the system is content of the following axioms:
 
 \vspace{-1.0em}
 \newtheorem{initial_configuration}[assicounter]{Axiom}
@@ -89,37 +108,44 @@ These axiom sets the spatial foundation of the system: a constant dimension of t
   The spatio-temporal system has an initial state at time point $t_0$. At this initial state, there exists exactly one Area, denoted by $\Omega$ and referred to as the \emph{universe} Area. It has no name and its territory covers the whole surface of the Earth.
 \end{initial_configuration}
 
-\vspace{-2.5em}
+\vspace{-2.0em}
 \newtheorem{historical_change}[assicounter]{Axiom}
 \begin{historical_change}
 \label{axm:historical_change}
   At each time point $t_i \geq t_0$ multiple historical changes can be introduced.
 \end{historical_change}
 
-\vspace{-2.5em}
+\vspace{-2.0em}
 \newtheorem{unique_coverage}[assicounter]{Axiom}
 \begin{unique_coverage}
 \label{axm:unique_coverage}
   At each time point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
 \end{unique_coverage}
 
-As it has been defined in section \ref{par:historical_changes}, an Historical Change can create, manipulate and cease Areas on the Earth's surface. According to axoim \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map: When an Area with a territory is created on the map, the Area claiming this territory before has to cease it. Formally, it can be said that each change consists of a set of old Areas $A$ that are manipulated, a set of new Areas $B$ that are created in the change, and an operation $\rightarrow_C$ describing the change. Each Area $A_i \in A$ and $B_i \in B$ has a territory $A_i^T$  respectively $B_i^T$. For each change introduced in the system, the territories of the old Areas must have the same size than the territories of the new Areas to maintain the spatial integrity of axiom \ref{axm:unique_coverage}:
+As it has been defined in section \ref{par:area}, an historical change can create, manipulate and cease Areas on the Earth's surface. According to axoim \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map, i.e. if an Area is created on the map, the Area claiming this territory before has to cease it.
+
+Formally, it can be said that each change consists of three sets of Areas: the old Areas $A$ that are ceased, the new Areas $B$ that are created and the Areas $C$, whose properties are updated in the change. Each $A_i \in A$ and $B_i \in B$ has a territory $A_i^T$ respectively $B_i^T$. Each $C_i \in C$ has an old territory $C_i^{OT}$ that is updated with the new territory $C_i^{NT}$. Each change introduced in the spatio-temporal system maintains the spatial integrity of axiom \ref{axm:unique_coverage} like this:
+
+\vspace{-2em}
 \begin{align*}
-  \bigcup\limits_{i=1}^n A_i^T ~\textbf{=}~ \bigcup\limits_{i=1}^n B_i^T
+  \left(\bigcup\limits_{i=1}^n A_i^T    ~\textbf{=}~ \bigcup\limits_{i=1}^n B_i^T\right)
+  ~\wedge~
+  \left(\bigcup\limits_{i=1}^n C_i^{OT} ~\textbf{=}~ \bigcup\limits_{i=1}^n C_i^{NT}\right)
 \end{align*}
 
-The first changes introduced in the system at time point $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e. it is currently occupied by the territory of exactly one active Area, or on a contrary be \emph{unclaimed}, i.e. belonging to $\Omega$. It is a subtractive data model, because each new Areas territory is cut out of $\Omega$.
+The first changes introduced in the system at time point $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e. it is currently occupied by the territory of exactly one active Area, or on a contrary be \emph{unclaimed}, i.e. belonging to $\Omega$.
+% It is a subtractive data model, because each new Areas territory is cut out of $\Omega$.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{graphics/development/hivent_model/init_map}
+  \includegraphics[width=0.6\textwidth]{graphics/development/hivent_model/init_map}
   \caption{The initial state of the world map at time point $t_0$}
   \label{fig:init_map}
 \end{figure}
 
 In the real world, the name of a country changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of a geographical processes, e.g. the sea level rise influencing the change of the coastline, or according to a historical event, e.g. a treaty. The Hivent model is based on two assumptions that simplify the model and keep the problem space clear:
 
-\vspace{-1.0em}
+\vspace{-0.0em}
 \newtheorem{coastline_territory}[assicounter]{Assumption}
 \begin{coastline_territory}
 \label{axm:coastline_territory}
@@ -133,10 +159,9 @@ In the real world, the name of a country changes according to sudden events, e.g
   The spatial configuration of water and the coastlines have not changed over time.
 \end{constant_coastlines}
 
-Both assumptions are obviously wrong:  They are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent Model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change water and the coastlines. For now, the temporal behavior of an Area in the Hivent Model can be described as a \emph{static object that changes according to sudden events}.
+Both assumptions are obviously wrong: The territory of a country stretches into international water (see section \ref{sub:territory_of_a_country}). Coastlines are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent Model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change water and the coastlines. For now, the temporal behavior of an Area in the Hivent Model can be described as a \emph{static object that changes according to sudden events}.
 
 % base: Newtons concept of absolute space?
-% TODO: topological rule?
 % each border has exactly two neighboring Areas
 % each Area has at least one neighboring Area
 
@@ -146,8 +171,9 @@ Both assumptions are obviously wrong:  They are constantly changing and so does 
 \subsection{Hivent Operations} % (fold)
 \label{sub:hivent_operations}
 
-Respecting the preconditions, there are several different types of changes that transform a set of old Areas $A$ to a set of new Areas $B$. All possible changes can be expressed with only five spatio-temporal operations that are called \emph{Hivent Operations}. The first four change the identity of a set of Areas and therefore establish historical predecessor-successor-relationships. They are always symmetric, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The last operation changes an aspatial property of an Area.
+Respecting the preconditions, there are several different types of historical changes that transform a set of old Areas $A$ to a set of new Areas $B$ and update a set of Areas $C$. However, each possible histoircal change can be expressed with only one of five \emph{Hivent Operations}. Four of them change the identity of at least one Area and therefore establish historical predecessor-successor-relationships. These relationships are always symmetric, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The last operation changes an aspatial property of an Area and is therefore identity-preserving.
 
+\newpage
 \begin{description}
 
   \item[UNI -- Unification]
@@ -186,7 +212,6 @@ Respecting the preconditions, there are several different types of changes that 
 \begin{center}
 \begin{tabular}{cx{2.5cm} cx{2.5cm} cx{2.5cm} cx{2.5cm} cx{2.5cm}}
 
-  \toprule
   \texttt{UNI} & \texttt{INC} & \texttt{SEP} & \texttt{SEC} & \texttt{NCH} \\
   Unification & Incorporation & Separation & Secession & Name Change \\[1em]
 
@@ -196,7 +221,6 @@ Respecting the preconditions, there are several different types of changes that 
   \includegraphics{graphics/development/hivent_model/operations/SEC} &
   \includegraphics{graphics/development/hivent_model/operations/NCH} \\
 
-  \bottomrule
 \end{tabular}
 \caption{The five Hivent Operations}
 \label{tab:hivent_operations}
@@ -209,31 +233,28 @@ Respecting the preconditions, there are several different types of changes that 
 \subsection{HistoGraph} % (fold)
 \label{sub:histograph}
 
-Based on the idea of the History Graph Model (section \ref{fig:history_graph_model}), the linguistically and conceptually related \emph{HistoGraph} visualizes the development of countries in time, without any spatial relation. The edges of the graph represent an Area, the nodes a Hivent Operation. The graph shows the predecessor-successor-relationships between Areas. This is easily possible, because in the Hivent Model an Area keeps references to the historical changes creating, updating and ceasing the Area (section \ref{par:area}).
+Based on the idea of the History Graph Model, introduced in section \ref{fig:history_graph_model}, the linguistically and conceptually related \emph{HistoGraph} visualizes the temporal development of countries. The edges of the graph represent an Area, the nodes a Hivent Operation. The graph shows the predecessor-successor-relationships between Areas. This is easily possible, because as it has been explained in section \ref{par:historical_change}, an Area keeps references to the historical changes creating, updating and ceasing it.
 
-The two-dimensional HistoGraph has an horizontal orientation. The x-axis refers to one time point, the y-axis has no spatio-temporal relation and depends how much space it needs. The graph uses the visualization approach of the five Hivent Operations (table \ref{tab:hivent_operations}), including the following symbols:
+The two-dimensional HistoGraph has an horizontal orientation. The x-axis refers to one time point, the y-axis has no spatio-temporal relation. The graph uses the visualization approach of the five Hivent Operations in table \ref{tab:hivent_operations}, including the following symbols:
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{c l l}
 
   \raisebox{3.5\height}
-  {\includegraphics{graphics/development/hivent_model/histograph/line}}
-  & Area
-  & \\
 
   \raisebox{-0.2\height}
-  {\includegraphics{graphics/development/hivent_model/histograph/circle_filled}}
+  {\includegraphics[width=10px]{graphics/development/hivent_model/histograph/circle_filled}}
   & Identity-changing Hivent Operation
   & \texttt{UNI}, \texttt{INC}, \texttt{SEP}, \texttt{SEC} \\
 
   \raisebox{-0.2\height}
-  {\includegraphics{graphics/development/hivent_model/histograph/circle_unfilled}}
-  & Property-changing Hivent Operation
+  {\includegraphics[width=10px]{graphics/development/hivent_model/histograph/circle_unfilled}}
+  & Identity-preserving Hivent Operation
   & \texttt{NCH} \\
 
   \raisebox{-0.2\height}
-  {\includegraphics{graphics/development/hivent_model/histograph/circle_combo}}
+  {\includegraphics[width=10px]{graphics/development/hivent_model/histograph/circle_combo}}
   & A combination of both
   & e.g. \texttt{INC + NCH}
 
@@ -259,34 +280,34 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{l p{8.5cm} l}
+\begin{tabular}{l p{8.8cm} l}
   \toprule
   Hivent date & Hivent description & Hivent Operations \\
   \midrule
 
     05.06.1945
-  & \footnotesize{In the Berlin Declaration the total dissolution of the Third Reich is confirmed. It separates into multiple parts, returning the territories annexed by the German Reich in World War II. The rest is controlled by the British, French, American and Soviet occupation zone.}
-  & \texttt{SEP} \\
+  & \normalsize{In the Berlin Declaration the total dissolution of the Third Reich is confirmed. It separates into multiple parts, returning the territories annexed by the German Reich in World War II. The rest is controlled by the British, French, American and Soviet occupation zone.}
+  & \texttt{SEP} \\[1.5em]
 
     16.02.1946
-  & \footnotesize{The Saar Protectorate is entangled from the French Zone of Occupation Germany, creating an own country.}
-  & \texttt{SEC} \\
+  & \normalsize{The Saar Protectorate is entangled from the French Zone of Occupation Germany, creating an own country.}
+  & \texttt{SEC} \\[1.5em]
 
     28.05.1949
-  & \footnotesize{The Federal Republic of Germany (West Germany) is created from the British, American and French Zone of Occupation.}
-  & \texttt{UNI} \\
+  & \normalsize{The Federal Republic of Germany (West Germany) is created from the British, American and French Zone of Occupation.}
+  & \texttt{UNI} \\[1.5em]
 
     07.10.1949
-  & \footnotesize{The German Democratic Republic (East Germany) is created from the Soviet Zone of Occupation.}
-  & \texttt{UNI} \\
+  & \normalsize{The German Democratic Republic (East Germany) is created from the Soviet Zone of Occupation.}
+  & \texttt{UNI} \\[1.5em]
 
     01.01.1957
-  & \footnotesize{The Saar Treaty (``Little Reunification'') joins the Saar Protectorate as the Bundesland Saarland in West Germany.}
-  & \texttt{INC} \\
+  & \normalsize{The Saar Treaty (``Little Reunification'') joins the Saar Protectorate as the Bundesland Saarland in West Germany.}
+  & \texttt{INC} \\[1.5em]
 
     03.10.1990
-  & \footnotesize{In the German Reunification, East Germany joins West Germany. The Federal Republic of Germany is now just called ``Germany''.}
-  & \texttt{INC + NCH} \\
+  & \normalsize{In the German Reunification, East Germany joins West Germany. The Federal Republic of Germany is now just called ``Germany''.}
+  & \texttt{INC + NCH} \\[1.5em]
 
   \bottomrule
 \end{tabular}
@@ -295,14 +316,14 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 \end{center}
 \end{table}
 
-The example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of Occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} can not be performed, because the identity is not preserved: The German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one Area (Soviet zone), creating a new Area (East Germany) and establishing a historical relationship between both.
+The example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of Occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} can not be performed, because the identity is not preserved: The German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one old Area (Soviet zone), creating a new Area (East Germany). This new Area occupies exactly the same territory as the old Area. Between both Areas a historical relationship is and established.
 
-The graph plots Germany first. Since it does not have any successors, the plot goes only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. They emerged from the four post-war occupation zones, visualized next. All of the four occupation zones themselves originated from the German Reich. However, the Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
+The graph plots Germany first. Since it does not have any successors, the plot expands only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. They emerged from the four post-war occupation zones, visualized next. All of the four occupation zones themselves originated from the German Reich. However, the Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
 
-Many problems of the graph visualization are apparent in this example: Circles my overlap, if many operations happen in a short period of time -- in this case between 1945 and 1949.
+Many problems of the graph visualization are apparent in this example: Circles may overlap if many operations happen in a short period of time -- in this case between 1945 and 1949.
 The name ``West Germany'' collides with the vertical line indicating the incorporation of the Saar Protectorate, which should also be avoided.
 Additionally, the names of the Areas of the four post-war occupation zones can not be shown in the graph, because there is no space for them.
-One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the circle to the outgoing Area line of the new Area. This would give the wrong impression that this midmost Area has the same identity than the newly created Area. In general, the circle for \texttt{UNI} and \texttt{SEP} operations with an odd number of old respectively new Areas must be displaced off the center to emphasize that the identity has changed.
+One more important aspect can be seen in the creation of West Germany in 1949: A \texttt{UNI} operation unifies three old Areas to one new Area. This could be visualized symmetrically with a straight line from the midmost incoming Area line into the circle to the outgoing Area line of the new Area. However, this would give the wrong impression that this midmost Area has the same identity than the newly created Area. In general, the circle for \texttt{UNI} and \texttt{SEP} operations with an odd number of old respectively new Areas must be displaced off the center to emphasize that the identity has changed.
 All these issues are not in the scope of this thesis and subject to future work in the field of Information Visualization.
 
 % subsection histograph (end)
