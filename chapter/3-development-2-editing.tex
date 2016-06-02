@@ -3,51 +3,57 @@
 \section{Editing Hivent Data} % (fold)
 \label{sec:editing_hivent_data}
 
-The previous section proposed the abstract Hivent Model, a set of Hivent operations and a visualization method. However, one purpose of the HGIS developed in this thesis is to add, alter and delete historical changes. This section presents the tools and methods to edit spatio-temporal data about the development of Areas in the Hivent Model. Whereas the Hivent Operations are well-defined and specific, user studies have shown that they are not well understood by humans to edit Areas. This thesis therefore introduces a different set of six \emph{Edit Operations} in section \ref{sub:edit_operations}. Afterwards, section \ref{sub:edit_workflow} shows a \emph{workflow} to perform an Edit Operation step by step. The Hivent Model needs to support editing historical changes in between other historical changes. The last section \ref{sub:retrospective_updates} explains the theoretical approach to \emph{retrospecitve updates} of spatio-temporal data in the Hivent Model.
+The previous section proposed the abstract Hivent Model, a set of Hivent Operations and the HistoGraph visualization. However, one purpose of the HGIS developed in this thesis is to add, alter and delete historical changes. This section presents the tools and methods to edit spatio-temporal data about the history of Areas in the Hivent Model. Whereas the Hivent Operations are well-defined and specific, user studies have shown that they are not well understood by humans for edit purposes. This chapter introduces a different set of six \emph{Edit Operations} in section \ref{sub:edit_operations}. Afterwards, section \ref{sub:edit_workflow} shows a \emph{workflow} to perform an Edit Operation step by step. The Hivent Model needs to support editing historical changes in between other historical changes. The last section \ref{sub:retrospective_updates} explains the theoretical approach to \emph{retrospecitve updates} of spatio-temporal data in the Hivent Model.
 
 % ------------------------------------------------------------------------------
 \subsection{Edit Operations} % (fold)
 \label{sub:edit_operations}
 
-The Hivent Operations are valuable, because they can describe all possible changes in the development of Areas in time and space. They are really well understood from the system point of view and form the basis for the Hivent Model. However, one purpose of the HGIS developed in this thesis is to provide a well understood user interface to edit historical changes to Areas.
-
-Throughout the development process, interviews with researchers in humanities at University of Virginia were conducted to understand their mental model about the task. It turned out that the Hivent Operations are not suitable to be used for human edit purposes, because of their low-level nature. One example is that the operations do not provide a straightforward way to create a new Area on previously unclaimed land. The same is true for changing the formal name of an Area. Therefore, this thesis introduces a second set of operations: five high-level \emph{Edit Operations} describe changes to countries on the map (see table \ref{tab:edit_operations}). They have proven to be understandable in several user studies.
+The Hivent Operations are valuable, because they can describe all possible changes in the development of Areas in time and space. They are well understood by the system and form the basis for the Hivent Model. However, interviews with researchers in humanities at University of Virginia were conducted to understand their mental model about editing the history of countries on the map. It turned out that the Hivent Operations are not suitable for a human, because of their low-level nature. One example is that the operations do not provide a simple way to create a new Area on previously unclaimed land. Changing the formal name of an Area with a \texttt{UNI} operation is also not intuitive. Since a main goal of this thesis is to develop a user interface that humans can understand, a second set of six high-level \emph{Edit Operations} is proposed. They are shown in table \ref{tab:edit_operations}.
 
 \vspace{0.5em}
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{m{0.75cm} m{0.8cm} m{2.4cm} m{9.1cm}}
+  \toprule
+
   \raisebox{-0.35\height}
   {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CRE}} &
   \texttt{CRE} & Create &
   a new Area with a new name and territory on the map. \\
 
+  \midrule
   \raisebox{-0.35\height}
   {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/MRG}} &
   \texttt{MRG} & Merge &
   two or more Areas to a new Area. The name has to be set manually, the territory is automatically unified. \\
 
+  \midrule
   \raisebox{-0.35\height}
   {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/DIS}} &
   \texttt{DIS} & Dissolve &
   one Area into two or more new Areas, manually setting their new territory and name. \\
 
+  \midrule
   \raisebox{-0.35\height}
   {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CHB}} &
   \texttt{CHB} & Change Borders &
   between two neighboring Areas by defining the territory that changes sides. \\
 
+  \midrule
   \raisebox{-0.35\height}
   {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/REN}} &
   \texttt{REN} & Rename &
   an Area and set a new formal name, short name or both. \\
 
+  \midrule
   \vspace{0.35em}
   \raisebox{-0.35\height}
   {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CES}} &
   \texttt{CES} & Cease &
   an Area by deleting it from the map, leaving unclaimed land. \\
 
+  \bottomrule
 \end{tabular}
 \caption{The six Edit Operations}
 \label{tab:edit_operations}
@@ -58,7 +64,7 @@ Throughout the development process, interviews with researchers in humanities at
 \paragraph{Error correction} % (fold)
 \label{par:error_correction}
 
-Another possible use case for the HGIS created in this thesis is to correct wrong information in the system. For this purpose it is important to understand how correcting information in an event-based spatio-temporal system works: Given time point $t_y$ and an Area $A$ with the name $X$. If $X$ happens to be wrong, it means that the historical change at time point $t_x: t_x < t_y$ that created the name $X$ for Area $A$ is erroneous and has be corrected. Correcting a state means correcting the operation that created this state.
+Another use case for the interface is to correct wrong information on the map. For this purpose it is important to understand how correcting information in an event-based system works: Given an Area $A$ at time point $t_y$. The name of $A$ at this point should be $Y$, but happens to be $X$. That means the operation at $t_x: t_x < t_y$ that created the name $X$ for Area $A$ is erroneous and has be corrected. Correcting a state means correcting the operation that created this state.
 
 % paragraph error_correction (end)
 
@@ -68,17 +74,19 @@ Another possible use case for the HGIS created in this thesis is to correct wron
 \subsection{Edit Workflow} % (fold)
 \label{sub:edit_workflow}
 
-An Edit Operation describes an historical change that can be understood and performed by a user of the HGIS. This section shows that each Edit Operation can be internally expressed by a set of Hivent Operations. Therefore the Edit Operations are an abstraction layer in the Hivent Model between the Hivent and the Hivent Operations. To create an Edit Operation, four steps in a workflow need to be performed:
+The Edit Operatoins have proven to be understandable in several user studies. This section shows they can be internally expressed by a set of Hivent Operations. The creation of an Edit Operation happens in four steps of a simple workflow:
 
 \begin{compactenum}
-  \item Select the Areas that will be changed in the Edit Operation.
-  \item For each new Area resulting from the Edit Operation, create a territory.
+  \item Select the Areas that will be changed in the operation.
+  \item For each new Area resulting from the operation, create a territory.
   \item For each new Area create a name.
   \item Add the Edit Operation to an Hivent to inherit the time point.
 \end{compactenum}
 
-For each Edit Operation, the requirements for the steps are different. Not all operations need all steps, because some data can be processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behavior of the Edit Operations in the first three steps. The last step is necessary for all.
+For each Edit Operation the requirements for the steps are different. Not all operations need all steps, since some data can be processed automatically. Table \ref{tab:editoperations_in_worklow} presents an overview about the behavior of the Edit Operations in the first three steps. The last step is necessary for each operation alike.
 
+
+\vspace{1em}
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{m{0.9cm} m{4.2cm} m{4.2cm} m{3.5cm}}
@@ -99,7 +107,7 @@ For each Edit Operation, the requirements for the steps are different. Not all o
   \texttt{MRG} &
   select the countries to be merged &
   \pbox{4.4cm}{--\\
-  \footnotesize{territories of selected countries are automatically unified}} &
+  \footnotesize{\emph{territories of selected countries are automatically unified}}} &
   create a name for the new country
   \\
 
@@ -113,7 +121,7 @@ For each Edit Operation, the requirements for the steps are different. Not all o
   \texttt{CHB} &
   select two neighboring countries to change their border &
   \pbox{4.4cm}{create the new border between both countries \\
-  \footnotesize{the territory for both countries will be created automatically}}  &
+  \footnotesize{\emph{the territory for both countries will be created automatically}}}  &
   -- \\
 
   \midrule
@@ -146,7 +154,7 @@ For each Edit Operation, the requirements for the steps are different. Not all o
 
 \vspace{-1.0em}
 
-Depending on the input of the user in the steps for an Edit Operation, there are different possibilities to express it by a set of Hivent Operations. Each Hivent Operation transforms a set of old Areas into a set of new Areas and can update the name or territory of one specific Area. All possibilities are introduced in table \ref{tab:editoperations_to_hg_operations}. Hivent Operations are combined when they happen at the same time. In the example of the German Reunification, East Germany was incorporated into West Germany which at the same time changed its short name to ``Germany'' (\texttt{INC + NCH}).
+Depending on the input of the user in the steps for an Edit Operation, there are different possibilities to express it by a set of Hivent Operations. All possibilities are introduced in table \ref{tab:editoperations_to_hg_operations}. Hivent Operations are combined when they happen at the same time. In the example of the German Reunification, East Germany was incorporated into West Germany which at the same time changed its short name to ``Germany'' (\texttt{INC + NCH}).
 
 \begin{center}
 \begin{longtable}{m{1.2cm} m{0.95cm} m{0.95cm} m{0.95cm} m{6.0cm} m{2.3cm}}
@@ -156,7 +164,7 @@ Depending on the input of the user in the steps for an Edit Operation, there are
   \pbox{0.95cm}{old\\Areas\\[-0.8em]} &
   \pbox{0.95cm}{update\\Areas\\[-0.8em]} &
   \pbox{0.95cm}{new\\Areas\\[-0.8em]} &
-  expression by Hivent Operations \protect\footnotemark &
+  expression by Hivent Operations &
   visualization \\
   \midrule
   \endhead
@@ -167,25 +175,25 @@ Depending on the input of the user in the steps for an Edit Operation, there are
 
   \multirow{9}{*}{\texttt{CRE} (1)} &
   \multicolumn{4}{p{10cm}}{
-    Area $B_1$ is created with territory $T$. The part of $T$ that is on previously unclaimed land ($T_\Omega$) is seceded as $B_1$ from $\Omega$.
+    The Area $B_1$ is created with territory $T$. The part of $T$ that is on previously unclaimed land ($T_\Omega$) is seceded as $B_1$ from $\Omega$.
     If $T_\Omega$ is empty, then $B_1$ is initialized with an empty territory.
-    The rest of $T$ covers some Areas $A_p$ partially and some Areas $A_f$ fully.
-    For each $A_p$, the covered territory $T_p$ is seceded and incorporated into $B_1$.
-    Each $A_f$ is completely incorporated into $B_1$.
+    The rest of $T$ covers some Areas $P_i \in P$ partially and some Areas $F_i \in F$ fully.
+    $\forall P_i:$ the covered territory $T_i$ is seceded and incorporated into $B_1$.
+    $\forall F_i: F_i$ is completely incorporated into $B_1$.
   } &
   \multirow{9}{*}{
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CRE_to_SEC+UNI}
   } \\
 
   &
-  $n_f$ &
-  $n_p$ &
-  $1$ &
+  $\forall F_i$ &
+  $\forall P_i$ &
+  $B_1$ &
   \pbox{6.0cm}{
     ~\\
     \texttt{SEC} of $B_1$ from $\Omega$ \\
-    \texttt{SEC} of $T_p$ from $A_p$, \texttt{INC} of $T_p$ into $B_1$ \\
-    \texttt{INC} of $A_f$ into $B_1$
+    \texttt{SEC} of $T_i$ from $P_i$, \texttt{INC} of $T_i$ into $B_1$ \\
+    \texttt{INC} of $F_i$ into $B_1$
   } &
   \\
 
@@ -194,15 +202,15 @@ Depending on the input of the user in the steps for an Edit Operation, there are
   \midrule
   \multirow{3}{*}{\texttt{MRG} (1)} &
   \multicolumn{4}{p{10cm}}{
-    Multiple Areas $A_i$ are unified to $B_1$. The new Area receives a name distinct from all the names of $A_i$.
+    Multiple Areas $A_i \in A, |A| \geq 2$ are unified to $B_1$. The new Area receives a name distinct from all the names of $A_i$.
   } &
   \multirow{3}{*}{
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/MRG_to_UNI}
   } \\
   &
-  $n \geq 2$ &
-  $0$ &
-  $1$ &
+  $\forall A_i$ &
+  -- &
+  $B_1$ &
   \pbox{6.0cm}{
     \texttt{UNI} of $\forall A_i$ to $B_1$
   } &
@@ -211,15 +219,15 @@ Depending on the input of the user in the steps for an Edit Operation, there are
   \midrule
   \multirow{4}{*}{\texttt{MRG} (2)} &
   \multicolumn{4}{p{10cm}}{
-    Multiple Areas $A_i$ are unified. The resulting Area reuses the short and formal name of one of the old Areas ($A_0$) and therefore preserves it. The remaining Areas $A_i$ are incorporated into $A_0$.
+    Multiple Areas $A_i \in A, |A| \geq 2$ are unified. The resulting Area reuses the short and formal name of one of the old Areas ($A_0$) and therefore preserves it. The remaining Areas $A_i$ are incorporated into $A_0$.
   } &
   \multirow{4}{*}{
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/MRG_to_INC}
   } \\
   &
-  $n \geq 1$ &
-  $1$ &
-  $1$ &
+  $\forall A_i$ &
+  $A_0$ &
+  -- &
   \pbox{6.0cm}{
     \texttt{INC} of $\forall A_i$ into $A_0$
   } &
@@ -234,9 +242,9 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/MRG_to_INC+NCH}
   } \\
   &
-  $n \geq 1$ &
-  $1$ &
-  $1$ &
+  $\forall A_i$ &
+  $A_o$ &
+  -- &
   \pbox{6.0cm}{
     ~\\
     \texttt{INC} of $\forall A_i$ into $A_0$ \\
@@ -249,15 +257,15 @@ Depending on the input of the user in the steps for an Edit Operation, there are
   \midrule
   \multirow{4}{*}{\texttt{DIS} (1)} &
   \multicolumn{4}{p{10cm}}{
-    Multiple Areas $B_i$ are separated from one initial Area $A_0$. Each $B_i$ receives a part of the territory of $A_0$ and a name. Each name is distinct from the name of $A_0$.
+    Multiple Areas $B_i$ are separated from one initial Area $A_1$. Each $B_i$ receives a part of the territory of $A_1$ and a name. Each name is distinct from the name of $A_1$.
   } &
   \multirow{4}{*}{
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DIS_to_SEP}
   } \\
   &
-  $1$ &
-  $0$ &
-  $n \geq 1$ &
+  $A_1$ &
+  -- &
+  $\forall B_i$ &
   \pbox{6.0cm}{
     ~\\
     \texttt{SEP} of $A_1$ into $\forall B_i$
@@ -273,9 +281,9 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DIS_to_SEC}
   } \\
   &
-  $1$ &
-  $1$ &
-  $n \geq 1$ &
+  -- &
+  $A_0$ &
+  $\forall B_i$ &
   \pbox{6.0cm}{
     ~\\
     \texttt{SEC} of $\forall B_i$ from $A_0$
@@ -291,13 +299,13 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DIS_to_SEC+NCH}
   } \\
   &
-  $1$ &
-  $1$ &
-  $n \geq 1$ &
+  -- &
+  $A_0$ &
+  $\forall B_i$ &
   \pbox{6.0cm}{
     ~\\
     \texttt{SEC} of $\forall B_i$ from $A_0$  \\
-    \texttt{NCH} of $A_p$
+    \texttt{NCH} of $A_0$
   } &
   \\
 
@@ -308,24 +316,24 @@ Depending on the input of the user in the steps for an Edit Operation, there are
   \multicolumn{4}{p{10cm}}{
     One existing Area $A_0$ is selected and its territory changes. Relative to the old territory some parts of the territory expands ($T_e$) and some withdraws ($T_w$).
     The part of $T_e$ that expands into unclaimed land ($T_\Omega: T_\Omega \in T_e$) is seceded from $\Omega$ and incorporated into $A_0$.
-    The Areas $A_f$ fully covered by $T_e$ are incorporated into $A_0$,
-    the Areas $A_p$ partially covered by $T_e$ secede this territory $T_p \in T_e$ to $A_0$.
+    The Areas $F_i$ fully covered by $T_e$ are incorporated into $A_0$,
+    the Areas $P_i$ partially covered by $T_e$ secede this territory $T_i \in T_e$ to $A_0$.
     $T_w$ is be incorporated into $\Omega$, resulting in unclaimed land.
   } &
   \multirow{10}{*}{
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CHB_to_SEC+INC_omega}
   } \\
   &
-  $n_f$ &
-  $1+n_p$ &
-  $0$ &
+  $\forall F_i$ &
+  $A_0, \forall P_i$ &
+  -- &
   \pbox{6.0cm}{
     ~\\
     \texttt{SEC} of $T_\Omega$ from $\Omega$,
     \texttt{INC} of $T_\Omega$ into $A_0$ \\
-    \texttt{SEC} of $T_p$ from $A_p$,
-    \texttt{INC} of $T_p$ into $B_1$ \\
-    \texttt{INC} of $A_f$ into $B_1$ \\
+    \texttt{SEC} of $T_i$ from $P_i$,
+    \texttt{INC} of $T_i$ into $B_1$ \\
+    \texttt{INC} of $F_i$ into $B_1$ \\
     \texttt{SEC} of $T_w$ from $B_1$,
     \texttt{INC} of $T_w$ into $\Omega$
   } &
@@ -340,9 +348,9 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CHB_to_SEC+INC}
   } \\
   &
-  $0$ &
-  $2$ &
-  $0$ &
+  -- &
+  $A_1, A_2$ &
+  -- &
   \pbox{6.0cm}{
     ~\\
     \texttt{SEC} of $T_2$ from $A_1$,
@@ -363,9 +371,9 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/REN_to_UNI}
   } \\
   &
-  $1$ &
-  $0$ &
-  $1$ &
+  $A_1$ &
+  -- &
+  $B_1$ &
   \pbox{6.0cm}{
     \texttt{UNI} of $A_1$ to $B_1$
   } &
@@ -380,9 +388,9 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/REN_to_NCH}
   } \\
   &
-  $0$ &
-  $1$ &
-  $0$ &
+  -- &
+  $A_1$ &
+  -- &
   \pbox{6.0cm}{
     \texttt{NCH} of $A_1$
   } &
@@ -399,21 +407,21 @@ Depending on the input of the user in the steps for an Edit Operation, there are
     \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CES_to_INC}
   } \\
   &
-  $1$ &
-  $0$ &
-  $0$ &
+  $A_1$ &
+  -- &
+  -- &
   \pbox{6.0cm}{
     \texttt{INC} of $A_1$ into $\Omega$
   } &
   \\
 
   \bottomrule
-\caption{Translation from Edit Operations to Hivent Operations}
+\caption{Translation from Edit Operations to Hivent Operations.\protect\footnotemark}
 \end{longtable}
 \label{tab:editoperations_to_hg_operations}
 \end{center}
-\footnotetext{multiple Hivent Operations in one row happen exactly at the same time point, so they are combined}
 
+\footnotetext{multiple Hivent Operations in one row happen exactly at the same time point, so they are combined}
 
 % subsection edit_workflow (end)
 
