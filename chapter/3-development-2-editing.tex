@@ -416,12 +416,15 @@ Depending on the input of the user in the steps for an Edit Operation, there are
   \\
 
   \bottomrule
-\caption{Translation from Edit Operations to Hivent Operations.\protect\footnotemark}
+\caption{Translation from Edit Operations to Hivent Operations.}
 \end{longtable}
 \label{tab:editoperations_to_hg_operations}
 \end{center}
 
-\footnotetext{multiple Hivent Operations in one row happen exactly at the same time point, so they are combined}
+\vspace{-4em}
+\begin{center}
+  \footnotesize{multiple Hivent Operations in one row happen exactly at the same time point, so they are combined}
+\end{center}
 
 % subsection edit_workflow (end)
 
@@ -429,16 +432,8 @@ Depending on the input of the user in the steps for an Edit Operation, there are
 \subsection{Retrospective Updates} % (fold)
 \label{sub:retrospective_updates}
 
-A straightforward use case of the Hivent Model is to change the current state of the system with a new Hivent Operation into the future. Givent the initial start point $t_0$, a current time point $t_{now} > t_0$ and a set of consecutively added Hivent Operations at $\forall t_i: t_0 \leq t_i < t_{now}$. The accumulation of all changes make up the current state of the system at $t_{now}$. To change this current state, a new Hivent Operation can be inserted at $t_{now}$ into the future. This state is valid until the next change is inserted.
-
-For historical research that use case alone is not sufficient, because the current state of the map at $t_{now}$ (2016) is known to a large degree. The problem is to describe states and changes in the past. Therefore the systems needs to support entering Hivent Operations in between other existing operations.
-
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Integrity} % (fold)
-\label{par:integrity}
-
-Each Hivent Operation that is not entered to the end of the timeline must maintain the semantic, spatial and thematic integrity of the data, i.e. the changes to Areas, their territories and names must still work. The simple example in figure \ref{fig:update_conflict_example} shows the problem: Given time point $t_1$ with two Areas $A$ and $B$ and an \texttt{UNI} Hivent Operation at $t_2$ unifying $A$ and $B$ to $C$. If in retrospective a new Hivent Operation is inserted at $t_r: t_1 < t_r < t_2$ that cedes a part of of $A$ to a new Area $X$, the operation at $t_2$ is not consistent anymore, because the old territory of $A$ is not the same. It is not simple to say how the remaining territory $?$ should be treated.
+A straightforward use case of the Hivent Model is to change the current state of the system with a new Hivent Operation into the future. Givent the initial start point $t_0$, a current time point $t_{now} > t_0$ and a set of consecutively added Hivent Operations at $\forall t_i: t_0 \leq t_i < t_{now}$. The accumulation of all changes make up the current state of the system at $t_{now}$. To change this current state, a new Hivent Operation can be inserted at $t_{now}$ into the future. This state is valid until the next change is inserted. For historical research that use case alone is not sufficient, because the current state of the map at $t_{now}$ is known to a large degree. The problem is to describe states and changes in the past. Therefore the system needs to support retrospectively inserting Hivent Operations in between existing operations and therefore updating the set of Hivent Operations in the system.
+Each Hivent Operation that is not entered to the end of the timeline must maintain the semantic, spatial and thematic integrity of the data, i.e. the changes to Areas, their territories and names must still work.
 
 \begin{figure}[H]
   \vspace{1em}
@@ -448,20 +443,14 @@ Each Hivent Operation that is not entered to the end of the timeline must mainta
   \label{fig:update_conflict_example}
 \end{figure}
 
-% paragraph integrity (end)
+The simple example in figure \ref{fig:update_conflict_example} shows the problem: Given time point $t_1$ with two Areas $A$ and $B$ and an \texttt{UNI} Hivent Operation at $t_2$ unifying $A$ and $B$ to $C$. A \texttt{SEC} of a new Area $X$ from $A$ is inserted at $t_r: t_1 < t_r < t_2$ in retrospective. The operation at $t_2$ is not consistent anymore, because the old territory of $A$ is not the same. It is not simple to say how the remaining territory `$?$' should be treated.
+
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Conflicts} % (fold)
 \label{par:conflicts}
 
-The way the Hivent Model works is comparable to a version control system like \emph{Git}
-\footnote{
-  \emph{Git},
-  - -everything-is-local,
-  \url{https://git-scm.com/},
-  last access: 29.05.2016
-}
-There are different kinds of conflicts that can occur on retrospective updates. In the Hivent Model, they are classified regarding their resolvability:
+The way the Hivent Model works is comparable to a version control system like \emph{Git}. There are different kinds of conflicts that can occur on retrospective updates. In the Hivent Model, they are classified regarding their resolvability:
 
 \begin{compactenum}
   \item[A)] The conflict can be resolved \emph{\textbf{a}utomatically} without the interference of the user.
@@ -469,7 +458,7 @@ There are different kinds of conflicts that can occur on retrospective updates. 
   \item[M)] The conflict is complex and the user needs to resolve it \emph{\textbf{m}anually}.
 \end{compactenum}
 
-The remaining part of this section examines all possible cases of conflicts and their resolveability. Each inserted Hivent Operation transforms a set of old Areas $A = [A_i]$ to a set of new Areas $B = [B_i]$ or updates an update Area $A_0$ or both. Each consecutive Hivent Operation that manipulates $A_0, A_i \in A$ or $B_i \in B$ has to be checked regarding three aspects of integrity:
+The remaining part of this section examines all possible cases of conflicts and their resolveability. Each inserted Hivent Operation transforms a set of old Areas $A = [A_i]$ to a set of new Areas $B = [B_i]$ or updates an update Area $A_0$ or does both. Each consecutive Hivent Operation that manipulates $A_0, A_i \in A$ or $B_i \in B$ has to be checked regarding three aspects of integrity:
 
 \begin{compactenum}
   \item semantic: Does $A_0$ and $\forall A_i \in A$ still exist? If not, can it easily be replaced by another Area?
@@ -477,7 +466,7 @@ The remaining part of this section examines all possible cases of conflicts and 
   \item thematic: Is the name of $A_0$ and $\forall A_i \in A$ still the same? If not, can it easily be updated?
 \end{compactenum}
 
-All cases can be simulated in the following simple scenario: Given the system with only two states: an initial state at $t_1$ at which only three spatial entities are on the map ($A_1, A_2, A_3$) and an Hivent Operation at $t_2$ that manipulates some of these Areas with one of the five possible operations. This is called the original Hivent Operation ($H_o$). Now, a retrospective update $H_r$ is inserted in between the two states ($t_r: t_1 < t_r < t_2$). $H_r$ manipulates the same set of Areas with an Hivent Operations. The question is: What happens regarding the semantic, spatial and thematic integrity of $H_o$? Is there a conflict and if so, hw can it be resolved? There are 25 possible cases, because for both $H_o$ and $H_r$ there are five possible Hivent Operations.
+All cases can be simulated in the following simple scenario: Given the system with only two states: an initial state at $t_1$ at which only three spatial entities are on the map ($A_1, A_2, A_3$) and an Hivent Operation at $t_2$ that manipulates some of these Areas with one of the five possible operations. This is called the original Hivent Operation ($H_o$). Now, a retrospective update $H_r$ is inserted in between the two states ($t_r: t_1 < t_r < t_2$). $H_r$ manipulates the same set of Areas with an Hivent Operation. The question is: What happens regarding the semantic, spatial and thematic integrity of $H_o$? Is there a conflict and if so, how can it be resolved? There are 25 possible cases, because for both $H_o$ and $H_r$ there are five possible Hivent Operations.
 
 % paragraph conflicts (end)
 
@@ -505,6 +494,7 @@ An \texttt{INC} ceases a set of old Areas and changes the territory of one Area.
 
 Figure \ref{fig:update_conflict_INC} shows the conflicts that occur in the remaining four possiblities of $H_o$. In the case of an original \texttt{UNI} operation, it can still be performed with the same Areas, because $H_r$ did not change the identity of $A_1$. However, the territory of $A_1$ has been enlarged. This new territory has to be taken into account for $H_o$: To maintain spatial integrity, the system has to update the territory of incoming $A_1$. However, the territory of $B_1$ has to be updated as well, because it is enlarged in the same way as $A_1$. This requires a recursive update into the future: the next Hivent Operation dealing with $B_1$ needs to take into account that the territory has changed. This case can be treated as if $H_o$ would be $H_r$ with an \texttt{INC} operation. The system has to repeat this process until all conflicts are solved. The same is true if $H_o$ is an \texttt{INC} operation: The system needs to update the old and the new territory of $A_1$ in $H_o$ and recursively update the territory of $A_1$ into the future.
 
+\newpage
 If $H_o$ is a \texttt{SEP} operation, there is a major conflict: originally, $A_1$ splitted into $B_1$ and $B_2$. Due to $H_r$, the territory of $A_1$ is larger. $H_o$ can still separate $B_1$ and $B_2$ from $A_1$ the same way as before, but it is unclear what should happen to the remaning territory of $A_1$ that has just been enlarged. This conflict has to be resolved manually, because the system can not derive a decision from any existing information. The remaining part could become $\Omega$, it could be incorporated into $B_1$ or $B_2$ or stay $A_1$. However, the user has to decide it. In case of an original \texttt{SEC}, the situation is slightly different: $H_1$ still exists like before, just with a larger territory. $H_o$ can secede $B_1$ like originally, but the system needs to update the old and new territory of $A_1$ in this operation and recursively into the future.
 
 The foregoing investigation relates only to $A_1$ but not to $A_2$ that has been incorporated into $H_r$. From the perspective of $A_2$, this change can be seen as a \texttt{UNI}, because its identity ceases and together with its territory it completely merges into $A_1$. Therefore this is treated like a retrospective unification examined later in this section.
@@ -607,7 +597,7 @@ For semi-automatic resolution, the resolveability of the two options is stated l
 \end{center}
 \end{table}
 
-All possible cases and their resolvability are visualized in the $5 \times 5$ matrix in figure \ref{tab:conflicts_retrospective_updates}. It became clear in the extensive examnination of the conflicting cases that inserting a retrospective update into a spatio-temporal system is not straightforward at all. Especially if a separation or secession is added somewhere not to the end of the timeline, in almost all cases the user has to decide between two alternatives. In three cases there is even a manual resolution necessary. A lot of cases also require recursive updates, meaning the retrospective update can lead to a potentially high number of semi-automatic or even manual resolutions by the user, which an potentially be frustrating. On top of that the examination completely disregarded the situation of combined cases, e.g. if the original operation is a combination of \texttt{SEC+INC} resulting from a user-defined border change (\texttt{BCH}) between two Areas. This might become even more complex. In summary, the Hivent Model needs to be checked for potential adaptions that might simplify retrospective updates and make the data handling less frustrating.
+All possible cases and their resolvability are visualized in figure \ref{tab:conflicts_retrospective_updates}. It became clear in the extensive examination of the conflicting cases that inserting a retrospective update into a spatio-temporal system is not straightforward at all. Especially if a separation or secession is added somewhere not to the end of the timeline, in almost all cases the user has to decide between two alternatives. In three cases there is even a manual resolution necessary. A lot of cases also require recursive updates, meaning the retrospective update can lead to a potentially high number of semi-automatic or even manual resolutions by the user, which an potentially be frustrating. On top of that the examination completely disregarded the situation of combined cases, e.g. if the original operation is a combination of \texttt{SEC+INC} resulting from a user-defined border change (\texttt{BCH}) between two Areas. This might become even more complex. In summary, the Hivent Model needs to be checked for potential adaptions that might simplify retrospective updates and make the data handling less frustrating.
 
 % subsection retrospective_updates (end)
 

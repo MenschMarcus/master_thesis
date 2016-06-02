@@ -10,31 +10,32 @@
 \section{User Interface Design Process} % (fold)
 \label{sec:user_interface_design_process}
 
-HistoGlobe is the application in which the work of this thesis is implemented. The Hivent Model presented in the section \ref{sec:hivent_model} serves as its data model and the methods to edit Hivent data in HistoGlobe (section \ref{sec:editing_hivent_data}) form parts of the computational model. However, developing the system bottom-up from the data model to the interface might not lead to usable system. Human Centered Design promotes a top-down process from the user via the interface into the core of the application. This section illustrates the iterative design process for this thesis seen in figure \ref{fig:human_centered_design}. The two main use cases for HistoGlobe that are focused in this thesis are:
+The Hivent Model presented in the section \ref{sec:hivent_model} and the methods to edit the data in section \ref{sec:editing_hivent_data} serve as the foundation of HistoGlobe. However, developing the system bottom-up from the data model to the interface might not lead to usable system. Human Centered Design promotes a top-down process from the user via the interface into the core of the application. This section illustrates the iterative design process for this thesis seen in figure \ref{fig:human_centered_design}
 
-\begin{compactenum}
-  \item \textbf{Understanding} the history of countries.
-  \item \textbf{Editing} the development of countries with historical changes by inserting forward and backwards operations and correcting wrong information in the system.
-\end{compactenum}
+The two main use cases for HistoGlobe that are focused in this thesis are \emph{understanding} the history of countries and \emph{editing} it. The initial interviews confirmed that the combination of a map and a timeline are a very appropriate way to interactively visualize the history of countries. Thefore, the main interface concept of HistoGlobe introduced in section \ref{sec:histoglobe} does not need to be changed. It is extended by the \emph{HistoGraph} introduced in section \ref{sub:histograph}. This promising set of visualizations forms the \emph{Browsing Mode} of HistoGlobe to understand the history of countries.
 
-The interviews with researchers in humanities at University of Virginia confirmed that the combination of a map and a timeline are a very appropriate and intuitive way to interactively visualize the history of countries. Thefore, the main concept of HistoGlobe introduced in section \ref{sec:histoglobe} does not need to be changed. This concept is extended by the \emph{HistoGraph} introduced in section \ref{sub:histograph}. This promising set of visualizations forms the \emph{Browsing Mode} of HistoGlobe to understand the history of countries.
+For editing purposes the idea of a second interface mode was developed: The \emph{Edit Mode} is the main product of the iterative design process illustrated in this section. It is based on the Edit Operations, the workflow to edit the data and the concepts of retrospective updates and backward operations from section \ref{sec:editing_hivent_data}. The Edit Mode allows to intuitively edit Hivents, Areas and operations directly in HistoGlobe, without the need to write data into database tables.
 
-For editing purposes the idea of a secod interface mode was developed: The \emph{Edit Mode} is the main product of the iterative design process illustrated in this section. It is based on the Edit Operations, the workflow to edit the data and the concepts of retrospective updates and backward operations from section \ref{sec:editing_hivent_data}. The Edit Mode allows to intuitively edit Hivents, Areas and operations directly in HistoGlobe, without the need to write data into tables or forms.
+% % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% \paragraph{Initial interviews} % (fold)
+% \label{par:initial_interviews}
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Initial interviews} % (fold)
-\label{par:initial_interviews}
+% Four researchers were asked about their opinions on the idea of HistoGlobe, use cases and the concept of the Edit Mode. The idea proved popular, especially for students and teachers in school, historically interested people in general and also for scholars in digital humanities. All researchers agreed that the key to a successful interface is usability, because editing data in time and space is a challenging task. A main concern is uncertainty: Almost all sorts of information in historical research -- temporal, spatial and thematic -- are potentially uncertain. A good user interface for researchers therefore has to support uploading historical sources and indicating uncertainty.
 
-Four researchers were asked about their opinions on the idea of HistoGlobe, use cases and the concept of the Edit Mode. The idea proved popular, especially for students and teachers in school, historically interested people in general and also for scholars in digital humanities. All researchers agreed that the key to a successful interface is usability, because editing data in time and space is a challenging task. A main concern is uncertainty: Almost all sorts of information in historical research -- temporal, spatial and thematic -- are potentially uncertain. A good user interface for researchers therefore has to support uploading historical sources and indicating uncertainty.
-
-% paragraph initial_interviews (end)
+% % paragraph initial_interviews (end)
 
 
 % ------------------------------------------------------------------------------
 \subsection{Paper Prototype} % (fold)
 \label{sub:paper_prototype}
 
-From the results of the inital interviews, an interface concept for the Edit Mode was developed in a paper prototype. It very fast to create and allows to identify flaws in the concept early in the design process. For this thesis, two paper prototype iterations were created that took about three full work days each: one day to create the prototype, half a day to conduct the study with three people, and one and a half days to analyze the results and rethink the concept.
+The inital interviews it became clear that usability is the key to a successful interface that humanity scholars would actually use. In the second phase, the idea of the Edit Mode was developed in a paper prototype. It consisted of a map of Europe, a timeline and a set of buttons and dialogs for the Edit Mode. The prototypes were evaluated with three test subjects each that had to solve four tasks covering different use cases and operations:
+\begin{compactenum}
+  \item 1300: Rename incorrectly spelled name of Switzerland on the map (\emph{correction})
+  \item 1990: Unite East and West Germany (\emph{forward change})
+  \item 1993: Separate the Soviet Union into Russia, Estonia, Latvia, etc. (\emph{forward change})
+  \item 1944: Change the border between Finland and the Soviet Union before 1944 (\emph{backward change})
+\end{compactenum}
 
 \begin{figure}[H]
 \centering
@@ -50,19 +51,11 @@ From the results of the inital interviews, an interface concept for the Edit Mod
 \label{fig:paper_prototypes}
 \end{figure}
 
-The interface consists of a map of Europe, a timeline centered at 1975 and the buttons with a set of dialogs for the for the Edit Mode. Both prototypes were evaluated with three test subjects that had to solve four tasks covering different use cases and operations:
-\begin{compactenum}
-  \item 1300: Rename incorrectly spelled name of Switzerland on the map (\emph{correction})
-  \item 1990: Unite East and West Germany (\emph{forward change})
-  \item 1993: Separate the Soviet Union into Russia, Estonia, Latvia, etc. (\emph{forward change})
-  \item 1944: Change the border between Finland and the Soviet Union before 1944 (\emph{backward change})
-\end{compactenum}
-
-Most parts of the interface concept were understood and all subjects could solve the first three tasks. However, there were also problems:
+Two paper prototype iterations were created. Each iteration took about three full work days including the creation of the prototype, the conduction of the study and the analysis of the results.
+Most parts of the interface concept were understood and all subjects were able to solve the first three tasks. However, paper prototyping was very helpful to identify the following flaws early in the design process:
 
 \begin{compactenum}
-  \item There difference between Hivents, the history of a country and an historical change was unclear.
-  \item The border drawing dialoge was imagined to be very complex.
+  \item The difference between Hivents, the history of a country and an historical change was unclear.
   \item The backward change was not understood.
   \item Correcting the name Switzerland by changing the event that created it in 1300 caused confusion.
 \end{compactenum}
@@ -78,6 +71,7 @@ The main finding of this step was that depending on the task, there is both an H
 The main part of the design process was spent on the mockup prototypes. Their purpose is to rapidly develop an interface workflow that is understandable by the users. The prototypes were created in \emph{LibreOffice Impress}, an open-source slide-based presentation tool. The interface is simulated on slides: the map is a background image, the timeline, the set of buttons and dialogs for the Edit Mode and HistoGraph are modelled with geometric elements: lines, circles and rectangles. Interactivity is simulated by linking a click on an element to a different slide that shows the effect of the operation. This allows to model sudden changes in the interface.
 
 \begin{figure}[ht]
+  \vspace{1em}
   \centering
   \begin{subfigure}[b]{.5\textwidth}
     \centering
@@ -107,9 +101,9 @@ Each prototype iteration was tested with multiple subjects and similar tasks as 
   \end{tabular}
 \end{quoteit}
 \vspace{-1em}
-\hfill -- interesting quotes from the users of the mockup prototype were:
+\hfill -- interesting quotes from the users of the mockup prototype
 
-Especially the problem to initiate a retrospective update and a backward backward change proved to be very difficult. There was a design solutions developed for each problem: For retrospective updates, the interface needs to provide a visual clue where the next potential conflict arises: Figure \ref{sfig:backward_change} shows that West Germany can only be active until 1990, because then present-day Germany uses its territory. For backward operations a button that flippes an Edit Operation  is introduced in figure \ref{sfig:backward_change}: the \texttt{SEC} operation introduced to secede East Germany from Germany will be flipped into an \texttt{INC} operation to incorporate East Germany into Germany. The two grey Hivent markers on the left side of the timeline indicate that West and East Germany need a creation event, otherwise they would be active backwards all the way to $t_0$, the initial state of the system.
+Especially the problem to initiate a retrospective update and a backward backward change proved to be very difficult. There was a design solutions developed for each problem: For retrospective updates, the interface needs to provide a visual clue where the next potential conflict arises: Figure \ref{sfig:retrospective_update} shows that West Germany can only be active until 1990, because then present-day Germany uses its territory. For backward operations a button that flippes an Edit Operation  is introduced in figure \ref{sfig:backward_change}: the \texttt{SEC} operation introduced to secede East Germany from Germany will be flipped into an \texttt{INC} operation to incorporate East Germany into Germany. The two grey Hivent markers on the left side of the timeline indicate that West and East Germany need a creation event, otherwise they would be active backwards all the way to $t_0$, the initial state of the system.
 
 \begin{figure}[ht]
 \centering
@@ -129,7 +123,7 @@ Especially the problem to initiate a retrospective update and a backward backwar
 \label{fig:backward_change}
 \end{figure}
 
-The prototype was very valuable for the development process. In a total of two weeks, an interface concept and workflow was designed thatwas understandable by the users. Its creation took longer than the paper prototype, but was much faster than implementing an interactive Web-based interface.
+The prototype was very valuable for the development process. In a total of two weeks, an interface concept and workflow was designed the users understood. Its creation took longer than the paper prototype, but was much faster than implementing an interactive Web-based interface.
 
 
 % subsection mockup_prototype (end)
@@ -138,7 +132,9 @@ The prototype was very valuable for the development process. In a total of two w
 \subsection{Web-based prototype} % (fold)
 \label{sub:web_based_prototype}
 
-The main advantage of the design process so far is that it prevents major redesigns of the final Web-based prototype. After three months of implementation of the final system, the interface looks very similar to the last version of the mockup prototype. The main elements of the interface are the map, the timeline with the Now Marker the control buttons the map and the timeline and the Edit Mode. However, not all desired features could be implemented: For the HistoGraph there were too many conceptual problems mentioned in section \ref{sub:histograph} that have to be solved first. Backward operations and retrospective updates are not supoprted as well, because of their complex nature. The HistoGlobe version developed in this thesis supports editing the development of countries with forward operations at the end of the timeline. The interaction and behavior is introduced in this section at the example of the fictional secession of Scotland from the United Kingdom in 2018.
+The main advantage of the design process so far is that it prevents major redesigns of the final Web-based prototype. After three months of implementation of the final system, the interface looks very similar to the last version of the mockup prototype. The main elements of the interface are the map, the timeline with the Now Marker the control buttons the map and the timeline and the Edit Mode.
+
+However, not all desired features could be implemented: For the HistoGraph there were too many conceptual problems mentioned in section \ref{sub:histograph} that have to be solved first. Backward operations and retrospective updates are not supoprted as well, because of their complex nature behind the interface. The HistoGlobe version developed in this thesis only supports editing the history of countries with forward operations at the end of the timeline. The interaction and behavior is introduced in this section at the example of the fictional secession of Scotland from the United Kingdom in 2018.
 
 \newpage
 \begin{minipage}[t]{0.47\textwidth}
