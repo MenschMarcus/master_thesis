@@ -22,12 +22,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9899494928775887"
-     inkscape:cx="486.1915435722143"
-     inkscape:cy="220.1817702361674"
+     inkscape:zoom="1.979898984710508"
+     inkscape:cx="353.0409969470369"
+     inkscape:cy="261.2981290607385"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="true"
+     showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="834"
      inkscape:window-x="0"
@@ -436,7 +436,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -465,17 +465,17 @@
          id="tspan3759"
          x="431.34158"
          y="712.27466"
-         style="font-size:6px;text-align:center;text-anchor:middle">HistoGlobe</tspan></text>
+         style="font-size:6px;text-align:center;text-anchor:middle;font-weight:bold">HistoGlobe</tspan></text>
     <rect
-       transform="matrix(1.011291485622307,0,0,1.007937093299005,-768.0094033087761,1229.180812620507)"
-       y="695.9219970703125"
-       x="391.0839233398438"
-       height="19.84246635437012"
-       width="64.27427673339844"
+       transform="matrix(1.011291485622307,0,0,1.007937093299005,-772.6926297743182,1229.180812620507)"
+       y="695.027099609375"
+       x="393.2522277832031"
+       height="19.84251022338867"
+       width="64.27424621582031"
        id="rect3804"
        style="fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.9904786348;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211" />
     <text
-       transform="matrix(2,0,0,2,-1202.799026072822,520.1750700346999)"
+       transform="matrix(2,0,0,2,-1205.289480147642,519.7240919705161)"
        sodipodi:linespacing="125%"
        id="text3806"
        y="712.27466"
@@ -490,16 +490,16 @@
     <rect
        style="fill:#aaaaaa;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.9904786348;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211"
        id="rect3816"
-       width="64.27426147460938"
+       width="64.27424621582031"
        height="19.84253120422363"
-       x="391.0839233398438"
-       y="697.6719970703125"
-       transform="matrix(1.011291485622307,0,0,1.007937093299005,-768.0094033087761,1207.416900840108)" />
+       x="393.2522277832031"
+       y="696.777099609375"
+       transform="matrix(1.011291485622307,0,0,1.007937093299005,-772.6926297743182,1207.416900840108)" />
     <rect
-       transform="matrix(1.011291485622307,0,0,1.007937093299005,-768.0094033087761,1176.948947654237)"
-       y="708.0575561523438"
-       x="391.0839233398438"
-       height="19.84248161315918"
+       transform="matrix(1.011291485622307,0,0,1.007937093299005,-772.6926297743182,1176.948947654237)"
+       y="707.1626586914062"
+       x="393.2522277832031"
+       height="19.84249496459961"
        width="64.27424621582031"
        id="rect3818"
        style="fill:#787878;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.9904786348;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211" />
@@ -510,14 +510,14 @@
        y="712.27466"
        id="text3820"
        sodipodi:linespacing="125%"
-       transform="matrix(2,0,0,2,-1202.999940038364,500.2470808498606)"><tspan
+       transform="matrix(2,0,0,2,-1205.490386397642,499.796079715828)"><tspan
          sodipodi:role="line"
          id="tspan3822"
          x="431.34158"
          y="712.27466"
          style="font-size:6px;text-align:center;text-anchor:middle">Controller</tspan></text>
     <text
-       transform="matrix(2,0,0,2,-1202.683166503906,480.1750929050807)"
+       transform="matrix(2,0,0,2,-1205.173605147642,479.7240860035856)"
        sodipodi:linespacing="125%"
        id="text3824"
        y="712.27466"
@@ -549,11 +549,11 @@
          id="tspan3832"
          x="431.34158"
          y="712.27466"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle">ControlButtons</tspan><tspan
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold">ControlButtons</tspan><tspan
          sodipodi:role="line"
          x="431.34158"
          y="717.67468"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          id="tspan3834">Timeline</tspan></text>
     <rect
        transform="matrix(2.571428851692075,0,0,2.400000185369628,-928.0905746566545,-258.0030241152877)"
@@ -572,7 +572,7 @@
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:89.9999976158%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
        xml:space="preserve"><tspan
          id="tspan3853"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="712.27466"
          x="431.34158"
          sodipodi:role="line">Timeline</tspan></text>
@@ -595,7 +595,7 @@
          sodipodi:role="line"
          x="431.34158"
          y="712.27466"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          id="tspan3861">NowMarker</tspan></text>
     <rect
        transform="matrix(2,0,0,2.400000182744117,-486.9919877014161,-303.0030241446743)"
@@ -614,7 +614,7 @@
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:89.9999976158%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
        xml:space="preserve"><tspan
          id="tspan3867"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="712.27466"
          x="431.34158"
          sodipodi:role="line">Map</tspan></text>
@@ -634,13 +634,13 @@
        x="431.34158"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:89.9999976158%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
        xml:space="preserve"><tspan
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="712.27466"
          x="431.34158"
          id="tspan3873"
          sodipodi:role="line">ControlButtons</tspan><tspan
          id="tspan3875"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="717.67468"
          x="431.34158"
          sodipodi:role="line">Map</tspan></text>
@@ -810,24 +810,24 @@
          sodipodi:role="line"
          x="431.34158"
          y="712.27466"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle">TimeController</tspan></text>
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold">TimeController</tspan></text>
     <rect
-       transform="matrix(2,0,0,2.400003295902954,-838.6822965087884,-60.07900406011822)"
+       transform="matrix(2,0,0,2.400003295902954,-835.5321466369634,-60.07900406011822)"
        y="708.2504272460938"
-       x="407.1647338867188"
-       height="12.4999828338623"
-       width="44.99999618530273"
+       x="403.7554626464844"
+       height="12.5"
+       width="48.40926361083984"
        id="rect4013"
        style="fill:#aaaaaa;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.4564351439;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211" />
     <text
-       transform="matrix(2,0,0,1.999999999999992,-842.5112178039546,234.3450392489376)"
+       transform="matrix(2,0,0,1.999999999999992,-842.7505617370611,234.3450392489376)"
        sodipodi:linespacing="89.99999761581421%"
        id="text4015"
        y="712.27466"
        x="431.34158"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:89.9999976158%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
        xml:space="preserve"><tspan
-         style="font-size:6px;font-weight:normal;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;font-weight:bold;text-align:center;line-height:89.9999976158%;text-anchor:middle"
          y="712.27466"
          x="431.34158"
          sodipodi:role="line"
@@ -857,7 +857,7 @@
          x="431.34158"
          y="717.67468"
          style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
-         id="tspan4025">Controller</tspan></text>
+         id="tspan4025">Creator</tspan></text>
     <rect
        transform="matrix(2,0,0,2.400002197267637,-1039.26093270874,-144.8741709952024)"
        y="708.1654052734375"
@@ -899,7 +899,7 @@
          sodipodi:role="line"
          x="431.34158"
          y="712.27466"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle">AreaController</tspan></text>
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold">AreaController</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4047"
@@ -1057,7 +1057,7 @@
          sodipodi:role="line"
          x="431.34158"
          y="712.27466"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          id="tspan4101">AreasOnMap</tspan></text>
     <rect
        transform="matrix(2,0,0,2.400002194858045,-432.0502947387693,-259.981954542618)"
@@ -1148,12 +1148,12 @@
        x="431.34158"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:89.9999976158%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
        xml:space="preserve"><tspan
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="712.27466"
          x="431.34158"
          sodipodi:role="line"
          id="tspan4129">Database</tspan><tspan
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="717.67468"
          x="431.34158"
          sodipodi:role="line"
@@ -1175,7 +1175,7 @@
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:89.9999976158%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
        xml:space="preserve"><tspan
          id="tspan4139"
-         style="font-size:6px;text-align:center;line-height:89.9999976158%;text-anchor:middle"
+         style="font-size:6px;text-align:center;line-height:89.99999761579999813%;text-anchor:middle;font-weight:bold"
          y="712.27466"
          x="431.34158"
          sodipodi:role="line">EditMode</tspan></text>
@@ -1715,7 +1715,7 @@
     <path
        sodipodi:nodetypes="cc"
        style="fill:none;stroke:#323232;stroke-width:0.8000000119;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.8, 2.4;stroke-dashoffset:0;marker-start:none;marker-end:url(#Arrow2Lendkq)"
-       d="M 97.63874549414326,493.6128466463856 L 27.63874549414328,493.6128466463856"
+       d="M 97.63874549414327,493.6128466463856 L 31.74588835995479,493.6128466463856"
        id="path18110"
        inkscape:connector-curvature="0"
        transform="translate(37.36125450585667,1161.111535300115)" />
@@ -1724,7 +1724,7 @@
        transform="matrix(-1,0,0,1,230.6909502453191,1413.28232517156)"
        inkscape:connector-curvature="0"
        id="path18112"
-       d="M 255.6909502453192,241.4420567749407 L 315.6909502453192,241.4420567749407 L 315.6909502453192,336.4420567749407 L 355.6909502453192,336.4420567749407"
+       d="M 258.9052359663891,241.4420567749407 L 315.6909502453192,241.4420567749407 L 315.6909502453192,336.4420567749407 L 355.6909502453192,336.4420567749407"
        style="fill:none;stroke:#323232;stroke-width:0.8000000119;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#EmptyTriangleOutL)" />
     <path
        sodipodi:nodetypes="cc"
@@ -1845,5 +1845,26 @@
        d="M 23.35303124611823,445.7557312302067 L 153.3530312461182,445.7557312302067 L 153.3530312461182,550.7557312302067"
        style="fill:none;stroke:#323232;stroke-width:0.8000000119;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.8, 2.4;stroke-dashoffset:0;marker-start:url(#Arrow2LstartJ);marker-end:url(#Arrow2Lendkq)"
        sodipodi:nodetypes="ccc" />
+    <rect
+       style="fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.9904786348;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211"
+       id="rect3271"
+       width="64.27424621582031"
+       height="19.84248542785645"
+       x="393.2522277832031"
+       y="707.4461059570312"
+       transform="matrix(1.011291485622307,0,0,1.007937093299005,-772.6926297743176,1151.948954382943)" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="431.34158"
+       y="712.27466"
+       id="text3273"
+       sodipodi:linespacing="125%"
+       transform="matrix(2,0,0,2,-1205.173605147641,455.1750929050807)"><tspan
+         sodipodi:role="line"
+         id="tspan3275"
+         x="431.34158"
+         y="712.27466"
+         style="font-size:6px;font-weight:bold;text-align:center;text-anchor:middle">HG Module</tspan></text>
   </g>
 </svg>

@@ -1,21 +1,9 @@
 %!TEX root = ../masters_thesis.tex
 
-% TODO
-% basic idea: given initial state $t_0$, consecutively insert Hivent Operations changing this state
-% current state: accumulate all changes
-% four domains: semantic, spatial, thematic and temporal
-% main difference spatial <-> thematic: no relations between names of two Areas. While it does not make any sense, potentially there could be two Areas active at the same time with exactly the same name. The update of the name of one Area is independent from any other Area. This is not true for the territory: They are highly related to each other. Geospatially each Area has at least one neighbor and two neighbors share the same border. An update of the territory of one Areas results in the update of at least one other territory.
-% concrete working of changes: [OldAreas], updateArea, [NewAreas]
-% execution of changes (forwards / backwards): hide old areas, show new areas, update updateArea
-%  For modelling the shapes of countries, the vector model is appropriate, because it is scale-independent and represents the real world very well. The territory of a country can be represented by a polypolygon. It consists of a set of cohesive parts of the territory, described by polygons. Each of these territorial parts contains of a eitehr interior borders or coastlines, represented by polylines which themselves consist of an ordered set of border points in gps coordinates.
-% speciality: enclaves and exclaves
-% They can represent enclaves, i.e. territories inside the territory of a country
-
-
 \section{Hivent Model} % (fold)
 \label{sec:hivent_model}
 
-This section proposes the spatio-temporal \emph{Hivent model} to represent countries and their development in time and space. In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced. The \emph{Snapshot Model} is unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but it does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it is also not suitable for this thesis. This problem is solved in the \emph{History Graph Model}. Additionally, the introduced temporal changes allow to represent historical changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} introduces a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal entity.
+This section proposes the spatio-temporal \emph{Hivent model} to represent countries and their history in time and space. In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced. The \emph{Snapshot Model} is unsuitable for the problem space. \emph{Simple Time-Stamping} is helpful to link countries to their history, but it does not explicitly model historical changes, which is desireable. For that purpose, the idea of the \emph{Event-Based Spatio-Temporal Data Model} was developed, but since it only works for raster data, it does not fit the problem space. The \emph{History Graph Model} fills this gap and additionally introduces temporal changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain Model} presents a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal object.
 
 The Hivent Model is constructed from components of some of these models: It is event-based and supports vector data. It is organized in four domains and allows to visualize data on a graph. The first section \ref{sub:elements} introduces the main elements of the Hivent model. Afterwards, the preconditions are defined in section \ref{sub:preconditions}. One major contribution of this thesis is proposed in section \ref{sub:hivent_operations}: the set of five \emph{Hivent Operations} that describe all possible changes of countries in time and space. This section closes with the \emph{HistoGraph} (section \ref{sub:histograph}), an aspatial visualization of historical developments.
 
@@ -31,7 +19,7 @@ The Hivent Model is constructed from components of some of these models: It is e
 represent historically significant happenings, e.g. a treaty, bill or declaration.
 The word is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}}.
 The focus in this work is on events that influence the geopolitical situation on Earth.
-An Hivent happens at one particular point in time and space and is therefore the main organizing elements of the eponymic data model.
+An Hivent happens at one particular point in time and space and is therefore the main organizing element of the eponymic data model.
 
 % paragraph hivent (end)
 
@@ -40,7 +28,7 @@ An Hivent happens at one particular point in time and space and is therefore the
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-represent one identical current or historical country. They are an abstract entity on the map with a \emph{name} and a \emph{territory}. The name consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to support enclaves and exclaves. The polylines of a polygon consist of an ordered set of points that represent a border of the country. They are either \emph{interior}, i.e. bordering another country, or a \emph{coastline}, bordering a body of water. Additionally, an Area keeps a reference to the historical changes creating, updating and ceasing it.
+represent one identical current or historical country. They are an abstract entity on the map with a \emph{name} and a \emph{territory}. The name consists of a common \emph{short name}, e.g. ``Germany'' and a \emph{formal name}, e.g. ``Federal Republic of Germany''. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to account for enclaves and exclaves. The polylines of a polygon consist of an ordered set of points that represent a border of the country. Additionally, an Area keeps a reference to the historical changes creating, updating and ceasing it.
 
 % paragraph area (end)
 
@@ -145,7 +133,7 @@ In the real world, the name of a country changes according to sudden events, e.g
   The spatial configuration of water and the coastlines have not changed over time.
 \end{constant_coastlines}
 
-Both assumptions are obviously wrong: In line with \cite{UNSeaBorders}, the territory of a country extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters. They are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent Model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change water and the coastlines. For now, the temporal behavior of an Area in the Hivent Model can be described as a \emph{static object that changes according to sudden events}.
+Both assumptions are obviously wrong:  They are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent Model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change water and the coastlines. For now, the temporal behavior of an Area in the Hivent Model can be described as a \emph{static object that changes according to sudden events}.
 
 % base: Newtons concept of absolute space?
 % TODO: topological rule?

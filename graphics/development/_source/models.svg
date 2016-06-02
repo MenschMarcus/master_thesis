@@ -23,15 +23,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.729166671110574"
-     inkscape:cx="315.4172996379999"
-     inkscape:cy="58.89804962171461"
+     inkscape:cx="243.2340936486656"
+     inkscape:cy="33.98201912793425"
      inkscape:document-units="px"
      inkscape:current-layer="g4788"
      showgrid="true"
      inkscape:window-width="1600"
      inkscape:window-height="834"
      inkscape:window-x="0"
-     inkscape:window-y="377"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:snap-global="true"
      fit-margin-top="0"
@@ -323,7 +323,7 @@
              y="573.45593"
              x="-1328.5034"
              id="tspan13700"
-             sodipodi:role="line">User Interface</tspan></text>
+             sodipodi:role="line">user interface</tspan></text>
         <text
            transform="matrix(1.03304245967904,0,0,1.03304245967904,1582.174332112554,374.9578554687903)"
            sodipodi:linespacing="125%"
@@ -336,7 +336,7 @@
              y="573.45593"
              x="-1328.5034"
              id="tspan13834"
-             sodipodi:role="line">Database</tspan></text>
+             sodipodi:role="line">database</tspan></text>
         <path
            sodipodi:type="arc"
            style="fill:#fafafa;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -612,7 +612,7 @@
              id="tspan14025"
              x="-1328.5034"
              y="573.45593"
-             style="font-size:9.68014431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#333333;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">Real World</tspan></text>
+             style="font-size:9.68014431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#333333;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">real world</tspan></text>
         <text
            transform="matrix(1.03304245967904,0,0,1.03304245967904,1582.356961504536,404.9578554687903)"
            sodipodi:linespacing="125%"
@@ -625,7 +625,7 @@
              y="573.45593"
              x="-1328.5034"
              id="tspan14029"
-             sodipodi:role="line">Application</tspan></text>
+             sodipodi:role="line">application</tspan></text>
         <text
            xml:space="preserve"
            style="font-size:9.68014431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
@@ -638,7 +638,7 @@
              id="tspan14033"
              x="-1328.5034"
              y="573.45593"
-             style="font-size:9.68014431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#333333;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">User</tspan></text>
+             style="font-size:9.68014431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#333333;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">user</tspan></text>
       </g>
     </g>
   </g>

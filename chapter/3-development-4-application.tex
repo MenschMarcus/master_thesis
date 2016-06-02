@@ -229,13 +229,6 @@ The Edit Mode is the main contribution of this thesis to the HistoGlobe project.
 \paragraph{Within-Tree} % (fold)
 \label{par:within_tree}
 
-One particular problem of the territory of an Area is that the associated polypolygon can have holes to account for enclaves and exclaves. They can even be nested (second-order enclaves, third-order enclaves, etc.), as in the example of Baarle-Nassau and Baarle-Hertog at the border between the Netherlands and Belgium
-\footnote{
-  \emph{The Curious Case of Baarle-Nassau and Baarle-Hertog},
-  kaushik, 06.11.2012,
-  \url{http://www.amusingplanet.com/2012/11/the-curious-case-of-baarle-nassau-and.html},
-  last access: 31.05.2016
-}.
 The \texttt{NewTerritoryTool} has to ensure that the drawn polygons are not self-intersecting and that no two polygons for one territory partially overlap each other. If they fully overlap, then they are holes in the polygon. A polygon consist of one \emph{outer ring}, a closed polyline forming the boundary of the polygon, and a set of \emph{inner rings}, closed polylines defining the holes in the polygon. Second-order enclaves are new polygons that happen to be positioned inside the inner rings of the other polygon. They can themselves have inner rings, which represent third-order enclaves, etc.
 
 In order to supported nested holes, the \emph{WithinTree} is introduced. The idea of the tree is to set up an hierarchical structure of polygons that contain each other. An example Within-Tree for a random set of polygons can be seen in figure \ref{fig:within_tree}.

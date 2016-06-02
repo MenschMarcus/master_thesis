@@ -1,7 +1,6 @@
 %!TEX root = ../masters_thesis.tex
 
 % TODO: enclaves and exclaves
-% TODO: HistoGlobe
 
 \chapter{Basics} % (fold)
 \label{cha:basics}
@@ -100,8 +99,9 @@ Officially there are two different concepts that define what a country is: The \
 In contrast, the constituitive theory requires exactly that: A state can only be considered as such if it is recognized by other states. However, it is not defined anywhere by how many other states \cite{StateTheory}. In short: ``A country is a country when other countries think that country is a country.'' \cite{greyCountries}
 
 \begin{figure}[ht]
+  \vspace{1em}
   \centering
-  \includegraphics[width = 0.6\textwidth]{graphics/basics/countries/decl_const_theory}
+  \includegraphics[width = 0.8\textwidth]{graphics/basics/countries/decl_const_theory}
   \caption{The Declaratory Theory (left) and the Constituitive Theory (right) of Statehood}
   \label{fig:declaratory_constituitive_theory}
 \end{figure}
@@ -117,6 +117,57 @@ Nobody can clearly say if Kosovo, Taiwan or Abkhazia are countries or not -- and
 That means, the HGIS developed in this thesis inevitably deals with uncertain information that some parties disagree. Its data model can not perfectly fit self-classifying data and can not rely on an objective data source. The system has to contain approaches that deal with this problem.
 
 % subsection declaratory_vs_constituitive_theory (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Territory of a Country} % (fold)
+\label{sub:territory_of_a_country}
+
+The declaratory theory introduces four main properties of a country. The data model developed in this thesis focuses only the territory, since it is easy to present it on the map. It can just as well be a complex issue, as it has already been explained for the case of the State of Palestine in section \ref{par:un_observer_states}. In the usual case, the threedimensional territory of a country consits of the \emph{landmass} it occupies, its \emph{territorial waters} and its \emph{controlled airspace}. This thesis considers only the two-dimensional part of the territory on the Earth's surface. It contains land, islands, inland water, river outfalls, and fjords.
+
+The \emph{land territory} is bounded by the countries \emph{borders}. A border consists of a set of straight lines between clearly defined \emph{border points}.
+A border is either \emph{interior} when it directly borders the territory of another country on land or a \emph{coastline} if it borders international water. In line with \cite{UNSeaBorders}, the territory of a country extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters and forms the \emph{sea territory} of a county.
+% An interior border can be either a \emph{natural border} if it is based on geographical features, e.g. rivers or mountain ridges or an arbitrary \emph{artificial border}.
+The territory of a country is \emph{continuous} if each point on the territory can be reached by any other point without leaving the territory. Non-continuous territories are usually the case if the country has islands. However, there is a special case to be considered:
+
+\begin{minipage}[t]{0.60\textwidth}
+
+If a territory is completely surrounded by the territory of exactly one country, it is an \emph{enclave}. On a contrary, an \emph{exclave} is a part of a countries territory that is geographically separate from the main part of the territory. In some cases the exclave of one country is automatically the enclave of another country -- however, if the exclave is surrounded by more than one other country, is not an exclave. Enclaves can be be nested and form a hierachy, e.g. a \emph{second-order enclave} is an enclave within an enclave
+\cite{enclavesexclaves}. \\[-0.6em]
+
+In the example in figure \ref{fig:enclaves_exclaves} ~ $A$ has three exclaves: $A_1$, $A_2$ and $A_3$. Only $A_3$ is also an enclave, within $B$. $E$ is an enclave of $A$. Within $E$, there are two second-order enclaves for $A$: $A_4$ and $A_5$. Inside $A_5$, there is $E_1$, a third-order enclave from the perspective of $A$ and a second-order enclave for $E$. $D$ is the only fully enclaved territory.
+
+\end{minipage}             % N.B. the % is very important
+\hspace{0.05\textwidth}    % N.B. this must go in this line, no blank lines !!!
+\begin{minipage}[t]{0.35\textwidth}
+
+\vspace{-2em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{graphics/basics/countries/enclaves_exclaves}
+  \caption{Enclaves and exclaves \protect\footnotemark}
+  \label{fig:enclaves_exclaves}
+\end{figure}
+
+\end{minipage}    % N.B. the % is very important
+
+\footnotetext{
+  example based on:
+  \emph{Explicative diagram of territorial discontinuities: Enclaves and exclaves},
+  Wikipedia,
+  \url{https://en.wikipedia.org/wiki/Enclave_and_exclave},
+  last access: 02.06.2016
+}
+
+Second-order enclaves infrequently appear in the real world, as in the example of Baarle-Nassau and Baarle-Hertog at the border between the Netherlands and Belgium
+\footnote{
+  \emph{The Curious Case of Baarle-Nassau and Baarle-Hertog},
+  kaushik, 06.11.2012,
+  \url{http://www.amusingplanet.com/2012/11/the-curious-case-of-baarle-nassau-and.html},
+  last access: 31.05.2016
+}.
+There are three countries in the world that are complete enclaves: San Marino, Vatican City and Lesotho
+
+% subsection territory_of_a_country (end)
 
 % section countries (end)
 
