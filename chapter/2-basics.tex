@@ -873,7 +873,7 @@ combine the advantages of both worlds. Internally, it uses the established and e
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Spatio-Temporal Database Models} % (fold)
-\label{par:spatio_temporal_database_models
+\label{par:spatio_temporal_database_models}
 
 The question is: How to implement the spatio-temporal data modles introduced in section \ref{sec:spatio_temporal_data_models} in a relational, object-oriented or object-relational database management system introduced in this section? While the implementation depends on the data model, there are common concepts and issues that have to be addressed.
 
@@ -893,47 +893,40 @@ Finally, a severe issue is \emph{version management}. Given a database model tha
 \section{HistoGlobe} % (fold)
 \label{sec:histoglobe}
 
+\begin{quote}
+  Do you remember history lessons in school with old and dusty historical world maps at unsteady mapstands? --- Forget about that! \\[0.5em]
+  Imagine a globe that you can rotate and see from all sides. \\
+  Imagine a timeline which you can scroll to any point in time. \\
+  Imagine you can see how the world changes when you move the timeline: \\
+  country borders shift, troops move on the planet or kingdoms make way for democracies. \\[0.5em]
+  This is \emph{HistoGlobe}, a revolution of teaching and learning of history!
+\end{quote}
 
-Application: HistoGlobe
-A distributed \emph{Web Information System}, consists of a remote server side, on which the storage and management of the actual data happens, and the client side on which the user communicates with the system. It hosts the user interface that is rendered in a Web browser.
+HistoGlobe is a Web-based Historical Geographic Information System that aims to visualize the history of the Earth on a globe with a timeline. It shows historical events and geopolitical changes. The goal is to provide a freely accessible open-source tool for a
 
-map for spatial domain (x, y)
-timeline for temporal domain (t)
--> 3D system
+\begin{compactitem}
+  \item better \emph{understanding} of history for learners,
+  \item more appropriate \emph{presentation} of history for teachers and
+  \item interesting \emph{exploration} of history for scholars.
+\end{compactitem}
 
-describe the components of the HG explicitally
+The HistoGlobe project was found in Weimar in 2010 and has since then evolved from a single student project via a tech-startup with up to 15 contributors to an academic project for the sake of research for geography, history and computer science. The current protoype of HistoGlobe was developed for students in school to understand German, European and World history since World War I with a focus on the time of the Cold War. The prototype can be seen at \texttt{http://histoglobe.com}.
 
-ancestors successors
-layers of administrative units
-open to extension for additional attribute data (e.g. statistics)
+\begin{figure}[ht]
+  \vspace{1em}
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/histoglobe/school_project}
+  \caption{The HistoGlobe School project (status: April 2015)}
+  \label{fig:histoglobe_school}
+\end{figure}
 
-requirements
-  geographical knowledge
-  contextualize / intersect historical sources
-  accept imprecision
-  prevent illusion of certainty
-
-usable User Interface for both navigation and editing
--> problem: all interfaces are trés horrible!
-
-module system
-
-
-system already works in browsing mode, i.e. experience history:
-http://histoglobe.com
-(Europe 1871-1990)
-
-
-problem: very little data, data entry into the system is horribly complicated, there is no backend
-
-solution: an editor for historical data.
-
+Figure \ref{fig:histoglobe_school} shows the user interface of HistoGlobe: a 2D map, a timeline, control buttons for the map and the timeline, a topic bar extending the timeline showing historical periods in German and World history and a search bar for finding historical events. HistoGlobe is built upon a module system for interface components: The map can be exchanged with a globe, control buttons can be switched on and off or additional visualization approaches, e.g. for the history graph introduced in section \ref{sub:history_graph_model}, can be added. The idea is that the components are independent from each other, e.g. exchanging the map with a globe has no effect on the timeline or the control buttons. The main problem of HistoGlobe is the data: there is very little data in the system and editing historical information about countries and events is very complicated due to a complex domain and a lack of a proper backend.
 
 % section histoglobe (end)
 
-% chapter bascis (end)
-
 % ==============================================================================
-\vspace{2em}
+\vspace{1.5em}
 
-transition to concept chapter
+This chapter introduced the problem domain of Historical Geographic Information Systems for the history of countries. Also existing spatio-temporal data models their advantages and disadvantages have been presented. The purpose of this thesis is to develop a model for managing the historical developments of countries in time and space. This model will combine some of these approaches and also consider complex cases due to the uncertain nature of historical research. It will be implemented as the foundation of HistoGlobe. Additionally, an editor for historical data is to be developed as a new HistoGlobe module to enable users to edit the course of history directly on the map. The next chapter will present the development process for the data model and the user interface.
+
+% chapter bascis (end)
