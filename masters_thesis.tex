@@ -166,11 +166,19 @@
 % usage: \rot{title column}
 \newcommand*\rot{\rotatebox{90}}
 
+
+\newenvironment{quoteright}
+  {\par\hfill\itshape
+   \begin{tabular}{@{}r@{\hspace{2em}}}} % 2em from the right margin
+  {\end{tabular}\par\medskip}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % meta information
 \title{\titleFirst \\ \titleSecond}
 \author{\thesisauthor}
 \date{\submissionDate}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -29,9 +29,10 @@ The history of countries is very complex. The problem space of this work was lim
   }
 \end{description}
 
-
-These five changes are modelled as \emph{Hivent Operations}. Countries are represented by abstract \emph{Areas} with a formal name, a short name and a territory. Areas can change due to \emph{Hivents} -- \emph{\textbf{Hi}storical e\texttt{vents}} -- that introduce the Hivent Operations to cease or create a set of Areas or to update the properties of an Area over time.
-
+These five changes are modelled in the \emph{Hivent Model}, an event-based spatio-temporal data model for vector data, organized by a four-domain model and visualized in a graph.
+\emph{Hivents} -- \emph{\textbf{Hi}storical e\texttt{vents}} - are historically significant happenings in time.
+Countries are represented by abstract \emph{Areas} with a formal name, a short name and a territory. They can change due a combination of five \emph{Hivent Operations} represent exactly the five historical changes. Each operation ceases or creates a set of Areas or updates the properties of an Area.
+The history of Areas can be visualized spatially on a map and aspatially on the \emph{HistoGraph}
 
 \begin{description}[labelindent=0.1em]
   \item[\textbf{2b)}]
@@ -40,15 +41,18 @@ These five changes are modelled as \emph{Hivent Operations}. Countries are repre
   }
 \end{description}
 
-While the Hivent Operations are
+While the Hivent Operations are very well understood by a machine, they are not suitable to be used by humans to manually edit the course of history. For that matter, sic \emph{Edit Operations} are developed: Create, merge, dissolve, change border, rename and cease. An Edit Operation can be directly performed on the map using a workflow of four steps:
 
+\begin{enumerate}
+  \item Select the old areas to be manipulated.
+  \item Create the territories of each new Area to be created.
+  \item Create the names of each new Area to be created.
+  \item Add the Edit Operation to an Hivent.
+\end{enumerate}
 
-edit operations well understood by a human
-1:n
-hivent operatoins wlel understood by the machine
+Internally, the Edit Operations are expressed by a combination of the five Hivent Operations and visualized on the HistoGraph. The Hivent Model including the Hivent Operations and the Edit Operations are the main contribution of this Master's thesis to the research field of spatio-temporal data models.
 
-
-The Hivent Operations are the main contribution of this Master's thesis.
+The model and the operations were implemented in HistoGlobe, a Web-based Historical Geographic Information System that aims to visualize the history of the world on a map and a timeline. The user interface was extended by the Edit Mode to edit the historical data about Areas and Hivents in the system. In several user studies of the Human Centered Design process in this work the interface proved to be understandable and usable.
 
 \begin{description}[labelindent=0.55em]
   \item[\textbf{3)}]
@@ -57,41 +61,53 @@ The Hivent Operations are the main contribution of this Master's thesis.
   }
 \end{description}
 
+While the initially developed Hivent model works very well given the absolute certainty about the data in the system, it has no support for any kind of imperfection, known lack of accuracy and precision or disagreement. Therefore, extensions to the original Hivent model were developed.
+
+Areas can be assigned a special status, e.g. being a contested territory, an autonomous country within a sovereign country or a neutral zone. This will visualize the Areas differently and serve as a visual clue to signal disagreement or uncertainty. The concept of international recognition is introduced to solve the problem how to deal with questionable ``maybe'' countries: If a country has no or limited recognition by other countries, it will not be visualized the same way. The borders of Areas get an additional property that signifies the \emph{certainty} about their course. The lower the certainty, the blurrier or wider the border will appear on the map to signify limited expected accuracy.
+
+These approaches reveal the actual problem of information systems dealing with imperfection: Even if the user is uncertain about the property of an object, she needs to tell the information system \emph{exactly how uncertain} she is. That is ironically difficult.
+
 % section results (end)
 
-
 % ==============================================================================
-\section{Problems} % (fold)
+\section{Problems and Improvements} % (fold)
 \label{sec:problems}
 
+As it has already been examined in the evaluation in section \ref{sec:evaluation}, there are several problems with the Hivent Model. It has currently no support for actors -- to answer the question ``who?'' -- and for actual locations -- to say ``where?''. Both can easily be integrated and would allow new perspectives on historical events. HistoGlobe is currently only available in English. Internationalization is desired, but problematic, because in different cultures there are not just syntactically different translations, but semantically different concepts of the same historical event. This issue comes along with the desired support for different perspectives, based on different historical evidence. There is a lot of interdisciplinary research to be done in digital humanities how to support multiple perspectives on data.
+
+The two basic assumptions about the territory of a country -- constant coastlines and a lack of sea territory -- are wrong. The Hivent model supports only sudden spatio-temporal changes due to events, but not due to gradual processes. The data model for HistoGlobe would need to be extended with a concept of \emph{Geoprocesses} that model the long-term geographical processes that lead to changing coastlines. This is an entirely different research field that would need to be entered.
+
+Given the current status of the implementation, there is plenty of room for improvement to fit it to the data model. First of all, the design approaches developed in the previous section have to be further developed and implemented into the final system to support various degrees of uncertainty. Additionally, the information visualization problems regarding the HistoGraph have to solved to support it in the Browsing Mode and the Edit Mode of HistoGlobe. The tool for semi-automatic extraction of historical maps needs to be integrated into the New Name Tool to simplify the process of creating the territory of an historical country. It also needs to support importing existing geodata in various formats. To cope with potentially more data in the database, a more sophisticated client-server interaction for initializing the state of the system needs to be developed.
+
+However, the most crucial part is the implementation of the complicated concepts of retrospective updates and backward changes. Without them, HistoGlobe is still useless for editing the historical developments of countries in time and space.
+
+Finally, to tackle a problem of digital humanities: Historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes suffient to show their results. For their research purpose it is crucial to \emph{generate new knowledge} by analyzing spatio-temporal coherences or distributions in historical data. For that purpose, the user needs to be able to sort, select or classify the data in the system and run spatio-temporal queries to convey the required information. Spatio-temporal reasoning is still not easily possible with existing Historical Geographic Information Systems and yields many interesting research questions to be solved.
+
 % section problems (end)
-
-
 
 % ==============================================================================
 \section{Prospect} % (fold)
 \label{sec:prospect}
 
+Imagine the problems that were mentioned are solved and the room for improvement is filled with nicely designed user interface elements, then then HistoGlobe would be have the potential to be a well usable Historical Geographic Information System for the history of countries in time and space.
 
-implementation of extensions
-+ other shortcomings identified in evaluation
-+ retrospective updates and backward changes
-+ import of historical data from Wikipedia
-+ integration of tool for semi-automatic extraction of historical maps
+Imagine scholars in humanities use the Edit Mode of HistoGlobe to continuously improve the historical data in HistoGlobe, animate historical countries and discuss historical events. Imagine HistoGlobe could be used not just to anwser \emph{what} has happened, \emph{where} and \emph{when} did it happen and \emph{who} participated -- but to answer ultimate question \emph{why?} something is the way it is?
+What are the real causes for the current Syrian civil war?
+Despite the conflicts in the Middle East, do we live in a peaceful time?
+Why did the Roman Empire collapse?
 
-HistoGlobe would have the potential to be a good Historical Geographic Information System showing the history of countries in time and space.
+It would help teachers to explain history to their students and learners to finally understand the seemingly complex course of history. If that would work, HistoGlobe would be a comprehensive historical world atlas with a great potential to teach, learn and understand processes in the past. We could learn from our mistakes we have done in the past and reason about the things that actually matter: To provide a world without the need for greed and hunger, for brotherhood of men. If John Lennon is right, then this information system would at some point come to its ultimate end: all countries unify to one world, without borders. All the people living life in peace.
 
-If scholars in humanities use the Edit Mode of HistoGlobe to continuously improve the historical data in the system, animate historical countries and discuss historical events, then HistoGlobe would be a comprehensive historical world atlas as invisioned by its inventor. It would help teachers to explain  history to their teachers and students to understand the seemingly complex course of history
+\vspace{2em}
+\begin{large}
+\begin{quoteright}
+  You may say I am dreamer, \\
+  but I am not the only. \\
+  I hope someday you'll join us. \\
+  And the world will be as one.
+\end{quoteright}
+\end{large}
 
-An implementation of these would yield a Historical Geographic Information System that is well suitable for visualizing and editing the history of countries on Earth.
-
-
-has a great potential to teach, learn and understand processes in the past. A system that is able to tell \emph{what} happened and \emph{where} the historical event has influences on and \emph{when} the event happened happened might be tool to answer the most important of all questions:
-\textbf{\emph{Why}} it happened?
-
-
-finally to reason about if wars actually make sense.
-If John Lennon is right, then this HGIS has come to its ultimate end: all Areas have unified. All the people living life in peace. You may say I am dreamer, but I am not the only. I hope someday you'll join us. And the world will be as one.
 
 % section prospect (end)
 
