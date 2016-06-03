@@ -405,7 +405,7 @@ The \emph{World Geodetic System 1984 (WGS84)} is a model that found worldwide ac
 \paragraph{Vector Model} % (fold)
 \label{ssub:vector_model}
 
-The real world is infinite in detail, but storage in a computer is finite. In order to model continuous geographical phenomena in an information system, a relevant subset of them has be sampled to create discrete spatial data. It can be represented either in a raster or vector model. In the vector model each spatial object is expressed by three basic geometric primitives that can be seen in figure \ref{fig:geometric_primitives}.
+The real world is infinite in detail, but storage in a computer is finite. In order to model continuous geographical phenomena in an information system, a relevant subset of them has be sampled to create discrete spatial data. It can be represented either in a raster or vector model. In the vector model each spatial object is expressed by three basic geometric primitives.
 
 \begin{figure}[H]
   \vspace{1em}
@@ -416,19 +416,28 @@ The real world is infinite in detail, but storage in a computer is finite. In or
 \end{figure}
 
 \begin{enumerate}
-  \item[0D] A \emph{point} is the fundamental object in vector geometry. It has no dimension or size and is only defined by its position, specified in geographic coordinates. One point is independent from all others.
+  \item[0D] A \emph{point} is the fundamental object in vector geometry. It has no dimension and is only defined by its position, specified in geographic coordinates. A point is independent from all others.
   \item[1D] A \emph{polyline} is constructed by an ordered set of points with at least one start and one end point.
-  \item[2D] A \emph{polygon} describes a closed surface. It is contructed by one set of polylines forming a closed \emph{outer loop}. Additionally, a polygon can have multiple sets of polylines as \emph{inner loops} representing holes in the polygon.
+  \item[2D] A \emph{polygon} describes a closed surface and is contructed by one set of polylines forming a closed \emph{outer ring}. Additionally, there can be multiple sets of polylines as \emph{inner ring} representing holes in the polygon. If the polygon has no inner rings it is a \emph{simple} polygon, otherwise it is \emph{weakly simple} or \emph{complex}, if it is even self-intersecting (see figure \ref{fig:polygon_properties}). \emph{Polypolygons} represent multiple separate polygons belonging to one logical entity \cite{polygons}.
 \end{enumerate}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{graphics/basics/hgis/polygon_properties}
-  \caption{Different properties of polygons}
+  \caption{Types of polygons}
   \label{fig:polygon_properties}
 \end{figure}
 
-A polygon without inner rings is a \emph{simple} polygon. On a contrary, \emph{weakly simple} polygons contain at least one inner ring. A \emph{complex} polygon is even self-intersecting (see figure \ref{fig:polygon_properties}). \emph{Polypolygons} represent multiple separate polygons belonging to one logical entity.
+There are mainly three boolean \emph{set operations} that can be performed on two polygons: \emph{Union}, \emph{intersection} and \emph{difference}. A \emph{symmetric difference} is a combination of two differences. Their definition is visualized in figure \ref{fig:polygon_operations}
+If multiple polygons are unified at once, it is a \emph{cascaded union}
+\cite{bolstad2008gis}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphics/basics/hgis/polygon_operations}
+  \caption{Boolean set operations on polygons}
+  \label{fig:polygon_operations}
+\end{figure}
 
 Common file types for geospatial vector data are the open file format GeoJSON (\texttt{.geojson})
 \footnote{
@@ -472,6 +481,7 @@ The Earth is three-dimensional, but the map on the computer screen has only two 
 \cite[p.79]{bolstad2008gis}.
 That is why some features of the Earth will be distorted on the map: An \emph{equivalent projection} preserves the area sizes of features on the map, whereas a \emph{conformal projection} preserves angles and the shapes of objects. Every map projection that is area-preserving distorts shapes at the same time, and each shape-preserving map distrots areas to some degree. There is no perfect map projection that correctly presents all features of the real world
 \cite{mapProjectionGeokov}.
+A compromise between preserving areas and shapes is the \emph{Robinson projection}. It is neither conformal, nor equivalent, but provides a reasonable trade-off between both properties.
 
 \begin{figure}[ht]
   \vspace{1.5em}
@@ -485,13 +495,19 @@ That is why some features of the Earth will be distorted on the map: An \emph{eq
     \centering
     \includegraphics[width=0.9\linewidth]{graphics/basics/hgis/projection_distortion_mercator.png}
     \caption{conformal Mercator projection \protect\footnotemark}
+    \vspace{1em}
   \end{subfigure}
-  \caption{Comparison of equivalent and conformal map projections}
-  \label{fig:lambert_vs_mercator}
+  \begin{subfigure}{0.55\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{graphics/basics/hgis/projection_distortion_robinson.png}
+    \caption{compromise Robinson projection \protect\footnotemark}
+  \end{subfigure}
+  \label{fig:map_projections}
+  \caption{Comparison between equivalent, conformal and compromising map projections}
 \end{figure}
 
 % reset footnotecounter by 1 (for left subfigure caption)
-\addtocounter{footnote}{-1}
+\addtocounter{footnote}{-2}
 \footnotetext{
   \textit{Tissot indicatrix world map equirectangular proj},
   Eric Gaba (Wikimedia), 2008
@@ -508,15 +524,8 @@ That is why some features of the Earth will be distorted on the map: An \emph{eq
   last access: 28.10.2015
 }
 
-A compromise between preserving areas and shapes is the \emph{Robinson projection}. It is neither conformal, nor equivalent, but provides a reasonable trade-off between both properties.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.65\textwidth]{graphics/basics/hgis/projection_distortion_robinson.png}
-  \caption{Robinson projection \protect\footnotemark}
-  \label{fig:robinson_projection}
-\end{figure}
-
+% set footnotecounter to next footnote (for right subfigure caption)
+\addtocounter{footnote}{1} % count to next footnote
 \footnotetext{
   \textit{Tissot indicatrix world map Robinson},
   Eric Gaba (Wikimedia), 2008
@@ -539,7 +548,7 @@ Many philosophers and scientists have developed models to deal with time. for th
 Unlike space, time knows only one dimension, but relative to one point two directions: historically \emph{forward} into the future and \emph{backward} into the past.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Types of Time} % (fold)
+% \paragraph{Types of Time} % (fold)
 \label{par:types_of_time}
 
 Whereas space is represented by geo-objects, time may be represented by discrete \emph{events} and continuous \emph{processes}. Events can happen at a certain \emph{time point} or like processes in a \emph{time interval} or \emph{time period}, defined by two time points
@@ -818,7 +827,7 @@ Based on this observation a data model that can handle all three kinds of tempor
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/history_graph_model}
+  \includegraphics[width=0.65\textwidth]{graphics/basics/stdm/history_graph_model}
   \caption{The History Graph model}
   \label{fig:history_graph_model}
 \end{figure}
@@ -863,9 +872,7 @@ The data models that have been presented in this section have to be converted to
 \paragraph{Relational DBMS} % (fold)
 \label{par:relational_dbms}
 
-RDBMS are built upon the concept of \emph{entitities} and \emph{relations}. An entity represents an object in the real world with a set of \emph{attributes} and attribute values of a simple data type (e.g. \texttt{string} or \texttt{int}). Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, mostly a contiguous number.
-
-Entities can be related to each other in three different kind of relations:
+RDBMS are built upon the concept of \emph{entitities} and \emph{relations}. An entity represents an object in the real world with a set of \emph{attributes} and attribute values of a simple data type (e.g. \texttt{string} or \texttt{int}). Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, mostly a contiguous number. Entities can be related to each other in three different kind of relations:
 \begin{compactenum}
   \item[\texttt{1:1}] Direct attributional relation, e.g. one country has one head of state and vice versa.
   \item[\texttt{1:n}] One-to-many relation, e.g. one country can have many cities, but each city can belong to only one country.
@@ -924,9 +931,7 @@ combine the advantages of both worlds. Internally, it uses the established and e
 \paragraph{Spatio-Temporal Database Models} % (fold)
 \label{par:spatio_temporal_database_models}
 
-The question is: How to implement the spatio-temporal data modles introduced in section \ref{sec:spatio_temporal_data_models} in a relational, object-oriented or object-relational database management system introduced in this section? While the implementation depends on the data model, there are common concepts and issues that have to be addressed.
-
-When storing time related data, it is important to distinguish between the time that was true in reality (\emph{valid time} or \emph{world time}) and the time it was stored in the database (\emph{transaction time} or \emph{database time}). For this thesis, only world time is relevant.
+The question is: How to implement the spatio-temporal data modles introduced in section \ref{sec:spatio_temporal_data_models} in a relational, object-oriented or object-relational database management system introduced in this section? While the implementation depends on the data model, there are common concepts and issues that have to be addressed. When storing time related data, it is important to distinguish between the time that was true in reality (\emph{world time}) and the time it was stored in the database (\emph{database time}). For this thesis, only world time is relevant.
 
 Object-oriented concepts are more appropriate than relational ones, because of the complex nature of spatio-temporal data \cite[section 3.9]{pelekis04stdms}. One of the first implementations was the \emph{spatio-temporal object} combining geometrical and bitemporal properties in one object \cite{worboys90stdm}. A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT): Time is not considered an attribute of space, but a separate class. They are aggregated in the \texttt{SpatioTemporal} class, using both spatial and bitemporal attributes. The model also provides spatio-temporal operators, e.g. \texttt{STT\_intersects} returns \texttt{true} if two \texttt{SpatioTemporal} objects intersect in time and space, i.e. their geometries intersect and the time intervals in which they are active overlap. These operators are very helpful when analyzing spatio-temporal data or checking for data integrity.
 
@@ -943,7 +948,6 @@ Finally, a severe issue is \emph{version management}. Given a database model tha
 \label{sec:histoglobe}
 
 \begin{quoteit}
-  Do you remember history lessons in school with old and dusty historical world maps at unsteady mapstands? --- Forget about that! \\[0.5em]
   Imagine a globe that you can rotate and see from all sides. \\
   Imagine a timeline which you can scroll to any point in time. \\
   Imagine you can see how the world changes when you move the timeline: \\

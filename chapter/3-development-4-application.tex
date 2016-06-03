@@ -214,7 +214,33 @@ class HiventOperation
 \paragraph{EditMode} % (fold)
 \label{par:editmode}
 
-The Edit Mode is the main contribution of this thesis to the HistoGlobe project. Its interface was introduced in section \ref{sub:web_based_prototype}, this section shortly explains its implementation: When the user clicks a button of an Edit Operation in the upper right corner of the Edit Mode interface, internally a \texttt{EditOperationCreator} sets up the \texttt{WorkflowWindow} in the interface and the first \texttt{EditOperationStep} for this operation. Each of the four steps have different tasks explained in section \ref{sub:edit_workflow}. The \texttt{EditOperationCreator} stores the data for each step (selected Areas, newly defined territories and names) in an object. Each step can access this object and manipulate its content. It was especially difficult to design each action to be fully reversible. For that purpose, an associated inverse of the action was stored in an \texttt{UndoManager} that works like a stack. If the user clicks the back button in the Workflow Window, the last action of the stack gets executed. When the last stage of the workflow (\texttt{AddToHivent}) is completed, the \texttt{EditOperationCreator} assembles the \texttt{HiventOperations} from the data gathered in the task. It sends it along with the associated \texttt{Hivent} to the server and finishes the operation.
+The Edit Mode is the main contribution of this thesis to the HistoGlobe project. Its interface was introduced in section \ref{sub:web_based_prototype}, this section shortly explains its implementation: When the user clicks a button of an Edit Operation in the upper right corner of the Edit Mode interface, internally a \texttt{EditOperationCreator} sets up the \texttt{WorkflowWindow} in the interface and the first \texttt{EditOperationStep} for this operation. Each of the four steps have different tasks that were explained in section \ref{sub:edit_workflow}. Throughout the workflow, the \texttt{EditOperationCreator} stores the data for the operation (selected old Areas, newly created Areas, update Areas, including the old and new territories and names) in an object. Each step can access this object and manipulate its content.
+
+\begin{enumerate}
+  \item \texttt{SelectOldAreas}: The map is set in a \texttt{selectionMode} that allows requires the user to select a certain number of old Areas for the Edit Operation: one Area for \texttt{DIS}, \texttt{REN} and \texttt{CES}, one or two Areas for \texttt{CHB} and infinitely many Areas for \texttt{MRG}.
+  \item \texttt{CreateNewTerritories}: The map is set in an \texttt{editMode} that prevents any selection of existing Areas except for the ones that are manipulated. For each Area that is created or updated in this operation, the user needs to create the new \texttt{AreaTerritory} of the Area in form of a polypolygon with the \texttt{NewTerritoryTool}:
+  \begin{itemize}
+    \item[CRE]
+      Create one territory $B^T$, that is the territory of the of the new \texttt{Area} $B$.
+      Check with the territory $A^T$ of each existing Area $A$ if the territories intersect ($A^T \cap B^T \neq \emptyset$).
+      If so, the territory $A^T$ is updated by subtracting the new territory $B^T$ from it via the complement (difference): $A^T = A^T \setminus B^T$.
+      If the resulting territory $A^T = \emptyset$ it means that $A$ is completely covered by $B$, so it is wholly incorporated into $B$ and is set as an old Area of the operation.
+      If not, the territory of $A$ is updated with $A^T$ and $A$ is
+      set as an updated Area of this step that cedes parts of its territory to $B$.
+    \item[MRG]
+      This step happens auotomatically without any need for user interaction. The new territory $B^T$ is created by the cascaded union of the territories $A^T_i$ of the selected Areas $A_i \in A$ from the first step: $B^T = \bigcup\limits_{i=1}^n A^T_i$. It is set as the territory of $B$.
+    \item[DIS]
+      Each desired new Area $B_i \in B$ needs an territory $B_i^T$. This is obtained by intersecting the temporary territory $T_i$ that the user created in the \texttt{NewTerritoryTool} with the territory of the selected Area: $B_i^T = A^T \cap T_i$. This is repeated until the whole territory $A^T$ is completely distributed among $B_i \in B$.
+    \item[CHB]
+      If the user selected only one old Area $A_1$ in the first step, the territory $T_1$ created in this step by the \texttt{NewNameTool} will be set as the new territory of $A_1$. The surrounding Areas are handled in the same way as in the \texttt{CRE} operation. If two neighboring Areas $A_1$ and $A_2$ were selected, the new territories are obtained like this: $T_1$ is seen as the basis of the territory $A_1^t$. It is temporariliy unified with its neighbor $A^T_2$ to $B^T = A_1^T \cup A_2^T$. Then the new territory $A_1^T$ is cut out off this temporary union with an intersection: $A_1^T = B^T \cap T_1$. $A_2$ receives the remaning part as its new territory: $A_2^T = B^T \setminus T_1$.
+  \end{itemize}
+  In \texttt{REN} and \texttt{CES} no new territories are created.
+  \item \texttt{CreateNewNames}: For each Area that is created or updated in this operation, the user needs to create the new \texttt{AreaName} with a short name and formal name using the draggable \texttt{NewTerritoryTool}. The user writes the new names or selects them from the suggestions. Not only the name will be taken from the \texttt{NewTerritoryTool} but also the center position of the box will be the new \texttt{representative\_point} of the \texttt{AreaTerritory}. The user decides where the name of the Area should be positioned. This avoids the information visualization problem of automatic label placement.
+  \item \texttt{AddToHivent}: Using the \texttt{NewHiventBox} the user creates a new Hivent or selects an existing Hivent to which the Edit Operation is added to.
+\end{enumerate}
+
+It was especially difficult to design each action to be fully reversible. For that purpose, an associated inverse of the action was stored in an \texttt{UndoManager} that works like a stack. If the user clicks the back button in the Workflow Window, the last action of the stack gets executed. When the last stage of the workflow (\texttt{AddToHivent}) is completed, the \texttt{EditOperationCreator} assembles the \texttt{HiventOperations} from the data gathered in the task. It sends it along with the associated \texttt{Hivent} to the server and finishes the operation.
+
 
 % paragraph editmode (end)
 
@@ -313,7 +339,7 @@ If the user zooms the map, the \texttt{LabelManager} has to update the visibilit
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.7\textwidth]{graphics/development/application/label_manager.png}
+  \includegraphics[width=0.8\textwidth]{graphics/development/application/label_manager.png}
   \caption{The resulting labels on the map in Europe 2016}
   \label{fig:label_manager}
 \end{figure}
