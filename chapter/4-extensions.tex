@@ -3,20 +3,14 @@
 \chapter{Extensions} % (fold)
 \label{cha:extensions}
 
-This chapter explains problems with uncertainty in the domain of the history of countries in time and space and develops approaches to deal with these problems.
+This chapter evaluates the data model and the implementation developed in the previous chapter \ref{cha:development}. It focuses on the important aspects of the uncertain nature of history in section \ref{sec:evaluation}. The second part of this chapter \ref{sec:modelling_uncertainty} develops extensions to the Hivent Model and the Edit Mode for HistoGlobe that deal with these problems of uncertainty and disagreement.
 
 % ==============================================================================
 \section{Evaluation} % (fold)
 \label{sec:evaluation}
 
-Before extensions to the Hivent Model and the implementation can be proposed, the current state has to be thoroughly evaluted. In order to evaluate a model it is important to understand the concepts of \emph{disagreement} and \emph{uncertainty}, \emph{precision} and \emph{accuracy}.
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Uncertainty vs. Disagreement} % (fold)
-\label{par:uncertainty_vs_disagreement}
-
-The model in an information system tries to resemble the real world as good as possible and necessary -- in this case the history of countries. Uncertainty and disagreement are two different kinds of problems in two different domains.
-\emph{Disagreement} describes a conflict in the real world, e.g. the situation with Taiwan explained in section \ref{par:un_non_members_with_limited_recognition}. On a contrary, \emph{uncertainty} describes the imperfection of a model to describe the real world, e.g. if the border between the Principalities of Transsylvania and Wallachia is deducted from an historical map of 1600.
+In order to evaluate a model it is important to understand the concepts of \emph{disagreement} and \emph{uncertainty}, \emph{precision} and \emph{accuracy}. The model in an information system tries to resemble the real world as good as possible and necessary. Uncertainty and disagreement are two different kinds of problems in two different domains.
+\emph{Disagreement} describes a conflict in the real world. On a contrary, \emph{uncertainty} is the imperfection of a model to describe the real world. Itcan be expressed by accuracy and precision: The better a model simulates the reality, the more \emph{accurate} or correct it is. That means, the closer it gets to the target, the higher is the accuracy. \emph{Precision} or exactness describes how similar the results of the model are compared to each other, independent from how well they resemble the real world. That means a precise model gets the same results over and over again (see figure \ref{fig:accuracy_precision}).
 
 \begin{figure}[ht]
   \vspace{1em}
@@ -26,26 +20,21 @@ The model in an information system tries to resemble the real world as good as p
   \label{fig:accuracy_precision}
 \end{figure}
 
-Uncertainty can be expressed by accuracy and precision: The better a model simulates the reality, the more \emph{accurate} or correct it is. That means, the closer it gets to the target, the higher is the accuracy. \emph{Precision} or exactness describes how similar the results of the model are compared to each other, independent from how well they resemble the real world. That means a precise model gets the same results over and over again (see figure \ref{fig:accuracy_precision}).
-The course of the border that is extracted from the historical map is inaccurate to a certain degree, because the map does not show the real world correctly. However, it can be modelled in the system very precisely, because the coordinates of the border points are stored as floating point numbers.
-The case of Taiwan is different: the conflicting versions of the story can be modelled very precisely, but in order for the model to also be accurate, it needs to support contested territories.
 
-
-% subsection uncertainty_vs_disagreement (end)
+If the border between the Principalities of Transsylvania and Wallachia is deducted from an historical map of 1600, the course of that border is inaccurate to a certain degree, because the map does not show the real world correctly. However, it can be modelled in the system very precisely, because the coordinates of the border points are stored as floating point numbers.
+The situation with Taiwan explained in section \ref{par:un_non_members_with_limited_recognition} is different: the disagreement is there already in the real world. The conflicting versions of the story can be modelled very precisely, but in order for the model to also be accurate, it needs to support declaring an Area as a contested territory.
 
 % ------------------------------------------------------------------------------
-\subsection{Data Model} % (fold)
+\subsection{Analysis of the Data Model} % (fold)
 \label{sub:data_model}
 
-Each aspect of the Hivent Model proposed in section \ref{sec:hivent_model} is based on the prerequisite of full certainty of the data. That means the Hivent Model assumes that the dates of the Hivents, the names and territories of the historical and current Areas and the historical relations between Hivents and Areas are accurate and reasonably precise. However, this assumption is far from valid. Section \ref{sub:history_vs_geography} explained that in historical research, uncertainty is one of the major problems a historian has to deal with on a daily basis: sources, even primary sources, can be biased towards the author of the source, information can be imprecise or even inaccurate and information can be conflicting with other sources. The acquisition of objective historical data is almost impossible. The further documents go back in time, the lower is the expected accuracy. Since all the information in the Historical Geographic Information System is based on primary sources, the data in the system inherits this integral lack of accuracy.
-
-This section evaluates the different components of the Hivent model in terms of how accurately and precisely they resemble the complex nature of history.
+Each aspect of the Hivent Model proposed in section \ref{sec:hivent_model} is based on the prerequisite of full certainty of the data. The Hivent Model assumes that the dates of the Hivents, the names and territories of the historical and current Areas and the historical relations between Hivents and Areas are accurate and reasonably precise. However, this assumption is far from valid. Section \ref{sub:history_vs_geography} explained that in historical research, uncertainty is one of the major problems a historian has to deal with on a daily basis: primary sources can be biased towards the author, are certainly incomplete, inaccurate or conflicting with other sources. The acquisition of objective historical data is impossible. The further documents go back in time, the lower is the expected accuracy. Since all the information in the Historical Geographic Information System is based on primary sources, the data in the system inherits this integral lack of accuracy. This section evaluates the different components of the Hivent model in terms of how accurately and precisely they resemble the complex nature of history.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Hivents} % (fold)
 \label{par:evaluation_hivents}
 
-An Hivent models historically significant happenings in time. The model contains the name, date and location of the event. The name of an historical event can have different versions: a long, official version and a short common version. The commonly known ``Treaty of Versailles'' (1919) is officially called the ``Treaty of Peace between the Allied and Associated Powers and Germany''. Also the name is different in other languages affected by the treaty. Additionally, there can be different versions of the name from different perspectives, even within the same language, e.g. the ``American Civil War'' as it is known today was alternatively called ``War Between the States'', ``War for Southern Independence'' or ``War of Northern Aggression'' depending on the perspective.
+The model contains the name, date and location of an Hivent. In reality, the name can have different versions: a long, official version and a short common version. The commonly known ``Treaty of Versailles'' is officially called the ``Treaty of Peace between the Allied and Associated Powers and Germany''. The name is different in other languages affected by the treaty. There can even be different versions of the name from different perspectives within the same language, e.g. the ``American Civil War'' was alternatively called ``War Between the States'', ``War for Southern Independence'' or ``War of Northern Aggression'' depending on the perspective.
 The ~\texttt{Hivent}~ model does not account for different languages and versions and is therefore not very precise.
 
 The ~\texttt{Hivent.date}~ is supposed to represent the temporal dimension of an historical event. While an historical change itself is discrete and happens at exactly one time point, the historical event yielding this change might not. The decisions of the ``Congress of Vienna'' came into effect on 9. June 1815, but the congress itself took place from September 1814 until June 1815. Another phenomenon becomes apparent in the ``Convention for the Extension of Hong Kong Territory'' (1898) which had a predefined length of 99 years. The treaty therefore has two dates in which historical changes happened: the date the treaty came into effect (Hong Kong becomes part of the United Kingdom) and the date it stopped being in effect (Hong Kong is handed over to China). Other interesting aspects are different calendar systems used in different parts of the world throughout history: the October Revolution in Russia (1917) happened in November in their Gregorian Calendar system, but in October in the Julian Calendar. Also timezones can play a crucial role: The German Instrument of Surrender ending World War II in Europe came into effect on 8. May 1945 at 23:01 Central European Time. In the Soviet Union that happened at 1:01 Moscow Time. That is why the celebration of the Victory Day in Moscow is celebrated on 9. May 1945. While the ~\texttt{Hivent.date}~ field in the data model works with timezones, it does not support different calendar systems or multiple dates associated with one ~\texttt{Hivent}~ which limits its precision.
@@ -62,11 +51,9 @@ The Hivent model -- like any model -- is incomplete. There are relevant aspects 
 
 Also the model of an abstract Area, consisiting of a territory and a name, is problematic in terms of accuracy and precision. As it has been discussed in subsection \ref{sec:countries} in detail, it is impossible to objectively model a country without running into conflicts.
 In the preconditions of the model it is fixed that there can not be overlapping territories at the same time -- although the nature of a contested territory is that it is claimed by more than one party. Whereas the data model allows to represent it as an own Area, it does not support any evidence of uncertainty about the status of an Area, e.g. being contested or international recognition.
-The model does also not support hierarchies of Areas, e.g. countries within countries, provinces or overseas territories. Some parts of countries have varying degrees of autonomy which is also a subject of interest not supported by Areas in the Hivent Model.
+The model does also not support hierarchies of Areas, e.g. countries within countries, provinces or overseas territories. Some parts of countries have varying degrees of autonomy which is also not supported by Areas in the Hivent Model.
 
-The ~\texttt{AreaName}~ has the same problem than the ~\texttt{Hivent.name}, but it is more precise, because it contains both the formal and the short name of a country. However, uncertainty about the name, different versions or languages are not supported.
-
-More problematic is the ~\texttt{AreaTerritory}: The two assumptions in the preconditions of the Hivent Model (section \ref{sub:preconditions}, constant coastline and no sea territory, are inaccurate. The primary source for territories of countries are historical maps. The process of extracting a boundary from an historical map introduced in section \ref{par:historical_map} is error-prone and yields to a loss of accuracy in each step on the way. The level of inaccuracy depends on the resolution, the map projection and the colors used in the map. In the data model it is not possible to provide information about the expected accuracy of a territory. Another problem is that the territory is stored as a whole polypolygon. Different parts of the border can have a different type or level of certainty status, e.g. one part a well-established and demarcated border to neighboring country $X$, but the border to neighbour $Y$ is contested. The ~\texttt{AreaTerritory}~ data model does not account for these differences.
+The ~\texttt{AreaName}~ has the same problem than the ~\texttt{Hivent.name}, but it is more precise, because it contains both the formal and the short name of a country. However, uncertainty about the name, different versions or languages are not supported. More problematic is the ~\texttt{AreaTerritory}: The two assumptions in the preconditions of the Hivent Model in section \ref{sub:preconditions} -- constant coastline and no sea territory -- are inaccurate. The primary source for territories of countries are historical maps. The process of extracting a boundary from an historical map introduced in section \ref{par:historical_map} is error-prone and yields a loss of accuracy in each step. The level of inaccuracy depends on the resolution, map projection or the colors used in the map. In the data model it is not possible to provide information about the expected accuracy of a territory. Another problem is that the territory is stored as a whole polypolygon. Different parts of the border can have a different type or level of certainty status, e.g. one part a well-established and demarcated border to neighboring country $X$, but the border to neighbour $Y$ is contested. The ~\texttt{AreaTerritory}~ data model does not account for these differences.
 
 % paragraph evaluation_areas (end)
 
@@ -87,18 +74,16 @@ To show that the collection of Hivent operation is exhaustive, all possible chan
 % paragraph hivent_operations (end)
 
 Overall, the Hivent Operations are a big strength of the Hivent Model, since it requires only five different operations.
-The Hivent model also reasonably represents countries by their name and territory. All countries with broad international recognition and a clear territory can be expressed without a prblem. However, the model very poorly accounts for different levels of uncertainty in historical and geographic information: imprecise and inaccurate sources, different viewpoints and interpretations, contested territories, changing coastlines or different languages are not supported
+The Hivent model also reasonably represents countries as Areas with a name and a territory. Countries with broad international recognition and a clear territory can be expressed without a problem. However, the model very poorly accounts for different levels of uncertainty in historical and geographic information: imprecise and inaccurate sources, different viewpoints and interpretations, contested territories, changing coastlines or different languages are not supported
 
 
 % subsection data_model (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Application} % (fold)
+\subsection{Analysis of the Application} % (fold)
 \label{sub:application}
 
-Additionally to the data model, also the implementation of HistoGlobe can partially be evaluated. The interface resulted from a Human Centered Design process illustrated in chapter \ref{cha:development}. It underwent constant changes in multiple iterations with several user tests. Although there is a lack of quantitative data, the qualitative studies showed that both the Edit Operations and the interface as a whole were broadly understood. The only problematic operation was a border change: drawing the new territory of one Area and automatically adapting the other territory was not perceived as intuitive. As the name suggests, the users would have wished to actually change the border by editing the border points and moving it.
-
-Many users complained that there is no feature to import existing geometries from external sources or from an historical map. While this is a highly desireable feature, it was out of the scope of this thesis but has a high priority in the future work.
+Additionally to the data model, also the implementation of HistoGlobe can partially be evaluated. The interface resulted from a Human Centered Design process illustrated in chapter \ref{cha:development}. It underwent constant changes in multiple iterations with several user tests. Although there is a lack of quantitative data, the qualitative studies showed that both the Edit Operations and the interface as a whole were broadly understood. The only problematic operation was a border change: drawing the new territory of one Area and automatically adapting the other territory was not perceived as intuitive. As the name suggests, the users would have wished to actually change the border by editing the border points and moving it. Many users also complained that there is no feature to import existing geometries from external sources or from an historical map. While this is a highly desireable feature, it was out of the scope of this thesis but has a high priority in the future work.
 
 In terms of performance system performs well with the current content of the database: It takes about 3.5 seconds to initially load all the data from the server to the client. As explained in section \ref{par:middleware}  all the data from the database is loaded at once. While this behaviour is not scalable, for the initial dataset it was sufficient: It took 3.5 seconds to load it. As soon as the amount of data in the database increases significantly, especially because of the territories, the approach to load all at once has to be changed to a gradual loading process: Initially the client sends the current date and the center of the viewport to the server. The server sends the currently active Areas close to the viewport center first. The goal is to minimize the time until the user sees a significant portion of the relevant data on the screen. This can also be achieved by storing different levels of detail of the vector data. Initially the server would send only the coarsest level to the client, then gradually increasing the granularity until the whole data is loaded on the client.
 
@@ -124,7 +109,7 @@ collects about $75$ border changes, about $100$ border changes are listed since 
 \section{Modelling Uncertainty} % (fold)
 \label{sec:modelling_uncertainty}
 
-The first part of this chapter presented a list of shortcomings of the current Hivent Model and the implementation, most of them focussing on the problem of undcertainty and disagreement. The purpose of this section is to develop approaches to increase the accuracy of the model with respect to uncertainty. A higher accuracy usually leads to a higher complexity of the data model. This trade-off has to be thoroughly taken into consideration when supporting a new feature. This is why the following problems will be ignored in the rest of this chapter:
+The first part of this chapter presented a list of shortcomings of the current Hivent Model and the implementation, most of them focussing on the problem of undcertainty and disagreement. The purpose of this section is to develop approaches to increase the accuracy of the model with respect to uncertainty. A higher accuracy usually leads to a higher complexity of the data model. This trade-off has to be thoroughly taken into consideration when supporting a new feature. For that reasons some problems are be ignored in the rest of this chapter:
 
 \begin{itemize}
   \item The preconditions of the Hivent Model will not change, i.e. countries will stop on their coastlines and the distribution of water on the planet has not changed in history -- otherwise the model would need to support not just sudden events but also gradual processes. This out of the scope of the thesis.
@@ -135,10 +120,8 @@ The first part of this chapter presented a list of shortcomings of the current H
 In order to tackle the remaining shortcomings of the current concept, both the user interface and the data model have to be extended. The main problem when dealing with uncertainty is that from the perspective of a computer, there is no such thing as an uncertain value of a variable. That is why all sorts of uncertainty must ironically be quantified: The computer needs to know exactly how uncertain the user is about the data.
 
 % ------------------------------------------------------------------------------
-\subsection{Extension of the Edit Mode} % (fold)
-\label{sub:extension_of_the_edit_mode}
-
-Two new Edit Operations (see figure \ref{fig:edit_mode_extension}) are introduced: \texttt{CHS} changes the status of an Area and \texttt{REC} declares a new recognition, i.e. one country internationally recognizes another one.
+\subsection{International Recognition} % (fold)
+\label{sub:international_recognition}
 
 \begin{figure}[ht]
   \centering
@@ -147,11 +130,22 @@ Two new Edit Operations (see figure \ref{fig:edit_mode_extension}) are introduce
   \label{fig:edit_mode_extension}
 \end{figure}
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Set New Territories} % (fold)
-\label{par:set_new_territory}
+Two new Edit Operations shown in figure \ref{fig:edit_mode_extension} are introduced: \texttt{CHS} changes the status of an Area and \texttt{REC} declares a new recognition, i.e. one country internationally recognizes another one. This is simply performed by selecting two Areas on the map, whereas the first Area recognized the second.
 
-Also the Edit Operation workflow is changed. The second step defines the territory of the new Area(s). Instead of drawing the whole territory as a set of polygons, the user draws one borderline at a time, geometrically as a polyline. This has the main advantage that each part of the border is treated separately. The borderline is assigned a degree of certainty, in the interface controlled by a horizontal slider, in the model as a certainty value (\texttt{certainty} $\in~]0 .. 1]$). Absolute certainty ($1.0$) creates a sharp and crisp line on the map. In case of uncertainty (\texttt{certainty} $\in~]0..1[$) three different visualization methods are introduced:
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth]{graphics/extensions/operation_REC}
+  \caption{New Edit Operation: Recognition -- sets up the recognition of one Area to another.}
+  \label{fig:uncertainty_operation_REC}
+\end{figure}
+
+% subsection international_recognition (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Uncertain Borders} % (fold)
+\label{sub:uncertain_borders}
+
+Also the Edit Operation workflow is altered. The second step \texttt{SetNewTerritories} defines the territory of the new Area(s). Instead of drawing the whole territory as a set of polygons, the user draws one borderline at a time, geometrically as a polyline. This has the main advantage that each part of the border is treated separately. The borderline is assigned a degree of certainty, in the interface controlled by a horizontal slider, in the model as a certainty value (\texttt{certainty} $\in~]0 .. 1]$). Absolute certainty ($1.0$) creates a sharp and crisp line on the map. In case of uncertainty (\texttt{certainty} $\in~]0..1[$) three different visualization methods are introduced:
 
 \begin{enumerate}
   \item Blurred Border: The higher the uncertainty, the wider and more blurry the border.
@@ -189,28 +183,13 @@ A new border point automatically snaps to an existing border point, if the mouse
 
 If the created territory overlaps with an existing territory, its intersection will created a separate territory. In the next step, this territory can then be defined as a contested Area or defined as a part of another Area. If the step yields an empty territory that was claimed before, it can later be defined as a neutral zone or unclaimed land.
 
-% paragraph set_new_territory (end)
+% subsection uncertain_borders (end)
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Set New Names} % (fold)
-\label{par:set_new_name}
+% ------------------------------------------------------------------------------
+\subsection{Special Areas} % (fold)
+\label{sub:special_areas}
 
-When defining the name of an Area, the user will get actual name suggestion. These result from a collection of current and historical countries from Wikipedia. That saves time for researching short and formal names of Areas. In the long run, the system can be synchronized with Wikipedia or even be designed as an extension for Wikipedia articles about current or historical countries.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\textwidth]{graphics/extensions/new_name_tool}
-  \caption{Getting suggestions for the name name from Wikipedia.}
-  \label{fig:uncertainty_new_name_tool}
-\end{figure}
-
-% paragraph set_new_name (end)
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Set New Status} % (fold)
-\label{par:set_new_status}
-
-To treat special Areas differently, a new step in the workflow is defined. After the territory and the name of a new Area are defined, a special status can be assigned to it:
+To treat special Areas differently, a new step in the workflow is defined. After the territory and the name of a new Area have been defined, a special status can be assigned to it.
 
 \begin{enumerate}
   \item A \emph{fully sovereign country} is a political entity with full sovereignty over its territory and people and significant international recognition, e.g. Estonia.
@@ -227,11 +206,26 @@ To treat special Areas differently, a new step in the workflow is defined. After
   \label{fig:uncertainty_new_status_tool}
 \end{figure}
 
-% paragraph set_new_status (end)
+
+% subsection special_areas (end)
+
+% ------------------------------------------------------------------------------
+\subsection{Content from Wikipedia} % (fold)
+\label{sub:content_from_wikipedia}
+
+As it has been envisioned in section \ref{sub:data_sources}, Wikipedia stores a lot relevant data for HistoGlobe which is not straightforward to reuse, because of the Hivent-based data model and the lack of broad standardization in Wikipedia. This section assumes that the data could be parsed and processed easiliy. When defining the name of an Area, the user will get actual name suggestions from a collection of current and historical countries in Wikipedia. That saves time for researching short and formal names of Areas.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/extensions/new_name_tool}
+  \caption{Getting suggestions for the name name from Wikipedia.}
+  \label{fig:uncertainty_new_name_tool}
+\end{figure}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Add to Hivent} % (fold)
-\label{par:add_to_hivent}
+\newpage
+\paragraph{New Hivent Box} % (fold)
+\label{par:new_hivent_box}
 
 The visualization of an Hivent is split up into three parts (see see figure \ref{fig:uncertainty_new_hivent_box}):
 
@@ -250,30 +244,15 @@ Similar to the extension of the Area name step, also Hivent names can be chosen 
   \label{fig:uncertainty_new_hivent_box}
 \end{figure}
 
-% paragraph add_to_hivent (end)
+In the long run, HistoGlobe can be synchronized with Wikipedia or even be designed as an extension for Wikipedia articles about current or historical countries.
 
+% paragraph new_hivent_box (end)
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{New Area Recognition} % (fold)
-\label{par:new_area_recognition}
+% % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% \paragraph{Multi-language support} % (fold)
+% \label{par:multi_language_support}
 
-One new operation is to add the recognition of one country by another country. That is simply performed by selecting two Areas on the map, whereas the first Area recognized the second Area. This is an Edit Operation that can afterwards be attached to an Hivent.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/extensions/operation_REC}
-  \caption{New Edit Operation: Recognition -- sets up the recognition of one Area to another.}
-  \label{fig:uncertainty_operation_REC}
-\end{figure}
-
-% paragraph new_area_recognition (end)
-
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Multi-language support} % (fold)
-\label{par:multi_language_support}
-
-In order to support different languages, a language selection is placed on the bottom right corner of the interface, on the timeline. This changes the language of the whole interface and loads the translations of the Area names and the Hivent names, locations and descriptions in the newly created language. If a term is not defined in the language, the fallback language (English) is used instead.
+% In order to support different languages, a language selection is placed on the bottom right corner of the interface, on the timeline. This changes the language of the whole interface and loads the translations of the Area names and the Hivent names, locations and descriptions in the newly created language. If a term is not defined in the language, the fallback language (English) is used instead.
 
 % \begin{figure}[ht]
 %   \centering
@@ -282,17 +261,27 @@ In order to support different languages, a language selection is placed on the b
 %   \label{fig:multi_language}
 % \end{figure}
 
-
 % paragraph multi_language_support (end)
 
-
-% subsection extension_of_the_edit_mode (end)
+% subsection content_from_wikipedia (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Extension of the Data Model} % (fold)
-\label{sub:extension_of_the_data_model}
+\subsection{Extended Hivent Model} % (fold)
+\label{sub:extended_hivent_model}
 
-To account for the changes in the interface, also the data model has to be adapted. The main changes to the original Hivent Model developed in section \ref{sec:hivent_model} are:
+To account for the extensions in the interface, also the data model has to be adapted. Mainly the thematic domain of the Hivent Model changed, since the status or an Area, its recognition or relation to other countries is a non-spatial attribute of the data. The new Edit Operations that were introduced need to be internally  expressed by Hivent Operations. For that purpose the name change operation (\texttt{NCH}) is abstracted to a thematic change operation (\texttt{TCH}). Instead of changing only the \texttt{old\_name} to the \texttt{new\_area} of its associated update Area, it can also change its \texttt{old\_status} to a \texttt{new\_status}. It can be visualized in exactly the same way, since it is just as well an identity-preserving change.
+
+More thoughts have to be spent on the question how to express a new recognition of an Area in an Hivent Operation. Additionally, the introduction of hierarchical layers of Areas adds new requirements to the Hivent Model: All Hivent Operations can potentially be performed on the same level of hierarchy as before, but also downwards or upwards. The example of the fictional secession of Scotland from the United Kingdom in 2018 would be simple: The user could simply select Scotland as a second-level Area inside the first-level United Kingdom and secede Scotland from the Union by updating its status to a fully sovereign first-level Area. The design and implementation of the data model requires further analysis.
+
+\begin{figure}[ht]
+  \vspace{1em}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{graphics/extensions/new_database_model}
+  \caption{The new data model to support the developed approaches regarding uncertainty}
+  \label{fig:new_data_model}
+\end{figure}
+
+The Hivent database model from section \ref{sub:server_side_application} is extended by the following entities and relations:
 
 \begin{enumerate}
   \item Creation of a \texttt{Multilang} entity to store a name of an Hivent, its location or an Area name in different languages.
@@ -306,19 +295,7 @@ To account for the changes in the interface, also the data model has to be adapt
   \item Adaption of the \texttt{AreaChange} entity to model a change of each possible property of an Area.
 \end{enumerate}
 
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/extensions/new_database_model}
-  \caption{The new data model to support the developed approaches regarding uncertainty}
-  \label{fig:new_data_model}
-\end{figure}
-
-The thematic domain of the data model can be extended
-NCH -> PCH
-
-
-% subsection extension_of_the_data_model (end)
+% subsection extended_hivent_model (end)
 
 % section modelling_uncertainty (end)
 
@@ -328,4 +305,4 @@ NCH -> PCH
 
 \vspace{2em}
 
-transition to summary
+This chapter provided an analysis of the data model and the implementation developed in the previous chapter. The main problem with the current state of the application is that it does not support any kind of ways to cope the inherent problem of uncertainty and disagreement in history. For of the shortcomnings from the evaluation design solutions for the user interface of HistoGlobe were developed and integrated into the Hivent Model. The final chapter of this thesis summarizes the achievements of this and the previous chapter, embeds the work into the current state-of-the-art and concludes the thesis as a whole.

@@ -138,8 +138,8 @@
 
 % configure toc               left indent          space up/down      font                 position of numbers    filling until page number
 \titlecontents{chapter}       [3.2em]  {\addvspace{+0.2em}\large\bfseries} {\contentslabel{2.2em}} {} {\hfill               \contentspage}
-\titlecontents{section}       [6.7em]  {\addvspace{-0.6em}\large}          {\contentslabel{2.95em}}{} {\titlerule*[0.6pc]{.}\contentspage}
-\titlecontents{subsection}    [10.6em] {\addvspace{-0.8em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
+\titlecontents{section}       [6.7em]  {\addvspace{-0.7em}\large}          {\contentslabel{2.95em}}{} {\titlerule*[0.6pc]{.}\contentspage}
+\titlecontents{subsection}    [10.6em] {\addvspace{-0.9em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
 % \titlecontents{subsubsection} [14.5em] {\addvspace{-1.0em}\normalsize}     {\contentslabel{3.8em}} {} {\titlerule*[0.6pc]{.}\contentspage}
 
 % configure clicking on toc
@@ -185,10 +185,10 @@
 \tableofcontents
 
 % reduce font size of lists
-\begin{footnotesize}
+\begin{normalsize}
   \listoffigures
   \listoftables
-\end{footnotesize}
+\end{normalsize}
 
 %\* META *\
 
@@ -208,7 +208,7 @@
 %\* BIBLIOGRAPHY*\
 
 % reduce font size of bibliography
-{\footnotesize{
+{\small{
   \bibliography{chapter/sources}{}
 }}
 \bibliographystyle{chapter/alphaurl}

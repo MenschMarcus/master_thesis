@@ -10,11 +10,11 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="833.3037109375"
-   height="616"
+   height="676"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="new_data_model.svg"
+   sodipodi:docname="new_database_model.svg"
    inkscape:export-filename="/home/marcus/HistoGlobe/master/thesis/graphics/5-uncertainty/data_model/data_model.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.399999998522315"
-     inkscape:cx="390.2552836746676"
-     inkscape:cy="125.558148240815"
+     inkscape:cx="233.4695692234677"
+     inkscape:cy="105.5581482408154"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -52,7 +52,7 @@
        enabled="true"
        snapvisiblegridlinesonly="true"
        originx="115.5px"
-       originy="-414.499996185303px" />
+       originy="-434.4999961853027px" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -70,7 +70,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(115.5,-21.86217880249001)">
+     transform="translate(115.5,58.13782501220726)">
     <rect
        style="fill:#ebebeb;fill-opacity:1;fill-rule:nonzero;stroke:#121212;stroke-opacity:1"
        id="rect2987"
@@ -108,7 +108,7 @@
        y="67.210915"
        id="text3782"
        sodipodi:linespacing="125%"
-       transform="translate(-2.68017578125,-94.84873962402343)"><tspan
+       transform="translate(-2.68017578125,-94.84873962402342)"><tspan
          sodipodi:role="line"
          id="tspan3784"
          x="244.96199"
@@ -121,14 +121,14 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"
-       transform="translate(-2.5,-64.84873962402343)"><tspan
+       transform="translate(-2.5,-64.84873962402342)"><tspan
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan3788"
          sodipodi:role="line">description</tspan></text>
     <text
-       transform="translate(65.03800964355468,-94.84873962402343)"
+       transform="translate(65.03800964355467,-94.84873962402342)"
        sodipodi:linespacing="125%"
        id="text3798"
        y="67.210915"
@@ -147,7 +147,7 @@
        y="67.210915"
        id="text3814"
        sodipodi:linespacing="125%"
-       transform="translate(65.03800964355468,-64.84873962402343)"><tspan
+       transform="translate(65.03800964355467,-64.84873962402342)"><tspan
          sodipodi:role="line"
          id="tspan3816"
          x="244.96199"
@@ -317,7 +317,7 @@
        style="fill:none;stroke:#121212;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        transform="translate(155.0380096435547,-90.00000762939453)" />
     <text
-       transform="translate(155.0380096435547,-94.84873962402343)"
+       transform="translate(155.0380096435547,-94.84873962402342)"
        sodipodi:linespacing="125%"
        id="text3880"
        y="67.210915"
@@ -330,7 +330,7 @@
          id="tspan3882"
          sodipodi:role="line">type</tspan></text>
     <text
-       transform="translate(155.0380096435547,-84.84873962402343)"
+       transform="translate(155.0380096435547,-84.84873962402342)"
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        x="244.96199"
@@ -349,14 +349,14 @@
        y="67.210915"
        id="text3888"
        sodipodi:linespacing="125%"
-       transform="translate(230.0380096435547,-94.84873962402343)"><tspan
+       transform="translate(230.0380096435547,-94.84873962402342)"><tspan
          sodipodi:role="line"
          id="tspan3890"
          x="244.96199"
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">string</tspan></text>
     <text
-       transform="translate(230.0380096435547,-84.84873962402343)"
+       transform="translate(230.0380096435547,-84.84873962402342)"
        sodipodi:linespacing="125%"
        id="text3892"
        y="67.210915"
@@ -369,7 +369,7 @@
          id="tspan3894"
          sodipodi:role="line">string</tspan></text>
     <text
-       transform="translate(-2.62744140625,-84.84873962402343)"
+       transform="translate(-2.62744140625,-84.84873962402342)"
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        x="244.96199"
@@ -382,7 +382,7 @@
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">start_date</tspan></text>
     <text
-       transform="translate(65.03800964355468,-84.84873962402343)"
+       transform="translate(65.03800964355467,-84.84873962402342)"
        sodipodi:linespacing="125%"
        id="text3924"
        y="67.210915"
@@ -401,7 +401,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"
-       transform="translate(-2.47802734375,-74.84873962402343)"><tspan
+       transform="translate(-2.47802734375,-74.84873962402342)"><tspan
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
@@ -414,7 +414,7 @@
        y="67.210915"
        id="text3932"
        sodipodi:linespacing="125%"
-       transform="translate(65.03800964355468,-74.84873962402343)"><tspan
+       transform="translate(65.03800964355467,-74.84873962402342)"><tspan
          sodipodi:role="line"
          id="tspan3934"
          x="244.96199"
@@ -525,7 +525,7 @@
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">operation</tspan></text>
     <text
-       transform="translate(65.03800964355468,25.15124130248989)"
+       transform="translate(65.03800964355467,25.15124130248989)"
        sodipodi:linespacing="125%"
        id="text3991"
        y="67.210915"
@@ -557,7 +557,7 @@
        y="67.210915"
        id="text4041"
        sodipodi:linespacing="125%"
-       transform="translate(65.16545104980468,15.15124130248989)"><tspan
+       transform="translate(65.16545104980467,15.15124130248989)"><tspan
          sodipodi:role="line"
          id="tspan4043"
          x="244.96199"
@@ -614,7 +614,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#141414;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"><tspan
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan4051"
@@ -774,7 +774,7 @@
          id="tspan4119"
          x="244.96199"
          y="67.210915"
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">Area</tspan></text>
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">Area</tspan></text>
     <text
        transform="translate(72.5380096435547,180.1512603759767)"
        sodipodi:linespacing="125%"
@@ -783,7 +783,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#141414;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"><tspan
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan4131"
@@ -800,7 +800,7 @@
          id="tspan4135"
          x="244.96199"
          y="67.210915"
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaStatus</tspan></text>
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaStatus</tspan></text>
     <text
        transform="translate(72.5380096435547,200.1512603759767)"
        sodipodi:linespacing="125%"
@@ -809,7 +809,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#141414;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"><tspan
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan4139"
@@ -826,7 +826,7 @@
          id="tspan4143"
          x="244.96199"
          y="67.210915"
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaName</tspan></text>
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaName</tspan></text>
     <text
        transform="translate(72.5380096435547,220.1512603759767)"
        sodipodi:linespacing="125%"
@@ -835,7 +835,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#141414;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"><tspan
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan4147"
@@ -852,7 +852,7 @@
          id="tspan4151"
          x="244.96199"
          y="67.210915"
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaTerritory</tspan></text>
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaTerritory</tspan></text>
     <text
        transform="translate(72.5380096435547,240.1512603759767)"
        sodipodi:linespacing="125%"
@@ -861,7 +861,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#141414;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"><tspan
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan4155"
@@ -878,7 +878,7 @@
          id="tspan4159"
          x="244.96199"
          y="67.210915"
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaRelation</tspan></text>
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaRelation</tspan></text>
     <text
        transform="translate(72.5380096435547,260.1512603759767)"
        sodipodi:linespacing="125%"
@@ -887,7 +887,7 @@
        x="244.96199"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#141414;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
        xml:space="preserve"><tspan
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          y="67.210915"
          x="244.96199"
          id="tspan4163"
@@ -904,7 +904,7 @@
          id="tspan4167"
          x="244.96199"
          y="67.210915"
-         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.28000000120000001px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaRecognition</tspan></text>
+         style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-0.2800000012px;word-spacing:0px;fill:#141414;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">AreaRecognition</tspan></text>
     <rect
        ry="5"
        rx="5"
@@ -1534,7 +1534,7 @@
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">Area</tspan></text>
     <rect
-       transform="translate(345,-90.00000762939475)"
+       transform="translate(345,-90.00000762939474)"
        style="fill:#dedede;fill-opacity:1;fill-rule:nonzero;stroke:#121212;stroke-opacity:1"
        id="rect4603"
        width="75"
@@ -1550,14 +1550,14 @@
        y="47.362179"
        id="text4605"
        sodipodi:linespacing="125%"
-       transform="translate(322.1675415039062,-90.00000762939475)"><tspan
+       transform="translate(322.1675415039062,-90.00000762939474)"><tspan
          sodipodi:role="line"
          id="tspan4607"
          x="300.46429"
          y="47.362179"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#121212;fill-opacity:1;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">Multilang</tspan></text>
     <path
-       transform="translate(345,-90.00000762939475)"
+       transform="translate(345,-90.00000762939474)"
        style="fill:none;stroke:#121212;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 240,52.3621826171875 L 315,52.3621826171875"
        id="path4609"
@@ -1683,7 +1683,7 @@
          style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono"
          id="tspan4647">omitted for simplicity</tspan></text>
     <g
-       transform="matrix(0,-1.000000000000002,-1,0,342.8710854552543,698.9364278018906)"
+       transform="matrix(0,-1.000000000000002,-1,0,342.8710854552543,698.9364278018905)"
        id="g4814">
       <path
          inkscape:connector-curvature="0"
@@ -1720,7 +1720,7 @@
     </g>
     <g
        id="g4838"
-       transform="matrix(0,-1.000000000000002,-1,0,0.3710854552542742,698.9364278018906)">
+       transform="matrix(0,-1.000000000000002,-1,0,0.3710854552542742,698.9364278018905)">
       <path
          transform="translate(40,0)"
          style="fill:none;stroke:#121212;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1884,7 +1884,7 @@
        transform="matrix(-1,0,0,1,599.6707382836076,-79.73215431824314)"
        id="path4988" />
     <g
-       transform="matrix(0,-1.000000000000002,-1,0,686.0436928775693,698.9364278018906)"
+       transform="matrix(0,-1.000000000000002,-1,0,686.0436928775693,698.9364278018905)"
        id="g4990">
       <path
          sodipodi:nodetypes="ccc"
@@ -1930,7 +1930,7 @@
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">wiki_link</tspan></text>
     <text
-       transform="translate(65.03800964355468,-54.84873962402344)"
+       transform="translate(65.03800964355467,-54.84873962402344)"
        sodipodi:linespacing="125%"
        id="text3360"
        y="67.210915"
@@ -2079,14 +2079,14 @@
        y="67.210915"
        id="text3912"
        sodipodi:linespacing="125%"
-       transform="translate(65.05998229980468,5.151241302489894)"><tspan
+       transform="translate(65.05998229980467,5.151241302489895)"><tspan
          sodipodi:role="line"
          id="tspan3914"
          x="244.96199"
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">Hivent</tspan></text>
     <text
-       transform="translate(-2.70654296875,5.151241302489894)"
+       transform="translate(-2.70654296875,5.151241302489895)"
        sodipodi:linespacing="125%"
        id="text3904"
        y="67.210915"
@@ -2124,7 +2124,7 @@
        height="44.99998092651367"
        width="125"
        id="rect3411"
-       style="fill:#ebebeb;fill-opacity:1;fill-rule:nonzero;stroke:#121212;stroke-width:0.90904891489999995;stroke-opacity:1"
+       style="fill:#ebebeb;fill-opacity:1;fill-rule:nonzero;stroke:#121212;stroke-width:0.9090489149;stroke-opacity:1"
        transform="matrix(1.21011172954406,0,0,1,-66.05879818707828,95.00000381469726)" />
     <text
        transform="translate(-0.54632568359375,95.00000381469726)"
@@ -2166,14 +2166,14 @@
        y="67.210915"
        id="text3423"
        sodipodi:linespacing="125%"
-       transform="translate(65.03800964355468,100.1512527465818)"><tspan
+       transform="translate(65.03800964355467,100.1512527465818)"><tspan
          sodipodi:role="line"
          id="tspan3425"
          x="244.96199"
          y="67.210915"
          style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Latin Modern Mono;-inkscape-font-specification:Latin Modern Mono">string[3]</tspan></text>
     <text
-       transform="translate(65.05998229980468,90.1512527465818)"
+       transform="translate(65.05998229980467,90.1512527465818)"
        sodipodi:linespacing="125%"
        id="text3435"
        y="67.210915"
