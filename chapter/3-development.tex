@@ -24,7 +24,7 @@ The development process is iterative and divided in several phases. The outcome 
   \item \textbf{Extensions}: Design approaches to account for the uncertain nature of history.
 \end{compactenum}
 
-This chapter covers the first four phases of this design process, focusing on the results of the Web-based prototype and its underlying data model. Everything in this chapter is based on the assumption of full certainty about the data: For each time point in history there a clear an undisputed state of the world. The data model and the application presented in this chapter is be open to extension to tackle the actual problem of uncertainty in history. This is the topic of the next chapter \ref{cha:uncertainty}.
+This chapter covers the first four phases of this design process, focusing on the results of the Web-based prototype and its underlying data model. Everything in this chapter is based on the assumption of full certainty about the data: For each time point in history there a clear an undisputed state of the world. The data model and the application presented in this chapter is be open to extension to tackle the actual problem of uncertainty in history. This is the topic of the next chapter \ref{cha:extensions}.
 
 \begin{figure}[H]
   \vspace{1.5em}
@@ -34,14 +34,14 @@ This chapter covers the first four phases of this design process, focusing on th
   \label{fig:models}
 \end{figure}
 
-There are several models involved in the development of the software. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} developed in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. It is followed by section \ref{sec:editing_hivent_data} with methods to \emph{edit} the spatio-temporal data in the system. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface should work -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The implementation of HistoGlobe including the latter three models is presented in the last section \ref{sec:application} of this chapter.
+There are several models involved in the development of the software. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} developed in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. It is followed by section \ref{sec:editing_hivent_data} with methods to \emph{edit} the spatio-temporal data in the system. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface should work -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The implementation of HistoGlobe including the latter three models is presented in the last section \ref{sec:implementation} of this chapter.
 
 % ==============================================================================
 \newpage
 \input{chapter/3-development-1-hivent_model}
 \input{chapter/3-development-2-editing}
 \input{chapter/3-development-3-interface}
-\input{chapter/3-development-4-application}
+\input{chapter/3-development-4-implementation}
 
 % chapter development (end)
 
