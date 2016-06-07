@@ -78,70 +78,70 @@ shows the size of the army in Napoleon’s 1812 Russian campaign, their movement
   \emph{Minard.png}
   Charles Minard, 1869,
   URL: \url{https://commons.wikimedia.org/wiki/File:Minard.png},
-  last access: 03.11.2015,
+  accessed on: 03.11.2015,
 }
 
-% ==============================================================================
+==============================================================================
 
 
-% temporal domain
-%   linear time
-%     time line
-%     time series: graph (t,y coordinate system)
-%     2.5D map: temporal dimension on z axis or on surface
-%     space-time path
-%   cyclic time
-%     time series: polar diagram
-%     time wheel
-%   both
-%     mono-temporal: one layer -> one time point
-%     multi-temporal: one layer -> multiple time points
-% \cite[p. 144]{ott2001time}
+temporal domain
+  linear time
+    time line
+    time series: graph (t,y coordinate system)
+    2.5D map: temporal dimension on z axis or on surface
+    space-time path
+  cyclic time
+    time series: polar diagram
+    time wheel
+  both
+    mono-temporal: one layer -> one time point
+    multi-temporal: one layer -> multiple time points
+\cite[p. 144]{ott2001time}
 
-% paragraph timelines (end)
-
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-% \paragraph{Geospatial Topology} % (fold)
-% \label{par:geospatial_topology}
-
-% \emph{Topology} is the study of position, how objects are spatially arranged and relatively positioned to each other. It does not include measures like distances or angles. Two objects are said to be topologically equivalent, if they can be deformed into each other, e.g. an ellipse can be stretched into a circle. A \emph{geospatial topological vector model} defines the relationship between geospatial objects, i.e. equals, disjoint, intersects, touches / neighbors, contains, covers, within, interior and boundary
-% \cite{clementiniTopology}.
-
-% The 2D vector model can be extended with a topology. The elements in this topological space are nodes (0D), edges (1D) and meshes (2D) and they correspond directly to the geometric primitives stated above. A topological vector model has strict connectivity (a ``clean'' geometry), if no two edges intersect without a node at their intersection point (planar), each interior edge has exactly two adjacent areas and each edge contains at least two nodes
-% \cite[pp.37-39]{bolstad2008gis}.
-
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=0.55\textwidth]{graphics/basics/topological_vector_model}
-%   \caption{An example of a topological vector model and an adjacancy table}
-%   \label{fig:topological_vector_model}
-% \end{figure}
-
-% The topological vector model has a great asset: if an edge between two adjacent areas changes, the connectivity and adjacency does not change and therefore also the topology stays constant. The lookup for neighboring areas is very fast if the topology ensures strict connectivity: The neighbors of an area can be found in the adjacency table. Potentially problematic is the creation of a clean geometry: it can be cumbersome and require a lot of manual adjustment, for example ensuring strict connectivity by manually connecting nodes.
-
-% % paragraph geospatial_topology (end)
-
-% % subsection model_of_geographical_space (end)
+paragraph timelines (end)
 
 
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.75\textwidth]{graphics/basics/hgis/raster_vector}
-%   \caption{Comparison of the raster and the vector model}
-%   \label{fig:raster_vector}
-% \end{figure}
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\paragraph{Geospatial Topology} % (fold)
+\label{par:geospatial_topology}
 
-% The \emph{raster model} contains a regular grid with a fixed \emph{cell dimension}. Each cell has a certain value, e.g. a color value.
-% The model is simple and allows straightforward rendering: only affine transformations have to be applied in order to project two raster map layers on top of each other. The main disadvantage of the raster model is its fixed resolution: it can not be scaled up without losing quality
-% \cite[pp.42-48]{bolstad2008gis}.
-% Raster graphics are used for map tiles by most map engines, e.g. the satellite image by NASA in Google Maps.
-% \footnote{
-%   \emph{Google Maps},
-%   URL: \url{https://www.google.com/maps/@51.2090662,13.2328189,3563505m/data=!3m1!1e3},
-%   Imagery \textcopyright2015 Landsat, Data SIO, NOAA, U.S. Navy, NGA, GEBCO, IBCAO, U.S. Geological Survey, Map data \textcopyright2015 Google, ORION-ME,
-%   last access: 29.10.2015
-% }.
+\emph{Topology} is the study of position, how objects are spatially arranged and relatively positioned to each other. It does not include measures like distances or angles. Two objects are said to be topologically equivalent, if they can be deformed into each other, e.g. an ellipse can be stretched into a circle. A \emph{geospatial topological vector model} defines the relationship between geospatial objects, i.e. equals, disjoint, intersects, touches / neighbors, contains, covers, within, interior and boundary
+\cite{clementiniTopology}.
+
+The 2D vector model can be extended with a topology. The elements in this topological space are nodes (0D), edges (1D) and meshes (2D) and they correspond directly to the geometric primitives stated above. A topological vector model has strict connectivity (a ``clean'' geometry), if no two edges intersect without a node at their intersection point (planar), each interior edge has exactly two adjacent areas and each edge contains at least two nodes
+\cite[pp.37-39]{bolstad2008gis}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.55\textwidth]{graphics/basics/topological_vector_model}
+  \caption{An example of a topological vector model and an adjacancy table}
+  \label{fig:topological_vector_model}
+\end{figure}
+
+The topological vector model has a great asset: if an edge between two adjacent areas changes, the connectivity and adjacency does not change and therefore also the topology stays constant. The lookup for neighboring areas is very fast if the topology ensures strict connectivity: The neighbors of an area can be found in the adjacency table. Potentially problematic is the creation of a clean geometry: it can be cumbersome and require a lot of manual adjustment, for example ensuring strict connectivity by manually connecting nodes.
+
+% paragraph geospatial_topology (end)
+
+% subsection model_of_geographical_space (end)
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{graphics/basics/hgis/raster_vector}
+  \caption{Comparison of the raster and the vector model}
+  \label{fig:raster_vector}
+\end{figure}
+
+The \emph{raster model} contains a regular grid with a fixed \emph{cell dimension}. Each cell has a certain value, e.g. a color value.
+The model is simple and allows straightforward rendering: only affine transformations have to be applied in order to project two raster map layers on top of each other. The main disadvantage of the raster model is its fixed resolution: it cannot be scaled up without losing quality
+\cite[pp.42-48]{bolstad2008gis}.
+Raster graphics are used for map tiles by most map engines, e.g. the satellite image by NASA in Google Maps.
+\footnote{
+  \emph{Google Maps},
+  URL: \url{https://www.google.com/maps/@51.2090662,13.2328189,3563505m/data=!3m1!1e3},
+  Imagery \textcopyright2015 Landsat, Data SIO, NOAA, U.S. Navy, NGA, GEBCO, IBCAO, U.S. Geological Survey, Map data \textcopyright2015 Google, ORION-ME,
+  accessed on: 29.10.2015
+}.
 
 
 For time spans, there are six possibile temporal topological relations (table \ref{tab:temporal_relations}). Except for \texttt{equals}, each of them has an inverse, yielding a total of 13 different relations.
@@ -209,7 +209,7 @@ The first RDBM developed was \emph{Oracle}, released in 1979 \cite{oracleDB}. Si
 \footnote{
   \emph{MySQL :: About MySQL},
   URL: \url{https://www.mysql.com/about/},
-  last access: 31.10.2015
+  accessed on: 31.10.2015
 }.
 
 
@@ -225,10 +225,10 @@ One problem with RDBMS is that attributes can only be assigned simple data types
   \item \emph{Classes} are the structured representation of things in the real world of the same kind, with the same properties, e.g. a country, having a name and a territory. Classes in OODBMS relate to Entities in RDBMS.
   \item An \emph{object} is an instance of a class, one specific thing with defined properties, e.g. the country of Germany with its territory. This correlates to a tuple in RDBMS.
   \begin{itemize}
-    \item The \emph{attributes} of an object can not just be of a simple data type, but also instances of other classes, e.g. \texttt{country.territory} can be a \texttt{polypolygon} object. These complex data types are a major improvement compared to RDBMS.
+    \item The \emph{attributes} of an object cannot just be of a simple data type, but also instances of other classes, e.g. \texttt{country.territory} can be a \texttt{polypolygon} object. These complex data types are a major improvement compared to RDBMS.
     \item Objects also have \emph{methods} that can be called to do something with the object, e.g. \texttt{territory.getArea()} calculates the area size of a country.
   \end{itemize}
-  \item The internal state of an object can not be accessed from the outside. Methods are the only way to interact with an object. This is called \emph{encapsulation} and maintains control over what can be done to and with an object and prevents corruption.
+  \item The internal state of an object cannot be accessed from the outside. Methods are the only way to interact with an object. This is called \emph{encapsulation} and maintains control over what can be done to and with an object and prevents corruption.
   \item According to the concept of \emph{inheritance}, classes can be hierarchically structured, whereas the attributes and the methods of a \emph{base class} are inherited to its \emph{derived class}. As an example, an \texttt{Area} has a \texttt{name}, a \texttt{territory} and the method \texttt{getArea()} associated to it. A \texttt{Country} can be derived from the \texttt{Area}, inheriting both attributes and the method. Additionally, it can get an attribute \texttt{head\_of\_state}, which is specific to \texttt{Country}, but not to \texttt{Area}. The class \texttt{Ocean} can just as well be derived from \texttt{Area}.
   \item An associated concept is \emph{polymorphism}: The same function can be called on different objects and the return value will be of the same type. However, internally it might be calculated differently. As an example, consider the classes \texttt{Polygon} and \texttt{Polypolygon}, both inherited the method \texttt{getArea()} from their base class \texttt{Geometry}. Whereas a polygon calculates its area directly based on its geometry, a polypolygon internally calles the function \texttt{getArea()} on all its associated polygons and sums up their areas.
 \end{itemize}
@@ -246,7 +246,7 @@ ORDBMS combine the advantages of both worlds. Internally, it uses the establishe
   \emph{PostgreSQL:},
   The world's most advanced open source database,
   URL: \url{http://www.postgresql.org/},
-  last access: 31.10.2015
+  accessed on: 31.10.2015
 }.
 
 % subsection object_relational_database_management_systems (end)
@@ -265,7 +265,7 @@ can easily become very large, because of the mass of very precise coordinate dat
 \footnote{
   \emph{PostGIS},
   URL: \url{http://postgis.net/},
-  last access: 31.10.2015
+  accessed on: 31.10.2015
 }
 is an extension for PostgreSQL that is especially utilized for handling spatial data.
 
@@ -299,27 +299,27 @@ A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT
 \label{par:version_management}
 
 
-% One approach to handle this issue is \emph{version management}, introduced by
-% \cite WH94
-% There are \emph{object version} and \emph{object configuration}. The concept is based on four premises:
-% \begin{compactenum}
-%   \item Each object must have an initial version.
-%   \item The versions of an object are hierachically structured.
-%   \item One object version relates to exactly one object instance and vice versa.
-%   \item There is always one current version of an object.
-% \end{compactenum}
+One approach to handle this issue is \emph{version management}, introduced by
+\cite WH94
+There are \emph{object version} and \emph{object configuration}. The concept is based on four premises:
+\begin{compactenum}
+  \item Each object must have an initial version.
+  \item The versions of an object are hierachically structured.
+  \item One object version relates to exactly one object instance and vice versa.
+  \item There is always one current version of an object.
+\end{compactenum}
 
-% Throughout time, a set of interrelating object versions is created. They are handled by four update procedures that create new object versions:
-% \begin{compactenum}
-%   \item Create of a new object.
-%   \item Clone an existing object.
-%   \item Update spatial attributes of an existing object (geometric change).
-%   \item Update aspatial attributes of an existing object (thematic change).
-% \end{compactenum}
+Throughout time, a set of interrelating object versions is created. They are handled by four update procedures that create new object versions:
+\begin{compactenum}
+  \item Create of a new object.
+  \item Clone an existing object.
+  \item Update spatial attributes of an existing object (geometric change).
+  \item Update aspatial attributes of an existing object (thematic change).
+\end{compactenum}
 
-% paragraph version_management (end)
+paragraph version_management (end)
 
 
-% \cite[p. 69]{ott2001time}.
+\cite[p. 69]{ott2001time}.
 
-% section database_management_systems (end)
+section database_management_systems (end)

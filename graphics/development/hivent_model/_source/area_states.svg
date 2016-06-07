@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854242030461"
-     inkscape:cx="-32.75765904520763"
-     inkscape:cy="30.00811961788583"
+     inkscape:zoom="5.65685424203046"
+     inkscape:cx="217.3813651294903"
+     inkscape:cy="3.845168679472128"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -131,7 +131,7 @@
          id="tspan3784"
          x="19.445436"
          y="221.00824"
-         style="font-size:10px;font-style:normal;fill:#808080;-inkscape-font-specification:Latin Modern Sans">inactive</tspan></text>
+         style="font-size:10px;font-style:normal;fill:#808080;-inkscape-font-specification:Latin Modern Sans">Inactive</tspan></text>
     <text
        transform="translate(309.5101449292389,60.66931720077936)"
        sodipodi:linespacing="125%"
@@ -144,7 +144,7 @@
          y="221.00824"
          x="19.445436"
          id="tspan3788"
-         sodipodi:role="line">inactive</tspan></text>
+         sodipodi:role="line">Inactive</tspan></text>
     <text
        transform="translate(187.3944418042389,60.66931720077929)"
        sodipodi:linespacing="125%"
@@ -157,7 +157,7 @@
          y="221.00824"
          x="19.445436"
          id="tspan3792"
-         sodipodi:role="line">active</tspan></text>
+         sodipodi:role="line">Active</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
@@ -200,7 +200,7 @@
          y="221.00824"
          x="19.445436"
          id="tspan3811"
-         sodipodi:role="line">creation</tspan></text>
+         sodipodi:role="line">Creation</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
@@ -213,7 +213,7 @@
          id="tspan3815"
          x="19.445436"
          y="221.00824"
-         style="font-size:10px;fill:#1a1a1a">cessation</tspan></text>
+         style="font-size:10px;fill:#1a1a1a">Cessation</tspan></text>
     <text
        transform="translate(66.49588780338436,11.27412982284949)"
        sodipodi:linespacing="125%"
@@ -326,7 +326,7 @@
          id="tspan3855"
          x="95.105865"
          y="245.40343"
-         style="font-size:10px;fill:#808080">updates</tspan></text>
+         style="font-size:10px;fill:#808080">Updates</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans Oblique"
@@ -339,7 +339,7 @@
          id="tspan3861"
          x="19.445436"
          y="221.00824"
-         style="font-size:10px;font-style:normal;fill:#1a1a1a;-inkscape-font-specification:Latin Modern Sans">event</tspan></text>
+         style="font-size:10px;font-style:normal;fill:#1a1a1a;-inkscape-font-specification:Latin Modern Sans">Event</tspan></text>
     <text
        transform="translate(-17.84368319576114,35.66931683075367)"
        sodipodi:linespacing="125%"
@@ -352,7 +352,7 @@
          y="221.00824"
          x="19.445436"
          id="tspan3865"
-         sodipodi:role="line">time point</tspan></text>
+         sodipodi:role="line">Point in time</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans Oblique"
@@ -365,7 +365,7 @@
          id="tspan3869"
          x="19.445436"
          y="221.00824"
-         style="font-size:10px;font-style:normal;fill:#1a1a1a;-inkscape-font-specification:Latin Modern Sans">area status</tspan></text>
+         style="font-size:10px;font-style:normal;fill:#1a1a1a;-inkscape-font-specification:Latin Modern Sans">Area status</tspan></text>
     <text
        transform="translate(-17.84368319576114,47.91931757080482)"
        sodipodi:linespacing="125%"
@@ -378,6 +378,6 @@
          y="221.00824"
          x="19.445436"
          id="tspan3863"
-         sodipodi:role="line">area</tspan></text>
+         sodipodi:role="line">Area</tspan></text>
   </g>
 </svg>

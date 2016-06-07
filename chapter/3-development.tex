@@ -3,28 +3,27 @@
 \chapter{Development} % (fold)
 \label{cha:development}
 
-This thesis aims for a comphrehensive Historical Geographic Information System. The previous chapter has shown that this is a very complicated undertaking, because both the reality and the human using the system are complex. For such complex applications the methodologies of \emph{Human Centered Design} are promising to create an interface that humans can easily understand.
+This thesis aims for a comprehensive Historical Geographic Information System. The previous chapter has shown that this is not a trivial undertaking, because both the reality and the human using the system are complex. For such applications the methodologies of \emph{Human-Centered Design} are promising to create an interface that humans can easily understand.
 
-The development process is iterative and divided in several phases. The outcome of each phase is a prototype of the interface that gets closer to the desired solution by increasing the fidelity of the prototype. A phase starts with an initial set of requirements. In multiple iterations, a prototype is developed that solves the problem. Each iteration has four steps: The requirements for the system are analyzed in the \emph{planning} step. Afterwards, they translated into an abstract \emph{design} which is realized in a specific \emph{implementation} of the prototype. Finally, this prototype is tested with humans to find out how well it works. Based on the results of this \emph{testing} step, the requirements are updated and the next iteration starts. This is repeated until a version of the interface is created that sufficiently solves the problem. Then the fidelity is increased, starting the next development phase. The five phases in this thesis are shown in figure \ref{fig:human_centered_design}.
+The development process is iterative and divided into several phases. The outcome of each phase is a prototype of the interface that gets closer to the desired solution by increasing the fidelity of the prototype. A phase starts with an initial set of requirements. In multiple iterations, a prototype is developed that attempts to solve the problem. Each iteration has four steps: The requirements for the system are analyzed in the \emph{planning} step (P). Afterwards, they are translated into an abstract \emph{design} (D) which is realized in a specific \emph{implementation} (I) of the prototype. Finally, this prototype is tested with humans to find out how well it works. Based on the results of this \emph{testing} (T) step, the requirements are updated and the next iteration starts. This is repeated until a version of the interface is created that sufficiently solves the problem. Then the fidelity is increased, starting the next development phase. The five phases in this thesis are shown in figure \ref{fig:human_centered_design}.
 
 \begin{figure}[H]
-  \vspace{1em}
+  \vspace{1.5em}
   \centering
   \includegraphics[width=0.9\textwidth]{graphics/development/human_centered_design}
-  \caption{Human Centered Design process with five project phases}
+  \caption{Human-centered design process with five project phases}
   \label{fig:human_centered_design}
 \end{figure}
 
-\newpage
 \begin{compactenum}
   \item \textbf{Idea}: The initial idea how to edit and visualize the history of countries.
   \item \textbf{Paper prototype}: The concept of the interface realized and tested on paper.
-  \item \textbf{Mockup prototype}: The concrete workflow developed in a slide-based presentation.
-  \item \textbf{Web-based prototype}: The final version developed in a Web application.
+  \item \textbf{Mockup prototype}: The specific workflow developed in a slide-based presentation.
+  \item \textbf{Web-based prototype}: The final version developed in a web application.
   \item \textbf{Extensions}: Design approaches to account for the uncertain nature of history.
 \end{compactenum}
 
-This chapter covers the first four phases of this design process, focusing on the results of the Web-based prototype and its underlying data model. Everything in this chapter is based on the assumption of full certainty about the data: For each time point in history there a clear an undisputed state of the world. The data model and the application presented in this chapter is be open to extension to tackle the actual problem of uncertainty in history. This is the topic of the next chapter \ref{cha:extensions}.
+This chapter covers the first four phases of this design process, focusing on the results of the web-based prototype and its underlying data model. Every aspect in this chapter is based on the assumption of full certainty about the data: For each moment in history there is a clear an undisputed state of the world. The data model and the application presented in this chapter is open for extension to tackle the actual problem of uncertainty in history. This is the topic of the next chapter \ref{cha:extensions} of this thesis.
 
 \begin{figure}[H]
   \vspace{1.5em}
@@ -34,7 +33,7 @@ This chapter covers the first four phases of this design process, focusing on th
   \label{fig:models}
 \end{figure}
 
-There are several models involved in the development of the software. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent Model} developed in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. It is followed by section \ref{sec:editing_hivent_data} with methods to \emph{edit} the spatio-temporal data in the system. In iteractive computer systems, the \emph{mental model} is the representation in the mind of the human about how the interface should work -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The implementation of HistoGlobe including the latter three models is presented in the last section \ref{sec:implementation} of this chapter.
+Several models are involved in the development of the software. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent model} developed in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. It is followed by section \ref{sec:editing_hivent_data} with methods to \emph{edit} the spatio-temporal data in the system. In iterative computer systems, the \emph{mental model} is a representation of how  the interface should work in the mind of the human -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human-Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The implementation of HistoGlobe including the latter three models is presented in section \ref{sec:implementation} of this chapter.
 
 % ==============================================================================
 \newpage
@@ -49,4 +48,5 @@ There are several models involved in the development of the software. The \emph{
 
 \vspace{2em}
 
-This chapter presented the iterative Human Centered Design approach to the core part of the thesis: The Hivent Model with the five low-level Hivent Operations describing an historical change. Additionally methods to edit these changes using six Edit Operations and a workflow were proposed. They formed the basis of the Edit Mode in the user interface of HistoGlobe. Finally the system architecture and some selected issues of the implementation in HistoGlobe were presented. However, this state of the application only covers forward changes at the end of the timeline and it is based on the wrong assumption of complete certainty about historical data. The next chapter evaluates this state and develops extensions that can cope with the uncertain nature of history.
+This chapter presented the iterative design approach to the core part of the thesis: The Hivent model with the five low-level Hivent operations to describe a historical change. Additionally, methods were proposed to edit these changes using six edit operations in a workflow.
+These formed the basis of the edit mode in the user interface of HistoGlobe. Finally, the system architecture and some selected implementation issues were presented. However, the state of the application only covers forward changes at the end of the timeline and it is based on the wrong assumption of complete certainty about historical data. The next chapter evaluates this state and develops extensions that can cope with the uncertain nature of history.

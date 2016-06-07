@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.414213561999955"
-     inkscape:cx="307.2669753885064"
-     inkscape:cy="44.45365490590918"
+     inkscape:cx="308.6811889512526"
+     inkscape:cy="44.45365490590915"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -57,7 +57,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -109,7 +109,7 @@
          y="195.54977"
          x="48.487324"
          sodipodi:role="line"
-         id="tspan4066">relativecomplement</tspan></text>
+         id="tspan4066">relative complement</tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="text3002"
@@ -127,7 +127,7 @@
          y="191.54977"
          x="48.487324"
          sodipodi:role="line"
-         id="tspan3010">sifference</tspan></text>
+         id="tspan3010">difference</tspan></text>
     <path
        style="fill:#787878;fill-opacity:1;stroke:#141414;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 120,45.5625 L 90,55.5625 L 80,65.5625 L 65,50.5625 L 25,65.5625 L 10,100.5625 L 15,125.5625 L 25,135.5625 L 45,120.5625 L 60,115.5523986816406 L 65,130.5625 L 90,135.5625 L 105,130.5625 L 130,140.5625 L 140,115.5625 L 130,65.5625 z"

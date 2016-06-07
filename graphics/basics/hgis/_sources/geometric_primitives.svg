@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7149403159422518"
-     inkscape:cx="625.3093709392078"
-     inkscape:cy="31.30898925986816"
+     inkscape:zoom="1.011078290826097"
+     inkscape:cx="600.6344567132832"
+     inkscape:cy="71.70948118769687"
      inkscape:document-units="px"
      inkscape:current-layer="svg2"
      showgrid="true"
@@ -364,7 +364,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1424,12 +1424,12 @@
      y="133.36218"
      id="text7642"
      sodipodi:linespacing="125%"
-     transform="matrix(4.151435000975915,0,0,4.153235684955578,562.3114201154814,-350.6192268045618)"><tspan
+     transform="matrix(4.151435000975915,0,0,4.153235684955578,562.3114201154811,-350.6192268045618)"><tspan
        sodipodi:role="line"
        id="tspan7644"
        x="27.592173"
        y="133.36218"
-       style="font-size:6.7431936264px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">[J, I, H, H]</tspan></text>
+       style="font-size:6.7431936264px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">[J, I, H, G]</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:6.7431936264px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"

@@ -1,5 +1,5 @@
 % normal report style
-\documentclass[10pt, a4paper]{report}
+\documentclass[10pt, a4paper, twoside]{report}
 
 % thesis details
 % ---------------------------------------------------------------------------
@@ -188,28 +188,42 @@
 
 \include{chapter/x-titlepage}
 
+
+%\* TITLE PAGE *\
+\cleardoublepage  % ensures abstract is on the right
+\include{chapter/x-abstract}
+
+
 %\* LISTINGS *\
 
 \tableofcontents
 
 % reduce font size of lists
-\begin{normalsize}
-  \listoffigures
-  \listoftables
-\end{normalsize}
+% \begin{normalsize}
+%   \listoffigures
+%   \listoftables
+% \end{normalsize}
 
-%\* META *\
 
+%\* INTRO STUFF *\
+
+\cleardoublepage
 \include{chapter/x-declaration}
+\cleardoublepage
 \include{chapter/x-acknowledgements}
 
 
 %\* CONTENT *\
 
+\cleardoublepage
 \include{chapter/1-introduction}
+\cleardoublepage
 \include{chapter/2-basics}
+\cleardoublepage
 \include{chapter/3-development}
+\cleardoublepage
 \include{chapter/4-extensions}
+\cleardoublepage
 \include{chapter/5-summary}
 
 

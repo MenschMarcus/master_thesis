@@ -3,7 +3,7 @@
 \chapter{Basics} % (fold)
 \label{cha:basics}
 
-The title of this Master's Thesis is:
+According to the title of this Master's Thesis:
 
 \vspace{-1em}
 \begin{large}
@@ -14,16 +14,17 @@ The title of this Master's Thesis is:
   }
 \end{center}
 \end{large}
+\vspace{-1em}
 
-This chapter will form the theoretical foundation to understand these terms and present related work to the topic of this thesis.
+this chapter will form the theoretical foundation and present related work:
 
 \begin{description}[labelindent=1.53em]
-  \item[$^1$] The purpose of a \emph{visualization} is to present information to a human in a comprehensable way. The visualization is one component of an \emph{Historical Geographic Information System} introduced in section \ref{sec:historical_geographic_information_systems}.
-  \item[$^2$] An information system can allow the user to modify, correct or generally \emph{edit} the information in the system in order to improve it.
+  \item[$^1$] The purpose of a \emph{visualization} is to present information to a human in a comprehensible way. The visualization is one component of an \emph{Historical Geographic Information System} introduced in section \ref{sec:historical_geographic_information_systems}.
+  \item[$^2$] An information system can allow the user to modify, correct or generally \emph{edit} the information in the system.
   \item[$^3$] History is the study of our past, to understand the present and reason about the future. Its main ideas are introduced in section \ref{sub:history_vs_geography}.
-  \item[$^4$] A \emph{country} is probably a political entitry with a clearly defined territory, a permanent population and a government. But as section \ref{sec:countries} shows, its definition is surprisingly difficult.
+  \item[$^4$] A \emph{country} is commonly referred to as a political entity with a clearly defined territory, a permanent population and a government. But as section \ref{sec:countries} shows, its definition is surprisingly difficult.
   \item[$^5$] The work in this thesis focuses on data models of \emph{time and space}. Existing \emph{spatio-temporal data models} are discussed in section \ref{sec:spatio_temporal_data_models}.
-  \item[$^6$] The chapter closes in \ref{sec:histoglobe} with a presentation of \emph{HistoGlobe}, a Web-based Historical Geographic Information System in which the data model of this thesis was developed in.
+  \item[$^6$] The chapter closes in \ref{sec:histoglobe} with a presentation of \emph{HistoGlobe}, a web-based HGIS that was used to implement the data model developed in this thesis.
 \end{description}
 
 % ==============================================================================
@@ -32,16 +33,10 @@ This chapter will form the theoretical foundation to understand these terms and 
 
 Almost everybody in the world is familiar with the term ``country'', because almost everybody has at least one home country he or she can potentially hold a passport from. However, the reality is very complex. If the information system of this thesis deals with countries, it must be possible to decide for each current and historic political entity in the world if it is or was a country or not. This requires a clear and non-conflicting definition of a country. This section will show that this is impossible.
 
-The Oxford Dictionary reads as follows: ``The \emph{territory} of a \emph{nation}; a \emph{region} constituting an \emph{independent state}, or a region, province, etc., which was once independent and is still distinct in institutions, language, etc.''
-\footnote{
-  \emph{country},
-  Oxford Dictionary,
-  URL: \url{http://www.oed.com/view/Entry/43085?},
-  last access: 25.04.2016
-}
+The Oxford English Dictionary reads as follows: ``The \emph{territory} of a \emph{nation}; a \emph{region} constituting an \emph{independent state}, or a region, province, etc., which was once independent and is still distinct in institutions, language, etc.'' \cite{oxendict}.
 This definition includes many different concepts and terms: the territory or region that the country is on, a nation or state, a population and a culture of the territory in terms of institutions or languages. \emph{Nation} and \emph{state} are commonly used as synonyms for countries.
 
-To understand what a country really is, it is helpful to consult the United Nations, an intergovernmental organisation found in October 1945 that promotes international peace keeping, security, protection of human rights. The committee currently has 193 full member states and two permanent obervers\cite{UNmembers}. But these 195 members do not cover all places in the world -- and also a membership in the United Nations does not guarantee being a undisputed country.
+To understand what a country really is, it is helpful to consult the United Nations, an intergovernmental organization that was founded in October 1945. It promotes international peace keeping, security and protection of human rights. The committee currently has 193 full member states and two permanent observers\cite{UNmembers}. But these 195 members do not cover all places in the world -- and also a membership in the United Nations does not guarantee being a undisputed country.
 
 % ------------------------------------------------------------------------------
 \subsection{Problematic Cases} % (fold)
@@ -50,33 +45,37 @@ To understand what a country really is, it is helpful to consult the United Nati
 Examining the list of the UN member states yields several special cases, which can be classified by their membership status in the United Nations and their degree of international recognition.
 
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{UN observer states} % (fold)
 \label{par:un_observer_states}
 
-The \emph{Holy See} is the juridcal and spiritual entity representing Vatican City. It is a fully recognized and sovereign state but not a full member of the UN, because it has never applied. It is the by far smallest sovereign state in the world (0.44 m²), an enclave inside the city of Rome with a population of only 800 people, including 30 women \cite{VaticanPopulation}.
+The \emph{Holy See} is the juridical and spiritual entity representing Vatican City. It is a fully recognized and sovereign state but not a full member of the UN, because it has never applied. It is by far the smallest sovereign state in the world (0.44 km²), an enclave inside the city of Rome with a population of only 800 people \cite{VaticanPopulation}.
 
-The \emph{State of Palestine} with a population of 4.8 million people \cite[as of 2016]{PalestinePopulation} has a totally different situation, because it does not have a clearly defined territoy. The West Bank, East Jerusalem and the Gaza Strip were created in the 1949 Green Line Armistice Agreement but were never intended to be used as international boundaries \cite{PalestineTerritory}. Moreover, while 114 states officially recognize the Palestinian state, almost all current main economic powers do not, including the Germany and the United States. Unlike the Holy See, Palestine is not a fully sovereign and recognized country.
+The \emph{State of Palestine} with a population of 4.8 million people as of 2016 \cite{PalestinePopulation} has a totally different situation, because it does not have a clearly defined territory. The West Bank, East Jerusalem and the Gaza Strip were created in the 1949 Green Line Armistice Agreement, but were never intended to be used as international boundaries \cite{PalestineTerritory}. Moreover, while 114 states officially recognize the Palestinian state, almost all current main economic powers do not, including Germany and the United States. Unlike the Holy See, Palestine is not a fully sovereign and recognized country.
 
 % paragraph un_observer_states (end)
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{UN non-members with limited recognition} % (fold)
 \label{par:un_non_members_with_limited_recognition}
 
-\emph{Kosovo} declared independence from Serbia in 2008. It has a clearly defined territory and a permanent population and is recognized by 111 UN member states. In order for Kosovo to become a full member of the United Nations, all permanent members of the security council (United Kingdom, France, Russia, China and the United States) must agree. But since Russia and China strongly support the territorial integrity of Serbia, they would veto Kosovos membership. Therefore, Kosovo is not even a UN observer state, although having about the same degree of international recognition as Palestine \cite{KosovoThanksYou}.
+\emph{Kosovo} declared independence from Serbia in 2008. It has a clearly defined territory and a permanent population and is recognized by 111 UN member states. In order for Kosovo to become a full member of the United Nations, all permanent members of the security council (United Kingdom, France, Russia, China and the United States) must agree. But since Russia and China strongly support the territorial integrity of Serbia, they would veto Kosovo's membership. Therefore, Kosovo is not even a UN observer state, although having about the same degree of international recognition as Palestine \cite{KosovoThanksYou}.
 
-The status of \emph{Taiwan} is a very complicated issue. Two territories and two political entities are involved in the conflict: The \emph{People's Republic as China} (commonly known as China) has full control over mainland China, and the \emph{Republic of China} governs the island of Taiwan. The problem is that both states claim the exact same territory: whole China. Since 1971 the People's Republic of China is the only representative of China in the United Nations, including the island of Taiwan. It is part of the Security Council and can successfully veto membership requests of the Republic of China. However, Taiwan operates like an independend country by international standards: They have an own jurisdiction, issue own passports and have unofficial diplomatic relations to most countries in the world. Officially only 22 UN members uphold diplomatic relations to Taiwan \cite{TaiwanRecognition}. To all of these states the People's Republic of China does not uphold any diplomatic relations.
+The status of \emph{Taiwan} is a very complicated issue. Two territories and two political entities are involved in the conflict: The \emph{People's Republic of China}, commonly known as China, has full control over mainland China, and the \emph{Republic of China} governs the island of Taiwan. The problem is that both states claim the exact same territory: whole China. Since 1971 the People's Republic of China is the only representative of China in the United Nations, including the island of Taiwan. It is part of the Security Council and can successfully veto membership requests of the Republic of China. However, Taiwan operates like an independent country by international standards: They have an own jurisdiction, issue own passports and have unofficial diplomatic relations to most countries in the world. Only 22 UN members officially uphold diplomatic relations to Taiwan \cite{TaiwanRecognition}. To all of these states the People's Republic of China does not kepp any diplomatic relations.
 
 There are other places with limited international recognition: the Sahrawi Arab Democratic Republic (recognized by 84 UN member states) \cite{WesternSaharaRecognition}, Abkhazia (6) \cite{AbkhaziaRecognition}, South Ossetia (5) \cite{SouthOssetiaRecognition}, the Turkish Republic of Northern Cyprus (1) \cite{NorthernCyprusRecognition}, Nagorno-Karabakh Republic (0) \cite{NagornoRecognition}, Transnistria (0) \cite{TransnistriaRecognition} and Somaliland (0) \cite{SomalilandRecognition}.
 
 % paragraph un_non_members_with_limited_recognition (end)
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{UN members with limited recognition} % (fold)
 \label{par:un_members_with_limited_recognition}
 
-In addition to the Republic of China, there are five other member states of the United Nations that are not fully recognized by all other UN members: Armenia is not recognized by Pakistan \cite{ArmeniaRecognition}, Turkey does not recognize the Republic of Cyprus \cite{CyprusRecognition}), North and South Korea mutually do not recognize each other \cite{KoreaRecognition} and the State of Israel is not recognized by 32 UN member states \cite{IsraelRecognition}.
+In addition to the Republic of China, there are five other member states of the United Nations that are not fully recognized by all other UN members: Armenia is not recognized by Pakistan \cite{ArmeniaRecognition}, Turkey does not recognize the Republic of Cyprus \cite{CyprusRecognition}, North and South Korea mutually do not recognize each other \cite{KoreaRecognition} and the State of Israel is not recognized by 32 UN member states \cite{IsraelRecognition}.
 
 % paragraph un_members_with_limited_recognition (end)
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Special Territories} % (fold)
 \label{par:special_territories}
 
@@ -89,19 +88,19 @@ This incomplete and simplified list of special cases manifests the big problem t
 % subsection special_cases (end)
 
 % ------------------------------------------------------------------------------
-\subsection{Declaratory vs. Constituitive Theory} % (fold)
-\label{sub:declaratory_vs_constituitive_theory}
+\subsection{Declaratory vs. Constitutive Theory} % (fold)
+\label{sub:declaratory_vs_constitutive_theory}
 
-Officially there are two different concepts that define what a country is: The \emph{declaratory theory}, established in the Montevideo Convention 1933 \cite{MontevideoConvention}, gives each entity the right to declare a state if it matches all of the four requirements: a clearly defined territory, a permanent population. a political representation / government and the \emph{capacity} to enter diplomatic relations. These four requirements ensure that a state can exist physically and politically, independent from its recognition by others.
+Officially there are two different concepts that define what a country is: The \emph{declaratory theory}, established in the Montevideo Convention 1933 \cite{MontevideoConvention}, gives each entity the right to declare a state if it matches all of the four requirements: a clearly defined territory, a permanent population, a political representation / government and the \emph{capacity} to enter diplomatic relations. These four requirements ensure that a state can exist physically and politically, independent from its recognition by others.
 %In other words: ``A country is a country when it thinks it is a country.''
-In contrast, the constituitive theory requires exactly that: A state can only be considered as such if it is recognized by other states. However, it is not defined anywhere by how many other states \cite{StateTheory}. In short: ``A country is a country when other countries think that country is a country.'' \cite{greyCountries}
+In contrast, the constitutive theory requires exactly that: A state can only be considered as such if it is recognized by other states. However, it is not defined anywhere by how many other states \cite{StateTheory}. In short: ``A country is a country when other countries think that country is a country.'' \cite{greyCountries}
 
 \begin{figure}[ht]
   \vspace{1em}
   \centering
-  \includegraphics[width = 0.8\textwidth]{graphics/basics/countries/decl_const_theory}
-  \caption{The Declaratory Theory (left) and the Constituitive Theory (right) of Statehood}
-  \label{fig:declaratory_constituitive_theory}
+  \includegraphics[width=0.8\textwidth]{graphics/basics/countries/decl_const_theory}
+  \caption{Declaratory Theory (left) vs. Constitutive Theory (right) of statehood (based on \cite{StateTheory})}
+  \label{fig:declaratory_constitutive_theory}
 \end{figure}
 
 Both theories have advantages and disadvantages, but the main problems are:
@@ -110,29 +109,30 @@ Both theories have advantages and disadvantages, but the main problems are:
   \item There is no super-national organization that can judge if a country is a country or not. Even the United Nations fail to do so, because their membership requirements prevent states like Kosovo or the Republic of China from becoming members.
 \end{enumerate}
 
-Nobody can clearly say if Kosovo, Taiwan or Abkhazia are countries or not -- and if they do, there will be people that disagree. This is a big problem for the information system, because it is impossible to objectivly classify a place as a country or not. And this section only covers the current countries. 100 years ago these two theories were not existing. For the time before that, a conflict-free decision of what is country is not just impossible, but also not justifyable because of a lack of jurisdiction.
+Nobody can clearly say if Kosovo, Taiwan or Abkhazia are countries or not -- and if one did, there were people who disagree. This is a big problem for the intended information system, because it is impossible to objectively classify a place as a country or not. Moreover, this section only covers the current countries. 100 years ago these two theories did not exist. It is thus impossible to make a conflict-free decision of what constitutes a country at any point before the \nth{20} century. Moreover, it is also not justifiable because of a lack of jurisdiction. That means, the HGIS developed in this thesis inevitably deals with uncertain information that some parties will disagree with. Its data model cannot perfectly deal with self-classifying data and cannot rely on an objective data source. The system has to contain approaches that deal with these problems.
 
-That means, the HGIS developed in this thesis inevitably deals with uncertain information that some parties disagree. Its data model can not perfectly fit self-classifying data and can not rely on an objective data source. The system has to contain approaches that deal with this problem.
 
-% subsection declaratory_vs_constituitive_theory (end)
+% subsection declaratory_vs_constitutive_theory (end)
 
 % ------------------------------------------------------------------------------
 \subsection{Territory of a Country} % (fold)
 \label{sub:territory_of_a_country}
 
-The declaratory theory introduces four main properties of a country. The data model developed in this thesis focuses only the territory, since it is easy to present it on the map. It can just as well be a complex issue, as it has already been explained for the case of the State of Palestine in section \ref{par:un_observer_states}. In the usual case, the threedimensional territory of a country consits of the \emph{landmass} it occupies, its \emph{territorial waters} and its \emph{controlled airspace}. This thesis considers only the two-dimensional part of the territory on the Earth's surface. It contains land, islands, inland water, river outfalls, and fjords.
+The declaratory theory introduces four main properties of a country. The data model developed in this thesis focuses only on the territory, since it can be easily presented on a map. It can just as well be a complex issue, as it has already been explained for the case of the State of Palestine in section \ref{par:un_observer_states}. In the usual case, the three-dimensional territory of a country consists of the \emph{landmass} it occupies, its \emph{territorial waters} and its \emph{controlled airspace}. This thesis considers only the two-dimensional mapping of the territory on the Earth's surface. It contains land, islands, inland water, river outfalls, and fjords.
 
-The \emph{land territory} is bounded by the countries \emph{borders}. A border consists of a set of straight lines between clearly defined \emph{border points}.
-A border is either \emph{interior} when it directly borders the territory of another country on land or a \emph{coastline} if it borders international water. In line with \cite{UNSeaBorders}, the territory of a country extends in a range of 3 to 12 miles (5 to 20 kilometers) into international waters and forms the \emph{sea territory} of a county.
-% An interior border can be either a \emph{natural border} if it is based on geographical features, e.g. rivers or mountain ridges or an arbitrary \emph{artificial border}.
-The territory of a country is \emph{continuous} if each point on the territory can be reached by any other point without leaving the territory. Non-continuous territories are usually the case if the country has islands. However, there is a special case to be considered:
+The \emph{land territory} is bounded by the country \emph{borders}. A border can be modeled by a set of straight lines between clearly defined \emph{border points}.
+A border is either \emph{interior}, when it directly borders the territory of another country on land, or a \emph{coastline} if it borders international water. According to \cite{UNSeaBorders}, the territory of a country extends in a range of 5 to 20 kilometers into international waters. This forms the \emph{sea territory} of a county.
+An interior border can be either \emph{natural} if it is based on geographical features, e.g. a river or a mountain ridge, or \emph{artificial}.
+The territory of a country is \emph{continuous} if each point on the territory can be reached by any other point without leaving the territory. Non-continuous territories are usually the case if the country has islands.
 
+\vspace{-0.5em}
 \begin{minipage}[t]{0.60\textwidth}
 
-If a territory is completely surrounded by the territory of exactly one country, it is an \emph{enclave}. On a contrary, an \emph{exclave} is a part of a countries territory that is geographically separate from the main part of the territory. In some cases the exclave of one country is automatically the enclave of another country -- however, if the exclave is surrounded by more than one other country, is not an exclave. Enclaves can be be nested and form a hierachy, e.g. a \emph{second-order enclave} is an enclave within an enclave
+However, there is a special case to be considered:
+If a territory is completely surrounded by the territory of exactly one country, it is an \emph{enclave}. On the contrary, an \emph{exclave} is a part of a country's territory that is geographically separated from the main part of the territory. In some cases the exclave of one country is automatically the enclave of another country -- however, if the exclave is surrounded by more than one country, is not an enclave. Enclaves can be nested and form a hierarchy, e.g. a \emph{second-order enclave} is an enclave within an enclave
 \cite{enclavesexclaves}. \\[-0.6em]
 
-In the example in figure \ref{fig:enclaves_exclaves} ~ $A$ has three exclaves: $A_1$, $A_2$ and $A_3$. Only $A_3$ is also an enclave, within $B$. $E$ is an enclave of $A$. Within $E$, there are two second-order enclaves for $A$: $A_4$ and $A_5$. Inside $A_5$, there is $E_1$, a third-order enclave from the perspective of $A$ and a second-order enclave for $E$. $D$ is the only fully enclaved territory.
+In the example in figure \ref{fig:enclaves_exclaves} ~ $A$ has three exclaves: $A_1$, $A_2$ and $A_3$. Only $A_3$ is also an enclave, within $B$. $E$ is an enclave of $A$. Within $E$, there are two second-order enclaves for $A$, $A_4$ and $A_5$. Inside $A_4$, there is $E_1$, a third-order enclave from the perspective of $A$ and a second-order enclave for $E$. $D$ is the only fully enclaved territory.
 
 \end{minipage}             % N.B. the % is very important
 \hspace{0.05\textwidth}    % N.B. this must go in this line, no blank lines !!!
@@ -142,28 +142,14 @@ In the example in figure \ref{fig:enclaves_exclaves} ~ $A$ has three exclaves: $
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{graphics/basics/countries/enclaves_exclaves}
-  \caption{Enclaves and exclaves \protect\footnotemark}
+  \caption{Enclaves and exclaves}
+  \small{based on \cite{enclavesexclavesfigure}}
   \label{fig:enclaves_exclaves}
 \end{figure}
 
 \end{minipage}    % N.B. the % is very important
 
-\footnotetext{
-  example based on:
-  \emph{Explicative diagram of territorial discontinuities: Enclaves and exclaves},
-  Wikipedia,
-  \url{https://en.wikipedia.org/wiki/Enclave_and_exclave},
-  last access: 02.06.2016
-}
-
-Second-order enclaves infrequently appear in the real world, as in the example of Baarle-Nassau and Baarle-Hertog at the border between the Netherlands and Belgium
-\footnote{
-  \emph{The Curious Case of Baarle-Nassau and Baarle-Hertog},
-  kaushik, 06.11.2012,
-  \url{http://www.amusingplanet.com/2012/11/the-curious-case-of-baarle-nassau-and.html},
-  last access: 31.05.2016
-}.
-There are three countries in the world that are complete enclaves: San Marino, Vatican City and Lesotho.
+Second-order enclaves infrequently appear in the real world, as in the example of Baarle-Nassau and Baarle-Hertog at the border between the Netherlands and Belgium \cite{baarlebaarle}. There are ONLY three countries in the world that are complete enclaves: San Marino, Vatican City and Lesotho.
 
 % subsection territory_of_a_country (end)
 
@@ -173,7 +159,7 @@ There are three countries in the world that are complete enclaves: San Marino, V
 \section{Historical Geographic Information Systems} % (fold)
 \label{sec:historical_geographic_information_systems}
 
-A \emph{system} is an organized structure containing \emph{elements} that are directly or indirectly \emph{related} to each other. At any point in the system's existence there is an \emph{internal state} that changes when it gets influenced by stimuli of from the outside \cite{system}. An \emph{information system} (IS) is an application that is dealing with the acquisition, management, analysis and presentation of information \cite{informationSystem}. The terms ``signs'', ``data'', ``information'' and ``knowledge'' are sometimes used interchangeably and there is no coherent definition for any of them. However, all describe different concepts. This explanation seen in figure \ref{fig:information} is based on the work of \cite{datinfwis}.
+A \emph{system} is an organized structure containing \emph{elements} that are directly or indirectly \emph{related} to each other. At any point in the system's existence there is an \emph{internal state} that changes when it gets influenced by stimuli from the outside \cite{buizdict}. An \emph{information system} is an application that acquires, manages, analyses and presents information \cite{informationSystem}. The terms ``signs'', ``data'', ``information'' and ``knowledge'' are sometimes used interchangeably and there is no coherent definition for any of them. However, all describe different concepts. This explanation seen in figure \ref{fig:information} is based on the work of \cite{datinfwis}.
 
 \begin{figure}[ht]
   \vspace{1em}
@@ -184,18 +170,22 @@ A \emph{system} is an organized structure containing \emph{elements} that are di
   \label{fig:information}
 \end{figure}
 
-A \emph{sign} is the physical representation of something in the real world. Since the real world is continuous, literally anything can be seen as a sign, so there are uncountably infinitely many different signs. \emph{Data} is a subset of all possible signs and represents the syntactical level of what an information system deals with. Data itself does not have any meaning, but as soon as it is organized, it becomes \emph{information}. However, information is sensitive to its cultural context. The string ~\texttt{14.07.1789}~ is useful and understandable for people in countries that use the date format \texttt{DD.MM.YYYY}. However, for people in Belize and the USA this might just be a random string of numbers -- it does not have any  information although it is the same data. When a human understands the visualization of information he or she can be integrate it into the larger subjective context, the \emph{knowledge} \cite{nake}. The goal of a visualization is to present the information in a way that it can be transformed into knowledge by the viewer.
+A \emph{sign} is the physical representation of something in the real world. Since the real world is continuous, literally anything can be seen as a sign, so the set of signs is uncountably infinite.
+\emph{Data} is a subset of all possible signs and represents the syntactical level of what an information system deals with. Data itself does not have any meaning, but as soon as it is organized, it becomes \emph{information}.
+However, information is sensitive to its cultural context. The string ~\texttt{14.07.1789}~ is useful and understandable for people in countries that use the date format \texttt{DD.MM.YYYY}. However, for people in Belize and the USA this same data might just be a random string of numbers -- it does not have any information.
+When a human understands the visualization of information he or she can integrate it into a larger subjective context, the \emph{knowledge} \cite{nake}.
+The goal of a visualization is to present the information in a way that it can be transformed into knowledge by the viewer.
 
-If the majority of the information in a system has a spatial relation to the Earth, its surface, its atmosphere or the social structure of its habitation, it is a \emph{Geographic Information system} (GIS). The data objects in the system are called \emph{geo-objects}
+If the majority of the information in a system has a spatial relation to the Earth, its surface, its atmosphere or the social structure of its habitation, it is called a \emph{Geographic Information System} (GIS). The data objects in the system are called \emph{geo-objects}
 \cite{bolstad2008gis}.
-If the information additionally has a temporal dimension, e.g. via time stamps or time spans, which enable to trace developments of geo-objects, it becomes an \emph{Historical Geographic Information System}
+If the information has an additional temporal dimension, e.g. via time stamps or time spans, which allow to trace developments of geo-objects, it becomes a \emph{Historical Geographic Information System}
 \cite{gregory2014toward}
-or alternatively \emph{Spatio-Temporal Information Systems} (STIS)
+or alternatively \emph{Spatio-Temporal Information System} (STIS)
 \cite{pelekis04stdms}.
 HGIS help scholars in \emph{Digital Humanities} to analyze how ``spatial patterns change over time in order to better understand large-scale Earth processes''
 \cite{peuquet99}.
 Their purpose is to situate ``history in its geographical context and using geographic information to illuminate the past''
-\cite[p. 3]{knowles2008placing}.
+\cite{knowles2008placing}.
 
 % ------------------------------------------------------------------------------
 \subsection{History vs. Geography} % (fold)
@@ -217,56 +207,35 @@ the same way as History is Geography over time.
 
 Alike many other fields in humanities, \emph{history} is ``an ideal field for thinking long and hard about important questions''
 \cite{ahaFiveCs}.
-It originates from the Greek word \emph{\textIota\textsigma\texttau\textomikron\textrho\textiota\textalpha / historia}: ``finding out, learning through research, narration of what is learned''
-\footnote{
-  \emph{History},
-  Dictionary.com, based on Random House Dictionary, 2015,
-  URL: \url{http://dictionary.reference.com/browse/history},
-  last access: 23.10.2015
-}
+It originates from the Greek word \emph{\textIota\textsigma\texttau\textomikron\textrho\textiota\textalpha / historia}: ``finding out, learning through research, narration of what is learned'' \cite{dict}
 and it signifies the two main modern usage forms of the term: To research about something and to tell a story. Historians interpret primary sources, such as written documents, photographs or historical maps to explain complex phenomena \cite[pp.4-7]{knowles2008placing}. The main goal of history is to study processes in the past to understand the situation in the present and make reasonable decisions for the future. The American Historical Association has developed the ``five C`s of historical thinking [that] together describe the shared foundations of [the] discipline''\cite{ahaFiveCs}:
 
 \vspace{-1em}
 \begin{description} % manipulation of indentation
   \item[Change over time]
   The lives of people, their languages and cultures are continuously changing. One goal of history is to describe these historical changes triggered by historical events. Snapshots in the form of historical maps or historical photography are used to tackle this task.
-  %TODO: refer to this in later sections
-  \item[Context] The goal is to travel back in time to a moment in the past and recreate the world. Therefore it is crucial to understand the historical context via primary sources.
+  \item[Context] The goal is to travel back in time to a moment in the past and recreate the world. Therefor it is crucial to understand the historical context via primary sources.
   \item[Causality]
-  The overall goal of each science is to answer the question \emph{why} something is the way it is. Historians want to explain an historical event or process based on evidence. The problem is that history can not run experiments, because the same condition can not be repeated. Therefore historians have to focus on the interpretation of primary sources.
+  The overall goal of each science is to answer the question \emph{why} something is the way it is. Historians want to explain historical events or processs based on evidence. The problem is that history cannot run experiments, because the same condition cannot be repeated. Therefor historians have to focus on the interpretation of primary sources.
   \item[Contingency]
   Each event has a network of prior conditions, because the world is highly interconnected. A slight change in one prior condition could have led to a completely different outcome of the event and a different state of the world.
   \item[Complexity]
   The intrinsic human need for order conflicts with the contingency of history. It is questionable if all details about events in the world are scientifically explainable.
-  %This problem is comparable to the Heisenberg problem in physics: Whereas on the macro-level e.g. physical movements are a direct cause of a set of preconditions (speed, fraction, wind, weight, ...) and are therefore predictable, the smallest of all particles are not traceable, their movements are not predictable and therefore their processes not explainable.
+  This problem is comparable to Heisenbergs uncertainty principle in physics: Physical movements on the macro-level are a direct cause of a set of preconditions, e.g. speed, fraction, wind or weight. They are therefore predictable. However, the smallest of all particles are not traceable, their movements are not predictable and therefore their processes not entirely explainable.
 \end{description}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Geography} % (fold)
 \label{par:geography}
 
-(Greek ~\emph{\textgamma\textepsilon\textomega\textgamma\textrho\textalpha\textphi\textiota\textalpha / geographia}) literally means ``describing the earth.''
-\footnote{
-  \emph{Geography},
-  Dictionary.com, based on Random House Dictionary, 2015,
-  URL: \url{http://dictionary.reference.com/browse/geography},
-  last access: 23.10.2015
-}
+(Greek ~\emph{\textgamma\textepsilon\textomega\textgamma\textrho\textalpha\textphi\textiota\textalpha / geographia}) literally means ``describing the earth''
+\cite{dict}.
 It is a science that studies the interplay between the landscapes and environments of the Earth (\emph{physical geography}) on the one hand and the people, their cultures, societies and economies (\emph{human geography}) on the other. It is an interdisciplinary field between natural and social sciences
-\cite{rgsGeography}. Geographical research aims to understand where things are found, why they are there and how they developed over time. It focuses on the interconnectivity between elements of physical and human geography, which gets expressed in Tobler's First Law of Geography: ``Everything is related to everything else, but near things are more related than distant things.''
-\footnote{
-  ``A computer movie simulating urban growth in the Detroit region'',
-  Waldo Tobler, 1970
-  Economic Geography, 46(2): 234-240.
-}
+\cite{rgsGeography}. Geographical research aims to understand where things are found, why they are there and how they developed over time. It focuses on the interconnectivity between elements of physical and human geography, which gets expressed in Tobler's First Law of Geography: ``Everything is related to everything else, but near things are more related than distant things''
+\cite{lawOfGeography}.
 
-Geographers use different techniques to answer their research questions. One important technique is a \emph{map}: A graphical expression of something that is not tangible. A map shows the physical, environmental, political, economical or social properties of the Earth. The ``art and science of making maps'' is the field of \emph{cartography}
-\footnote{
-  \emph{History of maps and cartography},
-  James S. Aber,
-  URL: \url{http://academic.emporia.edu/aberjame/map/h_map/h_map.htm},
-  last access: 24.10.2015
-}.
+Geographers use different techniques to answer their research questions. One important technique is a \emph{map}: a two-dimensional representation of physical, environmental, political, economical or social properties of the Earth. The ``art and science of making maps'' is the field of \emph{cartography} \cite{cartography}.
+
 Since maps visualize a model, they have a natural constraint: ``No map can perfectly replicate the real world, since it inevitably generalizes, abstracts and approximates the complexity of the reality''
 \cite[p. 181]{knowles2008placing}.
 
@@ -274,61 +243,57 @@ Since maps visualize a model, they have a natural constraint: ``No map can perfe
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-\vspace{2em}
+\vspace{3em}
 
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{p{0px} r c l p{0px}}
     \toprule
-    & \emph{geography}
-    & \emph{aspect}
-    & \emph{history}
+    & \emph{Geography}
+    & \emph{Aspect}
+    & \emph{History}
     & \\
     \midrule
-    & where?
-    & question
-    & when?
+    & Where?
+    & Question
+    & When?
     & \\
 
-    & space
-    & dimension
-    & time
+    & Space
+    & Dimension
+    & Time
     & \\
 
-    & exact, statistical
-    & character
-    & complex, fuzzy
+    & Exact, statistical
+    & Character
+    & Fuzzy, complex
     & \\
 
-    & mainly quantitative
-    & research
-    & mainly qualitative
+    & Mainly quantitative
+    & Research
+    & Mainly qualitative
     & \\
 
-    & spatial proximity of conditions
-    & causal explanation
-    & temporal sequence of events
+    & Spatial proximity of conditions
+    & Causal explanation
+    & Temporal sequence of events
     & \\
 
-    & spatial differentiation
-    & explanation
-    & temporal differentiation
+    & Clustering
+    & Organization principle
+    & Periodization
     & \\
 
-    & clustering
-    & organization principle
-    & periodization
+    & Mostly visual (maps)
+    & Form of expression
+    & Mostly verbal (texts)
     & \\
 
-    & mostly visual (maps)
-    & expression
-    & mostly verbal (texts)
+    & High (GIS)
+    & Digitalization potential
+    & Low (digital humanities)
     & \\
 
-    & high (GIS)
-    & digitalization potential
-    & low (digital humanities)
-    & \\
     \bottomrule
 \end{tabular}
 \caption{Differences between history and geography \cite[pp. 2-4]{knowles2008placing}}
@@ -339,28 +304,35 @@ Since maps visualize a model, they have a natural constraint: ``No map can perfe
 % subsection history_vs_geography (end)
 
 % ------------------------------------------------------------------------------
-\newpage
 \subsection{Geospatial Data} % (fold)
 \label{sub:geospatial_data}
 
-HGIS need to unambiguously locate geo-objects on, underneath or close to the Earth's surface using \emph{geographic coordinates}. They express an object directly in the coordinate system of the Earth. To understand that, a model of the Earth has to be developed, the \emph{geodetic datum}, that needs to fit the real shape of the Earth as accurately as possible.
+A HGIS deals with spatio-temporal objects. The spatial dimension of the objects, a geo-objects, is usually presented on a \emph{map}. The geo-objects in this case are the territories of countries. The problem is that the Earth in the real world is three-dimensional and infinitely in detail, but the map is two-dimensional and can only show discrete features. In order to show a country on a map, there are mainly three steps involved:
+
+\begin{enumerate}
+  \item Choose a three-dimensional reference surface, an \emph{ellipsoid} or a \emph{spheroid}, that approximates the real shape of the Earth reasonably well.
+  \item Define a \emph{geographic coordinate system}, the so called \emph{geodetic datum}, in which each geo-object can be expressed in.
+  \item Project the object from the reference surface onto a map using a \emph{map projection}.
+\end{enumerate}
+
+\emph{TODO: DIESE VERFICKET DRECKSSCHEIßE !!! ICH VERSTEHE ES EINFACH NICHT !!!!}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{The shape of the Earth} % (fold)
 \label{par:the_shape_of_the_earth}
 
-measured in the field of \emph{geodesy} is very complicated. In the Babylonian Empire ($\approx$ 2000-539 BC) the theory of the Earth being a flat disc surrounded by an infinite body of water evolved
-\footnote{
-  A theory still valid in some southern parts of the United States of America
-}.
-The Greek scientists Pythagoras and Aristotle (340 BC) rejected this theory and proved the Earth to be a three-dimensional spherical object. It took almost 2000 years until Sir Isaac Newton (1687) reasoned that due to the centrifugal forces of the rotating Earth the shape has to be flattened at the poles and is therefore better described as an \emph{ellipsoid} with two radii: the polar radius ($r_p$) and the slightly larger equatorial radius ($r_e$)
-\cite[pp. 69-77]{bolstad2008gis}. However, the model disregards that the surface of the Earth is not flat but consists of deep oceanic trenches and high mountains. Therefore the gravitational field of the Earth is not homogeneous either: the actual \emph{mean sea level}, the reference surface for the height of objects varies from 106 meter below to 85 meter above the uniform sea level of the ellipsoid model. These discoveries in the \nth{20} century led to the complex model of a \emph{geoid} (see figure \ref{fig:geoid}). The latest and most accurate measurements for the shape of the Earth are the result of the GOCE satellite launched in March 2009
+In the Babylonian Empire ($\approx$ 2000-539 B.C.E) the theory of the Earth being a flat disc surrounded by an infinite body of water evolved.
+% \footnote{
+%   A theory still valid in some southern parts of the United States of America
+% }.
+The Greek scientists Pythagoras and Aristotle rejected this theory around 340 B.C.E and proved the Earth to be a three-dimensional spherical object. It took almost 2000 years until Sir Isaac Newton reasoned in 1687 that due to the centrifugal forces of the rotating Earth the shape has to be flattened at the poles and is therefore better described as an \emph{ellipsoid} with two radii: the polar radius ($r_p$) and the slightly larger equatorial radius ($r_e$)
+\cite[pp. 69-77]{bolstad2008gis}. However, the model disregards that the surface of the Earth is not smooth but consists of deep oceanic trenches and high mountains. Therefore, the gravitational field of the Earth is not homogeneous either: the actual \emph{mean sea level}, the reference surface for the height of objects, varies from 106 meter below to 85 meter above uniform sea level of the ellipsoid model. These discoveries in the \nth{20} century led to the complex model of a \emph{geoid} (see figure \ref{fig:geoid}). The latest and most accurate measurements for the shape of the Earth are the result of the GOCE satellite launched in March 2009
 \cite{geoid, geoidESRI}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/basics/hgis/geoid}
-  \caption{The geoid model, differences are exaggerated, \cite[Fig. 3-6, p. 75]{bolstad2008gis}}
+  \includegraphics[width=0.8\textwidth]{graphics/basics/hgis/earth_models}
+  \caption{Models of the Earth's figure, differences are exaggerated \cite[Fig. 3-6, p. 75]{bolstad2008gis}}
   \label{fig:geoid}
 \end{figure}
 
@@ -369,6 +341,8 @@ The Greek scientists Pythagoras and Aristotle (340 BC) rejected this theory and 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Geographic coordinate system} % (fold)
 \label{ssub:geographic_coordinate_system}
+
+\emph{TODO: Understand properly and make right}
 
 The basis for the geospatial data model is the reference ellipsoid. It is represented in a three-dimensional \emph{spherical coordinate system}. The \emph{North} and the \emph{South Pole} are defined as the two surface points closest to the Earth's center opposite to each other. The \emph{Equator} is the line equidistant to the two poles and dividing the world in a \emph{Northern} and \emph{Southern Hemisphere}. Additionally, the \emph{Prime Meridian} is defined as the line perpendicular to the Equator, running from the North to the South Pole. Since there are infinitely many lines like this, its definition is arbitrary, but by convention, the line running through Greenwich is used. Based on these two lines, each point in the spherical coordinate system can be unambiguously defined by
 \cite[pp. 26-28]{bolstad2008gis}:
@@ -387,7 +361,7 @@ The basis for the geospatial data model is the reference ellipsoid. It is repres
   \label{fig:geo-coordinates}
 \end{figure}
 
-Lines of constant latitude are running horizontally and are called \emph{parallels}, lines of constant longitude in vertical direction are \emph{meridians} . All parallels are circles with their center on the axis between the poles. No two parallels intersect. The longest parallel is the Equator (0\degree~latitude). All meridians have the same length. Geographic coordinates are usually recorded either in degree-minutes-second (\texttt{DMS}, e.g. \texttt{50\degree~58' 22''}) or in decimal degree (\texttt{DD}, e.g. \texttt{50.973}) notation
+Lines of constant latitude are running horizontally and are called \emph{parallels}, lines of constant longitude in vertical direction are \emph{meridians}. All parallels are circles with their center on the axis between the poles. No two parallels intersect. The longest parallel is the Equator (0\degree~latitude). All meridians have the same length. Geographic coordinates are usually recorded either in degree-minutes-second (\texttt{DMS}, e.g. \texttt{50\degree~58' 22''}) or in decimal degree (\texttt{DD}, e.g. \texttt{50.973}) notation
 \cite[pp. 30, 79]{bolstad2008gis}.
 
 
@@ -395,9 +369,10 @@ Lines of constant latitude are running horizontally and are called \emph{paralle
 \paragraph{The Geodetic Datum} % (fold)
 \label{par:geodetic_datum}
 
-is the discrete digital model of the continuous Earth that is described by the geoid. It consists of two parts: The approximation of the Earth's surface in a the Cartesian coordinate system with the origin in the Earth's center and a set of reference points used to accurately locate a point. Geodetic datums can be very accurate in one region of the world, i.e. the model fits the real geoid very well, but inaccurate in another region. This is the main reason why there are a lot of different geodetic datums used in the world. The same coordinates in two different geodetic datums define two different points on Earth. In order to be accurate is essential to know the geodetic datum of the coordinates
+\emph{TODO: Understand properly and make right}
+It consists of two parts: The approximation of the Earth's surface in a the Cartesian coordinate system with the origin in the Earth's center and a set of reference points used to accurately locate a point. Geodetic datums can be very accurate in one region of the world, i.e. the model fits the real geoid very well, but inaccurate in another region. This is the main reason why there are a lot of different geodetic datums used in the world. The same coordinates in two different geodetic datums define two different points on Earth. In order to be accurate is essential to know the geodetic datum of the coordinates
 \cite[p. 80]{bolstad2008gis}.
-The \emph{World Geodetic System 1984 (WGS84)} is a model that found worldwide acceptance and is used in all major Web-based mapping services like \emph{OpenStreetMap} and in the GPS unit of major mobile devices.
+The \emph{World Geodetic System 1984 (WGS84)} is a model that found worldwide acceptance and is used in all major web-based mapping services like \emph{OpenStreetMap} and in the GPS unit of major mobile devices.
 
 % paragraph geodetic_datum (end)
 
@@ -405,7 +380,7 @@ The \emph{World Geodetic System 1984 (WGS84)} is a model that found worldwide ac
 \paragraph{Vector Model} % (fold)
 \label{ssub:vector_model}
 
-The real world is infinite in detail, but storage in a computer is finite. In order to model continuous geographical phenomena in an information system, a relevant subset of them has be sampled to create discrete spatial data. It can be represented either in a raster or vector model. In the vector model each spatial object is expressed by three basic geometric primitives.
+The real world is infinite in detail, but storage in a computer is finite. In order to model continuous geographical phenomena in an information system, a relevant subset of them should be sampled to create discrete spatial data. It can be represented either in a raster or vector model. In the vector model each spatial object is expressed by three basic geometric primitives.
 
 \begin{figure}[H]
   \vspace{1em}
@@ -417,8 +392,8 @@ The real world is infinite in detail, but storage in a computer is finite. In or
 
 \begin{enumerate}
   \item[0D] A \emph{point} is the fundamental object in vector geometry. It has no dimension and is only defined by its position, specified in geographic coordinates. A point is independent from all others.
-  \item[1D] A \emph{polyline} is constructed by an ordered set of points with at least one start and one end point.
-  \item[2D] A \emph{polygon} describes a closed surface and is contructed by one set of polylines forming a closed \emph{outer ring}. Additionally, there can be multiple sets of polylines as \emph{inner ring} representing holes in the polygon. If the polygon has no inner rings it is a \emph{simple} polygon, otherwise it is \emph{weakly simple} or \emph{complex}, if it is even self-intersecting (see figure \ref{fig:polygon_properties}). \emph{Polypolygons} represent multiple separate polygons belonging to one logical entity \cite{polygons}.
+  \item[1D] A \emph{polyline} is constructed by an ordered set of at least points.
+  \item[2D] A \emph{polygon} describes a closed surface and is constructed by one set of polylines forming a closed \emph{outer ring}. Additionally, there can be multiple sets of polylines as \emph{inner ring} representing holes in the polygon. If the polygon has no inner rings it is a \emph{simple} polygon, otherwise it is \emph{weakly simple}. If it is even self-intersecting, as shown in figure \ref{fig:polygon_properties}, the polygon is \emph{complex}. \emph{Polypolygons} represent multiple separate polygons belonging to one logical entity \cite{polygons}.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -428,7 +403,7 @@ The real world is infinite in detail, but storage in a computer is finite. In or
   \label{fig:polygon_properties}
 \end{figure}
 
-There are mainly three boolean \emph{set operations} that can be performed on two polygons: \emph{Union}, \emph{intersection} and \emph{difference}. A \emph{symmetric difference} is a combination of two differences. Their definition is visualized in figure \ref{fig:polygon_operations}
+There are mainly three Boolean \emph{set operations} that can be performed on two polygons: \emph{Union}, \emph{intersection} and \emph{difference}. A \emph{symmetric difference} is a combination of two differences. Their definition is visualized in figure \ref{fig:polygon_operations}.
 If multiple polygons are unified at once, it is a \emph{cascaded union}
 \cite{bolstad2008gis}.
 
@@ -439,26 +414,26 @@ If multiple polygons are unified at once, it is a \emph{cascaded union}
   \label{fig:polygon_operations}
 \end{figure}
 
-Common file types for geospatial vector data are the open file format GeoJSON (\texttt{.geojson})
+Common file types for geospatial vector data are the open format GeoJSON
 \footnote{
   \emph{GeoJSON},
   IETF GeoJSON Working Group,
   URL: \url{http://geojson.org/},
-  last access: 30.10.2015
+  accessed on: 30.10.2015
 }
 %, Scalable Vector Graphics (\texttt{.svg})
 % \footnote{
 %   \emph{W3C SVG Working Group},
 %   IETF Geographic JSON Working Group,
 %   URL: \url{http://www.w3.org/Graphics/SVG/},
-%   last access: 30.10.2015
+%   accessed on: 30.10.2015
 % }
-or ESRI Shapefiles (\texttt{.shp})
+or ESRI Shapefiles
 \footnote{
   \emph{ESRI Shapefile Technical Description},
   ESRI White Paper, July 1998,
   URL: \url{http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf},
-  last access: 30.10.2015
+  accessed on: 30.10.2015
 }.
 
 % paragraph vector_model (end)
@@ -467,21 +442,22 @@ or ESRI Shapefiles (\texttt{.shp})
 \paragraph{Maps} % (fold)
 \label{par:maps}
 
-The most common ways to present geographic space are two-dimensional \emph{maps} and three-dimensional \emph{globes}. The HGIS in this thesis will use a map to show how countries have developed over time. A map is structured according to the \emph{layer} principle: Each layer is a transparent film showing one specific aspect, e.g. a physical layer for landmasses and water and a political layer for international borders and names of countries. The layers are interchangeable and can be switched on and off. A \emph{legend} including the scale bar and north arrow should explain all symbols used on the map and give orientation. Interactive maps additionally have control options for panning and zooming, switching map layers on and off or changing the color scheme of the map
+The most common ways to represent geographic space are two-dimensional \emph{maps} and three-dimensional \emph{globes}. The HGIS in this thesis will use a map to show how countries have developed over time. A map is structured according to the \emph{layer} principle: Each layer is a transparent film showing one specific aspect, e.g. a physical layer for landmasses or water and a political layer for international borders and names of countries. The layers are interchangeable and can be switched on and off. A \emph{legend} including the scale bar and north arrow should explain all symbols used on the map and give orientation. Interactive maps may have additional control options for panning and zooming, switching map layers on and off or changing the color scheme of the map
 \cite[pp. 159-166]{bolstad2008gis}.
-On example of such an interactive map service is \emph{Leaflet.js} is ``an open-source JavaScript library for mobile-friendly interactive maps''
+
+One example of such interactive map services is \emph{Leaflet.js}, ``an open-source JavaScript library for mobile-friendly interactive maps''
 \footnote{
   \textit{Leaflet - JavaScript library for interactive maps},
   URL: \url{http://leafletjs.com/},
-  last access: 02.11.2015
-}
-that offers embedding a map on the client-side of a Web-based information system and additionally use own map layers, symbols and markers on the map.
+  accessed on: 02.11.2015
+}.
+It offers embedding a map in a HTML document on the client-side of a web-based information system. Additionally, the user can include own map layers, symbols and markers on that map.
 
-The Earth is three-dimensional, but the map on the computer screen has only two dimens. The model of the Earth has to be projected onto the map. But as previously discussed in subsection \ref{par:the_shape_of_the_earth}, the Earth is an inhomogeneous spherical object with a curved surface whereas the map is flat
+The Earth is three-dimensional, but the map on the computer screen has only two dimensions. The model of the Earth has to be projected onto the map. But as previously discussed in section \ref{par:the_shape_of_the_earth}, the Earth is an inhomogeneous spherical object with a curved surface, whereas the map is flat
 \cite[p.79]{bolstad2008gis}.
-That is why some features of the Earth will be distorted on the map: An \emph{equivalent projection} preserves the area sizes of features on the map, whereas a \emph{conformal projection} preserves angles and the shapes of objects. Every map projection that is area-preserving distorts shapes at the same time, and each shape-preserving map distrots areas to some degree. There is no perfect map projection that correctly presents all features of the real world
+That is why some features of the Earth will be distorted on the map: An \emph{equal-area projection} preserves the area sizes of features on the map, whereas a \emph{conformal projection} preserves angles and the shapes of objects. Every map projection that is area-preserving distorts shapes at the same time, and each shape-preserving map distorts areas to some degree. There is no perfect map projection that presents all features of the real world correctly
 \cite{mapProjectionGeokov}.
-A compromise between preserving areas and shapes is the \emph{Robinson projection}. It is neither conformal, nor equivalent, but provides a reasonable trade-off between both properties.
+A compromise between preserving areas and shapes is the \emph{Robinson projection}. It is neither conformal, nor equal-area, but provides a reasonable trade-off between both properties.
 
 \begin{figure}[ht]
   \vspace{1.5em}
@@ -489,49 +465,22 @@ A compromise between preserving areas and shapes is the \emph{Robinson projectio
   \begin{subfigure}{0.59\textwidth}
     \centering
     \includegraphics[width=0.9\linewidth]{graphics/basics/hgis/projection_distortion_lambert.png}
-    \caption{equivalent Lambert projection \protect\footnotemark}
+    \caption{equal-area Lambert projection}
   \end{subfigure}
   \begin{subfigure}{0.39\textwidth}
     \centering
     \includegraphics[width=0.9\linewidth]{graphics/basics/hgis/projection_distortion_mercator.png}
-    \caption{conformal Mercator projection \protect\footnotemark}
+    \caption{conformal Mercator projection}
     \vspace{1em}
   \end{subfigure}
   \begin{subfigure}{0.55\textwidth}
     \centering
     \includegraphics[width=0.9\linewidth]{graphics/basics/hgis/projection_distortion_robinson.png}
-    \caption{compromise Robinson projection \protect\footnotemark}
+    \caption{compromise Robinson projection}
   \end{subfigure}
   \label{fig:map_projections}
-  \caption{Comparison between equivalent, conformal and compromising map projections}
+  \caption{Comparison between different map projections, based on \cite{mapProjections}}
 \end{figure}
-
-% reset footnotecounter by 1 (for left subfigure caption)
-\addtocounter{footnote}{-2}
-\footnotetext{
-  \textit{Tissot indicatrix world map equirectangular proj},
-  Eric Gaba (Wikimedia), 2008
-  URL: \url{https://commons.wikimedia.org/wiki/File:Tissot_indicatrix_world_map_equirectangular_proj.svg},
-  last access: 28.10.2015
-}
-
-% set footnotecounter to next footnote (for right subfigure caption)
-\addtocounter{footnote}{1} % count to next footnote
-\footnotetext{
-  \textit{Tissot indicatrix world map Mercator proj},
-  Eric Gaba (Wikimedia), 2008
-  URL: \url{https://commons.wikimedia.org/wiki/File:Tissot_indicatrix_world_map_Mercator_proj.svg},
-  last access: 28.10.2015
-}
-
-% set footnotecounter to next footnote (for right subfigure caption)
-\addtocounter{footnote}{1} % count to next footnote
-\footnotetext{
-  \textit{Tissot indicatrix world map Robinson},
-  Eric Gaba (Wikimedia), 2008
-  URL: \url{https://commons.wikimedia.org/wiki/File:Tissot_indicatrix_world_map_Robinson_proj.svg},
-  last access: 28.10.2015
-}
 
 % paragraph maps (end)
 
@@ -543,21 +492,21 @@ A compromise between preserving areas and shapes is the \emph{Robinson projectio
 
 Time is an abstract concept that ``can be perceived only by its effects''
 \cite[p. 27]{Langran1989timeingis}.
-Many philosophers and scientists have developed models to deal with time. for this thesis, the model needs to be appropriate to represent time in an historical sense and in interplay with geographical space. A popular model is \emph{Cartographic Time}, where time is seen as the ``fourth cartographic dimension''
+Many philosophers and scientists have developed models to deal with time. For this thesis, the model needs to be appropriate to represent time in a historical sense and in interplay with geographical space. A popular model is \emph{Cartographic Time}, where time is seen as the ``fourth cartographic dimension''
 \cite[p. 28]{Langran1989timeingis}.
 Unlike space, time knows only one dimension, but relative to one point two directions: historically \emph{forward} into the future and \emph{backward} into the past.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-% \paragraph{Types of Time} % (fold)
+\paragraph{Types of Time} % (fold)
 \label{par:types_of_time}
 
-Whereas space is represented by geo-objects, time may be represented by discrete \emph{events} and continuous \emph{processes}. Events can happen at a certain \emph{time point} or like processes in a \emph{time interval} or \emph{time period}, defined by two time points
+Whereas space is represented by geo-objects, time may be represented by discrete \emph{events} and continuous \emph{processes}. Events can happen at a certain \emph{point in time} or like processes in a \emph{time interval} or \emph{time period}, defined by two time stamps
 \cite[chapter 2, pp. 47-49]{solana2014spatio}.
-The Taxonomic Model of Time by
-\cite{frank98typesoftime}
-classifies time also by its \emph{nature} or \emph{time order}: a consecutive development on the time axis, defined by start and end, defines \emph{linear time}. On a contrary, \emph{cyclic time} has no predefined order and events reoccur on a regular cyclic basis. The other two types, \emph{branching time} and \emph{multi-dimensional time}, are more complex and not relevant for this thesis.
+The \emph{Taxonomic Model of Time} classifies time also by its \emph{nature} or \emph{time order}
+\cite{frank98typesoftime}:
+a consecutive development on the time axis, defined by start and end, defines \emph{linear time}. On the contrary, \emph{cyclic time} has no predefined order and events reoccur on a regular cyclic basis. Two further types, \emph{branching time} and \emph{multi-dimensional time}, are more complex and not relevant for this thesis.
 
-The topological relationship between two time points $t_1$ and $t_2$ is straightforward. Since they are discrete elements and therefore isomorphic to the number space of integers, there are three different order relations: $t_1 < t_2$, $t_1 > t_2$ and $t_1 = t_2$.
+The topological relationship between two points in time $t_1$ and $t_2$ is straightforward. Since they are discrete elements and therefore isomorphic to the number space of integers, there are three different order relations: $t_1 < t_2$, $t_1 > t_2$ and $t_1 = t_2$.
 
 % paragraph types_of_time (end)
 
@@ -565,15 +514,15 @@ The topological relationship between two time points $t_1$ and $t_2$ is straight
 \paragraph{Timelines} % (fold)
 \label{sub:timelines}
 
-In contrast to space, time does not have an intrinsic representation. However, the most common form to visualize cyclic time is on a cyclic display, e.g. a  clock. Linear time is mostly visualized on a \emph{timeline}. The purpose of it is to show events as time points or processes as time intervals in chonological order. A timeline additionally shows time markers on a certain date to support orientation. The position of an event on the timeline is described by its date using a reasonable sampling unit like century, year or day
+In contrast to space, time does not have an intrinsic representation. However, the most common form of visualizing cyclic time is on a cyclic display, e.g. a  clock. Linear time is mostly visualized on a \emph{timeline}. The purpose of it is to show events as points in time or processes as time intervals in chronological order. A timeline shows additional time markers on a certain date to support orientation. The position of an event on the timeline is described by its date using a reasonable sampling unit like century, year or day
 \cite[p. 32]{Langran1989timeingis}.
 A timeline uses a certain time scale:
 
 \begin{itemize}
-  \item On a \emph{linear} timeline, the distance between any two time points is directly proportional to their actual temporal distance.
-  \item A \emph{logarithmic} timeline uses a logarithmic function to scale the depicted time. There is a reference point on the timeline, e.g. the timeline center. Just like for linear timelines, the further away a time point from the reference point, the further away it is positioned on the timeline. However, the distance between the time point and the reference point does not increase linearily, but logarithmically. That means, events that are further away do not appear as far. This time scale accounts for logarithmic human perception: events that happened 20 years ago do not seem to be twice as long ago as events happening 10 years ago
+  \item On a \emph{linear} timeline, the distance between any two points in time is directly proportional to their actual temporal distance.
+  \item A \emph{logarithmic} timeline uses a logarithmic function to scale the depicted time. There is a reference point on the timeline, e.g. the center. Similar to linear timelines, the farther away a point is from the reference point, the farther away it is positioned on the timeline. However, the distance between this point and the reference point does not increase linearly: Events that are further away appear less far. This time scale accounts for logarithmic human perception: Given two events $A$ and $B$, whereas $A$ happened 20 years ago and $B$ ten years ago. The perceived temporal distance between $A$ and $B$ is smaller than the distance between $B$ and today, although the absolute distance is the same
   \cite{logorlinear}.
-  \item A timeline can also have an \emph{irregular} scale, e.g. to get the same absolute distance of events on the timeline. This is useful if the distribution of the events on the timeline are far from homogeneous.
+  \item A the scale of a timeline can also be \emph{irregular}, e.g. to get the same distance between events on the timeline. This is particularly useful if the events are not distributed homogeneously.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -589,37 +538,34 @@ A timeline uses a certain time scale:
 \subsection{Existing Applications} % (fold)
 \label{sub:applications}
 
-``Today, operational temporal GIS does not exist''. This quote nicely summarizes the state of the art in this field. The main reasons are ``the complexity of integrating space and time and the lack of standards''
+``Today, operational temporal GIS does not exist''
+\cite[p. 5]{raza12}.
+This quote nicely summarizes the state of the art in this field. The main reasons are ``the complexity of integrating space and time and the lack of standards''
 \cite[p. 5]{raza12}.
 
-However, there are numerous HGIS projects for one specific research question. A large collection them can be found in \cite{knowles2008placing} and \cite{gregory2014toward}.
+However, there are numerous HGIS projects for one specific research question. A large collection can be found in \cite{knowles2008placing} and \cite{gregory2014toward}.
 One example related to the topic of this thesis is the \emph{Great Britain Historical GIS Project} (GBHGIS)
 \footnote{
   \textit{Great Britain Historical Geographical Information System (GBHGIS)},
   Ian Gregory \& Humphrey R. Southall, University of Portsmouth, since 1994,
   URL: \url{http://www.port.ac.uk/research/gbhgis/},
-  last access: 02.11.2015
+  accessed on: 02.11.2015
 }.
-It maps statistical data on historical territorial units of the United Kingdom using \emph{aerial interpolation}
+It maps statistical data on historical territorial units of the United Kingdom (UK) using \emph{aerial interpolation}
 \cite{aerialInterpolation}.
-The purpose is to analyze for example net migration in the districts in the UK. The data is collected by the \emph{British Ordnance Survey} that automatically detects spatial changes to the geography of the United Kingdom using aerial photography
-\footnote{
-  \textit{British Ordnance Survey},
-  URL: \url{https://www.ordnancesurvey.co.uk/education-research/research/automatic-change-detection.html},
-  last access: 02.11.2015
-}.
+One purpose is for example to analyze net migration in the districts of the UK. The data is collected by the \emph{British Ordnance Survey} that automatically detects spatial changes to the geography of the United Kingdom using aerial photography \cite{ordnanceSurvey}.
 The \emph{National Historical Geographic Information System} (NHGIS)
 \footnote{
   \textit{Welcome to NHGIS},
   Minnesota Population Center, University of Minnesota,
   since 2007,
   URL: \url{},
-  last access: 02.11.2015
+  accessed on: 02.11.2015
 }
-provides the digital boundaries of the United States of America and census data for each year since 1790. While the data in the system is extensive, the interface to analyze and use the data is very frustrating to use.
+provides the digital boundaries of the United States of America and census data for each year since 1790. While the data in the system is extensive, the interface to analyze and use the data is very cumbersome to use.
 % A tutorial is necessary to go through the incredibly complex selection process. To download data, a user has to register, receive an email with a link to download a compressed file which has to be decompressed and then loaded into a GIS software to be visualized.
 
-HGIS are not widely accepted in the humanities. One reason is the nature of the qualitative historical research: historic sources are subjective and biased, their content may be fuzzy and they are definitely incomplete. Therefore the knowledge that can be extracted from a source bears the integral problem of \emph{uncertainty}. Information systems on the other hand have a logical architecture and try to be as precise and accurate as possible. Analysis is based on mathematical functions -- an information system is quantitative in its entire nature
+HGIS are not widely accepted in the humanities. One reason is the nature of the qualitative historical research: historic sources are subjective and biased, their content may be fuzzy and they are definitely incomplete. Therefore, the knowledge that can be extracted from a source bears the integral problem of \emph{uncertainty}. Information systems on the other hand have a logical architecture and try to be as precise and accurate as possible. Analysis is based on mathematical functions -- an information system is quantitative in its entire nature
 \cite[p. 2]{knowles2008placing}.
 
 
@@ -629,58 +575,54 @@ HGIS are not widely accepted in the humanities. One reason is the nature of the 
 \subsection{Data Sources} % (fold)
 \label{sub:data_sources}
 
-The HGIS developed in this thesis needs historical data about countries, their names and borders and historical events and their changes to countries. There are a lot of free and open sources for geographic data about the current countries, their names and borders. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth
+The HGIS developed in this thesis requires historical data about countries, their names, borders, historical events and their introduced changes to countries. There are a lot of free and open sources for geographic data about the current countries, their names and borders. One of the most exhaustive collections of geographic data in public domain is hosted by Natural Earth
 \footnote{
   \textit{Natural Earth},
   URL: \url{http://www.naturalearthdata.com/downloads/},
-  last access: 30.10.2015
+  accessed on: 30.10.2015
 }.
-There is physical data (e.g. coastlines and rivers) and cultural data (e.g. political borders, cities and roads).
-Data about historical countries and events are not as straightforward to aquire, because of the mostly qualitative nature of historical research (see section \ref{sub:history_vs_geography}). The most exhaustive free and open source of historical data is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}
+There is physical data, e.g. coastlines and rivers, and cultural data, e.g. political borders and cities available.
+Data about historical countries and events are not as straightforward to acquire, because of the mostly qualitative nature of historical research (see section \ref{sub:history_vs_geography}). The most exhaustive free and open source of historical data is the \emph{Wikipedia} and their article categories, e.g. \texttt{armistices} or \texttt{treaties}
 \footnote{
   \textit{Category:Treaties},
   Wikipedia, the free encyclopedia,\\
   URL: \url{https://en.wikipedia.org/wiki/Category:Treaties},
-  last access: 13.05.2016
+  accessed on: 13.05.2016
 }.
-All sorts of historical events can be found. Some information is structured in information boxes, e.g. some historical treaties have a name, location, a signature and an effect date. Particularily interesting for this thesis are articles about historical countries
+All sorts of historical events can be found. Some information is structured in information boxes, e.g. some historical treaties contain a name, location, a signature and an effect date. Particularly interesting for this thesis are articles about historical countries
 \footnote{
   \textit{List of former sovereign states},
   Wikipedia, the free encyclopedia,
   URL: \url{https://en.wikipedia.org/wiki/List_of_former_sovereign_states},
-  last access: 13.05.2016
+  accessed on: 13.05.2016
 },
 because they contain the name and important meta information, e.g. their historical successors and predecessors.
 
-Building an open-source Historical Geographic Information System on the basis of Wikipedia would be a huge project with significant impact on open education -- however, it would also be a big challenge: Not all historical countries and events necessary to model the history of the world are available on Wikipedia. It is also inconsistent, because not all articles are structured, especially not to those of events that actually have an influence on a territorial change of a country, e.g. a border agreement. Retrieving, parsing and processing this information is challenging. Also accuracy and quality of information in the Wikipedia due to their open source nature has to be considered. Overall, using the Wikipedia as a data source for this thesis is not feasible, but is subject to further research.
+The creation of an open-source HGIS on the basis of Wikipedia would be a huge project with significant impact on open education -- however, it would also be a big challenge: Not all historical countries and events that are required to model the history of the world are available on Wikipedia. It is also inconsistent, because not all articles are structured, especially not to those of events that actually have an influence on a territorial change of a country, e.g. a border agreement. Retrieving, parsing and processing this information is challenging.
+Further consideration must be given to accuracy and quality of information in the Wikipedia, due to their open source nature.
+Overall, using the Wikipedia as a data source for this thesis is not feasible, but this is subject to further research.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Historical maps} % (fold)
 \label{par:historical_map}
 
-The most problematic data to acquire are historical borders of countries. There is no primary data source for that, so the most promising way is to extract a border from an historical map. They can also be found on Wikipedia, or in historical map colletions, e.g. \emph{OldMapsOnline}. The project is developed ``out of a love of history and heritage of old maps'' and stores about 400 000 historical maps
+The most problematic data to acquire are historical borders of countries. There is no primary data source for that, so the most promising way is the extraction of a border from a historical map. They can be found on Wikipedia as well, or in historical map collections, e.g. \emph{OldMapsOnline}
 \footnote{
   \textit{Old Maps Online},
   URL: \url{http://www.oldmapsonline.org/},
-  last access: 13.05.2016
+  accessed on: 13.05.2016
 }.
-There are five steps to retrieve the points of an border in geographic coordinates from an historical map. This process was developed in a preceding \emph{HiBo} project
-\footnotetext{
-  \textit{HiBo - semi-automatic extraction of borders from historical maps},
-  Project of: B. Weber, N. K. Dankwa, K. Singh and T. Kashyappan, supervised by: Prof. Volker Rodehorst and Marcus Kossatz, Bauhaus-Universität Weimar, Oct 2014 - Feb 2015,
-  URL: \url{https://bitbucket.org/bastian_weber/hibo},
-  last access: 29.10.2015
-}
-(see figure \ref{fig:hibo}).
+The project is developed ``out of a love of history and heritage of old maps'' and stores about 400 000 historical maps.
+There are five steps to retrieve the points of a border in geographic coordinates from a historical map. This process was developed in a preceding \emph{HiBo -- Historical Borders} project \cite{hibo}.
 
 \begin{enumerate}
   \item \textbf{Digitization}: If the map is on paper, it has to be scanned in the best possible quality. The result is a raster graphic.
-  \item \textbf{Georeferencing}: The historical map has to fit as good possible on the reference map. This requires to manually define a set of reference points which are used to transform the map into the geographic coordinate system. This process is error-prone, especially if the projection of the historical map is not known and the map itself is not accurate
-  \cite[pp. xvii]{knowles2002past}.
-  The outcome is a raster graphic in which each pixel is assigned a geographic coordinate.
-  \item \textbf{Preprocessing}: The raster image has to be be processed so that the desired border stands out and can be traced in the next step. This happens via greyscale conversion, thresholding or the Canny Edge Detector. This results in a monochrome graphic in which the desired border must be uninterrupted and clearly be seen.
+  \item \textbf{Georeferencing}: The historical map has to fit as good possible on the reference map. This requires a manual definition of a set of reference points which are used to transform the map into the geographic coordinate system. This process is error-prone, especially if the projection of the historical map is not known and the map itself is not accurate
+  \cite{knowles2002past}.
+  The outcome is a rectified and resampled raster graphic in which each pixel is assigned a geographic coordinate.
+  \item \textbf{Preprocessing}: The raster image has to be be processed so that the desired border stands out and can be traced in the next step. This happens via greyscale conversion, thresholding or the Canny Edge Detector to find edges in a raster image \cite{canny}. This results in a monochrome graphic in which the desired border must be uninterrupted and clearly be seen.
   \item \textbf{Line detection}: By selecting a start and an end point of the border, the line gets traced automatically. This step vectorizes one particular feature, a borderline, from the raster graphic and produces a polyline in geographic coordinates.
-  \item \textbf{Postprocessing}: In the last step, the polyline can be adapted: The line can be simplified to reduce unnatural artifacts and the position of border points can be manually edited. The final output of the whole process is a polyline whose points are expressed in the geographic coordinate system which can be used in the system as a border of an historic country.
+  \item \textbf{Postprocessing}: In the last step, the polyline can be adapted: The line can be simplified to reduce unnatural artifacts and the position of border points can be manually edited. The final output of the whole process is a polyline whose points are expressed in the geographic coordinate system. This can further be used as a border of a historic country.
 \end{enumerate}
 
 \begin{figure}[ht]
@@ -695,7 +637,7 @@ There are five steps to retrieve the points of an border in geographic coordinat
     \includegraphics[width=0.95\linewidth]{graphics/basics/hgis/hibo2.png}
     \caption{Semi-automatic digitizing}
   \end{subfigure}
-  \caption{Semi-automatic extraction of a border from a map of the Roman Empire \protect\footnotemark}
+  \caption{Semi-automatic extraction of a border from a map of the Roman Empire \cite{hibo}}
   \vspace{2em} % wtf ?!?
   \label{fig:hibo}
 \end{figure}
@@ -711,22 +653,23 @@ There are five steps to retrieve the points of an border in geographic coordinat
 
 \section{Spatio-Temporal Data Models} % (fold)
 \label{sec:spatio_temporal_data_models}
+
 \begin{quoteit}
   ``Geography differs from geometry because \\
   in geography, space in indivisibly coupled with time''
 \end{quoteit}
 \hfill -- Don Parkes \& Nigel Thrift (1980)
 
-A data model abstracts a part of the real world, identifies the most essential elements and their relation to each other. Historical Geographic Information Systems use spatio-temporal data models to explain the historical development of geographic phenomena. Based on the theory of the \emph{Triadic Framework}, three components are involved: space (3 dimensions), time (1 dimension) and attribute (1 dimension for each). All of these dimensions can change independently from each other
+A data model abstracts a part of the real world, identifies the most essential elements and their relation to each other. Historical Geographic Information Systems use spatio-temporal data models to explain the historical development of geographic phenomena. Based on the theory of the \emph{Triadic Framework}, three components are involved: space (3 dimensions), time (1 dimension) and attribute (1 dimension for each). Each of these dimensions can change independently from each other
 \cite[p. 53]{ott2001time}.
 However, in order to trace spatial and attribute changes over time, the dimensions have to be related to each other. Spatio-temporal data models establish these relations.
 
-Throughout the lifetime of a geo-object, it appears at some point, can undergo several changes and can disappear at some other time point. \emph{Discrete changes} are based on the idea of a \emph{state machine}: At any point in the lifetime, an object is in a certain state. It stays there until an event occurs that suddenly changes the object into a new state, e.g. the German Reunification in 1990 unified East and West Germany to present-day Germany. On a contrary, an object can gradually change according to a \emph{continuous process}, e.g. the change of the coastlines due to the Sea Level Rise
+Throughout the lifetime of a geo-object, it appears at some point in time, can undergo several changes and can disappear at some other point. \emph{Discrete changes} are based on the idea of a \emph{state machine}: At any point in the lifetime, an object is in a certain state. It stays there until an event occurs that suddenly changes the object into a new state, e.g. the German Reunification in 1990 unified East and West Germany to present-day Germany. On the contrary, an object can gradually change according to a \emph{continuous process}, e.g. the change of the coastlines due to the sea level rise
 \cite{peuquet99}.
 
-In the previous 30 years many spatio-temporal data models were developed. The basis for all models is the concept of \emph{Time Geography} by
+In the previous 30 years many spatio-temporal data models were developed. The basis for each of them is the concept of \emph{Time Geography}
 \cite{haegerstrand1970}:
-There is an orthogonal relationship between time and space. At each time point an object is at exactly one location. The models can be classified by their organizing dimension: In \emph{location-based} models time is an attribute of a geo-object. On a contrary, \emph{event-based} approaches focus on events and processes that change geo-objects. This section introduces different spatio-temporal data models that are relevant for this thesis.
+There is an orthogonal relationship between time and space. At each point in time an object is at exactly one location. The models can be classified by their organizing dimension: In \emph{location-based} models time is an attribute of a geo-object. On the contrary, \emph{event-based} approaches focus on events and processes that change geo-objects. This section introduces different spatio-temporal data models that are relevant for this thesis.
 
 % \emph{Entity-based} models represent geo-objects as own entities. Spatial changes over time are related to these entities, but they are not attributes and therefore independent.
 
@@ -736,18 +679,18 @@ There is an orthogonal relationship between time and space. At each time point a
 \subsection{Snapshot Model} % (fold)
 \label{sub:snapshot_model}
 
-As it has already been introduced in \ref{sec:problem_domain}, the \emph{Snapshot Model} stores the full state of all geo-objects at certain time point $t_i$ in a snapshot. It is one of the simplest, oldest and most frequently used spatio-temporal models despite its severe disadvantages
+As already introduced in section \ref{sec:problem_domain}, the \emph{Snapshot model} stores the full state of all geo-objects at certain points in time $t_i$ in a snapshot. It is one of the simplest, oldest and most frequently used spatio-temporal models despite its severe disadvantages
 \cite{Langran1988frameworktgis}.
 
 \begin{figure}[H]
   \vspace{1em}
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/snapshot_model}
-  \caption{The Snapshot Model by \cite{Langran1988frameworktgis}}
+  \caption{The Snapshot model \cite{Langran1988frameworktgis}}
   \label{fig:snapshot_model}
 \end{figure}
 
-For all other time points $t \neq t_i$ that are not covered by a snapshot, it is impossible to retrieve the state of the system, because the data model does not record any changes. This is an integral problem of the model and can not be solved which makes it unsuitable for the domain of this thesis. The original model is also redundant, because objects that have not changed from one snapshot to the next one are duplicated. However, there have been improvements made, e.g. by \cite{armenakis92}.
+For all other points $t \neq t_i$ that are not covered by a snapshot, it is impossible to retrieve the state of the system, because the data model does not record any changes. This is an integral problem of the model and cannot be solved. Therefore, it is unsuitable for the domain of this thesis. The original model is also redundant, because objects that have not changed from one snapshot to the next one are duplicated. However, improvements were made to tackle this problem, e.g. \cite{armenakis92}.
 
 % subsection snapshot_model (end)
 
@@ -755,23 +698,23 @@ For all other time points $t \neq t_i$ that are not covered by a snapshot, it is
 \subsection{Simple Time-Stamping} % (fold)
 \label{sub:simple_time_stamping}
 
-The simplest approach to trace the history of a geo-object is to assigning a period of existance to it. This happens by adding two attributes: at the \emph{start date} $t_{start}$ the object is created and at the \emph{end date} $t_{end}$ it ceases. If an object still exists its cessation date gets a special value, e.g. \texttt{NOW}
+The simplest approach to trace the history of a geo-object is to assigning a period of existence to it. This happens by adding two attributes: at the \emph{start date} $t_{start}$ the object is created and at the \emph{end date} $t_{end}$ it ceases. If an object still exists it gets a special value, e.g. \texttt{NOW}, its cessation date
 \cite{hunter90timestamping}.
 
 \begin{figure}[H]
   \vspace{1em}
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/basics/stdm/simple_time_stamping}
-  \caption{The Simple Time-Stamping method by \cite{hunter90timestamping}}
+  \caption{The Simple Time-Stamping method \cite{hunter90timestamping}}
   \label{fig:simple_time_stamping}
 \end{figure}
 
-The \emph{Simple Time-Stamping} method is also location-based and tracks discrete changes of objects. Given full and integer information, the state of the system at each time point $t_i$ can be retrieved: All geo-objects for which ~$t_{start} \leq t_i < t_{end}$~ are active, all others are inactive. However, this retrieval is cumbersome, because without efficient data structures every time the date changes, it has to be checked for each geo-object if its state has changed.
+The \emph{Simple Time-Stamping} method is also location-based and tracks discrete changes of objects. Given full and integer information, the state of the system at an arbitrary point $t_i$ can be retrieved: All geo-objects for which ~$t_{start} \leq t_i < t_{end}$~ are active, all others are inactive. However, this retrieval is cumbersome, because without efficient data structures every time the date changes, it has to be checked for each geo-object if its state has changed.
 
-Another problem of the model is that it does not allow for tracing historical relations between geo-objects. As an example, at time point $t_1$ $B$ and $C$ cease and $G$ starts. Visually, $G$ is a successor of $B$ and $C$, but this historical relationship can not be deducted directly from the model. This shortcoming can be resolved by adding a reference to the predecessor and the successor of the object.
+Another problem of the model is that it does not allow for tracing historical relations between geo-objects. As an example, at $t_1$ $B$ and $C$ cease and $G$ starts. Visually, $G$ is a successor of $B$ and $C$, but this historical relationship cannot be deducted directly from the model. This shortcoming can be resolved by adding a reference to the predecessor and the successor of the object.
 
-This model alone is not suitable for the domain of this thesis, because it is impossible to say what exactly has happened at a certain time point. Given the example above, it is unclear if two objects unified to a new one ($B+C \to G$) or if two are successors ($B \to G$) and one just stops to exist ($C \to \emptyset$). The model is also redundant: if a geo-object replaces another one ($B \to G$), then $t_{end}$ of $B$ is the same as the $t_{start}$ of $G$.
-% \cite[p. 46-47]{solana2014spatio}.
+This model alone is not suitable for the domain of this thesis, because it is impossible to say what exactly has happened at a certain point in time. Given the example above, it is unclear if two objects unified to a new one ($B+C \to G$) or if two are successors ($B \to G$) and one just stops to exist ($C \to \emptyset$). The model is also redundant: if a geo-object replaces another one ($B \to G$), then $t_{end}$ of $B$ is the same as the $t_{start}$ of $G$
+\cite[p. 46-47]{solana2014spatio}.
 
 % subsection simple_time_stamping (end)
 
@@ -779,12 +722,12 @@ This model alone is not suitable for the domain of this thesis, because it is im
 \subsection{Event-Based Spatio-Temporal Data Model} % (fold)
 \label{sub:event_based_spatio_temporal_data_model}
 
-A time-based approach addresses exactly those shortcomings: They explicitly represent events or processes in the data model and associate all objects that change according to them. One example of this approach is the \emph{Event-Based Spatio-Temporal Data Model} (ESTDM) for geospatial raster data by
-\cite{peuquet95}. At one defined time point $t_b$, a snapshot gets stored. This \emph{base map} contains the current state of the map, i.e. the current value of each raster cell \texttt{(x,y)}. From that moment on, the system stores events that change the values of certain cells. Such an event has a time stamp (\texttt{t}) and a list of components associated with it. A component represents a new value (\texttt{v}) and knows which raster cells (\texttt{x}, \texttt{y}) change their value to \texttt{v}.
+A time-based approach addresses exactly those shortcomings: They explicitly represent events or processes in the data model and associate all objects that change according to them. One example of this approach is the \emph{Event-Based Spatio-Temporal Data Model} (ESTDM) for geospatial raster data
+\cite{peuquet95}. At one defined point in time $t_b$, a snapshot gets stored. This \emph{base map} contains the current state of the map, i.e. the current value of each raster cell \texttt{(x,y)}. From that moment on, the system stores events that change the values of certain cells. Such an event has a time stamp (\texttt{t}) and a list of components associated with it. A component represents a new value (\texttt{v}) and knows which raster cells (\texttt{x}, \texttt{y}) change their value to \texttt{v}.
 
-The method uses the following data structures: a header file contains information about the thematic domain, a pointer to the base map and to the first and last element of the event list. This doubly-linked list stores all events chronologically. Therefore, each event knows its preceding and succeeding event. If the time point of an event is reached, all its components are executed, i.e. the relevant raster cells change their value. The system follows the \texttt{next} pointer to know which event is waiting to be executed next. Since a change is relative to the previous change, not to the base map, change tracking is efficient.
+The method uses the following data structures: A header file contains information about the thematic domain, a pointer to the base map and to the first and last element of the event list. This doubly-linked list stores all events chronologically. Therefore, each event knows its preceding and succeeding event. If the time stamp of an event is reached, all its components are executed, i.e. the relevant raster cells change their value. The system follows the \texttt{next} pointer to know which event is waiting to be executed next. Since a change is relative to the previous change and not to the base map, change tracking is efficient.
 
-The concept of the ESTDM suits the problem domain really well: An historical event changes the geometry of certain objects suddenly. The model explicitly represents these discrete changes. However, it does not work for vector data. The authors have explicitly stated that ``the design of such a [vector-based] model is not seen as a straightforward task'', because of the problem ``how to maintain the integrity of spatial topology as it changes [...] The solution will require a more complex definition of components within individual events''
+The concept of the ESTDM suits the problem domain really well: A historical event changes the geometry of certain objects suddenly. The model explicitly represents these discrete changes. However, it does not work for vector data. The authors have explicitly stated that ``the design of such a [vector-based] model is not seen as a straightforward task'', because of the problem ``how to maintain the integrity of spatial topology as it changes [...] The solution will require a more complex definition of components within individual events''
 \cite[p. 21]{peuquet95}.
 
 % Also, just like the Simple Time-Stamping method, this model is only suitable for discrete but not for gradual changes. This problem is solved in the \emph{ObjectOriented geomorph} model by \cite{raperlivingstone95}.
@@ -795,15 +738,15 @@ The concept of the ESTDM suits the problem domain really well: An historical eve
 \subsection{Three-Domain Model} % (fold)
 \label{sub:three_domain_model}
 
-An event-based STDM for vector geometry including lines and polygons has to answer the following questions: What uniquely identifies a geo-object? What kind of spatial, topological and attribute changes can happen to an object? Which of these maintain the identity and which create a new object? This problem is addressed in the \emph{Three-Domain Model} by \cite{yuan96threedomain, yuan96temporal}. The model is based on abstract entities that represent a spatio-temporal object. It handles the three domains identity, space and time separately:
+An event-based STDM for vector geometry including lines and polygons has to answer the following questions: What uniquely identifies a geo-object? What kind of spatial, topological and attribute changes can happen to an object? Which of these maintain the identity and which create a new object? This problem is addressed in the \emph{Three-Domain} model by \cite{yuan96threedomain, yuan96temporal}. The model is based on abstract entities that represent a spatio-temporal object. It handles the three domains identity, space and time separately:
 \begin{itemize}
   \item The \emph{semantic domain} holds an entity uniquely identifiable. An object in this domain corresponds to a human concept, e.g. a ``country''.
   % It handles attributes of the area, but not the spatial and temporal properties.
-  \item The \emph{spatial domain} represents geospatial objects in vector format, e.g. a polygon describing the territory of a country.
-  \item The \emph{temporal domain} stores all temporal objects, e.g. time points of an historical event.
+  \item The \emph{spatial domain} represents the geospatial object in vector format representing the country.
+  \item The \emph{temporal domain} stores all temporal objects, e.g. time stamps of a historical event.
 \end{itemize}
 
-The model is not specific, but more a general abstract framework to handle space, time and identity. This makes the model very flexible, e.g. it can handle discrete and continuous changes, relative and absolute time, world and database time. One limitation of the model is that it only traces spatial attributes over time. In an alternative model by \cite{claramunt95timeingis}, the \emph{thematic domain} is added to fully describe a spatio-temporal object and trace also aspatial attributes that can change over time, e.g. the name of a country. Since countries, their territories and attributes can change independently over time, the data model used in this thesis will be organized according to the Three Domain Model.
+The model is not specific, but rather a general abstract framework to handle space, time and identity. This makes the model very flexible, e.g. it can handle discrete and continuous changes, relative and absolute time, world and database time. One limitation is that it only traces spatial attributes over time. In an alternative model by \cite{claramunt95timeingis}, the \emph{thematic domain} is added to fully describe a spatio-temporal object and trace also non-spatial attributes that can change over time, e.g. the name of a country. Since countries, their territories and attributes can change independently over time, the data model used in this thesis will be organized according to the Three-Domain model.
 
 % subsection three_domain_model (end)
 
@@ -811,37 +754,37 @@ The model is not specific, but more a general abstract framework to handle space
 \subsection{History Graph Model} % (fold)
 \label{sub:history_graph_model}
 
-Most of the data models introduced so far cover only static changes of geo-objects. \cite{renolen96} identified three different types of temporal behaviour of changing objects:
+Most of the data models introduced so far cover only static changes of geo-objects. \cite{renolen96} identified three different types of temporal behavior of changing objects:
 \begin{compactitem}
   \item Dynamic objects that change continuously.
   \item Static objects that change according to events with duration (processes).
   \item Static objects that change according to sudden events.
 \end{compactitem}
 
-Based on this observation a data model that can handle all three kinds of temporal behaviour was developed: The \emph{History Graph Model}. It manages objects and events separetly from each other. An object can only be in three different states:
+Based on this observation a data model that can handle all three kinds of temporal behavior was developed: The \emph{History Graph} model. It manages objects and events separately from each other. An object can only be in three different states:
 \begin{enumerate}
-  \item An object is \emph{static}, if it currently does not change. This is called an \emph{object version}. The version has an interval associated to it representing the duration of the object version, until it changes the next time. If the object is dynamic and changes continuously, the duration is zero.
-  \item If an object is currently \emph{changing}, it is in an \emph{object transition}. The transition has an associated interval as well, whose duration is zero if it is a sudden change. Additionally, a transition links the relevant objects to each other creating a historical predecessor-successor-relationship.
+  \item An object is \emph{static}, if it currently does not change. This is called an \emph{object version}. The version has an interval associated to it representing the duration of the object version, until it changes next time. If the object is dynamic and changes continuously, the duration is zero.
+  \item If an object is currently \emph{changing}, it is in an \emph{object transition}. The transition also has an associated interval with a duration of zero for a sudden change. Additionally, a transition links the relevant objects to each other to establish a historical predecessor-successor-relationship.
   \item An object that is currently not active, is \emph{ceased} and not visible on the map.
 \end{enumerate}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.65\textwidth]{graphics/basics/stdm/history_graph_model}
+  \includegraphics[width=0.60\textwidth]{graphics/basics/stdm/history_graph_model}
   \caption{The History Graph model}
   \label{fig:history_graph_model}
 \end{figure}
 
-The history of a geo-object is a chronologically ordered set of versions and transitions, that can be visualized in a graph like in figure \ref{fig:history_graph_model}.
+The history of a geo-object is a chronologically ordered set of versions and transitions, that can be visualized in a graph like the one in figure \ref{fig:history_graph_model}.
 The model defines six basic types of temporal changes that can happen. They can be seen in figure \ref{fig:history_graph_changes}:
 
 \begin{compactitem}
   \item \textbf{Creation}:           A new object is created.
-  \item \textbf{Alteration}:         A property of an object (e.g. geometry) changes.
+  \item \textbf{Alteration}:         A property of an object, e.g. its geometry, changes.
   \item \textbf{Cessation}:          An object is ceased.
-  \item \textbf{Reincarnation}:      An object that has previously been ceased is recreated.
-  \item \textbf{Split/Deduction}:    An object is divided into two or more new objects or one or more objects are deducted from an existing one.
-  \item \textbf{Merge/Annexation}:   Two or more objects are joined together to a new object or one or more objects are annexed to another object.
+  \item \textbf{Reincarnation}:      An object that previously ceased is recreated.
+  \item \textbf{Split/Deduction}:    An object is divided into multiple new objects, or at least one new object is deducted from an existing one.
+  \item \textbf{Merge/Annexation}:   Multiple objects are unified to a new object, or at least one object is annexed to another object.
 \end{compactitem}
 
 \begin{figure}[ht]
@@ -852,12 +795,12 @@ The model defines six basic types of temporal changes that can happen. They can 
   \label{fig:history_graph_changes}
 \end{figure}
 
-The History Graph model can be seen as an extension to the ESTDM. It combines the advantages of event-based and location-based STDM and supports discrete and continuous changes. The main improvement is that the historical development of a geo-object can directly be derived from the model, because objects are linked to their precedessors and successors --- the History Graph Model can tell a story. This is the reason why this model is particularly suitable for this thesis.
+The History Graph model can be seen as an extension to the ESTDM. It combines the advantages of event-based and location-based STDM and supports discrete and continuous changes. The main improvement is that the historical development of a geo-object can be directly derived from the model, because objects are linked to their predecessors and successors -- the History Graph model can tell a story. This is the reason why this model is particularly suitable for this thesis.
 
 % subsection history_graph_model (end)
 
 \vspace{1em}
-Other popular spatio-temporal data models that are not covered in this work, because they were not seen as relevant for the domain, include the \emph{Space-Time Composite} model, the \emph{Grid Model} and the \emph{Amendment Vector Model}. Overviews about these and other spatio-temporal data models can be found in \cite{zhao11}, \cite{pelekis04stdms} and \cite{peuquet99}.
+Other popular spatio-temporal data models that are not covered in this work, because they were not seen as relevant for the domain, including the \emph{Space-Time Composite} model, the \emph{Grid model} and the \emph{Amendment Vector model}. Overviews about these and other spatio-temporal data models can be found in \cite{zhao11}, \cite{pelekis04stdms} and \cite{peuquet99}.
 
 % section spatio_tempora_data_models (end)
 
@@ -866,45 +809,45 @@ Other popular spatio-temporal data models that are not covered in this work, bec
 \subsection{Spatio-Temporal Databases} % (fold)
 \label{sub:spatio_temporal_databases}
 
-The data models that have been presented in this section have to be converted to a datbase model in order to implement them as the management component of the information system. A \emph{Database Management System} (DBMS) is a software system for the administration of data, mainly storage and retrieval. There are mainly two types of DBMS: the oldest and most common ones are \emph{Relational DBMS}. \emph{Object-Oriented DBMS} werde developed to adapt concepts of object-oriented programming into the database world. The combination of both approaches are \emph{Object-Relational DBMS}.
+The data models that have been presented in this section have to be converted to a database model in order to implement them as the management component of the information system. A \emph{Database Management System} (DBMS) is a software system for the administration of data, mainly storage and retrieval. There are mainly two types of DBMS: The oldest and most common ones are \emph{Relational DBMS}. \emph{Object-Oriented DBMS} were developed to adapt concepts of object-oriented programming into the database world. The combination of both approaches are \emph{Object-Relational DBMS}.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Relational DBMS} % (fold)
 \label{par:relational_dbms}
 
-RDBMS are built upon the concept of \emph{entitities} and \emph{relations}. An entity represents an object in the real world with a set of \emph{attributes} and attribute values of a simple data type (e.g. \texttt{string} or \texttt{int}). Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, mostly a contiguous number. Entities can be related to each other in three different kind of relations:
+RDBMS are built upon the concept of \emph{entities} and \emph{relations}. An entity represents an object in the real world with a set of \emph{attributes} and attribute values of a simple data type (e.g. \texttt{string} or \texttt{int}). Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, usually a contiguous number. Entities can be related to each other in three different kind of relations:
 \begin{compactenum}
-  \item[\texttt{1:1}] Direct attributional relation, e.g. one country has one head of state and vice versa.
-  \item[\texttt{1:n}] One-to-many relation, e.g. one country can have many cities, but each city can belong to only one country.
+  \item[\texttt{1:1}] Direct attributional relation, e.g. one country has one capital and vice versa.
+  \item[\texttt{1:n}] One-to-many relation, e.g. one country can have many cities, but each of those cities can belong to only one country.
   \item[\texttt{m:n}] Many-to-many relation, e.g. one country can have many rivers, but each river can also flow through multiple countries.
 \end{compactenum}
 
-The first RDBM developed was \emph{Oracle}, released in 1979 \cite{oracleDB}. Since then, the concept has been established as the state-of-the-art for databases. An example for a RDBMS used for Web-bases systems is \emph{MySQL}, the ``world's most popular open source database''
+The first RDBM developed was \emph{Oracle}, released in 1979 \cite{oracleDB}. Since then, the concept has been established as the state-of-the-art for databases. An example for a RDBMS used for web-based systems is \emph{MySQL}, the ``world's most popular open source database''
 \footnote{
   \emph{MySQL :: About MySQL},
   URL: \url{https://www.mysql.com/about/},
-  last access: 31.10.2015
+  accessed on: 31.10.2015
 }.
 
 % paragraph relational_dbms (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Object-Oriented DBMS} % (fold)
+\paragraph{Object-oriented DBMS} % (fold)
 \label{par:object_oriented_dbms}
 
 One problem with RDBMS is that attributes can only have simple data types. Developers using object-oriented programming need to map the objects used in the application to tuples in the relational database and vice versa. This process can be cumbersome. OODBMS solve this problem by adopting the concepts of object-oriented programming for database management purposes
 \cite{oodbms}.
-OODBMS support the following and many more object-oriented principles:
+The following and many more object-oriented principles are supported:
 
 \begin{itemize}
   \item \emph{Classes} are structured representation of things in the real world of the same kind of properties, e.g. a country with a name and a territory. Classes in OODBMS relate to entities in RDBMS.
-  \item An \emph{object} is an instance of a class, one specific thing with defined properties, e.g. the country of Germany with its territory. This relates to a tuple in RDBMS.
+  \item An \emph{object} is an instance of a class, one specific thing with defined properties, e.g. a country with its territory. This relates to a tuple in RDBMS.
   \begin{itemize}
-    \item The \emph{attributes} of an object can not just be of a simple data type, but also instances of other classes, e.g. \texttt{country.territory} can be a \texttt{polypolygon} object.
+    \item The \emph{attributes} of an object cannot just be of a simple data type, but also instances of other classes, e.g. \texttt{country.territory} can be a \texttt{polypolygon} object.
     \item Objects also have \emph{methods} that can be called to do something with the object, e.g. \texttt{territory.getCenter()} returns the geometrical center of the polypolygon.
   \end{itemize}
-  \item The internal state of an object can not be accessed from the outside. Methods are the only way to interact with an object. This is called \emph{encapsulation} and maintains control over what can be done to and with an object and prevents corruption.
-  \item According to the concept of \emph{inheritance}, classes can be hierarchically structured, whereas the attributes and the methods of a \emph{base class} are inherited to its \emph{derived class}. As an example, an \texttt{Area} has a \texttt{name}, a \texttt{territory} and the method \texttt{getArea()} associated to it. A \texttt{Country} can be derived from the \texttt{Area}, inheriting both attributes and the method. Additionally, it can get an attribute \texttt{head\_of\_state}, which is specific to \texttt{Country}, but not to \texttt{Area}. The class \texttt{Ocean} can just as well be derived from \texttt{Area} and it does not need a \texttt{head\_of\_state}.
+  \item The internal state of an object cannot be accessed from the outside. Methods are the only way to interact with an object. This is called \emph{encapsulation} and maintains control over what can be done to and with an object and prevents corruption.
+  \item According to the concept of \emph{inheritance}, classes can be hierarchically structured, whereas the attributes and the methods of a \emph{base class} are inherited to its \emph{derived class}. As an example, an \texttt{Area} has a \texttt{name}, a \texttt{territory} and the method \texttt{getArea()} associated to it. A \texttt{Country} can be derived from the \texttt{Area}, inheriting both attributes and the method. Additionally, it can get an attribute \texttt{head\_of\_state}, which is specific to \texttt{Country}, but not to \texttt{Area}. The class \texttt{Ocean} can just as well be derived from \texttt{Area}, but it does not need a \texttt{head\_of\_state}.
   % \item An associated concept is \emph{polymorphism}: The same function can be called on different objects and the return value will be of the same type. However, internally it might be calculated differently. As an example, consider the classes \texttt{Polygon} and \texttt{Polypolygon}, both inherited the method \texttt{getArea()} from their base class \texttt{Geometry}. Whereas a polygon calculates its area directly based on its geometry, a polypolygon internally calles the function \texttt{getArea()} on all its associated polygons and sums up their areas.
 \end{itemize}
 
@@ -913,29 +856,29 @@ OODBMS support the following and many more object-oriented principles:
 % paragraph object_oriented_dbms (end)
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Object-Relational DBMS} % (fold)
+\paragraph{Object-relational DBMS} % (fold)
 \label{par:object_relational_dbms}
 
-combine the advantages of both worlds. Internally, it uses the established and efficient relational database for the data storage. The database model and the interaction with the data happens in an object-oriented way while supporting all of the concepts mentioned in the previous subsection \ref{par:object_oriented_dbms}. The most popular ORDBMS example for Web-based systems is \emph{PostgreSQL}, ``the world's most advanced open source database''
+combine the advantages of both worlds. Internally, the established and efficient relational database is used for the data storage. The database model and the interaction with the data happens in an object-oriented way while supporting all of the concepts mentioned in the previous subsection \ref{par:object_oriented_dbms}. The most popular ORDBMS example for web-based systems is \emph{PostgreSQL}, ``the world's most advanced open source database''
 \footnote{
   \emph{PostgreSQL:},
   The world's most advanced open source database,
   URL: \url{http://www.postgresql.org/},
-  last access: 31.10.2015
+  accessed on: 31.10.2015
 }.
 
 % paragraph object_relational_dbms (end)
 
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\paragraph{Spatio-Temporal Database Models} % (fold)
+\paragraph{Spatio-temporal database models} % (fold)
 \label{par:spatio_temporal_database_models}
 
-The question is: How to implement the spatio-temporal data modles introduced in section \ref{sec:spatio_temporal_data_models} in a relational, object-oriented or object-relational database management system introduced in this section? While the implementation depends on the data model, there are common concepts and issues that have to be addressed. When storing time related data, it is important to distinguish between the time that was true in reality (\emph{world time}) and the time it was stored in the database (\emph{database time}). For this thesis, only world time is relevant.
+The spatio-temporal data models discussed in section \ref{sec:spatio_temporal_data_models} need to be implemented in a relational, object-oriented or object-relational database management system. While the details depend on the data model, there are common concepts and issues that have to be addressed. When storing time related data, it is important to distinguish between the time at which something happened in reality (\emph{world time}) and the time it was stored in the database (\emph{database time}). For this thesis, only world time is relevant.
 
-Object-oriented concepts are more appropriate than relational ones, because of the complex nature of spatio-temporal data \cite[section 3.9]{pelekis04stdms}. One of the first implementations was the \emph{spatio-temporal object} combining geometrical and bitemporal properties in one object \cite{worboys90stdm}. A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT): Time is not considered an attribute of space, but a separate class. They are aggregated in the \texttt{SpatioTemporal} class, using both spatial and bitemporal attributes. The model also provides spatio-temporal operators, e.g. \texttt{STT\_intersects} returns \texttt{true} if two \texttt{SpatioTemporal} objects intersect in time and space, i.e. their geometries intersect and the time intervals in which they are active overlap. These operators are very helpful when analyzing spatio-temporal data or checking for data integrity.
+Object-oriented concepts are more appropriate than relational ones, because of the complex nature of spatio-temporal data \cite[section 3.9]{pelekis04stdms}. One of the first implementations was the \emph{spatio-temporal object} combining geometrical and bi-temporal properties in one object \cite{worboys90stdm}. A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT): Time is not considered an attribute of space, but a separate class. They are aggregated in the \texttt{SpatioTemporal} class, using both spatial and bi-temporal attributes. The model also provides spatio-temporal operators, e.g. \texttt{STT\_intersects} returns \texttt{true} if two \texttt{SpatioTemporal} objects intersect in time and space, i.e. their geometries intersect and the time intervals in which they are active overlap. These operators are very helpful when analyzing spatio-temporal data or checking for data integrity.
 
-Finally, a severe issue is \emph{version management}. Given a database model that stores geo-objects that are created, updated and destroyed by events. Events can not only be appended to the end of the timeline, but also in between. This is called a \emph{retrospective update}. It might create conflicting situations, e.g. if it ceases a geo-object that would be manipulated in a later event. The question is how to maintain data integrity on insertion, update and deletion from a spatio-temporal database? This issue has to be addressed using formal logic for temporal reasoning
+Finally, a severe issue is \emph{version management}. Given a database model that stores geo-objects that are created, updated and destroyed by events. Events cannot only be appended to the end of the timeline, but also in between. This is called a \emph{retrospective update}. It might create conflicting situations, e.g. if it ceases a geo-object that would be manipulated in a later event. The question is how to maintain data integrity on insertion, update and deletion from a spatio-temporal database? This issue has to be addressed using formal logic for temporal reasoning
 \cite[section 6]{peuquet99}.
 
 % paragraph spatio_temporal_database_models (end)
@@ -951,11 +894,11 @@ Finally, a severe issue is \emph{version management}. Given a database model tha
   Imagine a globe that you can rotate and see from all sides. \\
   Imagine a timeline which you can scroll to any point in time. \\
   Imagine you can see how the world changes when you move the timeline: \\
-  country borders shift, troops move on the planet or kingdoms make way for democracies. \\[0.5em]
-  This is \emph{HistoGlobe}, a revolution of teaching and learning of history!
+  Country borders shift, peoples migrate on the planet or kingdoms give way for democracies. \\[0.5em]
+  This is HistoGlobe, a revolution of teaching and learning of history!
 \end{quoteit}
 
-HistoGlobe is a Web-based Historical Geographic Information System that aims to visualize the history of the Earth on a globe with a timeline. It shows historical events and geopolitical changes. The goal is to provide a freely accessible open-source tool for a
+HistoGlobe is a web-based HGIS that aims to visualize the history of the Earth on a globe with a timeline. It shows historical events and geopolitical changes. The goal is to provide a freely accessible open-source tool for a
 
 \begin{compactitem}
   \item better \emph{understanding} of history for learners,
@@ -963,23 +906,23 @@ HistoGlobe is a Web-based Historical Geographic Information System that aims to 
   \item interesting \emph{exploration} of history for scholars.
 \end{compactitem}
 
-The HistoGlobe project was found in Weimar in 2010 and has since then evolved from a single student project via a tech-startup with up to 15 contributors to an academic project for the sake of research for geography, history and computer science. The current protoype of HistoGlobe was developed for students in school to understand German, European and World history since World War I with a focus on the time of the Cold War. The prototype can be seen at \texttt{http://histoglobe.com}.
+The HistoGlobe project was founded in Weimar in 2010 and has evolved since then from a single student project via a tech-startup with up to 15 contributors to an academic project for the sake of research for geography, history and computer science. The current prototype of HistoGlobe was developed for students in school to understand German, European and World history since World War I with a focus on the time of the Cold War. The prototype can be seen on \texttt{http://histoglobe.com}.
 
 \begin{figure}[ht]
   \vspace{1em}
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/basics/histoglobe/school_project}
-  \caption{The HistoGlobe School project (status: April 2015)}
+  \caption{The HistoGlobe school project (April 2015)}
   \label{fig:histoglobe_school}
 \end{figure}
 
-Figure \ref{fig:histoglobe_school} shows the user interface of HistoGlobe: a 2D map, a timeline, control buttons for the map and the timeline, a topic bar extending the timeline showing historical periods in German and World history and a search bar for finding historical events. HistoGlobe is built upon a module system for interface components: The map can be exchanged with a globe, control buttons can be switched on and off or additional visualization approaches, e.g. for the history graph introduced in section \ref{sub:history_graph_model}, can be added. The idea is that the components are independent from each other, e.g. exchanging the map with a globe has no effect on the timeline or the control buttons. The main problem of HistoGlobe is the data: there is very little data in the system and editing historical information about countries and events is very complicated due to a complex domain and a lack of a proper backend.
+Figure \ref{fig:histoglobe_school} shows the user interface of HistoGlobe: a 2D map, a timeline and control buttons for both. Addtionally, a topic bar extends the timeline showing historical periods in German and world history and a search bar for finding historical events. HistoGlobe is built upon a module system for interface components: The map can be exchanged with a globe, control buttons can be switched on and off or additional visualization approaches, e.g. for the History Graph introduced in section \ref{sub:history_graph_model}, can be added. The idea is that the components are independent from each other, e.g. exchanging the map with a globe has no effect on the timeline or the control buttons. The main problem of HistoGlobe is the data: there is very little data in the system and editing historical information about countries and events is very cumbersome due to a complex domain and a lack of a back-end.
 
 % section histoglobe (end)
 
 % ==============================================================================
 \vspace{1.5em}
 
-This chapter introduced the problem domain of Historical Geographic Information Systems for the history of countries. Also existing spatio-temporal data models their advantages and disadvantages have been presented. The purpose of this thesis is to develop a model for managing the historical developments of countries in time and space. This model will combine some of these approaches and also consider complex cases due to the uncertain nature of historical research. It will be implemented as the foundation of HistoGlobe. Additionally, an editor for historical data is to be developed as a new HistoGlobe module to enable users to edit the course of history directly on the map. The next chapter will present the development process for the data model and the user interface.
+This chapter introduced the problem domain of Historical Geographic Information Systems for the history of countries. Also existing spatio-temporal data models their advantages and disadvantages have been discussed. The purpose of this thesis is to develop a model for managing the historical developments of countries in time and space. This model will combine some of these approaches and also consider complex cases due to the uncertain nature of historical research. It will be implemented as the foundation of HistoGlobe. Additionally, an editor for historical data is to be developed as a new HistoGlobe module to enable users to edit the course of history directly on the map. The next chapter will present the development process for the data model and the user interface.
 
 % chapter bascis (end)

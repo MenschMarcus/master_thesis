@@ -22,16 +22,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.828427121015193"
-     inkscape:cx="225.107363633868"
-     inkscape:cy="54.93699236569942"
+     inkscape:zoom="5.656854239045616"
+     inkscape:cx="296.1589336027313"
+     inkscape:cy="-5.311968544413297"
      inkscape:document-units="px"
-     inkscape:current-layer="g4683"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1600"
      inkscape:window-height="834"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="377"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -85,7 +85,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -103,8 +103,8 @@
        transform="matrix(0.333664752137096,0,0,0.2405202266207558,-8442.150297837448,-386.7553736205017)" />
     <path
        sodipodi:nodetypes="cc"
-       style="fill:#dedede;fill-opacity:1;stroke:#505050;stroke-width:2.3980271816px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 25749.99998642197,4168.899095254058 L 26278.33835155548,4168.899095254058"
+       style="fill:#dedede;fill-opacity:1;stroke:#505050;stroke-width:2.3980274436;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 25749.99998642197,4168.899095254058 L 26319.05807140323,4168.899095254058"
        id="path4856"
        inkscape:connector-curvature="0"
        transform="matrix(0.491162514741725,0,0,0.354051540046472,-12494.30228636547,-859.0894550187017)" />
@@ -371,5 +371,24 @@
            y="4135.627"
            style="font-size:20.9457893372px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#323232;fill-opacity:1;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans">H</tspan></text>
     </g>
+    <path
+       style="fill:none;stroke:#505050;stroke-width:1.2171612978px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 275,65.41999816894531 L 280,70.41999816894531 L 275,75.41999816894531"
+       id="path3912"
+       inkscape:connector-curvature="0"
+       transform="matrix(1,0,0,0.6749999991425859,152.6324616184346,569.3821894196264)" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Latin Modern Sans;-inkscape-font-specification:Latin Modern Sans"
+       x="282.66592"
+       y="73.475456"
+       id="text3914"
+       sodipodi:linespacing="125%"
+       transform="translate(154.966537546169,546.6602337165481)"><tspan
+         sodipodi:role="line"
+         id="tspan3916"
+         x="282.66592"
+         y="73.475456"
+         style="font-size:10px;fill:#505050;fill-opacity:1">time</tspan></text>
   </g>
 </svg>
