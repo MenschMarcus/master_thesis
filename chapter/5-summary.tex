@@ -20,7 +20,7 @@ To summarize the most important results and contributions of this Master's thesi
   }
 \end{description}
 
-The history of countries is very complex. The problem space of this work was limited to the territory and name of a country. Except for the coastlines, the more interesting interior borders have always changed due to sudden events. The same is true for the name of countries. If a universe $\Omega$ is defined as an ever-existing territory that initially covered the whole surface of the Earth, then this thesis has shown an interesting result: With the exception of the rare case of reincarnation, everything that has ever happened to names and territories of countries can be expressed by five basic historical changes: Unification, separation, incorporation, secession and name change.
+The history of countries is very complex. The problem space of this work was limited to the territory and name of a country. Except for the coastlines, the more interesting interior borders have always changed due to sudden events. The same is true for the name of countries. If a universe $\Omega$ is defined as an ever-existing territory that initially covered the whole surface of the Earth, then this thesis has shown an interesting result: with the exception of the rare case of reincarnation, everything that has ever happened to names and territories of countries can be expressed by five basic historical changes, i.e. Unification, separation, incorporation, secession and name change.
 
 \begin{description}[labelindent=0.1em]
   \item[\textbf{2a)}]
@@ -31,8 +31,8 @@ The history of countries is very complex. The problem space of this work was lim
 
 These five changes are modeled in the \emph{Hivent model}, an event-based spatio-temporal data model for vector data, organized by a four-domain model and visualized in a graph.
 \emph{Hivents} -- \emph{\textbf{Hi}storical e\texttt{vents}} - are historically significant happenings in time.
-Countries are represented by abstract \emph{Areas} with a formal name, a short name and a territory. They can change due a combination of five \emph{Hivent operations} representing exactly the five historical changes. Each operation ceases or creates a set of Areas or updates the properties of an Area.
-The history of Areas can be visualized spatially on a map and non-spatially on the \emph{HistoGraph}
+Countries are represented by abstract \emph{Areas} with a formal name, a short name and a territory. They can change due to \emph{Hivent operations} that represent exactly the five historical changes. Each operation ceases or creates a set of Areas or updates the properties of one Area.
+The history of Areas can be visualized spatially on a map and non-spatially on the \emph{HistoGraph}.
 
 \begin{description}[labelindent=0.1em]
   \item[\textbf{2b)}]
@@ -41,7 +41,7 @@ The history of Areas can be visualized spatially on a map and non-spatially on t
   }
 \end{description}
 
-While the Hivent operations are very well understood by a machine, they are not suitable to be used by humans to manually edit the course of history. For that matter, six \emph{edit operations} are developed: Create, merge, split, change border, rename and cease. An edit operation can be directly performed on the map using a workflow of four steps:
+While the Hivent operations are very well understood by a machine, they are not suitable to be used by humans to manually edit the course of history. For that matter, six \emph{edit operations} are developed, i.e. create, merge, split, change border, rename and cease. An edit operation can be directly performed on the map using a workflow of four steps:
 
 \begin{compactenum}
   \item Select the Areas that will be changed in the operation.
@@ -63,9 +63,9 @@ The model and the operations were implemented in HistoGlobe, a web-based Histori
 
 While the initially developed Hivent model works very well given the absolute certainty about the data in the system, it has no support for any kind of imperfection, known lack of accuracy and precision or disagreement. Therefore, extensions to the original Hivent model were developed.
 
-Areas can be assigned a special status, e.g. being a contested territory, an autonomous country within a sovereign country or a neutral zone. This will visualize the Areas differently and serve as a visual clue to signal disagreement or uncertainty. The concept of international recognition is introduced to solve the problem how to deal with questionable ``maybe'' countries: If a country has no or limited recognition by other countries, it will not be visualized the same way. The borders of Areas get an additional property that signifies the \emph{certainty} about their course. The lower the certainty, the blurrier or wider the border will appear on the map to signify limited expected accuracy.
+Areas can be assigned a special status, e.g.\ being a contested territory, an autonomous country within a sovereign country or a neutral zone. This will visualize the Areas differently and serve as a visual clue to signal disagreement or uncertainty. The concept of international recognition is introduced to solve the problem how to deal with questionable ``maybe'' countries. If a country has no or limited recognition by other countries, it will not be visualized the same way. The borders of Areas get an additional property that signifies the \emph{certainty} about their course. The lower the certainty, the blurrier or wider the border will appear on the map to signify limited expected accuracy.
 
-These approaches reveal the actual problem of information systems dealing with imperfection: The user who is uncertain about the property of an object, needs to tell the information system \emph{exactly how uncertain} he or she is. That is ironically difficult.
+These approaches reveal the actual problem of information systems dealing with imperfection: the user who is uncertain about the property of an object, needs to tell the information system \emph{exactly how uncertain} they are. This is ironic and difficult.
 
 % section results (end)
 
@@ -77,13 +77,13 @@ As it has already been examined in the evaluation in section \ref{sec:evaluation
 
 The two basic assumptions about the territory of a country -- constant coastlines and a lack of sea territory -- are wrong. The Hivent model supports only sudden spatio-temporal changes due to events, but not due to gradual processes. The data model for HistoGlobe would need to be extended with a concept of \emph{Geoprocesses} that model the long-term geographical processes that lead to changing coastlines. This is an entirely different research field that would need to be entered.
 
-Given the current status of the implementation, there is plenty of room for improvement. First of all, the design approaches developed in the previous section have to be further developed and implemented into the final system to support various degrees of uncertainty. Additionally, the information visualization problems regarding the HistoGraph have to be solved to support it in the browsing and the edit mode of HistoGlobe. The tool for semi-automatic extraction of historical maps needs to be integrated into the New Name Tool to simplify the process of creating the territory of a historical country. It also needs to support importing existing geodata in various formats. To cope with potentially more data in the database, a more sophisticated client-server interaction for initializing the state of the system needs to be developed.
+Given the current status of the implementation, there is plenty of room for improvement. First of all, the design approaches developed in the previous section have to be further developed and implemented into the final system to support various degrees of uncertainty. Additionally, the information visualization problems regarding the HistoGraph have to be solved to support it in the browsing and the edit mode of HistoGlobe. The tool for semi-automatic extraction of historical maps needs to be integrated into the New Name Tool to simplify the process of creating the territory of a historical country. It also needs to support importing existing geodata in various formats. To cope with potentially more data in the database, a more sophisticated client-server interaction for initializing and maintaining the state of the system needs to be developed.
 
 However, the most crucial part is the implementation of the complicated concepts of retrospective updates and backward changes. Without them, HistoGlobe is still useless for editing the historical developments of countries in time and space. For that matter, the problem of retrospective updates needs to be further analyzed to identify possibilities for simplification. If the insertion of an update leads to more than 10 recursive updates that the user has to perform, this might be very frustrating. One idea would be to always give priority to the latest correction in case of a conflict that can be solved in two ways.
 
 New visualization techniques can also be introduced. Animated transitions between two states of an Area would significantly increase the usability of the browsing mode. The attention of the user would be drawn to the territories that currently change. To properly account for the name of the software, a three-dimensional globe can be implemented to replace the map. This requires the use of the graphics card via \emph{WebGL}, because rendering of and interaction with a globe is much more computationally intensive than with a map. A logarithmic version of the timeline would also be interesting. A user study could analyze whether it really suits the logarithmic nature of human perception better than a normal linear timeline.
 
-Finally, to tackle a problem of digital humanities: The current model allows to trace \emph{changes over time} and provide \emph{context}, two of the foundations of history introduced in section \ref{par:history}. However, historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes sufficient to show their results. For their research purpose it is crucial to generate new knowledge to establish \emph{causality}, another foundation for history. Therefor historians need to analyze spatio-temporal coherences or distributions in historical data by sorting, selecting or classifying the data in the system and running spatio-temporal queries. Spatio-temporal reasoning is still not easily possible with existing HGIS and yields many interesting research questions to be solved.
+Finally, to tackle a problem of digital humanities, the current model allows to trace \emph{changes over time} and provide \emph{context}. These are two of the foundations of history introduced in section \ref{par:history}. However, historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes sufficient to show their results. For their research purpose it is crucial to generate new knowledge to establish \emph{causality}, another foundation for history. Therefor historians need to analyze spatio-temporal coherences or distributions in historical data by sorting, selecting or classifying the data in the system and running spatio-temporal queries. Spatio-temporal reasoning is still not easily possible with existing HGIS and yields many interesting research questions to be solved.
 
 % section problems (end)
 
@@ -99,7 +99,7 @@ What are the real causes for the current Syrian civil war?
 Despite the conflicts in the Middle East, do we live in a peaceful time?
 Why did the Roman Empire collapse?
 
-It would help teachers to explain history to their students and learners to finally understand the seemingly complex course of history. If that would work, HistoGlobe would be a comprehensive historical world atlas with a great potential to teach, learn and understand processes in the past. We could learn from our mistakes we have done in the past and reason about the things that actually matter: To provide a world without the need for greed and hunger, for brotherhood of men. If John Lennon is right, then this information system would at some point come to its ultimate end: all countries unify to one world the common universe -- without borders. All the people living life in peace.
+It would help teachers to explain history to their students and learners to finally understand the seemingly complex course of history. If that would work, HistoGlobe would be a comprehensive historical world atlas with a great potential to teach, learn and understand processes in the past. We could learn from our mistakes we have done in the past and reason about the things that actually matter: To provide a world without the need for greed and hunger, for brotherhood of men. If John Lennon is right, then this information system would at some point come to its ultimate end: all countries unify to one world, the common universe -- without borders. All the people living life in peace.
 
 \vspace{2em}
 \begin{large}

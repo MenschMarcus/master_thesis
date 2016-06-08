@@ -5,7 +5,7 @@
 
 This section proposes the spatio-temporal \emph{Hivent model} to represent the history of countries in time and space. \emph{Hivent} is an acronym for \emph{\textbf{Hi}}storical e\emph{\textbf{vent}} and is the main element of the data model. In section \ref{sec:spatio_temporal_data_models}, different spatio-temporal data models were introduced: The \emph{Snapshot} model is unsuitable for the problem space. \emph{Simple time-stamping} is helpful to link countries to their history, but it does not explicitly model historical changes, which is required. For that purpose, the \emph{ESTDM} was developed, but since it only works for raster data, it does not match the problem space. The \emph{History Graph} model fills this gap and additionally introduces temporal changes and their influences on geographic entities directly in the model. Finally, the \emph{Three-Domain} model presents a helpful concept to separate the spatial, temporal and thematic dimension of a spatio-temporal object.
 
-The Hivent model is constructed from components of some of these models: It is event-based and supports vector data. It is organized in four domains and allows to visualize data on a graph.
+The Hivent model is constructed from components of some of these models. It is event-based and supports vector data. It is organized in four domains and allows to visualize data on a graph.
 Section \ref{sub:elements} introduces the main elements of the Hivent model. Afterwards, the basic axioms and assumptions are defined in section \ref{sub:preconditions}. A major contribution of this thesis is proposed in section \ref{sub:hivent_operations}: the set of five \emph{Hivent operations} that describe all possible changes of countries in time and space.
 Section \ref{sub:histograph} presents the \emph{HistoGraph}, a non-spatial visualization of historical developments.
 
@@ -17,7 +17,7 @@ Section \ref{sub:histograph} presents the \emph{HistoGraph}, a non-spatial visua
 \paragraph{Hivents} % (fold)
 \label{par:hivent}
 
-represent historically significant happenings, e.g. a treaty, bill or declaration.
+represent historically significant happenings, e.g.\ a treaty, bill or declaration.
 An Hivent happens at one particular point in time and space and is therefore the main organizing element of the eponymic data model.
 The focus in this work is on events that influence the geopolitical situation on Earth.
 
@@ -28,7 +28,7 @@ The focus in this work is on events that influence the geopolitical situation on
 \paragraph{Areas} % (fold)
 \label{par:area}
 
-represent one identical current or historical country. They are abstract entities on the map with a \emph{name} and a \emph{territory}. In the real world, a country has a common \emph{short name}, e.g. ``Germany'' and a potentially longer \emph{formal name}, e.g. ``Federal Republic of Germany''. Both attributes are part of the Area model. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to account for enclaves and exclaves (see section \ref{ssub:vector_model}). The polylines of a polygon consist of an ordered set of points that represent the borders of the country.
+represent one identical current or historical country. They are abstract entities on the map with a \emph{name} and a \emph{territory}. In the real world, a country has a common \emph{short name}, e.g.\ ``Germany'' and a potentially longer \emph{formal name}, e.g.\ ``Federal Republic of Germany''. Both attributes are part of the Area model. The \emph{territory} of the Area is described by a polypolygon, a set of weakly simple polygons to account for enclaves and exclaves (see section \ref{ssub:vector_model}). The polylines of a polygon consist of an ordered set of points that represent the borders of the country.
 
 % paragraph area (end)
 
@@ -49,7 +49,7 @@ Since all changes in this model are sudden, there are only two possible states a
   \label{fig:area_states}
 \end{figure}
 
-Historical changes and Areas are mutually linked, i.e. an Area keeps references to the changes creating, updating and ceasing it and a historical change stores a set old Areas that cease, a set of new Areas that are created and a set of update Areas that are manipulated in the change.
+Historical changes and Areas are mutually linked, i.e.\ an Area keeps references to the changes creating, updating and ceasing it and a historical change stores a set old Areas that cease, a set of new Areas that are created and a set of update Areas that are manipulated in the change.
 
 % paragraph historical_changes (end)
 
@@ -61,12 +61,12 @@ Following the idea of the Three-Domain model and its extension introduced in sec
 
 \begin{compactitem}
   \item The \emph{semantic domain} holding the Area uniquely identifiable is represented by its formal name.
-  \item The \emph{spatial domain} is the territory of the Area that is visible on the map.
+  \item The \emph{spatial domain} is expressed by the territory of the Area that is visible on the map.
   \item The \emph{thematic domain} is represented by the short name of the Area.
   \item The \emph{temporal domain} is the entirety of all historical changes associated with the Area.
 \end{compactitem}
 
-The main difference between the spatial and the thematic domain is that there is no relation between the names of two Areas: While it does not make sense, there could potentially be two Areas active at the same time with the same name. The update of the name of one Area is independent from any other Area. This is not true for the spatial domain: The territories of two Areas are highly related to each other. Geospatially each territory has at least one neighbor and two neighbors share the same border. An update of the territory of one Area results in the update of at least one other territory.
+The main difference between the spatial and the thematic domain is that there is no relation between the names of two Areas. While the intention is questionable, there could potentially be two Areas active at the same time with the same name. The update of the name of one Area is independent from any other Area. This is not true for the spatial domain: The territories of two Areas are highly related to each other. Geospatially, each territory has at least one neighbor and two neighbors share the same border. An update of the territory of one Area results in the update of at least one other territory.
 
 % paragraph four_domain_model (end)
 
@@ -90,7 +90,7 @@ There are five axioms and two assumptions the Hivent model is based on. The theo
 \newtheorem{invariant_surface}[assicounter]{Axiom}
 \begin{invariant_surface}
 \label{axm:invariant_surface}
-  The Earth's surface has an invariant area size, i.e. it does not change over time.
+  The Earth's surface has an invariant area size, i.e.\ it does not change over time.
 \end{invariant_surface}
 
 \vspace{-2.0em}
@@ -123,7 +123,7 @@ These axioms set the spatial foundation of the system: a constant dimension of t
   At each point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
 \end{unique_coverage}
 
-As defined in section \ref{par:area}, a historical change can create, manipulate and cease Areas on the Earth's surface. According to axiom \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map, i.e. if an Area is created on the map, the Area claiming this territory before has to cease it.
+As defined in section \ref{par:area}, a historical change can create, manipulate and cease Areas on the Earth's surface. According to axiom \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map, i.e.\ if an Area is created on the map, the Area claiming this territory before has to cease it.
 
 Formally, it can be said that each change consists of three sets of Areas: the old Areas $A$ that are ceased, the new Areas $B$ that are created and the Areas $C$, whose properties are updated in the change. Each $A_i \in A$ and $B_i \in B$ has a territory $A_i^T$ respectively $B_i^T$. Each $C_i \in C$ has an old territory $C_i^{OT}$ that is updated with the new territory $C_i^{NT}$. Each change introduced in the spatio-temporal system must maintain the spatial integrity of axiom \ref{axm:unique_coverage}. Therefore, the total size of the territories before the change and after the change must be the same:
 
@@ -141,9 +141,9 @@ Formally, it can be said that each change consists of three sets of Areas: the o
 
 \vspace{.5em}
 
-This behavior is based on to the law of conversation of energy in physics: Energy in a closed system can only be transformed from one object to another, but the total energy in the system is preserved at any time. In the spatio-temporal system of this HGIS, the total size of the territory of the Earth is preserved, it is distributed among the active Areas in the system.
+This behavior is based on to the law of conversation of energy in physics: energy in a closed system can only be transformed from one object to another, but the total energy in the system is preserved at any time. In the spatio-temporal system of this HGIS, the total size of the territory of the Earth is preserved, it is distributed among the active Areas in the system.
 
-The first changes introduced in the system at $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e. it is currently occupied by the territory of exactly one active Area, or on the contrary be \emph{unclaimed}, i.e. belonging to $\Omega$.
+The first changes introduced in the system at $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e.\ it is currently occupied by the territory of exactly one active Area, or on the contrary be \emph{unclaimed}, i.e.\ belonging to $\Omega$.
 % It is a subtractive data model, because each new Areas territory is cut out of $\Omega$.
 
 \begin{figure}[ht]
@@ -153,7 +153,7 @@ The first changes introduced in the system at $t_0$ are the creation of all bodi
   \label{fig:init_map}
 \end{figure}
 
-In the real world, the name of a country changes according to sudden events, e.g. a declaration or a governmental bill. The territory can change either because of geographical processes, e.g. the sea level rise influencing the coastlines, or according to a historical event, e.g. a treaty shifting a border between two countries. The Hivent model is based on two assumptions that simplify the model and keep the problem space clear:
+In the real world, the name of a country changes according to sudden events, e.g.\ a declaration or a governmental bill. The territory can change either because of geographical processes, e.g.\ the sea level rise influencing the coastlines, or according to a historical event, e.g.\ a treaty shifting a border between two countries. The Hivent model is based on two assumptions that simplify the model and keep the problem space clear:
 
 \vspace{-0.0em}
 \newtheorem{coastline_territory}[assicounter]{Assumption}
@@ -169,11 +169,7 @@ In the real world, the name of a country changes according to sudden events, e.g
   The coastlines have not changed over time.
 \end{constant_coastlines}
 
-Both assumptions are wrong: The territory of a country stretches into international water (see section \ref{sub:territory_of_a_country}). Coastlines are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change the coastlines, mainly the continental drifts of tectonic plates. For now, the temporal behavior of an Area in the Hivent model can be described as a \emph{static object that changes according to sudden events}.
-
-% base: Newtons concept of absolute space?
-% each border has exactly two neighboring Areas
-% each Area has at least one neighboring Area
+Both assumptions are wrong. The territory of a country stretches into international water (see section \ref{sub:territory_of_a_country}). Coastlines are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change the coastlines, mainly the continental drifts of tectonic plates. For now, the temporal behavior of an Area in the Hivent model can be described as a \emph{static object that changes according to sudden events}.
 
 % subsection preconditions (end)
 
@@ -181,7 +177,7 @@ Both assumptions are wrong: The territory of a country stretches into internatio
 \subsection{Hivent Operations} % (fold)
 \label{sub:hivent_operations}
 
-Respecting the preconditions, there are several different types of historical changes that transform a set of old Areas $A$ to a set of new Areas $B$ and update a set of Areas $C$. However, each possible historical change can be expressed with only one of five \emph{Hivent operations}. Four of them change the identity of at least one Area and therefore establish historical predecessor-successor-relationships. These relationships are always symmetric, i.e. if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa the new Area is the successor of the old Area. The last operation changes an aspatial property of an Area and is therefore identity-preserving.
+Respecting the preconditions, there are several different types of historical changes that transform a set of old Areas $A$ to a set of new Areas $B$ and update a set of Areas $C$. However, each possible historical change can be expressed with only one of five \emph{Hivent operations}. Four of them change the identity of at least one Area and therefore establish historical predecessor-successor-relationships. These relationships are always symmetric, i.e.\ if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa. The last operation changes an aspatial property of an Area and is therefore identity-preserving.
 
 \newpage
 \begin{description}
@@ -266,7 +262,7 @@ The two-dimensional HistoGraph has a horizontal orientation. The x-axis refers t
   \raisebox{-0.2\height}
   {\includegraphics[width=10px]{graphics/development/hivent_model/histograph/circle_combo}}
   & A combination of both
-  & e.g. \texttt{INC + NCH}
+  & e.g.\ \texttt{INC + NCH}
 
 \end{tabular}
 \label{tab:histograph_symbols}
@@ -281,7 +277,7 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 \begin{figure}[ht]
   \vspace{0.5em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/hivent_model/histograph/example_germany}
+  \includegraphics[width=0.9\textwidth]{graphics/development/hivent_model/histograph/example_germany}
   \caption{The concept of the HistoGraph at the example of Germany's history since 1945}
   \label{fig:example_germany}
 \end{figure}
@@ -327,9 +323,9 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 
 \vspace{-1em}
 
-The example hosts a special case: in October 1949, East Germany was created from the Soviet Zone of Occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} cannot be performed, because the identity is not preserved: The German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one old Area (Soviet zone), creating a new Area (East Germany). This new Area occupies exactly the same territory as the old Area. Between both Areas a historical relationship is and established.
+This example hosts a special case: In October 1949, East Germany was created from the Soviet Zone of Occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} cannot be performed, because the identity is not preserved: the German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one old Area (Soviet zone), creating a new Area (East Germany). This new Area occupies exactly the same territory as the old Area and becomes the only historical successor of the old Area.
 
-The graph plots Germany first. Since it does not have any successors, the plot expands only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. They emerged from the four post-war occupation zones, which are visualized in the next step. Each of the four occupation zones originated themselves from the German Reich. However, the German Reich dissolved into many more Areas, e.g. the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
+The graph plots Germany first. Since it does not have any successors, the plot expands only one way, historically backwards: East Germany and the Saar Protectorate were incorporated into Germany, so they are plotted. They emerged from the four post-war occupation zones, which are visualized in the next step. Each of the four occupation zones originated themselves from the German Reich. However, the German Reich dissolved into many more Areas, e.g.\ the Memel territory. They are not included in the graph, because they are not predecessors of any Area that is a recursive predecessor of present-day Germany.
 
 Many problems of the graph visualization are apparent in this example: Circles may overlap if many operations happen in a short period of time -- in this case between 1945 and 1949.
 The name ``West Germany'' collides with the vertical line indicating the incorporation of the Saar Protectorate, which should also be avoided.

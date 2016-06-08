@@ -23,17 +23,17 @@ The development process is iterative and divided into several phases. The outcom
   \item \textbf{Extensions}: Design approaches to account for the uncertain nature of history.
 \end{compactenum}
 
-This chapter covers the first four phases of this design process, focusing on the results of the web-based prototype and its underlying data model. Every aspect in this chapter is based on the assumption of full certainty about the data: For each moment in history there is a clear an undisputed state of the world. The data model and the application presented in this chapter is open for extension to tackle the actual problem of uncertainty in history. This is the topic of the next chapter \ref{cha:extensions} of this thesis.
+This chapter covers the first four phases of this design process, focusing on the results of the web-based prototype and its underlying data model. Every aspect in this chapter is based on the assumption of full certainty about the data: for each moment in history, there is a clear an undisputed state of the world. The data model and the application presented in this chapter is open for extension to tackle the actual problem of uncertainty in history. This is the topic of chapter \ref{cha:extensions} of this thesis.
 
 \begin{figure}[H]
   \vspace{1.5em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/development/models}
+  \includegraphics[width=0.9\textwidth]{graphics/development/models}
   \caption{Relevant models for an information system}
   \label{fig:models}
 \end{figure}
 
-Several models are involved in the development of the software. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent model} developed in this thesis is explained in the first section \ref{sec:hivent_model} of this chapter. It is followed by section \ref{sec:editing_hivent_data} with methods to \emph{edit} the spatio-temporal data in the system. In iterative computer systems, the \emph{mental model} is a representation of how  the interface should work in the mind of the human -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human-Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The implementation of HistoGlobe including the latter three models is presented in section \ref{sec:implementation} of this chapter.
+Several models are involved in the development of the software. The \emph{data model} is an abstraction and simplification of the real world. The \emph{Hivent model} developed in this thesis is explained in section \ref{sec:hivent_model} of this chapter. It is followed by section \ref{sec:editing_hivent_data} with methods to \emph{edit} the spatio-temporal data in the system. In iterative computer systems, the \emph{mental model} is a representation of how  the interface should work in the mind of the human -- the \emph{conceptual model} describes the way the interface actually works. The goal of Human-Centered Design is to match the conceptual model to the mental model. Section \ref{sec:user_interface_design_process} outlines the gradual design process to reach this goal. In the application, the data model is implemented in the \emph{database model}. The task for the \emph{computational model} is to translate between the database model and the conceptual model. The implementation of HistoGlobe including the latter three models is presented in section \ref{sec:implementation} of this chapter.
 
 % ==============================================================================
 \newpage
@@ -48,5 +48,5 @@ Several models are involved in the development of the software. The \emph{data m
 
 \vspace{2em}
 
-This chapter presented the iterative design approach to the core part of the thesis: The Hivent model with the five low-level Hivent operations to describe a historical change. Additionally, methods were proposed to edit these changes using six edit operations in a workflow.
-These formed the basis of the edit mode in the user interface of HistoGlobe. Finally, the system architecture and some selected implementation issues were presented. However, the state of the application only covers forward changes at the end of the timeline and it is based on the wrong assumption of complete certainty about historical data. The next chapter evaluates this state and develops extensions that can cope with the uncertain nature of history.
+This chapter presented the iterative design approach to the core part of the thesis and its main results. The Hivent model with the five low-level Hivent operations to describe a historical change is introduced. Additionally, methods are proposed to edit these changes using six edit operations in a workflow.
+These operations form the basis of the edit mode in the user interface of HistoGlobe. Finally, the system architecture and some selected implementation issues are presented. The next chapter evaluates this state and develops extensions that can cope with the uncertain nature of history.

@@ -2,7 +2,7 @@ data model:
 2D geometries
 no self intersection
 clean geometries
-allow to be non-exhaustive (have holes e.g. enclaves, exclaves)
+allow to be non-exhaustive (have holes e.g.\ enclaves, exclaves)
 
 feature topology table
 points          ID, coordinates
@@ -25,7 +25,7 @@ modeling historical border changes
 \paragraph{Pseudocode description} % (fold)
 \label{par:pseudocode_description}
 
-of the HG operations in an object-oriented manner. The existance of a class \texttt{Area} is assumed. Each \texttt{Area} object has the following member variables: a \texttt{name}, a \texttt{territory} and a list of historical \texttt{predecessors} and \texttt{successors}. Single capital letter variables (\texttt{A}/\texttt{B}) denote arrays of \texttt{Area} objects. Variables with a capital letter followed by a number or lowercase letter (e.g. \texttt{B0}) are single \texttt{Area} objects.
+of the HG operations in an object-oriented manner. The existance of a class \texttt{Area} is assumed. Each \texttt{Area} object has the following member variables: a \texttt{name}, a \texttt{territory} and a list of historical \texttt{predecessors} and \texttt{successors}. Single capital letter variables (\texttt{A}/\texttt{B}) denote arrays of \texttt{Area} objects. Variables with a capital letter followed by a number or lowercase letter (e.g.\ \texttt{B0}) are single \texttt{Area} objects.
 
 \begin{minipage}[t]{0.47\textwidth}
 \begin{lstlisting}[language=pseudocode,

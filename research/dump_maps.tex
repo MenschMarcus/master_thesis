@@ -2,9 +2,9 @@ Cartographic visualizations are the interface between the GIS and the human. A m
 
 There is no fixed guideline how to properly design a map, but there are typical elements that are part of every cartographic visualization.The main element is the map itself, using a specific map projection
 % (see section \ref{ssub:map_projections})
-, a scale and an initial center point. A map is typically structured in a \emph{layer} principle. Each layer is a transparent film showing one specific aspect, e.g. a physical layer showing coastlines, mountains or forests, a political layer showing international borders or a cultural layer showing cities or population densities. The layers are interchangeable, can be switched on and off and serve to serve a different visualization purpose. The map is designed using a certain color scheme, fonts and signatures for all the objects on the map.
+, a scale and an initial center point. A map is typically structured in a \emph{layer} principle. Each layer is a transparent film showing one specific aspect, e.g.\ a physical layer showing coastlines, mountains or forests, a political layer showing international borders or a cultural layer showing cities or population densities. The layers are interchangeable, can be switched on and off and serve to serve a different visualization purpose. The map is designed using a certain color scheme, fonts and signatures for all the objects on the map.
 
-Additionally there can be a \emph{title} describing the purpose of the map. A \emph{legend} including the scale bar and north arrow shall explain all symbols used on the map and give orientation. Depending on the degree of interactivity, there can be \emph{menus} with different visualization options, e.g. panning and zooming on the map, switching map layers on and off or changing the color scheme of the map.
+Additionally there can be a \emph{title} describing the purpose of the map. A \emph{legend} including the scale bar and north arrow shall explain all symbols used on the map and give orientation. Depending on the degree of interactivity, there can be \emph{menus} with different visualization options, e.g.\ panning and zooming on the map, switching map layers on and off or changing the color scheme of the map.
 \cite[pp. 159-166]{bolstad2008gis}
 
 % example of a good map
@@ -37,14 +37,14 @@ maps are means and products of GIS
 scientific visualization vs. information visualization
   tangible objects            abstract concepts
   with inherent form          without inherent form
-  e.g. CT scan of human body  e.g. flow of refugees
+  e.g.\ CT scan of human body  e.g.\ flow of refugees
 -> 3D globe: inherent form, direct representation of Earth -> scientific visualization
 -> 2D map and time: no inherent form resp. abstract concept
 => information visualization
 
 tasks of visualization
   present (what? where? when? how?)
-  analyze (e.g. what is the best? where is the most? when was the first?)
+  analyze (e.g.\ what is the best? where is the most? when was the first?)
   explore (why?)
 % \cite Kraak 1999
 
@@ -92,7 +92,7 @@ The basic problem to be solved is that the Earth is a spherical object, its surf
 %   \label{fig:distortion}
 % \end{figure}
 
-There are two main classifications of map projections: The \emph{projection family} with respect to the geometric shape used for the transformation: \emph{cylindrical}, \emph{conical} and \emph{azimuthal} or \emph{planar projection}). Secondly, the \emph{distortion characteristics} with respect to the map property that is preserved. There are \emph{equivalent}, \emph{conformal}, \emph{equidistant}, \emph{zenithal} and compromise projections. Most families and characteristics can be mixed, e.g. it is possible to create a cylindrical, a conical and an azimuthal equivalent map projection
+There are two main classifications of map projections: The \emph{projection family} with respect to the geometric shape used for the transformation: \emph{cylindrical}, \emph{conical} and \emph{azimuthal} or \emph{planar projection}). Secondly, the \emph{distortion characteristics} with respect to the map property that is preserved. There are \emph{equivalent}, \emph{conformal}, \emph{equidistant}, \emph{zenithal} and compromise projections. Most families and characteristics can be mixed, e.g.\ it is possible to create a cylindrical, a conical and an azimuthal equivalent map projection
 \cite{mapProjectionKrygier}.
 
 
@@ -116,7 +116,7 @@ The basis of geometrical map projections are \emph{developable surfaces} onto wh
   accessed on: 27.10.2015
 }
 
-In praxis, also pure mathematical map projections are used, e.g. pseudocylindrical, sinusoidal or Mollweise projections. They are much more complex and have the goal to reduce the overall distortion
+In praxis, also pure mathematical map projections are used, e.g.\ pseudocylindrical, sinusoidal or Mollweise projections. They are much more complex and have the goal to reduce the overall distortion
 \cite[p.99]{bolstad2008gis}.
 
 % subsection projection_families (end)
@@ -126,7 +126,7 @@ In praxis, also pure mathematical map projections are used, e.g. pseudocylindric
 \label{par:distortion_characteristics}
 
 To flatten a spherical surface onto a flat surface, transformations such as stretching, tearing or shearing have to be performed. % affine? non-affine?
-A map projection is only accurate at the \emph{standard lines}, i.e. the point(s) or line(s) where the developable surface touches or intersects the ellipsoid. In all other parts the map will in some ways be deformed. That causes distortion in at least one of the following properties of a map: shape (angle), size (area),  direction or distance of features on the map. There is no perfect map projection. Each projection can preserve maximum two of these properties at a cost of distorting the others. The cartographer has to make a compromise and choose a set of characteristics that are important while accepting a distortion in the other properties.
+A map projection is only accurate at the \emph{standard lines}, i.e.\ the point(s) or line(s) where the developable surface touches or intersects the ellipsoid. In all other parts the map will in some ways be deformed. That causes distortion in at least one of the following properties of a map: shape (angle), size (area),  direction or distance of features on the map. There is no perfect map projection. Each projection can preserve maximum two of these properties at a cost of distorting the others. The cartographer has to make a compromise and choose a set of characteristics that are important while accepting a distortion in the other properties.
 
 \emph{Tissot's indicatrices} visualize the distortion patterns in the form of ellipses on the map. Their size, shape and orientation are caused by the map projection and show the distortion at this point of the map. Using indicatrices the advantages and disadvantages of each map projection can be shown.
 
@@ -214,7 +214,7 @@ The result of an \emph{equidistant} projection is a map that in relation to the 
 % pidgeon
 % irc.freenode.net#slab
 
-Figure \ref{fig:equidistant_projections}b shows a prominent example: The Unites Nations chose a map for their logo from which all points on the map have the correct distance to the North Pole. The equirectangular projection in Figure \ref{fig:equidistant_projections}a has a slightly different property: any meridian is true to scale and therefore all distances along the meridians are accurate. However, the ellipses on the map are distorted in both shape and size, so the map is neither conformal nor equivalent. Air navigation charts or seismology make use of the equidistant property e.g. to show distances from major cities to the epicenter of an earthquake.
+Figure \ref{fig:equidistant_projections}b shows a prominent example: The Unites Nations chose a map for their logo from which all points on the map have the correct distance to the North Pole. The equirectangular projection in Figure \ref{fig:equidistant_projections}a has a slightly different property: any meridian is true to scale and therefore all distances along the meridians are accurate. However, the ellipses on the map are distorted in both shape and size, so the map is neither conformal nor equivalent. Air navigation charts or seismology make use of the equidistant property e.g.\ to show distances from major cities to the epicenter of an earthquake.
 \cite{mapProjectionGeokov}
 
 \emph{Zenithal} or \emph{azimuthal} projections preserve directions from the center point to all other points on the map (see figure \ref{fig:zenithal_projection}). It is only possible in the family of planar projections and can be combined with a conformal, equivalent and equidistant property. These maps are used whenever directional relationships are important, for example in navigational charts.

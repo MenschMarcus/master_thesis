@@ -50,10 +50,10 @@ Some interesting research questions that could be answered using HGIS could be:
 Or on a more abstract level: Where and When has something changed and why did it change?
 
 \begin{enumerate}
-  \item \textbf{Input}: Primary acquision of spatio-temporal data, i.e. historical events, historical and current countries and their territories.
+  \item \textbf{Input}: Primary acquision of spatio-temporal data, i.e.\ historical events, historical and current countries and their territories.
   \item \textbf{Management}: Physical storage and logical management of the data in a spatio-temporal database, using a structure that fits the spatio-temporal data model.
   \item \textbf{Analysis}: Gaining spatio-temporal information by cleaning, transforming or combining the data in database.
-  \item \textbf{Presentation}: Visualization of information on different displays, e.g. a map and a timeline, transforming information into spatio-temporal knowledge.
+  \item \textbf{Presentation}: Visualization of information on different displays, e.g.\ a map and a timeline, transforming information into spatio-temporal knowledge.
 \end{enumerate}
 
 % ------------------------------------------------------------------------------
@@ -105,7 +105,7 @@ paragraph timelines (end)
 \paragraph{Geospatial Topology} % (fold)
 \label{par:geospatial_topology}
 
-\emph{Topology} is the study of position, how objects are spatially arranged and relatively positioned to each other. It does not include measures like distances or angles. Two objects are said to be topologically equivalent, if they can be deformed into each other, e.g. an ellipse can be stretched into a circle. A \emph{geospatial topological vector model} defines the relationship between geospatial objects, i.e. equals, disjoint, intersects, touches / neighbors, contains, covers, within, interior and boundary
+\emph{Topology} is the study of position, how objects are spatially arranged and relatively positioned to each other. It does not include measures like distances or angles. Two objects are said to be topologically equivalent, if they can be deformed into each other, e.g.\ an ellipse can be stretched into a circle. A \emph{geospatial topological vector model} defines the relationship between geospatial objects, i.e.\ equals, disjoint, intersects, touches / neighbors, contains, covers, within, interior and boundary
 \cite{clementiniTopology}.
 
 The 2D vector model can be extended with a topology. The elements in this topological space are nodes (0D), edges (1D) and meshes (2D) and they correspond directly to the geometric primitives stated above. A topological vector model has strict connectivity (a ``clean'' geometry), if no two edges intersect without a node at their intersection point (planar), each interior edge has exactly two adjacent areas and each edge contains at least two nodes
@@ -132,10 +132,10 @@ The topological vector model has a great asset: if an edge between two adjacent 
   \label{fig:raster_vector}
 \end{figure}
 
-The \emph{raster model} contains a regular grid with a fixed \emph{cell dimension}. Each cell has a certain value, e.g. a color value.
+The \emph{raster model} contains a regular grid with a fixed \emph{cell dimension}. Each cell has a certain value, e.g.\ a color value.
 The model is simple and allows straightforward rendering: only affine transformations have to be applied in order to project two raster map layers on top of each other. The main disadvantage of the raster model is its fixed resolution: it cannot be scaled up without losing quality
 \cite[pp.42-48]{bolstad2008gis}.
-Raster graphics are used for map tiles by most map engines, e.g. the satellite image by NASA in Google Maps.
+Raster graphics are used for map tiles by most map engines, e.g.\ the satellite image by NASA in Google Maps.
 \footnote{
   \emph{Google Maps},
   URL: \url{https://www.google.com/maps/@51.2090662,13.2328189,3563505m/data=!3m1!1e3},
@@ -185,13 +185,13 @@ Information systems use databases for managing the data. A \emph{Database Manage
 \subsection{Relational Database Management Systems} % (fold)
 \label{sub:relational_database_management_systems}
 
-RDBMS are built upon the concept of \emph{entitities}, e.g. an \texttt{HistoricalCountry}, with \emph{attributes}, e.g. \texttt{name} and attribute values of a simple data type, e.g. the character string \texttt{"Germany"}. Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, mostly a contiguous number.
+RDBMS are built upon the concept of \emph{entitities}, e.g.\ an \texttt{HistoricalCountry}, with \emph{attributes}, e.g.\ \texttt{name} and attribute values of a simple data type, e.g.\ the character string \texttt{"Germany"}. Entities are represented in a table with one row for each \emph{tuple} and one column for each attribute. An entity has one attribute that unambiguously identifies each tuple, the \emph{primary key}, mostly a contiguous number.
 
 Entities can be related to each other in three different kinds of \emph{relations}:
 \begin{compactenum}
-  \item[\texttt{1:1}] Direct attributional relation, e.g. one country has one head of state and vice versa.
-  \item[\texttt{1:n}] One-to-many relation, e.g. one country can have many cities, but each city can belong to only one country.
-  \item[\texttt{m:n}] Many-to-many relation, e.g. one country can have many rivers, but each river can also flow through multiple countries.
+  \item[\texttt{1:1}] Direct attributional relation, e.g.\ one country has one head of state and vice versa.
+  \item[\texttt{1:n}] One-to-many relation, e.g.\ one country can have many cities, but each city can belong to only one country.
+  \item[\texttt{m:n}] Many-to-many relation, e.g.\ one country can have many rivers, but each river can also flow through multiple countries.
 \end{compactenum}
 
 Entities and their relations are visualized in an \emph{Entity-Relationship Model} (ER model). Data can be retrieved from and entered into a relational database using the \emph{Structural Query Language} (SQL). The query to get the names of cities in \texttt{Germany} in alphabetical order is:
@@ -222,11 +222,11 @@ The first RDBM developed was \emph{Oracle}, released in 1979 \cite{oracleDB}. Si
 One problem with RDBMS is that attributes can only be assigned simple data types. Developers using object-oriented programming need to map the objects used in the application to tuples in the relational database -- and vice versa data from the database needs to be transformed to objects in the application. This process can be cumbersome. OODBMS have been developed to address this problem and adopt the concepts of object-oriented programming for database management purposes \cite{oodbms}.
 
 \begin{itemize}
-  \item \emph{Classes} are the structured representation of things in the real world of the same kind, with the same properties, e.g. a country, having a name and a territory. Classes in OODBMS relate to Entities in RDBMS.
-  \item An \emph{object} is an instance of a class, one specific thing with defined properties, e.g. the country of Germany with its territory. This correlates to a tuple in RDBMS.
+  \item \emph{Classes} are the structured representation of things in the real world of the same kind, with the same properties, e.g.\ a country, having a name and a territory. Classes in OODBMS relate to Entities in RDBMS.
+  \item An \emph{object} is an instance of a class, one specific thing with defined properties, e.g.\ the country of Germany with its territory. This correlates to a tuple in RDBMS.
   \begin{itemize}
-    \item The \emph{attributes} of an object cannot just be of a simple data type, but also instances of other classes, e.g. \texttt{country.territory} can be a \texttt{polypolygon} object. These complex data types are a major improvement compared to RDBMS.
-    \item Objects also have \emph{methods} that can be called to do something with the object, e.g. \texttt{territory.getArea()} calculates the area size of a country.
+    \item The \emph{attributes} of an object cannot just be of a simple data type, but also instances of other classes, e.g.\ \texttt{country.territory} can be a \texttt{polypolygon} object. These complex data types are a major improvement compared to RDBMS.
+    \item Objects also have \emph{methods} that can be called to do something with the object, e.g.\ \texttt{territory.getArea()} calculates the area size of a country.
   \end{itemize}
   \item The internal state of an object cannot be accessed from the outside. Methods are the only way to interact with an object. This is called \emph{encapsulation} and maintains control over what can be done to and with an object and prevents corruption.
   \item According to the concept of \emph{inheritance}, classes can be hierarchically structured, whereas the attributes and the methods of a \emph{base class} are inherited to its \emph{derived class}. As an example, an \texttt{Area} has a \texttt{name}, a \texttt{territory} and the method \texttt{getArea()} associated to it. A \texttt{Country} can be derived from the \texttt{Area}, inheriting both attributes and the method. Additionally, it can get an attribute \texttt{head\_of\_state}, which is specific to \texttt{Country}, but not to \texttt{Area}. The class \texttt{Ocean} can just as well be derived from \texttt{Area}.
@@ -261,7 +261,7 @@ Databases for HGIS have to deal with spatial, temporal and attribute data. Accor
 \paragraph{Spatial data} % (fold)
 \label{par:spatial_data}
 
-can easily become very large, because of the mass of very precise coordinate data. \emph{Spatial databases} are specialized to work with spatial data: they process the data effieciently and to provide general data types, such as \texttt{Point} or \texttt{Polygon} and methods, e.g. to calculate the area or the distance between two points. \emph{PostGIS}
+can easily become very large, because of the mass of very precise coordinate data. \emph{Spatial databases} are specialized to work with spatial data: they process the data effieciently and to provide general data types, such as \texttt{Point} or \texttt{Polygon} and methods, e.g.\ to calculate the area or the distance between two points. \emph{PostGIS}
 \footnote{
   \emph{PostGIS},
   URL: \url{http://postgis.net/},
@@ -276,7 +276,7 @@ is an extension for PostgreSQL that is especially utilized for handling spatial 
 \paragraph{Temporal data} % (fold)
 \label{par:temporal_data}
 
-usually relates to events and processes. It is defined either by a time point or a time interval which is again defined by two time points. This is called a \emph{bitemporal} element. A time point can be modeled in the database as an attribute of the complex \texttt{Date} type. For relational databases that only support simple data types, the date can be stored as a string or be expressed with a \texttt{long} integer (64 bit) $\forall n \in \mathbb{N}: n \in [-2^{63}~..~2^{63}-1]$) determining the number of milliseconds since \nth{1} January 1970 (UNIX time) \cite{timeInRDBMS}. SQL was extended by features to handle time in a database, e.g. \emph{SQL/MM} \cite[chapter 6]{peuquet99}.
+usually relates to events and processes. It is defined either by a time point or a time interval which is again defined by two time points. This is called a \emph{bitemporal} element. A time point can be modeled in the database as an attribute of the complex \texttt{Date} type. For relational databases that only support simple data types, the date can be stored as a string or be expressed with a \texttt{long} integer (64 bit) $\forall n \in \mathbb{N}: n \in [-2^{63}~..~2^{63}-1]$) determining the number of milliseconds since \nth{1} January 1970 (UNIX time) \cite{timeInRDBMS}. SQL was extended by features to handle time in a database, e.g.\ \emph{SQL/MM} \cite[chapter 6]{peuquet99}.
 
 % paragraph temporal_data (end)
 
@@ -290,7 +290,7 @@ When storing time related data, it is important to distinguish between the time 
 
 Object-oriented concepts are more appropriate than the concept of relational databases, because of the complex nature of spatio-temporal data \cite[section 3.9]{pelekis04stdms}. One of the first concepts was the concept of a \emph{spatio-temporal object} combining geometrical and bitemporal properties in one object \cite{worboys90stdm}.
 
-A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT). Time is not considered an attribute of space, but a separate class. They are aggregated in the \texttt{SpatioTemporal} class, using both spatial and bitemporal attributes. The model also provides spatio-temporal operators, e.g. \texttt{STT\_intersects} returns \texttt{true} if two \texttt{SpatioTemporal} objects intersect in time and space, i.e. their geometries intersect and the time intervals in which they are active overlap. These operators are very helpful when analyzing spatio-temporal data or checking for data integrity.
+A similar approach by \cite{raza12} is the \emph{Spatio-Temporal Data Type} (STT). Time is not considered an attribute of space, but a separate class. They are aggregated in the \texttt{SpatioTemporal} class, using both spatial and bitemporal attributes. The model also provides spatio-temporal operators, e.g.\ \texttt{STT\_intersects} returns \texttt{true} if two \texttt{SpatioTemporal} objects intersect in time and space, i.e.\ their geometries intersect and the time intervals in which they are active overlap. These operators are very helpful when analyzing spatio-temporal data or checking for data integrity.
 
 % paragraph object_oriented_spatio_temporal_database_models (end)
 

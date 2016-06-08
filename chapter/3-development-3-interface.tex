@@ -3,11 +3,11 @@
 \section{User Interface Design Process} % (fold)
 \label{sec:user_interface_design_process}
 
-The Hivent model presented in the section \ref{sec:hivent_model} and the methods to edit the data in section \ref{sec:editing_hivent_data} serve as the foundation of HistoGlobe. However, the development of the system bottom-up from the data model to the interface might not lead to a usable system. Human-Centered Design promotes a top-down process from the user via the interface into the core of the application. This section illustrates the iterative design process for this thesis seen in figure \ref{fig:human_centered_design}
+The Hivent model presented in section \ref{sec:hivent_model} and the methods to edit the data in section \ref{sec:editing_hivent_data} serve as the foundation of HistoGlobe. However, the development of the system bottom-up from the data model to the interface might not lead to a usable system. Human-Centered Design promotes a top-down process from the user via the interface into the core of the application. This section illustrates the iterative design process for this thesis seen in figure \ref{fig:human_centered_design}
 
 The two main use cases for HistoGlobe that are focused in this thesis are \emph{understanding} the history of countries and \emph{editing} it. The initial interviews confirmed that the combination of a map and a timeline are an appropriate way to interactively visualize the history of countries. Therefore, the main interface concept of HistoGlobe introduced in section \ref{sec:histoglobe} does not need to be changed. It is extended by the \emph{HistoGraph} introduced in section \ref{sub:histograph}. This promising set of visualizations forms the \emph{browsing mode} of HistoGlobe to understand the history of countries.
 
-For editing purposes the idea of a second interface mode was developed: The \emph{edit mode} is the main product of the iterative design process illustrated in this section. It is based on the edit operations, the workflow to edit the data and the concepts of retrospective updates and backward operations from section \ref{sec:editing_hivent_data}. The edit mode allows to intuitively edit Hivents, Areas and operations directly in HistoGlobe, without the need to write data into database tables.
+For editing purposes the idea of the \emph{edit mode}, a second interface mode, was developed. It is the main product of the iterative design process illustrated in this section. It is based on the edit operations, the workflow to edit the data and the concepts of retrospective updates and backward operations from section \ref{sec:editing_hivent_data}. The edit mode allows to intuitively edit Hivents, Areas and operations directly in HistoGlobe, without the need to write data into database tables.
 
 % % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % \paragraph{Initial interviews} % (fold)
@@ -30,17 +30,10 @@ In the initial interviews it became clear that usability is the key to a success
   \item 1944: Change the border between Finland and the Soviet Union before 1944 (\emph{backward change})
 \end{compactenum}
 
-\begin{figure}[H]
-\centering
-\begin{subfigure}{.5\textwidth}
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=225px]{graphics/development/user_interface_design_process/paper_prototype_1.png}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=225px]{graphics/development/user_interface_design_process/paper_prototype_2.png}
-\end{subfigure}
-\caption{The two iterations of the paper prototype for the edit mode}
+  \includegraphics[width=0.9\textwidth]{graphics/development/user_interface_design_process/paper_prototype_2.png}
+\caption{The second iteration of the paper prototype for the edit mode}
 \label{fig:paper_prototypes}
 \end{figure}
 
@@ -53,7 +46,7 @@ Most parts of the interface concept were understood and all subjects were able t
   \item Correcting the name Switzerland by changing the event that created it in 1300 caused confusion.
 \end{compactenum}
 
-The main finding of this step was that depending on the task, there is both a Hivent-based and an Area-based mental model of the task. This became apparent in the German Reunification Hivent: Some users started the unification operation first, and added West and East Germany afterwards -- and some selected first West Germany, then initiated a unification operation and then added East Germany. From that finding was concluded that the interface has to support both a Hivent-based and an Area-based approach to introduce historical changes and correct information on the map.
+The main finding of this step was that depending on the task, there is both a Hivent-based and an Area-based mental model of the task. This became apparent in the edit operation for the German Reunification: some users started the unification operation first, and added West and East Germany afterwards -- and some selected first West Germany, then initiated a unification operation and then added East Germany. From that finding was concluded that the interface has to support both a Hivent-based and an Area-based approach to introduce historical changes and correct information on the map.
 
 % subsection paper_prototype (end)
 
@@ -61,24 +54,30 @@ The main finding of this step was that depending on the task, there is both a Hi
 \subsection{Mockup Prototype} % (fold)
 \label{sub:mockup_prototype}
 
-The main part of the design process was spent on the mockup prototypes. Their purpose is to rapidly develop an interface workflow that is understood by the users. The prototypes were created in \emph{LibreOffice Impress}, an open-source slide-based presentation tool. The interface is simulated on slides: The map is a background image, the timeline, the set of buttons and dialogs for the edit mode and HistoGraph are modeled with geometric elements: Lines, circles and rectangles. Interactivity is simulated by linking a click on an element to a different slide that shows the effect of the operation. This allows the prototype to model sudden changes in the interface.
+The main part of the design process was spent on the mockup prototypes. Their purpose is to rapidly develop an interface workflow that is understood by the users. The prototypes were created in \emph{LibreOffice Impress}, an open-source slide-based presentation tool. The interface is simulated on slides. The map is a background image, the timeline, the set of buttons and dialogs for the edit mode and HistoGraph are modeled with geometric elements, i.e.\ lines, circles and rectangles. Interactivity is simulated by linking a click on an element to a different slide that shows the effect of the operation. This allows the prototype to model sudden changes in the interface.
 
-\begin{figure}[ht]
-  \vspace{1em}
+\begin{minipage}[t]{1.0\textwidth}
+
+\vspace{1em}
+\centering
+\begin{figure}[H]
   \centering
-  \begin{subfigure}[b]{.5\textwidth}
-    \centering
-    \includegraphics[width=180px]{graphics/development/user_interface_design_process/mockup_prototype_1.png}
-  \end{subfigure}%
-  \begin{subfigure}[b]{.5\textwidth}
-    \centering
-    \includegraphics[width=180px]{graphics/development/user_interface_design_process/mockup_prototype_3.png}
-  \end{subfigure} \\[0.8em]
-  \caption{Two iteration stages of the mockup prototype for the edit mode}
+  \includegraphics[width=0.75\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_1.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_2.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_3.png}
+  \caption{Three iteration stages of the mockup prototype for the edit mode}
   \label{fig:mockup_prototypes}
 \end{figure}
 
-Each prototype iteration was tested with multiple subjects and similar tasks as for the paper prototype. From one test to the next one changes to the interfaces were made. Several design problems, e.g. position of buttons, font sizes or color schemes were solved, but also conceptual issues arose.
+\end{minipage}
+
+Each prototype iteration was tested with multiple subjects and similar tasks as for the paper prototype. The interface was changed from one test to the next one. Several design problems, e.g.\ position of buttons, font sizes or color schemes were solved, but also conceptual issues arose.
 
 \begin{quoteit}
   \begin{tabular}{l r}
@@ -96,14 +95,14 @@ Each prototype iteration was tested with multiple subjects and similar tasks as 
 \vspace{-1em}
 \hfill -- quotes from the users of the mockup prototype
 
-Especially the problem to initiate a retrospective update and a backward change proved to be very challenging. For each problem a design solution was developed: For retrospective updates, the interface needs to provide a visual clue where the next potential conflict arises: Figure \ref{sfig:retrospective_update} shows that West Germany can only be active until 1990, because then present-day Germany uses its territory. A button that flips an edit operation to initiate a backward operations is introduced in figure \ref{sfig:backward_change}: The \texttt{SEC} operation introduced to secede East Germany from Germany will be flipped into an \texttt{INC} operation to incorporate East Germany into Germany. The two gray Hivent markers on the left side of the timeline indicate that West and East Germany need a creation event, otherwise they would be active backwards all the way to $t_0$, the initial state of the system.
+Especially the problem to initiate a retrospective update and a backward change proved to be very challenging. For each problem a design solution was developed. For retrospective updates, the interface needs to provide a visual clue where the next potential conflict arises. Figure \ref{sfig:retrospective_update} shows that West Germany can only be active until 1990, because then present-day Germany uses its territory. A button that flips an edit operation to initiate a backward operations is introduced in figure \ref{sfig:backward_change}: The \texttt{SEC} operation introduced to secede East Germany from Germany will be flipped into an \texttt{INC} operation to incorporate East Germany into Germany. The two gray Hivent markers on the left side of the timeline indicate that West and East Germany need a creation event, otherwise they would be active backwards all the way to $t_0$, the initial state of the system.
 
 \begin{figure}[ht]
 \centering
 \begin{subfigure}[b]{.5\textwidth}
   \centering
   \includegraphics[width=200px]{graphics/development/user_interface_design_process/retrospective_update.png}
-  \caption{Retrospective updates: Visualizing the next conflict}
+  \caption{Retrospective updates: visualizing the next conflict}
   \label{sfig:retrospective_update}
 \end{subfigure}%
 \begin{subfigure}[b]{.5\textwidth}
@@ -126,8 +125,6 @@ The prototype was very valuable for the development process. In a total of two w
 \label{sub:web_based_prototype}
 
 The main advantage of the design process so far is that it prevents major redesigns of the final web-based prototype. After three months of implementation time of the final system, the interface looks very similar to the last version of the mockup prototype. The main elements of the interface are the map, the timeline, the control buttons and the edit mode.
-
-\emph{TODO: Ellipsoid or sphere?, Geodetic Datum?, Map Projection?}
 
 Not all desired features could be implemented:
 As mentioned in section \ref{sub:histograph}, there were too many conceptual problems for the HistoGraph that had to be solved first.
@@ -210,7 +207,7 @@ Backward operations and retrospective updates are not supported as well, due to 
     \label{fig:final_6_add_change_to_hivent_1}
   \end{figure}
 
-  When all names are set, the edit operation is complete. It has to be added to an Hivent in the last step of the workflow. The \emph{New Hivent Box} offers two options: Either search for an existing Hivent add the edit operation to it or create a new Hivent.
+  When all names are set, the edit operation is complete. It has to be added to an Hivent in the last step of the workflow. The \emph{New Hivent Box} offers two options: either search for an existing Hivent add the edit operation to it or create a new Hivent.
 
 \end{minipage}
 
