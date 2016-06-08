@@ -22,16 +22,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.799999995567592"
-     inkscape:cx="144.6642022415317"
-     inkscape:cy="97.90626100043939"
+     inkscape:zoom="2.799999995567591"
+     inkscape:cx="164.3306745022578"
+     inkscape:cy="60.70938049598398"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1600"
      inkscape:window-height="834"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="377"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -702,7 +702,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -712,13 +712,13 @@
      id="layer1"
      transform="translate(550.0247774273819,-1385.054386174173)">
     <rect
-       style="fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.4564358294;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211"
+       style="fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:#323232;stroke-width:0.3726784885;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:2.0999999211"
        id="rect4399"
-       width="35"
-       height="4.166657447814941"
+       width="37.5"
+       height="4.16668701171875"
        x="391.5877075195312"
        y="714.8618774414062"
-       transform="matrix(2.000000000000051,0,0,2.399996189055292,-1243.17541278076,-320.9413577165844)" />
+       transform="matrix(2.000000000000051,0,0,3.599990332241644,-1243.17541278076,-1181.271423838748)" />
     <g
        id="g4378"
        transform="translate(34.99999999999983,-5.830058796704864)">
@@ -1061,7 +1061,7 @@
            id="tspan4389">TimeController</tspan></text>
     </g>
     <text
-       transform="translate(-488.4078369140625,1330.36112597338)"
+       transform="translate(-485.6399440307391,1330.36112597338)"
        sodipodi:linespacing="80.0000011920929%"
        id="text4391"
        y="72.69326"
@@ -1078,7 +1078,7 @@
        transform="matrix(-1,0,0,-1,-10.1887273793277,1632.614980341475)"
        inkscape:connector-curvature="0"
        id="path4401"
-       d="M 379.8112726206723,232.8905941752237 L 259.8112726206723,232.8905941752237 L 259.8112726206723,222.8905973742911"
+       d="M 374.8112726206719,232.8905941752237 L 259.8112726206723,232.8905941752237 L 259.8112726206723,222.8905973742911"
        style="fill:none;stroke:#323232;stroke-width:0.8000000119;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:none" />
     <text
        xml:space="preserve"
