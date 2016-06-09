@@ -4,14 +4,16 @@
 \label{cha:summary}
 
 
-This Master's thesis started with the motivation to lay the foundation for a Historical Geographic Information System that shows the history of countries on Earth. While there are many interesting visualizations about historical topics, wars or events, there is no such thing as an interactive historical world atlas. This may be due to the fact that there is no comprehensive collection of historical data and that the whole nature of history is that everything we know is potentially uncertain. Even the commonly accepted concept of a ``country" is impossible to define without running into conflicts. To create an information system in such a complex domain is very challenging.
-
+This Master's thesis started with the motivation to lay the foundation for a Historical Geographic Information System that shows the history of countries on Earth. While there are many interesting visualizations about historical topics, wars or events, there is no comprehensive interactive historical world atlas available in the public domain. This may be the case, because there is no comprehensive collection of historical data and that everything we know is potentially uncertain.
+Even the commonly accepted concept of a ``country" is impossible to define without running into conflicts.
+The uncertainty about facts lies in the nature of history.
+The creation of an information system in such a complex domain is a very challenging endeavor.
 
 % ==============================================================================
 \section{Results} % (fold)
 \label{sec:results}
 
-To summarize the most important results and contributions of this Master's thesis, the four research questions are finally answered.
+In order to summarize the most important results and contributions of this Master's thesis, the four research questions are finally answered.
 
 \begin{description}[labelindent=0.55em]
   \item[\textbf{1)}]
@@ -20,7 +22,7 @@ To summarize the most important results and contributions of this Master's thesi
   }
 \end{description}
 
-The history of countries is very complex. The problem space of this work was limited to the territory and name of a country. Except for the coastlines, the more interesting interior borders have always changed due to sudden events. The same is true for the name of countries. If a universe $\Omega$ is defined as an ever-existing territory that initially covered the whole surface of the Earth, then this thesis has shown an interesting result: with the exception of the rare case of reincarnation, everything that has ever happened to names and territories of countries can be expressed by five basic historical changes, i.e. Unification, separation, incorporation, secession and name change.
+The history of countries is very complex. The problem space of this work was limited to the territory and name of a country. Unlike the coastlines, the more interesting interior borders have always changed due to sudden events. The same is true for the name of countries. If a universe $\Omega$ is defined as an ever-existing territory that initially covered the whole surface of the Earth, then this thesis has a surprising result: with the exception of the rare case of reincarnation, everything that has ever happened to names and territories of countries can be expressed by five fundamental historical changes, i.e. unification, separation, incorporation, secession and name change.
 
 \begin{description}[labelindent=0.1em]
   \item[\textbf{2a)}]
@@ -50,9 +52,10 @@ While the Hivent operations are very well understood by a machine, they are not 
   \item Add the edit operation to a Hivent to inherit the time stamp.
 \end{compactenum}
 
-Internally, the edit operations are expressed by a combination of the five Hivent operations and visualized on the HistoGraph. The Hivent model including the Hivent operations and the edit operations are the main contributions of this Master's thesis to the research field of spatio-temporal data models.
+The edit operations are internally expressed by a combination of the five Hivent operations and visualized on the HistoGraph. The Hivent model, including the Hivent operations and the edit operations, is the main contribution of this Master's thesis to the research field of spatio-temporal data models.
 
-The model and the operations were implemented in HistoGlobe, a web-based Historical Geographic Information System that aims to visualize the history of the world on a map and a timeline. The user interface was extended by the edit mode to edit the historical data about Areas and Hivents in the system. In several user studies of the human-centered design process in this work the interface proved to be understandable and usable.
+The model and the operations were implemented in HistoGlobe, a web-based Historical Geographic Information System that aims to visualize the history of the world on a map and a timeline. The user interface was extended by the edit mode to modify the historical data about Areas and Hivents in the system.
+The interface proved to be understandable and usable in several user studies of the human-centered design process in this work.
 
 \begin{description}[labelindent=0.55em]
   \item[\textbf{3)}]
@@ -73,17 +76,20 @@ These approaches reveal the actual problem of information systems dealing with i
 \section{Problems and Improvements} % (fold)
 \label{sec:problems}
 
-As it has already been examined in the evaluation in section \ref{sec:evaluation}, there are several problems with the Hivent model. It has currently no support for actors -- to answer the question ``who?'' -- and for actual locations -- to say ``where?''. Both can easily be integrated and would allow new perspectives on historical events. The current implementation is only available in English. Internationalization is desired, but problematic, because in different cultures there are not just syntactically different translations, but semantically different concepts of the same historical event. This issue comes along with the desired support for different perspectives, based on different historical evidence. There is a lot of interdisciplinary research to be done in digital humanities how to support multiple perspectives on data.
+As already examined in the evaluation in section \ref{sec:evaluation}, there are several problems with the Hivent model. It has currently no support for actors -- to answer the question ``who?'' -- and for actual locations -- to say ``where?''. Both can easily be integrated and would allow new perspectives on historical events. The current implementation is only available in English. Internationalization is desired, but problematic,
+there are not just syntactically different translations in different cultures, but semantically different concepts of the same historical event. This issue comes along with the desired support for different perspectives, based on different historical evidence. There is a lot of interdisciplinary research
+in digital humanities required in order to find out how to support multiple perspectives on historical data.
 
 The two basic assumptions about the territory of a country -- constant coastlines and a lack of sea territory -- are wrong. The Hivent model supports only sudden spatio-temporal changes due to events, but not due to gradual processes. The data model for HistoGlobe would need to be extended with a concept of \emph{Geoprocesses} that model the long-term geographical processes that lead to changing coastlines. This is an entirely different research field that would need to be entered.
 
-Given the current status of the implementation, there is plenty of room for improvement. First of all, the design approaches developed in the previous section have to be further developed and implemented into the final system to support various degrees of uncertainty. Additionally, the information visualization problems regarding the HistoGraph have to be solved to support it in the browsing and the edit mode of HistoGlobe. The tool for semi-automatic extraction of historical maps needs to be integrated into the New Name Tool to simplify the process of creating the territory of a historical country. It also needs to support importing existing geodata in various formats. To cope with potentially more data in the database, a more sophisticated client-server interaction for initializing and maintaining the state of the system needs to be developed.
+Given the current status of the implementation, there is plenty of room for improvement. First of all, the design approaches developed in the previous section have to be further developed and implemented into the final system to support various degrees of uncertainty. Additionally, the information visualization problems regarding the HistoGraph have to be solved to support it in both browsing and edit mode of HistoGlobe. The tool for semi-automatic extraction of historical maps needs to be integrated into the edit mode to simplify the process of creating the territory of a historical country. It also needs to support the import of existing geodata in various formats. To cope with potentially more data in the database, a more sophisticated client-server interaction for the initialization and maintenance of the state of the spatio-temporal system needs to be developed.
 
-However, the most crucial part is the implementation of the complicated concepts of retrospective updates and backward changes. Without them, HistoGlobe is still useless for editing the historical developments of countries in time and space. For that matter, the problem of retrospective updates needs to be further analyzed to identify possibilities for simplification. If the insertion of an update leads to more than 10 recursive updates that the user has to perform, this might be very frustrating. One idea would be to always give priority to the latest correction in case of a conflict that can be solved in two ways.
+\newpage
+However, the crucial part is the implementation of the complex retrospective updates and backward changes. Without them, HistoGlobe is still useless for editing the historical developments of countries in time and space. For that matter, the problem of retrospective updates needs to be further analyzed to identify possibilities for simplification. If the insertion of an update leads to more than 10 recursive updates that the user has to perform, this might be very frustrating. One idea would be to always give priority to the latest correction in case of a conflict that can be solved in multiple ways.
 
-New visualization techniques can also be introduced. Animated transitions between two states of an Area would significantly increase the usability of the browsing mode. The attention of the user would be drawn to the territories that currently change. To properly account for the name of the software, a three-dimensional globe can be implemented to replace the map. This requires the use of the graphics card via \emph{WebGL}, because rendering of and interaction with a globe is much more computationally intensive than with a map. A logarithmic version of the timeline would also be interesting. A user study could analyze whether it really suits the logarithmic nature of human perception better than a normal linear timeline.
+New visualization techniques can also be introduced. Animated transitions between two states of an Area would significantly increase the usability of the browsing mode. The attention of the user would be drawn to the territories that currently change. To properly account for the name of HistoGlobe, a three-dimensional globe can be implemented to replace the map. This requires a technology like \emph{WebGL}, because rendering of and interaction with a globe is much more computationally intensive than with a map. A logarithmic version of the timeline would also be promising. A user study could analyze whether it really suits the logarithmic nature of human perception better than a normal linear timeline.
 
-Finally, to tackle a problem of digital humanities, the current model allows to trace \emph{changes over time} and provide \emph{context}. These are two of the foundations of history introduced in section \ref{par:history}. However, historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes sufficient to show their results. For their research purposes it is crucial to generate new knowledge to establish \emph{causality}, another foundation for history. Therefor historians need to analyze spatio-temporal coherences or distributions in historical data by sorting, selecting or classifying the data in the system and running spatio-temporal queries. Spatio-temporal reasoning is still not easily possible with existing HGIS and yields many interesting research questions to be solved.
+Finally, to tackle a problem of digital humanities, the current model allows to trace \emph{changes over time} and provide \emph{context}. These are two of the foundations of history introduced in section \ref{par:history}. However, historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes sufficient to show their results. For their research purposes it is crucial to generate new knowledge to establish \emph{causality}, another foundation for history. Historians need to analyze spatio-temporal coherences or distributions in historical data by sorting, selecting or classifying the data in the system and running specific queries. Spatio-temporal reasoning is still not easily possible with existing HGIS and yields many interesting research questions.
 
 % section problems (end)
 
@@ -92,14 +98,14 @@ Finally, to tackle a problem of digital humanities, the current model allows to 
 \section{Prospect} % (fold)
 \label{sec:prospect}
 
-Imagine the problems that were mentioned are solved and the room for improvement is filled with nicely designed user interface elements, then HistoGlobe would have the potential to be a well usable Historical Geographic Information System for the history of countries in time and space.
+Imagine the mentioned problems are solved and the room for improvement was filled with nicely designed user interface elements, then HistoGlobe would have the potential to be a widely usable Historical Geographic Information System for the history of countries in time and space.
 
-Imagine scholars in humanities would use the edit mode of HistoGlobe to continuously improve the historical data in the system, animate historical countries and discuss historical events. Imagine HistoGlobe could be used not just to answer \emph{what} has happened, \emph{where} and \emph{when} did it happen and \emph{who} participated -- but to answer ultimate question \emph{why} something is the way it is?
+Imagine scholars in humanities would use the edit mode of HistoGlobe to continuously improve the historical data in the system, animate historical countries and discuss historical events. Imagine HistoGlobe would not be restricted to answer \emph{what} has happened, \emph{where} and \emph{when} it happened and \emph{who} participated -- but also to answer the ultimate question \emph{why} is something the way it is?
 What are the real causes for the current Syrian civil war?
 Despite the conflicts in the Middle East, do we live in a peaceful time?
 Why did the Roman Empire collapse?
 
-It would help teachers to explain history to their students and learners to finally understand the seemingly complex course of history. If that would work, HistoGlobe would be a comprehensive historical world atlas with a great potential to teach, learn and understand processes in the past. We could learn from our mistakes we have done in the past and reason about the things that actually matter: To provide a world without the need for greed and hunger, for brotherhood of men. If John Lennon is right, then this information system would at some point come to its ultimate end: all countries unify to one world, the common universe -- without borders. All the people living life in peace.
+It would help teachers to explain history to their students and learners to finally understand the seemingly complex course of history. If that worked, HistoGlobe would be a comprehensive historical world atlas with a great potential to teach, learn and understand processes in the past. We could learn from the mistakes we have done in the past and reason about the things that actually matter: To provide a world without the need for greed and hunger, for brotherhood of men. If John Lennon is right, then this information system would at some point come to its ultimate end: all countries unify to one world, the common universe -- without borders. All the people living life in peace.
 
 \vspace{2em}
 \begin{large}

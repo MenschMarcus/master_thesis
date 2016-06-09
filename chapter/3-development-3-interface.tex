@@ -31,7 +31,7 @@ In the initial interviews it became clear that usability is the key to a success
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.9\textwidth]{graphics/development/user_interface_design_process/paper_prototype_2.png}
+  \includegraphics[width=0.8\textwidth]{graphics/development/user_interface_design_process/paper_prototype_2.png}
 \caption{The second iteration of the paper prototype for the edit mode}
 \label{fig:paper_prototypes}
 \end{figure}
@@ -57,27 +57,6 @@ The main part of the design process was spent on the mockup prototypes. Their pu
 
 \begin{minipage}[t]{1.0\textwidth}
 
-\vspace{1em}
-\centering
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.75\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_1.png}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.75\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_2.png}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.75\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_3.png}
-  \caption{Three iteration stages of the mockup prototype for the edit mode}
-  \label{fig:mockup_prototypes}
-\end{figure}
-
-\end{minipage}
-
-Each prototype iteration was tested with multiple subjects and similar tasks as for the paper prototype. The interface was changed from one test to the next one. Several design problems, e.g.\ position of buttons, font sizes or color schemes were solved, but also conceptual issues arose.
-
 \begin{quoteit}
   \begin{tabular}{l r}
     ``this was much easier than I thought'' ~~~~~~~~ &
@@ -91,8 +70,23 @@ Each prototype iteration was tested with multiple subjects and similar tasks as 
     & documentation are necessary'' \\
   \end{tabular}
 \end{quoteit}
-\vspace{-1em}
 \hfill -- quotes from the users of the mockup prototype
+\vspace{2em}
+
+\vspace{1em}
+\centering
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_1.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{graphics/development/user_interface_design_process/mockup_prototype_3.png}
+  \caption{Two iteration stages of the mockup prototype for the edit mode}
+  \label{fig:mockup_prototypes}
+\end{figure}
+
+\end{minipage}
 
 The user tests revealed that especially introducing a retrospective update and a backward change are very challenging. For both problems a design solution was developed. For retrospective updates, the interface needs to provide a visual clue where the next potential conflict arises. Figure \ref{sfig:retrospective_update} shows that West Germany can only be active until 1990, because then present-day Germany uses its territory. A button that flips an edit operation to initiate a backward operations is introduced in figure \ref{sfig:backward_change}: The \texttt{SEC} operation introduced to secede East Germany from Germany will be flipped into an \texttt{INC} operation to incorporate East Germany into Germany. The two gray Hivent markers on the left side of the timeline indicate that West and East Germany need a creation event, otherwise they would be active backwards all the way to $t_0$, the initial state of the system.
 
@@ -123,7 +117,7 @@ The prototype was very valuable for the development process. In a total of two w
 \subsection{Web-based prototype} % (fold)
 \label{sub:web_based_prototype}
 
-The main advantage of the design process so far is that it prevents major redesigns of the final web-based prototype. After three months of implementation time of the final system, the interface looks very similar to the last version of the mockup prototype. The main elements of the interface are the map, the timeline, the control buttons and the edit mode.
+The main advantage of the design process so far is that it prevents major redesigns of the final web-based prototype. After three months of implementation time of the final system, the interface looks very similar to the last version of the mockup prototype. The main elements of the interface are the map, the timeline, the control buttons and the edit mode. The underlying map that shows the geographic distribution of land and water is a raster graphic, so it is not subject to change. An Area representing a country is modeled as a dynamic vector layer on top of the static raster map.
 
 Not all desired features could be implemented:
 As mentioned in section \ref{sub:histograph}, there were too many conceptual problems for the HistoGraph that had to be solved first.

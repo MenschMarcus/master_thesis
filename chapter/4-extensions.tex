@@ -3,19 +3,19 @@
 \chapter{Extensions} % (fold)
 \label{cha:extensions}
 
-This chapter evaluates the data model and the implementation developed in the previous chapter. It focuses on the important aspects of the uncertain nature of history in the first section. The second part of this chapter develops extensions to the Hivent model and the edit mode for HistoGlobe that deals with problems of uncertainty and disagreement.
+\vspace{-1em}
+The Hivent model proposed and implemented in the previous chapter assumes full certainty of the data. Therefore, it can be seen as an idealistic model. However, as explained in section \ref{par:history}, there is a lot of uncertainty in history. This chapter deals with these problem and extends the Hivent model by concepts that deal with uncertainty and disagreement.
 
 % ==============================================================================
 \section{Evaluation} % (fold)
 \label{sec:evaluation}
 
-In order to evaluate a model, it is important to understand the concepts of \emph{uncertainty} and \emph{disagreement}. The model in an information system tries to resemble the real world as much as possible and necessary. Both concepts represent two different kinds of problems in two different domains.
+First of all, the Hivent model and its implementation have to be evaluated how well they suit the problem domain. Therefor, it is important to understand the concepts of \emph{uncertainty} and \emph{disagreement}. The model in an information system tries to resemble the real world as much as possible and necessary. Both concepts represent two different kinds of problems in two different domains.
 \emph{Disagreement} describes a conflict in the real world. On the contrary, \emph{uncertainty} is the imperfection of a model to describe the real world. It can be expressed by accuracy and precision: the better a model simulates the reality, the more \emph{accurate} or correct it is. That means, the closer it gets to the target, the higher is the accuracy. \emph{Precision} or exactness describes how similar the results of the model are compared to each other, independent from how well they resemble the real world. That means a precise model gets the same results over and over again (see figure \ref{fig:accuracy_precision}).
 
 \begin{figure}[ht]
-  \vspace{1em}
   \centering
-  \includegraphics[width = 0.35\textwidth]{graphics/extensions/accuracy_precision}
+  \includegraphics[width=0.4\textwidth]{graphics/extensions/accuracy_precision}
   \caption{The difference between accuracy and precision}
   \label{fig:accuracy_precision}
 \end{figure}
@@ -55,6 +55,7 @@ The model does not support hierarchies of Areas as well, e.g.\ countries within 
 
 The \texttt{AreaName} has the same shortcomings as the \texttt{Hivent.name}, but it is more precise, because it contains both the formal and the short name of a country. However, uncertainty about the name, different versions or languages are not supported.
 
+\newpage
 The \texttt{AreaTerritory} is more problematic, because the two assumptions of the Hivent model in section \ref{sub:preconditions}, constant coastline and no sea territory, are inaccurate. The primary source for territories of countries are historical maps. The process of extracting a boundary from a historical map, introduced in section \ref{par:historical_map}, is error-prone and yields a loss of accuracy in each step. The level of inaccuracy depends on the resolution, map projection or the colors used in the map.
 It is not possible to provide information about the expected accuracy of a territory in the data model. Another problem is that the territory is stored as a whole polypolygon. Different parts of the border can have different types or levels of certainty, e.g.\ one part has a well-established and demarcated border to neighboring country $X$, but the border to neighbor $Y$ is contested. The ~\texttt{AreaTerritory}~ data model does not account for these differences.
 
@@ -64,9 +65,7 @@ It is not possible to provide information about the expected accuracy of a terri
 \paragraph{Hivent operations} % (fold)
 \label{par:hivent_operations}
 
-Another aspect to evaluate is if the Hivent operations as the basis of the spatio-temporal Hivent model are collectively exhaustive, i.e.\ each possible case in the real world can be expressed with a combination of operations, and are mutually exclusive, i.e.\ no operation can be replaced by a combination of two others \cite{mece}.
-
-It is easy to see that a \texttt{NCH} operation is mutually exclusive to the other operations, because it is the only one that manipulates the name of an Area by preserving its identity. \texttt{UNI} and \texttt{SEP} are, just like \texttt{INC} and \texttt{SEC}, inverse operations, so they are exclusive. \texttt{INC} requires one update Area, multiple old Areas and no new Area, whereas \texttt{SEP} has several new Areas and does not have an Area that preserves its identity. Therefore, \texttt{INC} and \texttt{SEP} are mutually exclusive, just like their inverse pair \texttt{UNI} and \texttt{SEC}.
+Another aspect to evaluate is if the Hivent operations as the basis of the spatio-temporal Hivent model are collectively exhaustive, i.e.\ each possible case in the real world can be expressed with a combination of operations, and are mutually exclusive, i.e.\ no operation can be replaced by a combination of two others \cite{mece}. It is easy to see that a \texttt{NCH} operation is mutually exclusive to the other operations, because it is the only one that manipulates the name of an Area by preserving its identity. \texttt{UNI} and \texttt{SEP} are, just like \texttt{INC} and \texttt{SEC}, inverse operations, so they are exclusive. \texttt{INC} requires one update Area, multiple old Areas and no new Area, whereas \texttt{SEP} has several new Areas and does not have an Area that preserves its identity. Therefore, \texttt{INC} and \texttt{SEP} are mutually exclusive, just like their inverse pair \texttt{UNI} and \texttt{SEC}.
 The only possible combinations left are \texttt{UNI} and \texttt{INC}, and \texttt{SEP} and \texttt{SEC}. While both pairs are geographically equivalent, because they unite respectively separate the territory in the same way, they are historically distinct: On the one hand, \texttt{INC} and \texttt{SEC} model one update Area whose identity is preserved. In \texttt{UNI} and \texttt{SEP} on the other hand, there is no Area that is preserved. These two cases cannot be mapped onto each other. This shows that all operations are mutually exclusive.
 
 % TODO: show that is IS possible!
@@ -76,7 +75,7 @@ In order to show that the collection of Hivent operations is exhaustive, all pos
 
 % paragraph hivent_operations (end)
 
-Overall, the Hivent operations are a big strength of the Hivent model, since it requires only five different operations.
+Overall, the Hivent operations are a big strength of the Hivent model, since it requires only five different ones to model the history of countries in time and space.
 The Hivent model also reasonably represents countries as Areas with a name and a territory. Countries with broad international recognition and a clear territory can be modeled without a problem. However, the model very poorly accounts for different levels of uncertainty in historical and geographic information: imprecise and inaccurate sources, different viewpoints and interpretations, contested territories, changing coastlines or different languages are not supported.
 
 
@@ -106,13 +105,13 @@ and additionally about $1000$ in lists of states of the Classical Age, Iron Age,
   \url{https://en.wikipedia.org/wiki/List_of_national_border_changes_from_1815_to_1914},
   accessed on: 02.06.2016
 }
-collects about $75$ border changes, about $100$ border changes are listed since World War I. Therefore, the estimate of one international border change per year seems accurate. Given this rate of change stayed constant, there were about $2000$ border changes since the beginning of the common era. They are especially storage-intensive, especially because of $\Omega$, each time the territory of one Area changes, at least one other will do so as well. As a conservative estimate, the total number of territories in the system will not exceed $2000 \times 2 + 1500 \approx 5000$. The current dataset of Natural Earth Data has a decompressed size of $8.8$ MB for about $200$ countries, that is about $0.05$ MB per country. Given that there would be accurate and precise measurements of all historical countries in the previous 2000 years, the total memory consumption for all coordinate data would not exceed $5000 * 0.05 \approx 250$ MB. That is an insignificant storage requirement for both the database and the client-side application, because it fits into the main memory of each modern computer system.
+collects about $75$ border changes, about $100$ border changes are listed since World War I. Therefore, the estimate of one international border change per year seems accurate. Given this rate of change stayed constant, there were about $2000$ border changes since the beginning of the common era. They are storage-intensive, especially because of $\Omega$. Each time the territory of one Area changes, at least one other will do so as well. As a conservative estimate, the total number of territories in the system will not exceed $2000 \times 2 + 1500 \approx 5000$. The current dataset of Natural Earth Data has a decompressed size of $8.8$ MB for about $200$ countries, that is about $0.05$ MB per country. Given that there would be accurate and precise measurements of all historical countries in the previous 2000 years, the total memory consumption for all coordinate data would not exceed $5000 * 0.05 \approx 250$ MB. That is an insignificant storage requirement for both the database and the client-side application, because it fits into the main memory of each modern computer system.
 
 However, for practical purposes speed is more important than storage.
 The goal is to minimize the time in which the user sees a blank map on the screen.
-A standard DSL connection has a bandwidth of $16.000 ~\frac{KBit}{s} = 2 ~\frac{MB}{s}$. Loading all data at once would take $\frac{250 ~MB \cdot s}{2 ~MB} = 125 ~s \approx 2 ~min $. This motivates to develop a sophisticated algorithm to gradually load the data from the server to the client.
+A common DSL connection has a bandwidth of $16.000 ~\frac{KBit}{s} = 2 ~\frac{MB}{s}$. Loading all data at once would take $\frac{250 ~MB \cdot s}{2 ~MB} = 125 ~s \approx 2 ~min $. This motivates to develop a sophisticated algorithm to gradually load the data from the server to the client.
 One idea is that the client initially sends the current date and the center of the viewport to the server. The server responds with the currently active Areas close to the viewport center first and then sends the remaining data to the client subsequently.
-Another idea is to store and load different levels of detail of the vector data. Initially the server would send only the coarsest level to the client and gradually increase the granularity until the whole data is sent to the client.
+Another idea is to store and load different levels of detail of the vector data. Initially the server would send only the coarsest level to the client and gradually increase the granularity until the whole data is sent.
 
 
 % paragraph time_and_memory_estimation (end)
@@ -129,8 +128,8 @@ The first part of this chapter presented a list of shortcomings of the current H
 
 \begin{itemize}
   \item The assumptions of the Hivent model will not change, i.e.\ countries will stop on their coastlines and the distribution of water on the planet has not changed in history -- otherwise the model would need to support not just sudden events but also gradual processes. This out of the scope of the thesis.
-  \item The support for different historical perspectives on the same Hivent, e.g.\ different names and descriptions or even different historical changes would create a research tool with great potential. It would enable the possibility for different versions of history based on alternative scenarios: ``What if X would have (not) happened?''. However, this would significantly increase the complexity of the system and would also be very subjective.
   \item The introduction of different calendar systems would not increase the accuracy of the model significantly. The dates in the system must all stick to the Julian calendar, which is a reasonable requirement to avoid unnecessary complexity.
+  \item The support for different historical perspectives on the same Hivent, e.g.\ different names and descriptions or even different historical changes would create a research tool with great potential. It would enable the possibility for different versions of history based on alternative scenarios: ``What if X would (not) have happened?''. However, this would significantly increase the complexity of the system and would also be very subjective.
 \end{itemize}
 
 In order to tackle the remaining shortcomings of the current concept, both the user interface and the data model have to be extended. The interface shall prevent the illusion of certainty and provide tools to express uncertainty. The main problem when dealing with uncertainty is that from the perspective of a computer, there is no such thing as an uncertain value of a variable. This is why all sorts of uncertainty must be quantified. The computer needs to know exactly how uncertain the user is about the data, although it seems counterintuitive to the idea of uncertainty.
@@ -141,16 +140,16 @@ In order to tackle the remaining shortcomings of the current concept, both the u
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width = 0.6\textwidth]{graphics/extensions/edit_mode_extension.png}
+  \includegraphics[width = 0.5\textwidth]{graphics/extensions/edit_mode_extension.png}
   \caption{Newly designed and extended buttons for edit operations.}
   \label{fig:edit_mode_extension}
 \end{figure}
 
-Two new edit operations shown in figure \ref{fig:edit_mode_extension} are introduced: \texttt{CHS} changes the status of an Area and \texttt{REC} declares a new recognition, i.e.\ one country internationally recognizes another one. This is simply performed by selecting two Areas on the map, whereas the first Area recognized the second.
+Two new edit operations are introduced, they are shown in figure \ref{fig:edit_mode_extension}: \texttt{CHS} changes the status of an Area and \texttt{REC} declares a new recognition, i.e.\ one country recognizes another one. This is simply performed by selecting two Areas on the map, whereas the first Area recognized the second.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.6\textwidth]{graphics/extensions/operation_REC}
+  \includegraphics[width=0.80\textwidth]{graphics/extensions/operation_REC}
   \caption{New edit operation: \texttt{REC} sets up the recognition of one Area to another.}
   \label{fig:uncertainty_operation_REC}
 \end{figure}
@@ -171,6 +170,14 @@ A contested border that is product of a disagreement between two and more partie
   \item Blurred Border Corridor: The combination of the first two approaches.
 \end{enumerate}
 
+\begin{figure}[ht]
+  \vspace{1em}
+  \centering
+  \includegraphics[width=0.85\textwidth]{graphics/extensions/border}
+  \caption{Three different methods to visualize uncertain courses of a border}
+  \label{fig:uncertainty_border}
+\end{figure}
+
 The borderline is assigned a degree of certainty. In the interface this is controlled by a horizontal slider, in the data model as a certainty value (\texttt{certainty} $\in~]0 .. 1]$). Absolute certainty ($1.0$) creates a sharp and crisp line on the map. A simple model for the calculation of the blur factor, line width and offset distance is:
 
 \vspace{-1.5em}
@@ -181,29 +188,21 @@ The borderline is assigned a degree of certainty. In the interface this is contr
 \end{center}
 \vspace{-1em}
 
-where $c$ is the certainty factor, $S>0$ is a scaling factor and $I$ is the initial value -- for width: $1~px$, for blur: $0$, for offset: $0~px$. In the example in figure \ref{fig:uncertainty_border}, the scaling factor is $S=4$. In the Blurred Border Corridor method, the scaling factor for line width and the blur factor was halved. Further analysis and user testing are required in order to decide for one approach to develop further.
+where $c$ is the certainty factor, $S>0$ is a scaling factor and $I$ is the initial value -- for width: $1~px$, for blur: $0~px$, for offset: $0~px$. In the example in figure \ref{fig:uncertainty_border}, the scaling factor is $S=4$. In the Blurred Border Corridor method, the scaling factor for line width and the blur factor was halved. Further analysis and user testing are required in order to decide for one approach to develop further.
+
+Another advantage of the input of borderlines instead of territories is that once the model is further advanced, coastlines can be continuously changed according to an appropriate change model. This can be applied solely to the coastlines without affecting the interior borders. With this extension, the underlying map tiles as raster data must be eliminated. A body of water is modeled by an Area as well, which is also subject to change. The distribution of land and water can not be used as a static raster layer any more.
+
+A new border point automatically snaps to an existing border point, if the mouse position is close enough to it. An appropriate threshold might be $5~px$. This allows for a smooth workflow and is required to create closed polygons. When the user finished a territory by defining all surrounding polylines that create a closed ring, the polygon is assembled. If a borderline meets another borderline at an interior node, the polyline splits up into two parts so that each meeting point of borders is the start or end point of a polyline. This way the spatial integrity is maintained.
+
+If the created territory overlaps with an existing territory, its intersection will create a separate territory. In the next step, this territory can then be defined as a contested Area or defined as a part of another Area. If the step yields an empty territory that was claimed before, it can later be defined as a neutral zone or unclaimed land.
 
 \begin{figure}[ht]
   \vspace{1em}
   \centering
-  \includegraphics[width=0.8\textwidth]{graphics/extensions/border}
-  \caption{Three different methods to visualize uncertain courses of a border}
-  \label{fig:uncertainty_border}
-\end{figure}
-
-Another advantage of the input of borderlines instead of territories is that once the model is further advanced, coastlines can be continuously changed according to an appropriate change model. This can be applied solely to the coastlines without affecting the interior borders. With this extension, the underlying map tiles as raster data must be eliminated. A body of water is modeled by an Area as well, and this this is subject to change as well, the distribution of land and water can not be used as a static layer any more.
-
-A new border point automatically snaps to an existing border point, if the mouse position is close enough to it (an appropriate threshold might be $5~px$). This allows for a smooth workflow and is required to create closed polygons. When the user finished a territory by defining all surrounding polylines that create a closed ring, the polygon is assembled. If a borderline meets another borderline at an interior node, the polyline splits up into two parts so that each meeting point of borders is the start or end point of a polyline. This way the spatial integrity is maintained.
-
-\begin{figure}[ht]
-  \vspace{1em}
-  \centering
-  \includegraphics[width = 0.9\textwidth]{graphics/extensions/new_territory_tool}
+  \includegraphics[width = 0.8\textwidth]{graphics/extensions/new_territory_tool}
   \caption{Drawing historical borders instead of full Areas and defining a level of certainty.}
   \label{fig:uncertainty_new_territory_tool}
 \end{figure}
-
-If the created territory overlaps with an existing territory, its intersection will create a separate territory. In the next step, this territory can then be defined as a contested Area or defined as a part of another Area. If the step yields an empty territory that was claimed before, it can later be defined as a neutral zone or unclaimed land.
 
 % subsection uncertain_borders (end)
 
@@ -211,7 +210,7 @@ If the created territory overlaps with an existing territory, its intersection w
 \subsection{Special Areas} % (fold)
 \label{sub:special_areas}
 
-To treat special Areas differently, a new step in the workflow is defined. After the territory and the name of a new Area have been defined, a special status can be assigned to it.
+In order to treat special Areas differently, a new step in the workflow is defined. After the territory and the name of a new Area have been defined, a special status can be assigned to it.
 
 \begin{enumerate}
   \item A \emph{fully sovereign country} is a political entity
@@ -219,13 +218,13 @@ To treat special Areas differently, a new step in the workflow is defined. After
   \item An \emph{unclaimed land} is a territory that is not claimed by any political entity, e.g.\ Antarctica.
   \item A \emph{neutral zone} is often a buffer zone between two conflicting parties, e.g.\ currently on Cyprus.
   \item A \emph{contested territory} is claimed by at least two different political entities of the same hierarchical level, e.g.\ the Kashmir region between India and Pakistan. It is also suitable for Areas that have claimed independence from a sovereign country but are not yet recognized as such, making their whole territory contested, e.g.\ Nagorno-Karabakh (see figure \ref{fig:uncertainty_new_status_tool}).
-  \item A territory can be a subordinate part of another country with a certain degree of autonomy ($\in [0..1]$). Fully subordinate parts of a country, like a German federal state have no external autonomy ($0$). Autonomous countries within another country, like England to the United Kingdom or Greenland to Denmark, have a certain degree of autonomy ($\in ]0..1[$). The value $1$ is excluded, because full autonomy means the territory is a sovereign country.
+  \item A territory can be a subordinate part of another country with a certain degree of autonomy: $a\in [0..1[$. Fully subordinate parts of a country, like a German federal state have no external autonomy: $a=0$. Autonomous countries within a sovereign country, like England to the United Kingdom or Greenland to Denmark, have a certain degree of autonomy $a \in ]0..1[$. The value $a=1$ is excluded, because full autonomy means the territory is a sovereign country.
 \end{enumerate}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width = 0.9\textwidth]{graphics/extensions/new_status_tool}
-  \caption{Defining a special status or relationship to a territory.}
+  \caption{Assigning a special status or relationship to a territory.}
   \label{fig:uncertainty_new_status_tool}
 \end{figure}
 
@@ -233,6 +232,7 @@ To treat special Areas differently, a new step in the workflow is defined. After
 % subsection special_areas (end)
 
 % ------------------------------------------------------------------------------
+\newpage
 \subsection{Content from Wikipedia} % (fold)
 \label{sub:content_from_wikipedia}
 
@@ -252,18 +252,19 @@ As it has been envisioned in section \ref{sub:data_sources}, Wikipedia stores a 
 The visualization of a Hivent is split up into three parts (see see figure \ref{fig:uncertainty_new_hivent_box}):
 
 \begin{enumerate}
-  \item An information section storing important meta data of the event location, the dates (timespan in which the event happened), a description and the link to the Wikipedia article (if given).
-  \item A section storing all edit operations associated with that Hivent. Each operation is visualized and is assigned a date at which this event came into effect.
+  \item An information section stores important meta data of the event: location, the dates, i.e.\ timespan in which the event happened, a description and the optional link to the Wikipedia article.
+  \item A section that shows all historical changes associated with that Hivent. Each operation is visualized and assigned a date at which this event came into effect.
   \item A multimedia section stores images, videos, audio files and documents and their sources associated to the historical event.
 \end{enumerate}
 
-Similar to the extension of the Area name step, Hivent names can be chosen from a collection of Wikipedia articles as well. Selecting a name from a Wikipedia article automatically fills the information section and adds multimedia files from the Wikipedia article. The edit operation is automatically entered in the section. With this separation, different edit operations at different dates can be associated with one Hivent, increasing the accuracy and precision of the Hivent model.
+Similar to the extension of the Area name step, Hivent names can be chosen from a collection of Wikipedia articles as well. Selecting a name from a Wikipedia article automatically fills the information section and adds multimedia files from the Wikipedia article. The edit operation is automatically entered in the section. With this separation, different edit operations at different dates can be associated with one Hivent which increases the accuracy and precision of the Hivent model.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width = 0.9\textwidth]{graphics/extensions/new_hivent_box}
   \caption{Creating a new Hivent and adding the newly created edit operation.}
   \label{fig:uncertainty_new_hivent_box}
+  \vspace{3.0em}
 \end{figure}
 
 In the long run, HistoGlobe can be synchronized with Wikipedia or even be designed as an extension for Wikipedia articles about current or historical countries.
@@ -293,29 +294,30 @@ In the long run, HistoGlobe can be synchronized with Wikipedia or even be design
 
 To account for the extensions in the interface, the data model has to be adapted. Mainly the thematic domain of the Hivent model changed, since the status of an Area, its recognition or relation to other countries are non-spatial attributes of the data. The new edit operations that were introduced need to be internally expressed by Hivent operations. For that purpose, the name change operation (\texttt{NCH}) is abstracted to a thematic change operation (\texttt{TCH}). Instead of changing only the \texttt{old\_name} to the \texttt{new\_area} of its associated update Area, it can also change its \texttt{old\_status} to a \texttt{new\_status}. It can be visualized in exactly the same way, since it is an identity-preserving change as well. The remaining Hivent operations do not have to be fundamentally changed, but only extended: the old and new Areas receive an additional \texttt{status} attribute to create or delete the current \texttt{AreaStatus} associated to the \texttt{Area}, respectively. This minor extension shows the robustness of the Hivent operations.
 
+\newpage
 More thought must be given to the question of how to express a new recognition of an Area. Additionally, the introduction of hierarchical layers of Areas adds new requirements to the Hivent model. All Hivent operations can potentially be performed on the same level of hierarchy as before, but also downwards or upwards. The example of the fictional secession of Scotland from the United Kingdom in 2018 would be simple, because the user could simply select Scotland as a second-level Area inside the first-level United Kingdom and secede Scotland from the Union by updating its status to a fully sovereign first-level Area. The design and implementation of the data model requires further analysis.
 
-\begin{figure}[ht]
-  \vspace{1em}
+\begin{figure}[H]
+  \vspace{2.0em}
   \centering
   \includegraphics[width = 0.9\textwidth]{graphics/extensions/new_database_model}
   \caption{The updated database model to support several kinds of uncertainty}
   \label{fig:new_data_model}
 \end{figure}
 
+\newpage
 The Hivent database model from section \ref{sub:server_side_application} is extended by the following entities and relations:
 
-\vspace{-1em}
 \begin{enumerate}
-  \item Creation of a \texttt{Multilang} entity to store a name of a Hivent, its location or an Area name in different languages.
-  \item Outsourcing of the \texttt{HiventLocation} into an own entity to identify a location with a name and a geospatial reference.
-  \item Creation of a \texttt{Multimedia} entity to manage multimedia files associated to a Hivent.
-  \item Attachment of a date to an \texttt{HistoricalChange}.
-  \item Inclusion of the \texttt{formal\_name} into the \texttt{Area} to emphasize it as the identifier.
-  \item Creation of an \texttt{AreaBorder} with a \texttt{borderline}. A set of \texttt{AreaBorders} create one \texttt{AreaTerritory} which is associated to the Area. Each change of an \texttt{AreaBorder} creates one or two new \texttt{AreaTerritory}/ies.
-  \item Creation of an \texttt{AreaStatus} an an \texttt{AreaRelation} to account for special status of an Area alone or in relation to another Area with a certain level of autonomy.
-  \item Creation of an \texttt{AreaRecognition} to account for international recognition of one Area to another one.
-  \item Adaption of the \texttt{AreaChange} entity to model a change of each possible property of an Area.
+  \item A \texttt{Multilang} entity is created to store a name of a Hivent, its location or an Area name in different languages.
+  \item The \texttt{HiventLocation} is sourced out of \texttt{Hivent} into an own entity to identify a location with a name and a geospatial reference.
+  \item A \texttt{Multimedia} entity is added to manage multimedia files associated to a Hivent.
+  \item A \texttt{date} is attached to an \texttt{EditOperation} to ensure that each Hivent can have several historical changes associated that happen in different moments in history.
+  \item The \texttt{formal\_name} in included in \texttt{Area} to emphasize it as the identifier.
+  \item An \texttt{AreaBorder} with a \texttt{borderline} and a level of \texttt{certainty} is added. A set of \texttt{AreaBorder}s creates one \texttt{AreaTerritory} which is associated to one \texttt{Area}. Each change in \texttt{AreaBorder} creates one or two new \texttt{AreaTerritory} entry or entries.
+  \item The entities \texttt{AreaStatus} and \texttt{AreaRelation} are introduced to account for a special status of an Area alone or in relation to another Area with a certain level of \texttt{autonomy}.
+  \item \texttt{AreaRecognition} is created to represent international recognition of one Area to another.
+  \item The existing entities \texttt{OldArea}, \texttt{UpdateArea} and \texttt{NewArea} are updated to model a change of each possible property of an Area.
 \end{enumerate}
 
 % subsection extended_hivent_model (end)

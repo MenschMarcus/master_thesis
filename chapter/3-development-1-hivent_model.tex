@@ -60,7 +60,7 @@ Historical changes and Areas are mutually linked, i.e.\ an Area keeps references
 Following the idea of the Three-Domain model and its extension introduced in section \ref{sub:three_domain_model}, the Hivent model is as well organized by four domains that are modeled independently from each other:
 
 \begin{compactitem}
-  \item The \emph{semantic domain} holding the Area uniquely identifiable is represented by its formal name.
+  \item The \emph{semantic domain} holds the Area uniquely identifiable is represented by its formal name.
   \item The \emph{spatial domain} is expressed by the territory of the Area that is visible on the map.
   \item The \emph{thematic domain} is represented by the short name of the Area.
   \item The \emph{temporal domain} is the entirety of all historical changes associated with the Area.
@@ -113,14 +113,14 @@ These axioms set the spatial foundation of the system: a constant dimension of t
 \newtheorem{historical_change}[assicounter]{Axiom}
 \begin{historical_change}
 \label{axm:historical_change}
-  At each point $t_i \geq t_0$ multiple historical changes can be introduced.
+  At each point $t_i \geq t_0$, multiple historical changes can be introduced.
 \end{historical_change}
 
 \vspace{-2.0em}
 \newtheorem{unique_coverage}[assicounter]{Axiom}
 \begin{unique_coverage}
 \label{axm:unique_coverage}
-  At each point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
+  At each point $t_i \geq t_0$, each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
 \end{unique_coverage}
 
 As defined in section \ref{par:area}, a historical change can create, manipulate and delete Areas on the Earth's surface. According to axiom \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map, i.e.\ if an Area is created on the map, the Area claiming this territory before has to secede it.
@@ -141,7 +141,7 @@ Formally, it can be said that each change consists of three sets of Areas: the o
 
 \vspace{.5em}
 
-This behavior is based on to the law of conversation of energy in physics: energy in a closed system can only be transformed from one object to another, but the total energy in the system is preserved at any time. In the spatio-temporal system of this HGIS, the total size of the territory of the Earth is preserved, it is distributed among the active Areas in the system.
+This behavior is based on to the law of conservation of energy in physics: energy in a closed system can only be transformed from one form to another, from one object to another -- but the total energy in the system is preserved at any time. In this spatio-temporal system, the total size of the territory of the Earth is preserved, but it is distributed among the active Areas in the system.
 
 The first changes introduced in the system at $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e.\ it is currently occupied by the territory of exactly one active Area, or \emph{unclaimed}, i.e.\ belonging to $\Omega$.
 % It is a subtractive data model, because each new Areas territory is cut out of $\Omega$.
@@ -169,7 +169,7 @@ In the real world, the name of a country changes according to sudden events, e.g
   The coastlines have not changed over time.
 \end{constant_coastlines}
 
-Both assumptions are wrong. The territory of a country stretches into international water (see section \ref{sub:territory_of_a_country}). Coastlines are constantly changing and so does the distribution of land and water on Earth. However, the assumptions allow the Hivent model to focus only on discrete historical changes. It is subject to future work to extend the data model to account for long-term processes that change the coastlines, mainly the continental drifts of tectonic plates. For now, the temporal behavior of an Area in the Hivent model can be described as a \emph{static object that changes according to sudden events}.
+Both assumptions are wrong. The territory of a country stretches into international water, as explained in section \ref{sub:territory_of_a_country}). Coastlines are constantly changing and so does the distribution of land and water on Earth. However, these assumptions allow the Hivent model to focus only on discrete historical changes. It is subject to future work to extend the model to account for long-term processes, e.g. the continental drifts of tectonic plates. For now, the temporal behavior of an Area in the Hivent model can be described as a \emph{static object that changes according to sudden events}.
 
 % subsection preconditions (end)
 
@@ -177,7 +177,7 @@ Both assumptions are wrong. The territory of a country stretches into internatio
 \subsection{Hivent Operations} % (fold)
 \label{sub:hivent_operations}
 
-Respecting the preconditions, there are several different types of historical changes that transform a set of old Areas $A$ to a set of new Areas $B$ and update a set of Areas $C$. However, each possible historical change can be expressed with only one of five \emph{Hivent operations}. Four of them change the identity of at least one Area and therefore establish historical predecessor-successor-relationships. These relationships are always symmetric, i.e.\ if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa. The last operation changes an aspatial property of an Area and is therefore identity-preserving.
+Respecting the preconditions, there are several different types of historical changes that transform a set of old Areas $A$ to a set of new Areas $B$ and update a set of Areas $C$. However, each possible historical change can be expressed with only one of five \emph{Hivent operations}. Four of them change the identity of at least one Area and therefore establish historical predecessor-successor-relationships. These relationships are always symmetric, i.e.\ if one old Area is replaced by one new Area, the old Area is the historical predecessor of the new Area and vice versa. The last operation changes a non-spatial property of an Area and is therefore identity-preserving.
 
 \newpage
 \begin{description}
@@ -239,9 +239,7 @@ Respecting the preconditions, there are several different types of historical ch
 \subsection{HistoGraph} % (fold)
 \label{sub:histograph}
 
-Based on the idea of the History Graph model, introduced in section \ref{fig:history_graph_model}, the linguistically and conceptually related \emph{HistoGraph} visualizes the temporal development of countries. The edges of the graph represent an Area, the nodes a Hivent operation. The graph shows the predecessor-successor-relationships between Areas. As previously explained in section \ref{par:historical_changes}, an Area keeps references to the historical changes creating, updating and ceasing it. These changes themselves are linked to their old and new Areas. Therefore, each Area indirectly knows their successors and predecessors.
-
-The two-dimensional HistoGraph has a horizontal orientation. The x-axis refers to one point in time, the y-axis has no spatio-temporal relation. The graph uses the visualization approach of the five Hivent operations in table \ref{tab:hivent_operations}, including the following symbols:
+Based on the idea of the History Graph model, introduced in section \ref{fig:history_graph_model}, the linguistically and conceptually related \emph{HistoGraph} visualizes the temporal development of countries. The edges of the graph represent an Area, the nodes a Hivent operation. The graph shows the predecessor-successor-relationships between Areas. As previously explained in section \ref{par:historical_changes}, an Area keeps references to the historical changes creating, updating and ceasing it. These changes themselves are linked to their old and new Areas. Therefore, each Area indirectly knows their successors and predecessors. The two-dimensional HistoGraph has a horizontal orientation. The x-axis refers to one point in time, the y-axis has no spatio-temporal relation. The graph uses the visualization approach of the five Hivent operations in table \ref{tab:hivent_operations}, including the following symbols:
 
 \begin{table}[H]
 \begin{center}
@@ -320,8 +318,6 @@ The behavior of the HistoGraph is shown in figure \ref{fig:example_germany} at t
 \label{tab:german_history_since_1945}
 \end{center}
 \end{table}
-
-\vspace{-1em}
 
 This example hosts a special case: In October 1949, East Germany was created from the Soviet Zone of Occupation. Both Areas have the same territory, but a different short and formal name. A \texttt{NCH} cannot be performed, because the identity is not preserved: the German Democratic Republic is a new Area. However, the change can be described by a \texttt{UNI} of only one old Area (Soviet zone), creating a new Area (East Germany). This new Area occupies exactly the same territory as the old Area and becomes the only historical successor of the old Area.
 

@@ -36,7 +36,7 @@ The underlying Hivent model is implemented on the server-side of the application
 },
 a free and open-source web framework combined with \emph{PostgreSQL}
 \footnote{
-  \emph{PostgreSQL:},
+  \emph{PostgreSQL},
   The world's most advanced open source database,
   URL: \url{http://www.postgresql.org/},
   accessed on: 31.10.2015
@@ -44,18 +44,19 @@ a free and open-source web framework combined with \emph{PostgreSQL}
 which was introduced in section \ref{par:object_relational_dbms}. This allows HistoGlobe to take advantage of object-oriented concepts in a stable and fast relational database. Since the database is using a lot of geospatial data, \emph{PostGIS}
 \footnote{
   \emph{PostGIS},
-  Spatial and Geographic Objects for PostgreSQL,
+  Geographic Objects for PostgreSQL,
   URL: \url{http://postgis.net/},
   accessed on: 27.05.2016
 }
-is used as a spatial database extension for PostgreSQL. With these tools, the Hivent model from section \ref{sec:hivent_model}  was implemented in a database model shown in figure \ref{fig:database_model_er}. This is the final result of a highly iterative process that was subject to several improvements and adaptations to new requirements introduced in the human-centered design process. The model is structured in two parts:
+is used as a spatial database extension for PostgreSQL. With these tools, the Hivent model from section \ref{sec:hivent_model}  was implemented in a database model shown in figure \ref{fig:database_model_er}. This is the final result of a highly iterative process that was subject to several improvements and adaptations to new requirements introduced in the human-centered design process.
 
 \begin{figure}[ht]
+  \vspace{1em}
   \centering
-  \includegraphics[width=0.9\textwidth]{graphics/development/implementation/database_model}
+  \includegraphics[width=0.78\textwidth]{graphics/development/implementation/database_model}
   \caption{The Hivent Database Model}
-  \small{Each entity additionally has an \texttt{id} attribute, which is omitted for simplification purposes.} \\
-  \small{Simple arrows denote a \texttt{1:1}-relationship, branching arrows a \texttt{1:n}}
+  Each entity additionally has an \texttt{id} attribute, which is omitted for simplification purposes. \\
+  Simple arrows denote a \texttt{1:1}-relationship, branching arrows a \texttt{1:n}
   \label{fig:database_model_er}
 \end{figure}
 
@@ -92,6 +93,7 @@ The operations replace a set of \texttt{OldArea}s with a set of \texttt{NewArea}
   \label{fig:database_example_reunification}
 \end{figure}
 
+\newpage
 Figure \ref{fig:database_example_reunification} shows the Hivent database model using the example of the German Reunification on 03.10.1990. Before 1990, there were the Areas \texttt{GDR} (``German Democratic Republic'', East Germany) and \texttt{FRG} (``Federal Republic of Germany'', West Germany). A user introduced a (\texttt{MRG}) operation in the Edit Mode between \texttt{FRG} and \texttt{GDR}. The new Area received the short name ``Germany'' and the same formal name ``Federal Republic of Germany'', previously held by West Germany. Internally, the Edit Mode translates this to an \texttt{INC} of \texttt{GDR} into \texttt{FRG} and a subsequent \texttt{NCH} of \texttt{FRG}. One Area is deleted, one Area is updated twice and no new Area is created.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -121,7 +123,7 @@ The Django web framework provides \emph{view} classes that receive requests from
 \subsection{Client-Side Application} % (fold)
 \label{sub:client_side_application}
 
-The main application of HistoGlobe runs on the client. As introduced in section \ref{sec:histoglobe}, the software is built upon a modular system. The modules used in this this implementation of HistoGlobe are emphasized in \textbf{bold} in the class diagram in figure \ref{fig:class_diagram}. The remaining classes were instantiated at run time by one of the seven modules. The classes are structured by their functionality regarding the Model-View-Controller pattern.
+The main application of HistoGlobe runs on the client. As introduced in section \ref{sec:histoglobe}, the software is built upon a modular system. The modules used in this this implementation of HistoGlobe are emphasized in \textbf{bold} in the class diagram in figure \ref{fig:class_diagram}. The remaining classes were instantiated at run time by one of the seven modules. The classes are structured by their functionality regarding the Model-View-Controller pattern. The application is implemented in \emph{CoffeeScript}, a high-level meta language that compiles to \emph{JavaScript}. The source code presented in this chapter is in CoffeeScript.
 
 \begin{sidewaysfigure}[p]
   \centering
@@ -154,7 +156,7 @@ HistoGlobe visualizes time on the interactive \texttt{Timeline} and the \texttt{
   \label{fig:hivent_controller}
 \end{figure}
 
-The core of the Hivent-based implementation is the \texttt{HiventController}. Figure \ref{fig:hivent_controller} illustrates how it works: The controller stores a reference to each \texttt{Hivent} chronologically in a doubly-linked list, i.e.\ each \texttt{Hivent} knows the historically next and previous \texttt{Hivent}. Additionally, the controller stores a pointer to the last \texttt{Hivent} that has happened and a copy of the current date in the list. It listens to the \texttt{TimeController} -- if the \texttt{NowDate} changes, the \texttt{HiventController} checks if the next \texttt{Hivent} has happened. It compares this new date with its current date and checks if \texttt{Hivent.date} is in between these two dates. If this is the case, the \texttt{Hivent} happens and each \texttt{EditOperations} associated to this \texttt{Hivent} is executed on the map. The \texttt{HiventController} updates the pointer to the \texttt{Hivent} and checks for the next one until the next \texttt{Hivent} is outside this time span. If the \texttt{nowDate} from the \texttt{TimeController} is before the current date of the \texttt{HiventController}, it checks the \texttt{Hivents} backwards through the list and executes all the \texttt{EditOperations} backwards. This simple data structure effectively and efficiently manages temporal changes of \texttt{Area}s on the map.
+The core of the Hivent-based implementation is the \texttt{HiventController}. Its working is comparable to the ESTDM introduced in section \ref{sub:event_based_spatio_temporal_data_model}, just that it works for vector data. Figure \ref{fig:hivent_controller} illustrates how it works: The controller stores a reference to each \texttt{Hivent} chronologically in a doubly-linked list, i.e.\ each \texttt{Hivent} knows the historically next and previous \texttt{Hivent}. Additionally, the controller stores a pointer to the last \texttt{Hivent} that has happened and a copy of the current date in the list. It listens to the \texttt{TimeController} -- if the \texttt{NowDate} changes, the \texttt{HiventController} checks if the next \texttt{Hivent} has happened. It compares this new date with its current date and checks if \texttt{Hivent.date} is in between these two dates. If this is the case, the \texttt{Hivent} happens and each \texttt{EditOperations} associated to this \texttt{Hivent} is executed on the map. The \texttt{HiventController} updates the pointer to the \texttt{Hivent} and checks for the next one until the next \texttt{Hivent} is outside this time span. If the \texttt{nowDate} from the \texttt{TimeController} is before the current date of the \texttt{HiventController}, it checks the \texttt{Hivents} backwards through the list and executes all the \texttt{EditOperations} backwards. This simple data structure effectively and efficiently manages temporal changes of \texttt{Area}s on the map.
 
 The initialization of the system works as follows: all \texttt{Hivent}s in the list from the beginning until the \texttt{NowDate} of the \texttt{TimeController} are happening one after the other.
 
@@ -211,7 +213,7 @@ class HiventOperation
 \label{par:editmode}
 
 The Edit Mode is the main contribution of this thesis to the HistoGlobe project.
-Its interface was previously introduced in section \ref{sub:web_based_prototype} and its implementation is briefly explained here. When the user clicks an edit operation button in the edit mode interface, internally an \texttt{EditOperationCreator} sets up the \texttt{WorkflowWindow} in the interface. Initially, the first \texttt{EditOperationStep} for this operation is loaded. Each of the four steps have different tasks that were explained in section \ref{sub:edit_workflow}. Throughout the workflow, the \texttt{EditOperationCreator} stores the data for the operation (selected old Areas, newly created Areas, update Areas, including the old and new territories and names) in an object. Each step can access this object and manipulate its content.
+Its interface was previously introduced in section \ref{sub:web_based_prototype} and its implementation is briefly explained here. When the user clicks an edit operation button in the edit mode interface, internally an \texttt{EditOperationCreator} sets up the \texttt{WorkflowWindow} in the interface. Initially, the first \texttt{EditOperationStep} for this operation is loaded. Each of the four steps have different tasks that were explained in section \ref{sub:edit_workflow}. Throughout the workflow, the \texttt{EditOperationCreator} stores the data for the operation in an object. Each step can access this object and manipulate its content.
 
 \begin{enumerate}
 
@@ -261,7 +263,7 @@ The \texttt{NewTerritoryTool} in the second step of the workflow has to ensure t
 \end{figure}
 
 The algorithm for inserting a polygon as a node into the tree is shown in listing \ref{lst:within_tree_insertion}. After the tree has been set up, the
-polygons have to be extracted in the correct structure with respect to their outer and inner rings. Therefor, the WithinTree has to be traveres in the following custom order:
+polygons have to be extracted in the correct structure with respect to their outer and inner rings. Therefor, the WithinTree has to be traversed in the following custom order:
 
 \begin{compactenum}
   \item Remove the first child $F$ of the root node and all its children $C$ from the tree.
