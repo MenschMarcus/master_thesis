@@ -31,7 +31,7 @@ The history of countries is very complex. The problem space of this work was lim
 
 These five changes are modeled in the \emph{Hivent model}, an event-based spatio-temporal data model for vector data, organized by a four-domain model and visualized in a graph.
 \emph{Hivents} -- \emph{\textbf{Hi}storical e\texttt{vents}} - are historically significant happenings in time.
-Countries are represented by abstract \emph{Areas} with a formal name, a short name and a territory. They can change due to \emph{Hivent operations} that represent exactly the five historical changes. Each operation ceases or creates a set of Areas or updates the properties of one Area.
+Countries are represented by abstract \emph{Areas} with a formal name, a short name and a territory. They can change due to \emph{Hivent operations} that represent exactly the five historical changes. Each operation deletes or creates a set of Areas or updates the properties of one Area.
 The history of Areas can be visualized spatially on a map and non-spatially on the \emph{HistoGraph}.
 
 \begin{description}[labelindent=0.1em]
@@ -41,7 +41,7 @@ The history of Areas can be visualized spatially on a map and non-spatially on t
   }
 \end{description}
 
-While the Hivent operations are very well understood by a machine, they are not suitable to be used by humans to manually edit the course of history. For that matter, six \emph{edit operations} are developed, i.e. create, merge, split, change border, rename and cease. An edit operation can be directly performed on the map using a workflow of four steps:
+While the Hivent operations are very well understood by a machine, they are not suitable to be used by humans to manually edit the course of history. For that matter, six \emph{edit operations} are developed, i.e. create, merge, split, change border, rename and delete. An edit operation can be directly performed on the map using a workflow of four steps:
 
 \begin{compactenum}
   \item Select the Areas that will be changed in the operation.
@@ -73,7 +73,7 @@ These approaches reveal the actual problem of information systems dealing with i
 \section{Problems and Improvements} % (fold)
 \label{sec:problems}
 
-As it has already been examined in the evaluation in section \ref{sec:evaluation}, there are several problems with the Hivent model. It has currently no support for actors -- to answer the question ``who?'' -- and for actual locations -- to say ``where?''. Both can easily be integrated and would allow new perspectives on historical events. HistoGlobe is currently only available in English. Internationalization is desired, but problematic, because in different cultures there are not just syntactically different translations, but semantically different concepts of the same historical event. This issue comes along with the desired support for different perspectives, based on different historical evidence. There is a lot of interdisciplinary research to be done in digital humanities how to support multiple perspectives on data.
+As it has already been examined in the evaluation in section \ref{sec:evaluation}, there are several problems with the Hivent model. It has currently no support for actors -- to answer the question ``who?'' -- and for actual locations -- to say ``where?''. Both can easily be integrated and would allow new perspectives on historical events. The current implementation is only available in English. Internationalization is desired, but problematic, because in different cultures there are not just syntactically different translations, but semantically different concepts of the same historical event. This issue comes along with the desired support for different perspectives, based on different historical evidence. There is a lot of interdisciplinary research to be done in digital humanities how to support multiple perspectives on data.
 
 The two basic assumptions about the territory of a country -- constant coastlines and a lack of sea territory -- are wrong. The Hivent model supports only sudden spatio-temporal changes due to events, but not due to gradual processes. The data model for HistoGlobe would need to be extended with a concept of \emph{Geoprocesses} that model the long-term geographical processes that lead to changing coastlines. This is an entirely different research field that would need to be entered.
 
@@ -83,7 +83,7 @@ However, the most crucial part is the implementation of the complicated concepts
 
 New visualization techniques can also be introduced. Animated transitions between two states of an Area would significantly increase the usability of the browsing mode. The attention of the user would be drawn to the territories that currently change. To properly account for the name of the software, a three-dimensional globe can be implemented to replace the map. This requires the use of the graphics card via \emph{WebGL}, because rendering of and interaction with a globe is much more computationally intensive than with a map. A logarithmic version of the timeline would also be interesting. A user study could analyze whether it really suits the logarithmic nature of human perception better than a normal linear timeline.
 
-Finally, to tackle a problem of digital humanities, the current model allows to trace \emph{changes over time} and provide \emph{context}. These are two of the foundations of history introduced in section \ref{par:history}. However, historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes sufficient to show their results. For their research purpose it is crucial to generate new knowledge to establish \emph{causality}, another foundation for history. Therefor historians need to analyze spatio-temporal coherences or distributions in historical data by sorting, selecting or classifying the data in the system and running spatio-temporal queries. Spatio-temporal reasoning is still not easily possible with existing HGIS and yields many interesting research questions to be solved.
+Finally, to tackle a problem of digital humanities, the current model allows to trace \emph{changes over time} and provide \emph{context}. These are two of the foundations of history introduced in section \ref{par:history}. However, historians do not necessarily need a tool to better visualize existing knowledge, because digital historical maps, audio or video sources are sometimes sufficient to show their results. For their research purposes it is crucial to generate new knowledge to establish \emph{causality}, another foundation for history. Therefor historians need to analyze spatio-temporal coherences or distributions in historical data by sorting, selecting or classifying the data in the system and running spatio-temporal queries. Spatio-temporal reasoning is still not easily possible with existing HGIS and yields many interesting research questions to be solved.
 
 % section problems (end)
 
@@ -94,7 +94,7 @@ Finally, to tackle a problem of digital humanities, the current model allows to 
 
 Imagine the problems that were mentioned are solved and the room for improvement is filled with nicely designed user interface elements, then HistoGlobe would have the potential to be a well usable Historical Geographic Information System for the history of countries in time and space.
 
-Imagine scholars in humanities use the edit mode of HistoGlobe to continuously improve the historical data in the system, animate historical countries and discuss historical events. Imagine HistoGlobe could be used not just to answer \emph{what} has happened, \emph{where} and \emph{when} did it happen and \emph{who} participated -- but to answer ultimate question \emph{why} something is the way it is?
+Imagine scholars in humanities would use the edit mode of HistoGlobe to continuously improve the historical data in the system, animate historical countries and discuss historical events. Imagine HistoGlobe could be used not just to answer \emph{what} has happened, \emph{where} and \emph{when} did it happen and \emph{who} participated -- but to answer ultimate question \emph{why} something is the way it is?
 What are the real causes for the current Syrian civil war?
 Despite the conflicts in the Middle East, do we live in a peaceful time?
 Why did the Roman Empire collapse?

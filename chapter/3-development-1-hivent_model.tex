@@ -37,7 +37,7 @@ represent one identical current or historical country. They are abstract entitie
 \paragraph{Historical Changes} % (fold)
 \label{par:historical_changes}
 
-The idea of the Hivent model is that Areas can change over time. This happens via \emph{historical changes} that are part of exactly one Hivent. Throughout the lifetime of an Area, it is created at some point $t_s$, its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < \forall t_i < t_e$ it may cease.
+The idea of the Hivent model is that Areas can change over time. This happens via \emph{historical changes} that are part of exactly one Hivent. Throughout the lifetime of an Area, it is created at some point $t_s$, its territory and short name can change multiple times $t_i: t_s < t_i$ and at some point $t_e: t_s < \forall t_i < t_e$ it may be deleted.
 Each Area is \emph{uniquely identified by its formal name}. That means as soon as the formal name of an Area changes, it is considered a ``new'' Area.
 Since all changes in this model are sudden, there are only two possible states an Area can be in: It is \emph{active}, if at the current point in time it is historically existing, otherwise it is \emph{inactive}.
 
@@ -49,7 +49,7 @@ Since all changes in this model are sudden, there are only two possible states a
   \label{fig:area_states}
 \end{figure}
 
-Historical changes and Areas are mutually linked, i.e.\ an Area keeps references to the changes creating, updating and ceasing it and a historical change stores a set old Areas that cease, a set of new Areas that are created and a set of update Areas that are manipulated in the change.
+Historical changes and Areas are mutually linked, i.e.\ an Area keeps references to the changes creating, updating and deleting it and a historical change stores a set old Areas that are deleted, a set of new Areas that are created and a set of update Areas that are manipulated in the change.
 
 % paragraph historical_changes (end)
 
@@ -123,9 +123,9 @@ These axioms set the spatial foundation of the system: a constant dimension of t
   At each point $t_i \geq t_0$ each point on the surface of the Earth is covered by exactly one territory of exactly one Area.
 \end{unique_coverage}
 
-As defined in section \ref{par:area}, a historical change can create, manipulate and cease Areas on the Earth's surface. According to axiom \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map, i.e.\ if an Area is created on the map, the Area claiming this territory before has to cease it.
+As defined in section \ref{par:area}, a historical change can create, manipulate and delete Areas on the Earth's surface. According to axiom \ref{axm:unique_coverage}, each change introduced in the system must maintain the spatial integrity on the map, i.e.\ if an Area is created on the map, the Area claiming this territory before has to secede it.
 
-Formally, it can be said that each change consists of three sets of Areas: the old Areas $A$ that are ceased, the new Areas $B$ that are created and the Areas $C$, whose properties are updated in the change. Each $A_i \in A$ and $B_i \in B$ has a territory $A_i^T$ respectively $B_i^T$. Each $C_i \in C$ has an old territory $C_i^{OT}$ that is updated with the new territory $C_i^{NT}$. Each change introduced in the spatio-temporal system must maintain the spatial integrity of axiom \ref{axm:unique_coverage}. Therefore, the total size of the territories before the change and after the change must be the same:
+Formally, it can be said that each change consists of three sets of Areas: the old Areas $A$ that are deleted, the new Areas $B$ that are created and the Areas $C$, whose properties are updated in the change. Each $A_i \in A$ and $B_i \in B$ has a territory $A_i^T$ respectively $B_i^T$. Each $C_i \in C$ has an old territory $C_i^{OT}$ that is updated with the new territory $C_i^{NT}$. Each change introduced in the spatio-temporal system must maintain the spatial integrity of axiom \ref{axm:unique_coverage}. Therefore, the total size of the territories before the change and after the change must be the same:
 
 \vspace{-.5em}
 
@@ -143,7 +143,7 @@ Formally, it can be said that each change consists of three sets of Areas: the o
 
 This behavior is based on to the law of conversation of energy in physics: energy in a closed system can only be transformed from one object to another, but the total energy in the system is preserved at any time. In the spatio-temporal system of this HGIS, the total size of the territory of the Earth is preserved, it is distributed among the active Areas in the system.
 
-The first changes introduced in the system at $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e.\ it is currently occupied by the territory of exactly one active Area, or on the contrary be \emph{unclaimed}, i.e.\ belonging to $\Omega$.
+The first changes introduced in the system at $t_0$ are the creation of all bodies of water, including the oceans and lakes, denoted as $W$. Each Area $W_i \in W$ is created with their name and territory cut out of $\Omega$. The result is that after $t_0$, the map is divided into water ($W$) and land ($\Omega$). Land can at any point in time be either \emph{claimed}, i.e.\ it is currently occupied by the territory of exactly one active Area, or \emph{unclaimed}, i.e.\ belonging to $\Omega$.
 % It is a subtractive data model, because each new Areas territory is cut out of $\Omega$.
 
 \begin{figure}[ht]
@@ -183,7 +183,7 @@ Respecting the preconditions, there are several different types of historical ch
 \begin{description}
 
   \item[UNI -- Unification]
-  A set of old Areas unifies to one new Area. The old Areas cease, becoming the historical predecessors of the new Area. The territory of this new Area is the union of the territories of the old Areas. The new Area receives a new name. \\[0.25em]
+  A set of old Areas unifies to one new Area. The old Areas are deleted, becoming the historical predecessors of the new Area. The territory of this new Area is the union of the territories of the old Areas. The new Area receives a new name. \\[0.25em]
   \begin{footnotesize}
     In 1922, the Russian SFSR, the Transcaucasian SFSR, the Ukrainian SSR and the Byelorussian SSR unified and formed the Union of Soviet Socialist Republics (USSR).
   \end{footnotesize}

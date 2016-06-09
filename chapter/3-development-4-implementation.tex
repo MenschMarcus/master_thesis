@@ -9,7 +9,7 @@ HistoGlobe is a web-based Historical Geographic Information System. The data mod
 \subsection{System Architecture} % (fold)
 \label{sub:system_architecture}
 
-HistoGlobe uses a classic client-server architecture of a web-based information system. The user opens the application in a Web browser, the \emph{client} side of the system, and interacts with it through the user interface. The web \emph{server} is a remote computer that hosts the database and the middleware. The user interacts with the interface and the client-side application sends a request for new data to the web server. The middleware checks the request and sends it as a query to the database to obtain the required data. It then transforms the data and sends it back to the client. The interface shows the new information.
+HistoGlobe uses a classic client-server architecture of a web-based information system that is shown in figure \ref{fig:system_architecture}. The user opens the application in a Web browser, the \emph{client} side of the system, and interacts with it through the user interface. The web \emph{server} is a remote computer that hosts the database and the middleware. The user interacts with the interface and the client-side application sends a request for new data to the web server. The middleware checks the request and sends it as a query to the database to obtain the required data. It then transforms the data and sends it back to the client. The interface shows the new information.
 
 \begin{figure}[H]
   \vspace{1em}
@@ -48,7 +48,7 @@ which was introduced in section \ref{par:object_relational_dbms}. This allows Hi
   URL: \url{http://postgis.net/},
   accessed on: 27.05.2016
 }
-is used as a spatial database extension for PostgreSQL. With these tools, the Hivent model from section \ref{sec:hivent_model}  was implemented in a database model shown in figure \ref{fig:database_model_er}. This is the final result of a highly iterative process that was subject to several improvements and adaptations to new requirements introduced in the human-centered design process. The model is structured in two parts: the lower part of the Areas and the upper part of the Hivents and the historical changes.
+is used as a spatial database extension for PostgreSQL. With these tools, the Hivent model from section \ref{sec:hivent_model}  was implemented in a database model shown in figure \ref{fig:database_model_er}. This is the final result of a highly iterative process that was subject to several improvements and adaptations to new requirements introduced in the human-centered design process. The model is structured in two parts:
 
 \begin{figure}[ht]
   \centering
@@ -92,7 +92,7 @@ The operations replace a set of \texttt{OldArea}s with a set of \texttt{NewArea}
   \label{fig:database_example_reunification}
 \end{figure}
 
-Figure \ref{fig:database_example_reunification} shows the Hivent database model using the example of the German Reunification on 03.10.1990. Before 1990, there were the Areas \texttt{GDR} (``German Democratic Republic'', East Germany) and \texttt{FRG} (``Federal Republic of Germany'', West Germany). A user introduced a (\texttt{MRG}) operation in the Edit Mode between \texttt{FRG} and \texttt{GDR}. The new Area received the short name ``Germany'' and the same formal name ``Federal Republic of Germany'', previously held by West Germany. Internally, the Edit Mode translates this to an \texttt{INC} of \texttt{GDR} into \texttt{FRG} and a subsequent \texttt{NCH} of \texttt{FRG}. One Area ceases, one Area is updated twice and no new Area is created.
+Figure \ref{fig:database_example_reunification} shows the Hivent database model using the example of the German Reunification on 03.10.1990. Before 1990, there were the Areas \texttt{GDR} (``German Democratic Republic'', East Germany) and \texttt{FRG} (``Federal Republic of Germany'', West Germany). A user introduced a (\texttt{MRG}) operation in the Edit Mode between \texttt{FRG} and \texttt{GDR}. The new Area received the short name ``Germany'' and the same formal name ``Federal Republic of Germany'', previously held by West Germany. Internally, the Edit Mode translates this to an \texttt{INC} of \texttt{GDR} into \texttt{FRG} and a subsequent \texttt{NCH} of \texttt{FRG}. One Area is deleted, one Area is updated twice and no new Area is created.
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \paragraph{Initial Dataset} % (fold)
@@ -211,29 +211,29 @@ class HiventOperation
 \label{par:editmode}
 
 The Edit Mode is the main contribution of this thesis to the HistoGlobe project.
-Its interface was previously introduced in section \ref{sub:web_based_prototype} and its implementation is briefly explained here. When the user clicks an edit operation button in the edit mode interface, internally a \texttt{EditOperationCreator} sets up the \texttt{WorkflowWindow} in the interface and the first \texttt{EditOperationStep} for this operation. Each of the four steps have different tasks that were explained in section \ref{sub:edit_workflow}. Throughout the workflow, the \texttt{EditOperationCreator} stores the data for the operation (selected old Areas, newly created Areas, update Areas, including the old and new territories and names) in an object. Each step can access this object and manipulate its content.
+Its interface was previously introduced in section \ref{sub:web_based_prototype} and its implementation is briefly explained here. When the user clicks an edit operation button in the edit mode interface, internally an \texttt{EditOperationCreator} sets up the \texttt{WorkflowWindow} in the interface. Initially, the first \texttt{EditOperationStep} for this operation is loaded. Each of the four steps have different tasks that were explained in section \ref{sub:edit_workflow}. Throughout the workflow, the \texttt{EditOperationCreator} stores the data for the operation (selected old Areas, newly created Areas, update Areas, including the old and new territories and names) in an object. Each step can access this object and manipulate its content.
 
 \begin{enumerate}
 
-  \item \texttt{SelectOldAreas}: The map is set in a \texttt{selectionMode} that requires the user to select a certain number of old Areas for the edit operation, i.e.\ one Area for \texttt{SPL}, \texttt{REN} and \texttt{CES}, one or two Areas for \texttt{CHB} and infinitely many Areas for \texttt{MRG}.
+  \item \texttt{SelectOldAreas}: The map is set in a \texttt{selectionMode} that requires the user to select a certain number of old Areas for the edit operation, i.e.\ one Area for \texttt{SPL}, \texttt{REN} and \texttt{DEL}, one or two Areas for \texttt{CHB} and any number of Areas for \texttt{MRG}.
 
   \item \texttt{CreateNewTerritories}: The map is set into an \texttt{editMode} that prevents any selection of existing Areas except for the ones that are manipulated. For each Area that is created or updated in this operation, the user needs to create the new \texttt{AreaTerritory} of the Area in form of a polypolygon with the \texttt{NewTerritoryTool}:
   \begin{itemize}
     \item[\texttt{CRE}]
       Create one territory $B^T$, that is the territory of the new \texttt{Area} $B$.
-      Check with the territory $A^T$ of each existing Area $A$ if the territories intersect ($A^T \cap B^T \neq \emptyset$).
+      Check the territory $A^T$ of each existing Area $A$ if the territories intersect ($A^T \cap B^T \neq \emptyset$).
       If they do, the territory $A^T$ is updated by subtracting the new territory $B^T$ from it via the complement (difference): $A^T = A^T \setminus B^T$.
-      If the resulting territory $A^T = \emptyset$ it means that $A$ is completely covered by $B$, so it is entirely incorporated into $B$ and set as an old Area of the operation.
+      If the resulting territory is empty, i.e.\ $A^T = \emptyset$, it means that $A$ is completely covered by $B$, so it is entirely incorporated into $B$ and set as an old Area of the operation.
       If not, the territory of $A$ is updated with $A^T$ and $A$ is
       set as an updated Area of this step that cedes parts of its territory to $B$.
     \item[\texttt{MRG}]
-      This step happens automatically without any user interaction. The new territory $B^T$ is created by the cascaded union of the territories $A^T_i$ of the selected Areas $A_i \in A$ from the first step: $B^T = \bigcup\limits_{i=1}^n A^T_i$. It is set as the territory of $B$.
+      This step happens automatically without any user interaction. The new territory $B^T$ is created by the union of the territories $A^T_i$ of the selected Areas $A_i \in A$ from the first step: $B^T = \bigcup\limits_{i=1}^n A^T_i$. It is set as the territory of $B$.
     \item[\texttt{SPL}]
       Each desired new Area $B_i \in B$ needs a territory $B_i^T$. This is obtained by intersecting the temporary territory $T_i$ that the user has created in the \texttt{NewTerritoryTool} with the territory of the selected Area: $B_i^T = A^T \cap T_i$. This is repeated until the entire territory $A^T$ is completely distributed among $B_i \in B$.
     \item[\texttt{CHB}]
       If the user selected only one old Area $A_1$ in the first step, then territory $T_1$, created by the \texttt{NewTerritoryTool} in this step, will be set as the new territory of $A_1$. The surrounding Areas are handled in the same way as in the \texttt{CRE} operation. If two neighboring Areas $A_1$ and $A_2$ were selected, the new territories are obtained like this: $T_1$ is seen as the basis of territory $A_1^T$. It is temporarily unified with its neighbor $A^T_2$ to $B^T = A_1^T \cup A_2^T$. Then the new territory $A_1^T$ is cut out from this temporary union with an intersection: $A_1^T = B^T \cap T_1$. $A_2$ receives the remaining part as its new territory: $A_2^T = B^T \setminus T_1$.
   \end{itemize}
-  No new territories are created in \texttt{REN} and \texttt{CES}.
+  No new territories are created in \texttt{REN} and \texttt{DEL}.
 
   \item \texttt{CreateNewNames}: For each Area that is created or updated in this operation, the user needs to create a new \texttt{AreaName} with a short name and formal name using the draggable \texttt{NewNameTool}. The user writes the new names or selects them from the suggestions. Not only the name will be taken from the \texttt{NewNameTool}, but also the center position of the box will be the new \texttt{representative\_point} of the \texttt{AreaTerritory}. The user decides where the name of the Area should be positioned. This avoids the information visualization problem of automatic label placement.
 
@@ -250,7 +250,7 @@ It was especially difficult to design each action to be fully reversible. For th
 \paragraph{WithinTree} % (fold)
 \label{par:within_tree}
 
-The \texttt{NewTerritoryTool} in the second step of the workflow has to ensure that the drawn polygons are not self-intersecting and that no two polygons for one territory partially overlap each other. If they fully overlap, then they create holes in the polygon. A polygon consists of one \emph{outer ring}, a closed polyline forming the boundary of the polygon, and a set of \emph{inner rings}, closed polylines defining the holes in the polygon and representing first-order enclaves. Second-order enclaves are new polygons that happen to be positioned inside the inner rings of the other polygon. They can themselves have inner rings, which represent third-order enclaves, etc. In order to support nested holes, the \emph{WithinTree} is introduced. The idea is to set up a hierarchical structure of polygons that contain each other. An example WithinTree for a random set of polygons can be seen in figure \ref{fig:within_tree}.
+The \texttt{NewTerritoryTool} in the second step of the workflow has to ensure that the drawn polygons are not self-intersecting and that no two polygons for one territory partially overlap each other. If they fully overlap, they create holes in the polygon. A polygon consists of one \emph{outer ring}, a closed polyline forming the boundary of the polygon, and a set of \emph{inner rings}, closed polylines defining the holes in the polygon and representing first-order enclaves. Second-order enclaves are new polygons that are positioned inside the inner rings of the other polygon. They can themselves have inner rings, which represent third-order enclaves, etc. In order to support nested holes, the \emph{WithinTree} data structure is introduced. The idea is to set up a hierarchical structure of polygons that contain each other. An example WithinTree for a set of polygons is shown in figure \ref{fig:within_tree}.
 
 \begin{figure}[ht]
   \vspace{1em}
@@ -260,7 +260,8 @@ The \texttt{NewTerritoryTool} in the second step of the workflow has to ensure t
   \label{fig:within_tree}
 \end{figure}
 
-The algorithm for inserting a polygon as a node into the tree is shown in listing \ref{lst:within_tree_insertion}. After the tree has been set up, the correct structure of polygons can be obtained by traversing the tree in the following custom order:
+The algorithm for inserting a polygon as a node into the tree is shown in listing \ref{lst:within_tree_insertion}. After the tree has been set up, the
+polygons have to be extracted in the correct structure with respect to their outer and inner rings. Therefor, the WithinTree has to be traveres in the following custom order:
 
 \begin{compactenum}
   \item Remove the first child $F$ of the root node and all its children $C$ from the tree.
@@ -337,15 +338,15 @@ When a new label is introduced, it is inserted into the \texttt{LabelManager} in
 Each label has to be inserted in the correct position in the \texttt{labelList}. Therefor, it is compared with each existing label in descending priority if it overlaps and if the priority is still higher.
 As soon as the first label with a lower priority is found, the new label is inserted before this label in the list. If there was a higher-priority label before that covered it, the new label is hidden -- otherwise it is shown. In the latter case all lower-priority labels are checked if they are covered by the new label -- if they are, then they are hidden.
 
-If an Area also ceases, its name is also hidden from the map. Additionally, the old label is removed from the \texttt{labelList}. Each label that was previously covered by the old label is not covered by it any more. If no other label still covers it, the label can be shown.
+If an Area is also deleted, its name is also hidden from the map. Additionally, the old label is removed from the \texttt{labelList}. Each label that was previously covered by the old label is not covered by it any more. If no other label still covers it, the label can be shown.
 
-If the user zooms the map, the \texttt{LabelManager} has to update the visibility status of each label. Zooming in  means that each label has more space to its neighbors. No label has to be hidden, but hidden labels can be shown if they are not covered by any other label any more. Vice versa, if the user zooms out, the labels have less space to their neighbors. No label can be become visible, but a visible label needs to be hidden if it is covered by at least one other label.
+If the user zooms the map, the \texttt{LabelManager} has to update the visibility status of each label. Zooming in  means that each label has more space to its neighbors. No label has to be hidden, but hidden labels can be shown if they are not covered by any other label any more. Vice versa, if the user zooms out, the labels have less space to their neighbors. No additional label can be become visible, but a visible label needs to be hidden if it is covered by at least one other label.
 
 \begin{figure}[ht]
   \vspace{1em}
   \centering
   \includegraphics[width=0.9\textwidth]{graphics/development/implementation/label_manager.png}
-  \caption{The resulting labels on the map in Europe 2016}
+  \caption{The resulting labels on the map of Europe in 2016}
   \label{fig:label_manager}
 \end{figure}
 

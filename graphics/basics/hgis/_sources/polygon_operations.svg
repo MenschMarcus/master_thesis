@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.414213561999955"
-     inkscape:cx="308.6811889512526"
-     inkscape:cy="44.45365490590915"
+     inkscape:cx="389.8054800840225"
+     inkscape:cy="16.06451502154336"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -342,6 +342,6 @@
          y="175.54977"
          x="50.479511"
          id="tspan4070"
-         sodipodi:role="line">A Δ B = {x∈A ⊕ x∉B}  </tspan></text>
+         sodipodi:role="line">A Δ B = {x∈A ⊕ x∈B}  </tspan></text>
   </g>
 </svg>

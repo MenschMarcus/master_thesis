@@ -49,9 +49,9 @@ The Hivent operations are beneficial, because they can describe all possible cha
   \midrule
   \vspace{0.35em}
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CES}} &
-  \texttt{CES} & Cease &
-  \dots an Area by deleting it from the map, leaving unclaimed land. \\
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/DEL}} &
+  \texttt{DEL} & Delete &
+  \dots an Area from the map, leaving unclaimed land. \\
 
   \bottomrule
 \end{tabular}
@@ -137,8 +137,8 @@ For each edit operation the requirements for the steps are different. Not all op
 
   \midrule
   \raisebox{-0.35\height}
-  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/CES}} &
-  Select a country to cease it &
+  {\includegraphics[width=0.72cm]{graphics/development/editing_hivent_data/edit_operations/DEL}} &
+  Select a country to delete it &
   -- &
   -- \\
 
@@ -338,12 +338,10 @@ There are different possibilities to express an edit operation by a set of Hiven
   -- &
   \pbox{6.0cm}{
     \texttt{SEC} of $T_\Omega$ from $\Omega$,
-    \texttt{INC} of $T_\Omega$ into $A_0$ \\
-    \texttt{SEC} of $T_i$ from $P_i$,
-    \texttt{INC} of $T_i$ into $B_1$ \\
-    \texttt{INC} of $F_i$ into $B_1$ \\
-    \texttt{SEC} of $T_w$ from $B_1$,
-    \texttt{INC} of $T_w$ into $\Omega$
+                                        \texttt{INC} of $T_\Omega$ into $A_0$ \\
+    \texttt{SEC} of $T_i$ from $P_i$,   \texttt{INC} of $T_i$ into $A_0$ \\
+    \texttt{INC} of $F_i$ into $A_0$ \\
+    \texttt{SEC} of $T_w$ from $A_0$,   \texttt{INC} of $T_w$ into $\Omega$
   } &
   \\
 
@@ -412,12 +410,12 @@ There are different possibilities to express an edit operation by a set of Hiven
   %%% CEASE %%%
 
   \midrule
-  \multirow{2}{*}{\texttt{CES} (1)} &
+  \multirow{2}{*}{\texttt{DEL} (1)} &
   \multicolumn{4}{p{10cm}}{
-    One Area $A_1$ is selected and ceases by incorporating into the universe.
+    One Area $A_1$ is selected and deleted by incorporating into the universe.
   } &
   \multirow{2}{*}{
-    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/CES_to_INC}
+    \includegraphics[width=2.5cm]{graphics/development/editing_hivent_data/edit_to_hivent_operations/DEL_to_INC}
   } \\
   & \\[-0.85em]
   &
@@ -496,7 +494,7 @@ The first five cases are straightforward: Assuming \texttt{NCH} is inserted in r
 \paragraph{Retrospective Incorporation} % (fold)
 \label{par:retrospective_incorporation}
 
-An \texttt{INC} ceases a set of old Areas and changes the territory of one Area. In this scenario, $H_r$ incorporates $A_2$ into $A_1$. The question is what kind of conflicts can occur to the spatial integrity of $H_o$? If $H_o$ is  a \texttt{NCH}, there is no conflict, because $H_o$ changes the territory of $A_1$ and \texttt{NCH} the name.
+An \texttt{INC} deletes a set of old Areas and changes the territory of one Area. In this scenario, $H_r$ incorporates $A_2$ into $A_1$. The question is what kind of conflicts can occur to the spatial integrity of $H_o$? If $H_o$ is  a \texttt{NCH}, there is no conflict, because $H_o$ changes the territory of $A_1$ and \texttt{NCH} the name. However, there might be a conflict in the next operation that manipulates $A_1$.
 
 \begin{figure}[ht]
 \vspace{1em}
@@ -506,11 +504,11 @@ An \texttt{INC} ceases a set of old Areas and changes the territory of one Area.
   \label{fig:update_conflict_INC}
 \end{figure}
 
-Figure \ref{fig:update_conflict_INC} illustrates the conflicts that occur in the remaining possibilities for $H_o$. In case of an original \texttt{UNI} operation, it can still be performed with the same Areas, because $H_r$ did not change the identity of $A_1$. However, the territory of $A_1$ has been enlarged. This new territory influences $H_o$. In order to maintain spatial integrity, the system has to update the territory of incoming $A_1$. The territory of $B_1$ has to be updated as well, because it is enlarged in the same way as $A_1$. This requires a \emph{recursive update} into the future: the next Hivent operation dealing with $B_1$ needs to take into account that the territory has changed. This case can be treated as if $H_o$ would be $H_r$ with an \texttt{INC} operation. This update can cause new conflicts that either the system or the user have to solve, which can then lead to new conflicts again, etc. The system has to repeat this process into the future until all conflicts are solved. The same is true if $H_o$ is an \texttt{INC} operation: the system needs to update the old and new territory of $A_1$ in $H_o$ and recursively update the territory of $A_1$ into the future.
+Figure \ref{fig:update_conflict_INC} illustrates the conflicts that occur in the remaining possibilities for $H_o$. In case of an original \texttt{UNI} operation, it can still be performed with the same Areas, because $H_r$ did not change the identity of $A_1$. However, the territory of $A_1$ has been enlarged. This new territory influences $H_o$. In order to maintain spatial integrity, the system has to update the territory of incoming $A_1$. The territory of $B_1$ has to be updated as well, because it is enlarged in the same way as $A_1$. This requires a \emph{recursive update} into the future: the next Hivent operation dealing with $B_1$ needs to take into account that the territory has changed. This case can be treated as if $H_o$ would be $H_r$ with an \texttt{INC} operation. This update can cause new conflicts that either the system or the user have to solve, which can then lead to new conflicts again, etc. The system has to repeat this process into the future until all conflicts are resolved. The same is true if $H_o$ is an \texttt{INC} operation: the system needs to update the old and new territory of $A_1$ in $H_o$ and recursively update the territory of $A_1$ into the future.
 
 If $H_o$ is a \texttt{SEP} operation, there is a major conflict: Originally, $A_1$ split into $B_1$ and $B_2$. The territory of $A_1$ is larger due to $H_r$. $H_o$ can still separate $B_1$ and $B_2$ from $A_1$ the same way as before, but it is uncertain what should happen to the remaining territory of $A_1$ that has just been enlarged. This conflict has to be resolved manually, because the system cannot derive a decision from any existing information. The remaining part could either become $\Omega$, or it could be incorporated into $B_1$ or $B_2$, or stay $A_1$. However, the user has to decide. In case of an original \texttt{SEC}, the situation is slightly different: $H_1$ still exists as before, just with a larger territory. $H_o$ can secede $B_1$ as in the first place, but the system needs to update the old and new territory of $A_1$ in this operation and recursively into the future.
 
-The foregoing investigation relates only to $A_1$, but not to $A_2$ that has been incorporated into $H_r$. From the perspective of $A_2$, this change can be seen as a \texttt{UNI}, because its identity ceases and together with its territory it completely merges into $A_1$. Therefore, this is treated like a retrospective unification examined later in this section.
+The foregoing investigation relates only to $A_1$, but not to $A_2$ that has been incorporated into $H_r$. From the perspective of $A_2$, this change can be seen as a \texttt{UNI}, because its identity is deleted and together with its territory it completely merges into $A_1$. Therefore, this is treated like a retrospective unification examined later in this section.
 
 % paragraph retrospective_incorporation (end)
 
@@ -518,7 +516,7 @@ The foregoing investigation relates only to $A_1$, but not to $A_2$ that has bee
 \paragraph{Retrospective Secession} % (fold)
 \label{par:retrospective_secession}
 
-Retrospective secessions are comparable to incorporations. The identity and the name of $A_1$ does not change -- but parts of its territory ceases to a new Area $B_1$. This section examines how the system has to treat $B_1$ and the smaller territory of $A_1$ in the original operation $H_o$. Exactly as for retrospective incorporation, there is no conflict if $H_o$ is a \texttt{NCH}.
+Retrospective secessions are comparable to incorporations. The identity and the name of $A_1$ does not change -- but parts of its territory secedes to a new Area $B_1$. This section examines how the system has to treat $B_1$ and the smaller territory of $A_1$ in the original operation $H_o$. Exactly as for retrospective incorporation, there is no conflict if $H_o$ is a \texttt{NCH}, but possibly later.
 
 \begin{figure}[ht]
 \vspace{1em}
@@ -540,7 +538,7 @@ The other four cases are visualized in figure \ref{fig:update_conflict_SEC}. For
 
 For the system it is hard to make a decision, because the user's intention when creating $R_1$ in $H_r$ is not clear: should the newly created Area remain there or is the territory of the united Area $A_3$ more important? In order for the system to not behave unexpectedly, it will ask the user which choice they prefer. In case of the first choice, the territory of $R_1$ has to be subtracted from the territory of the new Area $B_1$ in $H_o$. This update is again recursive, because the next Hivent operation dealing with $B_1$ needs to operate on the correct territory as well. In the second case, $R_1$ simply has to be added to the old Areas of the \texttt{UNI} operation in $H_o$. No further recursive update is necessary. The same behavior is true if $H_o$ is an \texttt{INC}. The user has to decide if they want to incorporate $R_1$ into $A_1$ or keep it as a separate Area. In the latter case, the system needs to update the new territory of $A_1$ in $H_o$.
 
-For an original \texttt{SEP}, the situation is comparable: Originally, $A_1$ splits into $B_1$ and $B_2$, but after the retrospective secession of a part of $A_1$ to $R_1$, the territory of $R_1$ conflicts with $B_1$ and $B_2$ in $H_o$. An important observation is that each part of $R_1$ would be part of either $B_1$ or $B_2$. There is no remaining land, since both $R_1$ and $B_1+B_2$ seceded from the same territory of $A_1$. Just like the other two cases above, the system will give the user the choice for both conflicting territories if either $R_1$ should stay an Area or if $B_1$ respectively $B_2$ should incorporate $R_1$ into their territory. In the first case, the territory of $R_1$ has to be subtracted from both the incoming $A_1$ and recursively from the outgoing territory $B_1$ respectively $B_2$. The latter case needs at least one additional Hivent operation: The part of $R_1$ that shall be part of $B_1$ respectively $B_2$ needs to be seceded from $R_1$ and in the same moment incorporated into $A_1$. $A_1$ itself is separated into $B_1$ and $B_2$ at the same time: $H_o$ = \texttt{SEC+INC+SEP}. If $R_1$ ceases entirely in the operation, then it is completely incorporated into $A_1$, so it is only a \texttt{INC+SEP} at $H_o$. The case of an original \texttt{SEC} the system behaves in exactly the same way, just with an update of the territory of $A_1$ and $B_1$ instead of $B_1$ and $B_2$.
+For an original \texttt{SEP}, the situation is comparable: Originally, $A_1$ splits into $B_1$ and $B_2$, but after the retrospective secession of a part of $A_1$ to $R_1$, the territory of $R_1$ conflicts with $B_1$ and $B_2$ in $H_o$. An important observation is that each part of $R_1$ would be part of either $B_1$ or $B_2$. There is no remaining land, since both $R_1$ and $B_1+B_2$ seceded from the same territory of $A_1$. Just like the other two cases above, the system will give the user the choice for both conflicting territories if either $R_1$ should stay an Area or if $B_1$ or $B_2$ should incorporate $R_1$ into their territory. In the first case, the territory of $R_1$ has to be subtracted from both the incoming $A_1$ and recursively from the outgoing territory $B_1$ or $B_2$. The latter case needs at least one additional Hivent operation: The part of $R_1$ that shall be part of $B_1$ or $B_2$ needs to be seceded from $R_1$, and in the same moment incorporated into $A_1$. $A_1$ itself is separated into $B_1$ and $B_2$ at the same time: $H_o$ = \texttt{SEC+INC+SEP}. If $R_1$ is entirely deleted in the operation, then it is completely incorporated into $A_1$, so it is only an \texttt{INC+SEP} at $H_o$. The case of an original \texttt{SEC} the system behaves in exactly the same way, just with an update of the territory of $A_1$ and $B_1$ instead of $B_1$ and $B_2$.
 
 To summarize, the main difference between retrospective incorporation and secession is that in the latter case, the user needs to choose between two predefined options. For incorporations, this is seen as unnecessary, because the conflicting territory of $A_2$ has not been manipulated by $H_o$ and hence, it cannot be seen as a conscious decision of the user to keep this Area.
 
@@ -550,7 +548,7 @@ To summarize, the main difference between retrospective incorporation and secess
 \paragraph{Retrospective Unification} % (fold)
 \label{par:retrospective_unification}
 
-If a \texttt{UNI} is inserted in retrospective, the semantic integrity of $H_o$ is threatened, because in contrast to a \texttt{INC} all incoming Areas cease and unify to one completely new Area, in this example $R_1$. For each Area $A_i \in A$ that was unified in $H_r$ the system needs to find the next Hivent operation $H_o$ that manipulates $A_i$ and update it accordingly. In this example, $A_1$ is examined in place of each $A_i \in A$. If $H_o$ is a \texttt{NCH}, there is a conflict: the name of $A_1$ can obviously not be updated any more, because $A$ already ceased. The only way to resolve this conflict is to automatically delete the \texttt{NCH} operation. The remaining four cases behave in exactly the same way regarding spatial integrity as for a retrospective incorporation -- with the only difference that the Area $A_1$ is replaced by $R_1$ as an incoming Area in the operation. In all four cases, the territory has to be updated in the same way as for retrospective incorporation and the same conflict occurs for the original \texttt{SEP} operation.
+If a \texttt{UNI} is inserted in retrospective, the semantic integrity of $H_o$ is threatened, because in contrast to a \texttt{INC} all incoming Areas unify to one completely new Area, in this example $R_1$. For each Area $A_i \in A$ that was unified in $H_r$ the system needs to find the next Hivent operation $H_o$ that manipulates $A_i$ and update it accordingly. In this example, $A_1$ is examined in place of each $A_i \in A$. If $H_o$ is a \texttt{NCH}, there is a conflict: the name of $A_1$ can obviously not be updated any more, because $A$ is already deleted. The only way to resolve this conflict is to automatically delete the \texttt{NCH} operation. The remaining four cases behave in exactly the same way regarding spatial integrity as for a retrospective incorporation -- with the only difference that the Area $A_1$ is replaced by $R_1$ as an incoming Area in the operation. In all four cases, the territory has to be updated in the same way as for retrospective incorporation and the same conflict occurs for the original \texttt{SEP} operation.
 
 \begin{figure}[ht]
 \vspace{1em}
@@ -566,7 +564,7 @@ If a \texttt{UNI} is inserted in retrospective, the semantic integrity of $H_o$ 
 \paragraph{Retrospective Separation} % (fold)
 \label{par:retrospective_separation}
 
-In contrast to the previous example, retrospective separations behave slightly different from secessions. $H_o$ has to be checked both for spatial and semantic integrity, since $A_1$ ceased in $H_r$ to a set of new Areas $R_i$. In this scenario, $R_1$ and $R_2$ stay in place for $\forall r_i \in R$. If $H_o$ is a \texttt{NCH}, the operation has to be automatically deleted, because $A_1$ does not exist any more. Figure \ref{fig:update_conflict_SEP} shows the conflicts that arise for the remaining four cases.
+In contrast to the previous example, retrospective separations behave slightly different from secessions. $H_o$ has to be checked both for spatial and semantic integrity, since $A_1$ is deleted in $H_r$ to a set of new Areas $R_i$. In this scenario, $R_1$ and $R_2$ stay in place for $\forall r_i \in R$. If $H_o$ is a \texttt{NCH}, the operation has to be automatically deleted, because $A_1$ does not exist any more. Figure \ref{fig:update_conflict_SEP} shows the conflicts that arise for the remaining four cases.
 
 \begin{figure}[ht]
 \vspace{1em}
@@ -578,7 +576,7 @@ In contrast to the previous example, retrospective separations behave slightly d
 
 In case $H_o$ is a \texttt{UNI}, the arising conflict can be solved semi-automatically. Originally, $B_1$ was created by unifying $A_1$ and $A_3$. $A_1$ just got separated into $R_1$ and $R_2$ by $H_r$, so the system cannot know if $R_1$, $R_2$ or $B_1$ is preferred at $H_o$. In any case, the system needs to remove $A_1$ from the old Areas in the \texttt{UNI} operation. For each Area created in $H_r$ -- in this case only $R_1$ and $R_2$ -- the system asks the user if they prefer $R_i$ or $B_1$. If $R_1$ is preferred, then its territory has to be recursively subtracted from the outgoing Area $B_1$ in the \texttt{UNI} operation at $H_o$. Otherwise, $R_i$ is added to the old Areas of $H_o$. If $R_i$ is preferred every time, the remaining \texttt{UNI} operation only transforms $A_3$ to $B_1$.
 
-If $H_o$ is an \texttt{INC}, the situation is more complex. The Area $A_1$ in which $A_3$ should be incorporated into does not exist any more. Moreover, it is replaced by a set of new Areas $R_i$ and it is not straightforward to see where $A_3$ should be incorporated into -- it is only clear that $A_3$ will cease in this operation. Since there is no information about what should be there instead, this conflict has to be solved manually. The situation is even more complex, because on the one hand, in $H_o$ the user intentionally incorporated $A_3$ into $A_1$, which means that there is a clear intention to keep $A_1$. On the other hand, they separated $A_1$ in $H_r$ to two new Areas $R_1$ and $R_2$, so they can also be seen as intentionally created. In order to avoid any unexpected behavior of the system, the best approach is to give him or her the choice to keep $R_1$ and $R_2$, let the user resolve the whole conflict manually in case of denial.
+If $H_o$ is an \texttt{INC}, the situation is more complex. The Area $A_1$ in which $A_3$ should be incorporated into does not exist any more. Moreover, it is replaced by a set of new Areas $R_i$ and it is not straightforward to see where $A_3$ should be incorporated into -- it is only clear that $A_3$ will be deleted in this operation. Since there is no information about what should be there instead, this conflict has to be solved manually. The situation is even more complex, because on the one hand, in $H_o$ the user intentionally incorporated $A_3$ into $A_1$, which means that there is a clear intention to keep $A_1$. On the other hand, they separated $A_1$ in $H_r$ to two new Areas $R_1$ and $R_2$, so they can also be seen as intentionally created. In order to avoid any unexpected behavior of the system, the best approach is to give him or her the choice to keep $R_1$ and $R_2$, let the user resolve the whole conflict manually in case of denial.
 
 The case of an original \texttt{SEP} is likewise complex: $A_1$ does not exist any more to be separated -- instead there are two sets of Areas that can be seen as reasonable to be the outcome of the operation. On the one hand the Areas $B_i \in B$ created in $H_o$ and on the other hand $R_j \in R$ created in $H_r$. Since it is impossible for the system to know which Areas to prefer, the user should decide for each possible combination $i \times j$ which Area it should be. If $R_j$ is preferred, then its territory has to be recursively subtracted from each $B_i$ that intersects with $R_j$. Otherwise, the territory of $R_j$ intersecting with $B_i$ has to secede from $R_j$ and be incorporated into $B_i$ with a combination of \texttt{SEC+INC} at $H_o$. The \texttt{SEP} operation itself it not necessary any more, because there is not one simple old Area any more.
 
@@ -627,7 +625,7 @@ A \texttt{backward operation} might be useful for historians to edit a state in 
 
 The Hivent operations themselves can be executed the opposite way, because each of them has an inverse operation: A \texttt{UNI} can be inverted with a \texttt{SEP} and an \texttt{INC} with a \texttt{SEC} operation. \texttt{NCH} can be inverted with itself by swapping the old with the new name.
 
-One problem is in the conceptual model: the user interface has to provide a visual clue that the inversion of an operation is possible. Additionally, if a Hivent operation is inserted backwards, another problem occurs: each new Area of the operation would now be active from $t_i$ on backwards into the \emph{past}. Each Area that is created in a backward operation has to be provided with another operation that ceases it in backward direction or creates it in forward direction, otherwise the Area would be active all the way back to $t_0$. This is probably not desirable.
+One problem is in the conceptual model: the user interface has to provide a visual clue that the inversion of an operation is possible. Additionally, if a Hivent operation is inserted backwards, another problem occurs: each new Area of the operation would now be active from $t_i$ on backwards into the \emph{past}. Each Area that is created in a backward operation has to be provided with another operation that deletes it in backward direction or creates it in forward direction, otherwise the Area would be active all the way back to $t_0$. This is probably not desirable.
 
 % subsection backward_operations (end)
 
