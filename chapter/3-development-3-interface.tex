@@ -124,113 +124,119 @@ As mentioned in section \ref{sub:histograph}, there were too many conceptual pro
 Backward operations and retrospective updates are not supported as well, due to their complex nature in the computational model. The HistoGlobe version developed in this thesis only supports editing the history of countries with forward operations at the end of the timeline. The interaction and behavior is introduced in this section using the example of the fictional secession of Scotland from the United Kingdom in 2018.
 
 \newpage
-\begin{minipage}[t]{0.47\textwidth}
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/1_init.png}
-    \caption{Initial state of the browsing mode}
-    \label{fig:final_1_init}
-  \end{figure}
+\begin{landscape}
 
-  The initial state of the user interface. Additional to the original elements, there is an edit button on the upper right corner. A click on that button enters the edit mode of the system.
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}    % N.B. the % is very important
-\hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
-\begin{minipage}[t]{0.47\textwidth}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/1_init.png}
+      \caption{Initial state of the browsing mode}
+      \label{fig:final_1_init}
+    \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/2_edit_mode.png}
-    \caption{Initial state of the edit mode}
-    \label{fig:final_2_edit_mode}
-  \end{figure}
+    The initial state of the user interface. Additional to the original elements, there is an edit button on the upper right corner. A click on that button enters the edit mode of the system.
 
-  In the edit mode, a title bar and six buttons for the edit operations appear. A click on one of these buttons starts the associated operation workflow as introduced in section \ref{sub:edit_workflow}.
+  \end{minipage}    % N.B. the % is very important
+  \hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/2_edit_mode.png}
+      \caption{Initial state of the edit mode}
+      \label{fig:final_2_edit_mode}
+    \end{figure}
 
-\vspace{1em}
-\begin{minipage}[t]{0.47\textwidth}
+    In the edit mode, a title bar and six buttons for the edit operations appear. A click on one of these buttons starts the associated operation workflow as introduced in section \ref{sub:edit_workflow}.
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/3_select_old_areas.png}
-    \caption{1) Select old Areas}
-    \label{fig:final_3_select_old_areas}
-  \end{figure}
+  \end{minipage}
 
-  A \emph{Workflow Window} guides the user step-by-step through the process of completing the edit operation. In case of \texttt{SPL}, the user has to select the country that he or she wants to be split via click on the map. After the step is completed, a click on the next button in the workflow window proceeds to the next step. At each point in the workflow, the back button reverts the previous action.
+  \vspace{1em}
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}    % N.B. the % is very important
-\hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
-\begin{minipage}[t]{0.47\textwidth}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/3_select_old_areas.png}
+      \caption{1) Select old Areas}
+      \label{fig:final_3_select_old_areas}
+    \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/4_set_new_territories.png}
-    \caption{2) Set a new territory}
-    \label{fig:final_4_set_new_territories}
-  \end{figure}
+    A \emph{Workflow Window} guides the user step-by-step through the process of completing the edit operation. In case of \texttt{SPL}, the user has to select the country that he or she wants to be split via click on the map. After the step is completed, a click on the next button in the workflow window proceeds to the next step. At each point in the workflow, the back button reverts the previous action.
 
-  In step two, the user has to create a territory for each new Area. The \emph{New Territory Tool} provides the option to create, manipulate and delete polygons directly on the map. The drawn polypolygon is intersected with the old territory to create the new Area. After at least one new territory has been created successfully, the remaining old territory can be selected on the map and finally be used as the last territory. If the entire old territory is distributed among the new Areas, the workflow proceeds to the next step.
+  \end{minipage}    % N.B. the % is very important
+  \hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/4_set_new_territories.png}
+      \caption{2) Set a new territory}
+      \label{fig:final_4_set_new_territories}
+    \end{figure}
 
-\vspace{1em}
-\begin{minipage}[t]{0.47\textwidth}
+    In step two, the user has to create a territory for each new Area. The \emph{New Territory Tool} provides the option to create, manipulate and delete polygons directly on the map. The drawn polypolygon is intersected with the old territory to create the new Area. After at least one new territory has been created successfully, the remaining old territory can be selected on the map and finally be used as the last territory. If the entire old territory is distributed among the new Areas, the workflow proceeds to the next step.
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/5_set_new_name.png}
-    \caption{3) Set a new name}
-    \label{fig:final_5_set_new_name}
-  \end{figure}
+  \end{minipage}
 
-  In the next step, the user has to define a name for each Area that has just been created. The \emph{New Name Tool} is a draggable box with two lines for the short and formal name. The user can make use of instant search to select existing country names from the database to be applied. The short name is put directly on the map once the confirm button is pressed.
+  \vspace{1em}
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}    % N.B. the % is very important
-\hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
-\begin{minipage}[t]{0.47\textwidth}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/5_set_new_name.png}
+      \caption{3) Set a new name}
+      \label{fig:final_5_set_new_name}
+    \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/6_add_change_to_hivent_1.png}
-    \caption{4) Add the Operation to a Hivent}
-    \label{fig:final_6_add_change_to_hivent_1}
-  \end{figure}
+    In the next step, the user has to define a name for each Area that has just been created. The \emph{New Name Tool} is a draggable box with two lines for the short and formal name. The user can make use of instant search to select existing country names from the database to be applied. The short name is put directly on the map once the confirm button is pressed.
 
-  When all names are set, the edit operation is complete. It has to be added to an Hivent in the last step of the workflow. The \emph{New Hivent Box} offers two options: either search for an existing Hivent add the edit operation to it or create a new Hivent.
+  \end{minipage}    % N.B. the % is very important
+  \hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/6_add_change_to_hivent_1.png}
+      \caption{4) Add the Operation to a Hivent}
+      \label{fig:final_6_add_change_to_hivent_1}
+    \end{figure}
 
-\vspace{1em}
-\begin{minipage}[t]{0.47\textwidth}
+    When all names are set, the edit operation is complete. It has to be added to an Hivent in the last step of the workflow. The \emph{New Hivent Box} offers two options: either search for an existing Hivent add the edit operation to it or create a new Hivent.
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/7_add_change_to_hivent_2.png}
-    \caption{4) Create a new Hivent}
-    \label{fig:final_7_add_change_to_hivent_2}
-  \end{figure}
+  \end{minipage}
 
-  The new Hivent created for that change is the ``Scottish Independence'' on 01.01.2018 with a description of the Hivent and optionally a location and a link to a Wikipedia article. In the last line, the historical change ``Secession of Scotland from the United Kingdom'' is noted. A click on the confirm button finalizes the edit operation workflow.
+  \vspace{1em}
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}    % N.B. the % is very important
-\hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
-\begin{minipage}[t]{0.47\textwidth}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/7_add_change_to_hivent_2.png}
+      \caption{4) Create a new Hivent}
+      \label{fig:final_7_add_change_to_hivent_2}
+    \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/8_final_state.png}
-    \caption{The final state with Scotland}
-    \label{fig:final_8_final_state}
-  \end{figure}
+    The new Hivent created for that change is the ``Scottish Independence'' on 01.01.2018 with a description of the Hivent and optionally a location and a link to a Wikipedia article. In the last line, the historical change ``Secession of Scotland from the United Kingdom'' is noted. A click on the confirm button finalizes the edit operation workflow.
 
-  A click on the edit button quits the Edit mode and returns to the browsing mode. Scotland and the United Kingdom are now separate Areas on the map after 2018. When the timeline is moved prior to 2018, Scotland is still part of the United Kingdom.
+  \end{minipage}    % N.B. the % is very important
+  \hspace{1.5em}    % N.B. this must go in this line, no blank lines !!!
+  \begin{minipage}[t]{10cm}
 
-\end{minipage}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{graphics/development/user_interface_design_process/8_final_state.png}
+      \caption{The final state with Scotland}
+      \label{fig:final_8_final_state}
+    \end{figure}
 
+    A click on the edit button quits the Edit mode and returns to the browsing mode. Scotland and the United Kingdom are now separate Areas on the map after 2018. When the timeline is moved prior to 2018, Scotland is still part of the United Kingdom.
+
+  \end{minipage}
+
+\end{landscape}
+
+\newpage
 % subsection web_based_prototype (end)
 
 % section user_interface_design_process (end)
